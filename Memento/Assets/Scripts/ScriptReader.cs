@@ -16,7 +16,7 @@ public class ScriptReader : MonoBehaviour
 
     void Start()
     {
-        
+        LoadStory();
     }
     void Update()
     {
@@ -40,7 +40,7 @@ public class ScriptReader : MonoBehaviour
         }
         else
         {
-            dialogueBox.text = "";
+            dialogueBox.text = "Bye";
         }
     }
 
