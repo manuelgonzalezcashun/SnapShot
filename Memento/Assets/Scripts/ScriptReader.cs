@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
-
 public class ScriptReader : MonoBehaviour
 {
-    [SerializeField]
-    private TextAsset _InkJsonFile;
-    private Story _StoryScript;
+    [SerializeField] private TextAsset _InkJsonFile;
+    [SerializeField] private Story _StoryScript;
 
     public TMP_Text dialogueBox;
     public TMP_Text nameTag;
@@ -29,6 +27,21 @@ public class ScriptReader : MonoBehaviour
     {
         _StoryScript = new Story(_InkJsonFile.text);
     }
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueBox.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueBox.text += letter;
+            yield return null;
+        }
+        /*CharacterScript tempSpeaker = GameObject.FindObjectOfType<CharacterScript>();
+        if (tempSpeaker.isTalking)
+        {
+            SetAnimation("idle");
+        }*/
+        yield return null;
+    }
 
     public void DisplayNextLine()
     {
@@ -37,6 +50,7 @@ public class ScriptReader : MonoBehaviour
             string text = _StoryScript.Continue();
             text = text?.Trim();
             dialogueBox.text = text;
+            StartCoroutine(TypeSentence(text));
         }
         else
         {
