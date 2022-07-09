@@ -13,6 +13,8 @@ public class ScriptReader : MonoBehaviour
     public TMP_Text dialogueBox;
     public TMP_Text nameTag;
 
+    public Image characterIcon;
+
     [SerializeField]
     private GridLayoutGroup choiceHolder;
 
@@ -34,7 +36,11 @@ public class ScriptReader : MonoBehaviour
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
+
+        _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
+        _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
     }
+
     IEnumerator TypeSentence(string sentence)
     {
         dialogueBox.text = "";
@@ -68,6 +74,19 @@ public class ScriptReader : MonoBehaviour
         {
             dialogueBox.text = "Bye";
         }
+    }
+
+    public void ChangeName(string name)
+    {
+        string SpeakerName = name;
+
+        nameTag.text = SpeakerName;
+    }
+
+    public void CharacterIcon (string name)
+    {
+        var charIcon = Resources.Load<Sprite>("charactericons/"+name);
+        characterIcon.sprite = charIcon;
     }
 
 
