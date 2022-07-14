@@ -15,6 +15,10 @@ public class PhotoCapture : MonoBehaviour
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
+    public Image characterIcon;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite newSprite;
 
     private void Start()
     {
@@ -54,7 +58,7 @@ public class PhotoCapture : MonoBehaviour
     {
         //Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoDisplayArea.sprite = photoSprite;
+        photoDisplayArea.sprite = newSprite;
 
         photoFrame.SetActive(true);
         StartCoroutine(CameraFlashEffect());
@@ -73,5 +77,9 @@ public class PhotoCapture : MonoBehaviour
         viewingPhoto = false;
         photoFrame.SetActive(false);
         //CameraUI true 
+    }
+    void ChangeSprite()
+    {
+        spriteRenderer.sprite = newSprite;
     }
 }
