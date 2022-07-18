@@ -20,24 +20,32 @@ public class PhotoCapture : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
 
-    private void Start()
-    {
-        screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-    }
 
-    private void Update()
+    //private void Start()
+    //{
+        //screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+    //}
+
+    //public void Update()
+    //{
+        //if (Input.GetMouseButtonDown(0))
+        //{
+            //if (!viewingPhoto)
+            //{
+                //StartCoroutine(CapturePhoto());
+            //}
+            //else
+            //{
+                //RemovePhoto();
+            //}
+        //}
+    //}
+
+    public void PhotoShow()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!viewingPhoto)
-            {
-                StartCoroutine(CapturePhoto());
-            }
-            else
-            {
-                RemovePhoto();
-            }
-        }
+        viewingPhoto = true;
+        photoFrame.SetActive(true);
+        cameraFlash.SetActive(true);
     }
 
     IEnumerator CapturePhoto()
@@ -54,7 +62,7 @@ public class PhotoCapture : MonoBehaviour
         ShowPhoto();
     }
 
-    void ShowPhoto()
+     void ShowPhoto()
     {
         //Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
@@ -72,13 +80,15 @@ public class PhotoCapture : MonoBehaviour
         cameraFlash.SetActive(false);
     }
 
-    void RemovePhoto()
+    
+
+   public void RemovePhoto()
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);
         //CameraUI true 
     }
-    void ChangeSprite()
+    public void ChangeSprite()
     {
         spriteRenderer.sprite = newSprite;
     }
