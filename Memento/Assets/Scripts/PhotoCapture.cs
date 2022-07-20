@@ -45,7 +45,7 @@ public class PhotoCapture : MonoBehaviour
     {
         viewingPhoto = true;
         photoFrame.SetActive(true);
-        cameraFlash.SetActive(true);
+        
     }
 
     IEnumerator CapturePhoto()
