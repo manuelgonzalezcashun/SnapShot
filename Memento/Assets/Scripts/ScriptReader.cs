@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ScriptReader : MonoBehaviour
 {
@@ -72,7 +73,7 @@ public class ScriptReader : MonoBehaviour
         }
         else 
         {
-            dialogueBox.text = "Bye";
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -133,4 +134,5 @@ public class ScriptReader : MonoBehaviour
             }
         }
     }
+
 }
