@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 7615ffff2e53ffff7c60ffff8462ffffba7effff268cffffa48fffff5290ffffbc90ffff3892fffffc93ffff7e96ffffbe96ffff2c97fffff299ffffb49cffff2afbffff365f0000605f00006a5f00002a90000068a50000
+      m_SelectedIDs: 18ac0000
+      m_LastClickedID: 44056
+      m_ExpandedIDs: d010ffff7615ffff2e53ffff7c60ffff8462ffffba7effff268cffffa48fffff5290ffffbc90ffff3892fffffc93ffff7e96ffffbe96ffff2c97fffff299ffffb49cffff2afbffff365f0000605f00006a5f00002a90000068a50000e2a9000050ac00005aac000072ac00007eac0000e4ac0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 389.95663, y: 333.206, z: -10.532417}
+    m_Target: {x: 513.18744, y: 264.5944, z: -10.631225}
     speed: 2
-    m_Value: {x: 389.95663, y: 333.206, z: -10.532417}
+    m_Value: {x: 513.18744, y: 264.5944, z: -10.631225}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 306.70636
+    m_Target: 382.2119
     speed: 2
-    m_Value: 306.70636
+    m_Value: 382.2119
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -701,21 +701,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/InkScripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/InkScripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\kidf6\OneDrive\Documents\GitHub\MementoGame\Memento
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da5f0000
-    m_LastClickedID: 24538
+    m_SelectedIDs: d25f0000
+    m_LastClickedID: 24530
     m_ExpandedIDs: 00000000b45f0000b65f0000b85f0000ba5f0000bc5f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -769,9 +769,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 18ac0000
+    m_LastClickedInstanceID: 44056
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300008c9100000000000082910000c6790000825f0000528c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 13}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InkPlayerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -847,14 +847,14 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 15}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
