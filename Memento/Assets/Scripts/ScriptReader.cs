@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
-using UnityEngine.SceneManagement;
-
 public class ScriptReader : MonoBehaviour
 {
     [SerializeField] private TextAsset _InkJsonFile;
@@ -21,9 +19,10 @@ public class ScriptReader : MonoBehaviour
 
     [SerializeField]
     private Button choiceBasePrefab;
-
+    private SceneChanger sceneSwitch;
     void Start()
     {
+        sceneSwitch = new SceneChanger();
         LoadStory();
     }
     void Update()
@@ -32,12 +31,16 @@ public class ScriptReader : MonoBehaviour
         {
             DisplayNextLine();
         }
+        //Tests for SceneChanger Script
+        /*if (Input.GetKeyDown(KeyCode.S))
+        {
+            sceneSwitch.LoadScene();
+        }*/
     }
 
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
-
         _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
     }
@@ -65,10 +68,6 @@ public class ScriptReader : MonoBehaviour
         else if (_StoryScript.currentChoices.Count > 0)
         {
             DisplayChoices();
-        }
-        else 
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
