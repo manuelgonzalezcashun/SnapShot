@@ -50,11 +50,6 @@ public class ScriptReader : MonoBehaviour
             dialogueBox.text += letter;
             yield return null;
         }
-        /*CharacterScript tempSpeaker = GameObject.FindObjectOfType<CharacterScript>();
-        if (tempSpeaker.isTalking)
-        {
-            SetAnimation("idle");
-        }*/
         yield return null;
     }
 
