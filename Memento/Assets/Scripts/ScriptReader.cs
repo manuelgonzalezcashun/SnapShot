@@ -14,13 +14,11 @@ public class ScriptReader : MonoBehaviour
 
     public Image characterIcon;
 
-    [SerializeField]
-    private GridLayoutGroup choiceHolder;
-
-    [SerializeField]
-    private Button choiceBasePrefab;
+    [SerializeField] private GridLayoutGroup choiceHolder;
+    [SerializeField] private Button choiceBasePrefab;
     private SceneChanger sceneSwitch;
-    void Start()
+    [SerializeField] AudioSource m_AudioSRC;
+        void Start()
     {
         sceneSwitch = new SceneChanger();
         LoadStory();
@@ -30,12 +28,13 @@ public class ScriptReader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DisplayNextLine();
+            m_AudioSRC.Play();
         }
         //Tests for SceneChanger Script
-        /*if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             sceneSwitch.LoadScene();
-        }*/
+        }
     }
 
     void LoadStory()
