@@ -11,6 +11,7 @@ public class ScriptReader : MonoBehaviour
 
     public TMP_Text dialogueBox;
     public TMP_Text nameTag;
+    public bool boolCheck;
 
     public Image characterIcon;
 
@@ -31,10 +32,10 @@ public class ScriptReader : MonoBehaviour
             m_AudioSRC.Play();
         }
         //Tests for SceneChanger Script
-        if (Input.GetKeyDown(KeyCode.S))
+        /*if (Input.GetKeyDown(KeyCode.S))
         {
             sceneSwitch.LoadScene();
-        }
+        }*/
     }
 
     void LoadStory()
@@ -42,6 +43,7 @@ public class ScriptReader : MonoBehaviour
         _StoryScript = new Story(_InkJsonFile.text);
         _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
+        _StoryScript.BindExternalFunction("BOOL", (bool isPlaying) => isPlayingCheck(isPlaying));
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -57,6 +59,7 @@ public class ScriptReader : MonoBehaviour
 
     public void DisplayNextLine()
     {
+        //bool boolCheck = true;
         if (_StoryScript.canContinue)
         {
             string text = _StoryScript.Continue();
@@ -67,6 +70,12 @@ public class ScriptReader : MonoBehaviour
         else if (_StoryScript.currentChoices.Count > 0)
         {
             DisplayChoices();
+        }
+        else if (_StoryScript.currentChoices.Count == 0)
+        {
+            if (boolCheck == true){
+                sceneSwitch.LoadScene();
+            }
         }
     }
 
@@ -82,6 +91,9 @@ public class ScriptReader : MonoBehaviour
         var charIcon = Resources.Load<Sprite>("charactericons/"+name);
         characterIcon.sprite = charIcon;
     }
+    public void isPlayingCheck(bool isPlaying) {
+        boolCheck = isPlaying; 
+    }
 
 
     private void DisplayChoices()
@@ -92,7 +104,6 @@ public class ScriptReader : MonoBehaviour
         {
             var choice = _StoryScript.currentChoices[i];
             var button = CreateChoiceButton(choice.text);
-
             button.onClick.AddListener(()=> OnClickChoiceButton(choice));
         }
     }
