@@ -577,7 +577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.39227453}
   m_AnchorMax: {x: 0.5, y: 0.39227453}
-  m_AnchoredPosition: {x: 0.0000076294, y: -86.85}
+  m_AnchoredPosition: {x: 0.0000076294, y: -139.10013}
   m_SizeDelta: {x: 880.4, y: 173.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085853704
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 893542373, guid: 12adb8160ff76a445a7cd1d9873596ca, type: 3}
+  m_Sprite: {fileID: 1394400801, guid: 069bbdd671096ae4c92680ff9edbcece, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -780,9 +780,11 @@ MonoBehaviour:
   _InkJsonFile: {fileID: 4900000, guid: 76a17878832324e48972f3193b4ad13c, type: 3}
   dialogueBox: {fileID: 727918864}
   nameTag: {fileID: 1052119355}
+  boolCheck: 0
   characterIcon: {fileID: 1809661247}
   choiceHolder: {fileID: 2071793783}
   choiceBasePrefab: {fileID: 7518865520211421218, guid: 70606bc90c553e44a8e6f04eff4e4c24, type: 3}
+  m_AudioSRC: {fileID: 0}
 --- !u!1 &1654217547
 GameObject:
   m_ObjectHideFlags: 0
