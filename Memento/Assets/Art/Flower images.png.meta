@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 069bbdd671096ae4c92680ff9edbcece
+guid: 175b2db50290d7d4bbc7885f31ceb97c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -76,17 +76,53 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI Visuals-1_0
+      name: Flower images_0
       rect:
         serializedVersion: 2
-        x: 310
-        y: 225
-        width: 637
-        height: 200
+        x: 35
+        y: 409
+        width: 184
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -94,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94bde326a4fc47e4aa6ebe9460ab5c04
-      internalID: 841710851
+      spriteID: 9eca598743e8fff43925aa843fd0dfd6
+      internalID: -1887586027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Visuals-1_1
+      name: Flower images_1
       rect:
         serializedVersion: 2
-        x: 430
-        y: 11
-        width: 266
-        height: 198
+        x: 19
+        y: 163
+        width: 217
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f4f5eccb60b78e42ac6a4a3a333f8f9
-      internalID: 1324166508
+      spriteID: 7008970ccc7ab764d9837e57406faff0
+      internalID: -781590086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Visuals-1_2
+      name: Flower images_2
       rect:
         serializedVersion: 2
-        x: 11
-        y: 5
-        width: 290
-        height: 220
+        x: 257
+        y: 162
+        width: 207
+        height: 245
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79441e41ec8b58840b46c51c9c87e92d
-      internalID: -1123276524
+      spriteID: 0d0050db3b87509498531cd556b6cb32
+      internalID: -1217506541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Visuals-1_3
+      name: Flower images_3
       rect:
         serializedVersion: 2
-        x: 125
-        y: 427
-        width: 109
-        height: 110
+        x: 469
+        y: 397
+        width: 207
+        height: 274
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3be0b5c95768680468471df1364e78d6
-      internalID: 14350767
+      spriteID: 2a1f9b66decc610488c88f5b90834091
+      internalID: -573554418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Visuals-1_4
+      name: Flower images_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 427
-        width: 109
-        height: 111
+        x: 243
+        y: 409
+        width: 215
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b5e0080bd71f6d4099124a78bb95e9d
-      internalID: 1930873990
+      spriteID: ed0268e54a1c8af4c856b35e3b857f9d
+      internalID: 384021453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Visuals-1_5
+      name: Flower images_5
       rect:
         serializedVersion: 2
-        x: 429
-        y: 10
-        width: 268
-        height: 200
+        x: 681
+        y: 393
+        width: 214
+        height: 278
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,29 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0712da84ae31de45af787e5ab12a995
-      internalID: 247165173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI Visuals-1_6
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 438
-        width: 437
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22af40a8d56a636449830d33088c3fd0
-      internalID: 525393379
+      spriteID: 5afe384718bf0024c96cfdc7a8b9dbcc
+      internalID: 428230
       vertices: []
       indices: 
       edges: []
@@ -237,13 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI Visuals-1_2: -1123276524
-      UI Visuals-1_0: 841710851
-      UI Visuals-1_6: 247165173
-      UI Visuals-1_3: -1494281766
-      UI Visuals-1_5: 1930873990
-      UI Visuals-1_4: 14350767
-      UI Visuals-1_1: 1324166508
+      Flower images_1: -781590086
+      Flower images_2: -1217506541
+      Flower images_3: -573554418
+      Flower images_0: -1887586027
+      Flower images_4: 384021453
+      Flower images_5: 428230
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
