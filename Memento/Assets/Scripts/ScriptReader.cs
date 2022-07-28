@@ -18,7 +18,7 @@ public class ScriptReader : MonoBehaviour
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
     private SceneChanger sceneSwitch;
-    [SerializeField] AudioSource m_AudioSRC;
+    //[SerializeField] AudioSource m_AudioSRC;
         void Start()
     {
         sceneSwitch = new SceneChanger();
@@ -26,10 +26,10 @@ public class ScriptReader : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             DisplayNextLine();
-            m_AudioSRC.Play();
+            //m_AudioSRC.Play();
         }
         //Tests for SceneChanger Script
         /*if (Input.GetKeyDown(KeyCode.S))
