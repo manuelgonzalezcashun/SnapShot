@@ -244,7 +244,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -500.00006, y: 110}
+  m_SizeDelta: {x: -360, y: 110}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &315914259
 MonoBehaviour:
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1008474797, guid: 069bbdd671096ae4c92680ff9edbcece, type: 3}
+  m_Sprite: {fileID: 525393379, guid: 069bbdd671096ae4c92680ff9edbcece, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -675,7 +675,6 @@ MonoBehaviour:
   characterIcon: {fileID: 0}
   choiceHolder: {fileID: 0}
   choiceBasePrefab: {fileID: 0}
-  m_AudioSRC: {fileID: 1426998647}
 --- !u!4 &1426998646
 Transform:
   m_ObjectHideFlags: 0
