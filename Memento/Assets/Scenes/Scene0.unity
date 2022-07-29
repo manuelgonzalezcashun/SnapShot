@@ -2644,7 +2644,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _InkJsonFile: {fileID: 4900000, guid: 0606b31a5699bbd4cbc28380ddf7ad1a, type: 3}
-  dialogueBox: {fileID: 1151662526}
+  globalsInkFile:
+    compileAutomatically: 0
+    inkAsset: {fileID: 102900000, guid: 2ac64161bb1f1794c9f4565fc50452eb, type: 3}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 0}
+    unhandledCompileErrors: []
+    errors: []
+    warnings: []
+    todos: []
+    parents: []
+    masterInkAssets: []
+    masterInkAsset: {fileID: 0}
+    includePaths: []
+    includes: []
+  dialogueText: {fileID: 1151662526}
   nameTag: {fileID: 0}
   boolCheck: 0
   characterIcon: {fileID: 0}
