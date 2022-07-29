@@ -12,9 +12,10 @@ public class ScriptReader : MonoBehaviour
     [SerializeField] private Story _StoryScript;
     [SerializeField] private InkFile globalsInkFile;
     private DialogueVariables dialogueVariables;
-
+    public GameObject NameTagPanel;
+    public GameObject DialoguePanel;
     public TMP_Text dialogueText;
-    public TMP_Text nameTag;
+    public TextMeshProUGUI nameTag;
     public bool boolCheck;
 
     public Image characterIcon;
@@ -59,6 +60,8 @@ public class ScriptReader : MonoBehaviour
         _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
         _StoryScript.BindExternalFunction("TEXT", (bool txt) => ShowObject(txt));
+        _StoryScript.BindExternalFunction("VAR", (bool didTextPlay) => InkStoryEnd(didTextPlay));
+        _StoryScript.BindExternalFunction("HIDE", (bool HidePanel) => hidePanel(HidePanel));
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -101,7 +104,6 @@ public class ScriptReader : MonoBehaviour
     public void ChangeName(string name)
     {
         string SpeakerName = name;
-
         nameTag.text = SpeakerName;
     }
 
@@ -115,6 +117,21 @@ public class ScriptReader : MonoBehaviour
         if (txt == true)
         {
             PhoneTrigger.SetActive(true);
+        }
+    }
+    private void InkStoryEnd(bool didTextPlay) 
+    {
+        if (didTextPlay == true)
+        {
+            sceneSwitch.LoadScene();
+        }
+    }
+    private void hidePanel(bool HidePanel)
+    {
+        if (HidePanel == true)
+        {
+            DialoguePanel.SetActive(false);
+            NameTagPanel.SetActive(false);
         }
     }
 

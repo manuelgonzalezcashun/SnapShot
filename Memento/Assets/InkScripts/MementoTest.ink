@@ -1,4 +1,4 @@
-EXTERNAL Name(charName)
+INCLUDE globals.ink
 EXTERNAL Icon(charName) 
 
 
