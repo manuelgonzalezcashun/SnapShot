@@ -250,12 +250,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _InkJsonFile: {fileID: 0}
-  dialogueBox: {fileID: 1317667505}
+  globalsInkFile:
+    compileAutomatically: 0
+    inkAsset: {fileID: 0}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 0}
+    unhandledCompileErrors: []
+    errors: []
+    warnings: []
+    todos: []
+    parents: []
+    masterInkAssets: []
+    masterInkAsset: {fileID: 0}
+    includePaths: []
+    includes: []
+  dialogueText: {fileID: 0}
   nameTag: {fileID: 96833899}
   boolCheck: 0
   characterIcon: {fileID: 566762745}
   choiceHolder: {fileID: 1072675039}
   choiceBasePrefab: {fileID: 7518865520211421218, guid: 70606bc90c553e44a8e6f04eff4e4c24, type: 3}
+  PhoneTrigger: {fileID: 0}
 --- !u!4 &36677308
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,14 +1420,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1077131956, guid: 969bfcf286cbf1c47a76b4a7e2932909, type: 3}
+  m_Sprite: {fileID: -719040316, guid: 969bfcf286cbf1c47a76b4a7e2932909, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
