@@ -454,8 +454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 49.246582, y: -38.91089}
+  m_SizeDelta: {x: 1.5068, y: 22.1782}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348846273
 MonoBehaviour:
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   boolCheck: 0
   characterIcon: {fileID: 61218901}
   choiceHolder: {fileID: 430221283}
-  choiceBasePrefab: {fileID: 1002432268329652763, guid: 8557267482e08f94ca22ce3bde887024, type: 3}
+  choiceBasePrefab: {fileID: 7518865520211421218, guid: 70606bc90c553e44a8e6f04eff4e4c24, type: 3}
 --- !u!4 &2002465264
 Transform:
   m_ObjectHideFlags: 0
