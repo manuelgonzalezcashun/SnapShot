@@ -26,7 +26,7 @@ public class ScriptReader : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Fire1"))
         {
             DisplayNextLine();
             //m_AudioSRC.Play();
