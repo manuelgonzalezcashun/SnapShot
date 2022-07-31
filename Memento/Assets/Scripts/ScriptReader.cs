@@ -19,6 +19,7 @@ public class ScriptReader : MonoBehaviour
     public bool boolCheck;
 
     public Image characterIcon;
+    private const string SPEAKER_TAG = "speaker";
 
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
@@ -46,18 +47,12 @@ public class ScriptReader : MonoBehaviour
             DisplayNextLine();
             //m_AudioSRC.Play();
         }
-        //Tests for SceneChanger Script
-        /*if (Input.GetKeyDown(KeyCode.S))
-        {
-            sceneSwitch.LoadScene();
-        }*/
     }
 
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
         dialogueVariables.StartListening(_StoryScript);
-        _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
         _StoryScript.BindExternalFunction("TEXT", (bool txt) => ShowObject(txt));
         _StoryScript.BindExternalFunction("VAR", (bool didTextPlay) => InkStoryEnd(didTextPlay));
@@ -89,6 +84,7 @@ public class ScriptReader : MonoBehaviour
             DisplayChoices();
             dialogueVariables.StopListening(_StoryScript);
         }
+        HandleTags(_StoryScript.currentTags);
     }
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
@@ -100,13 +96,29 @@ public class ScriptReader : MonoBehaviour
         }
         return variableValue;
     }
+            private void HandleTags(List<string> currentTags)
+        {
+            foreach (string tag in currentTags)
+            {
+                string[] splitTag = tag.Split(':');
+                if (splitTag.Length != 2)
+                {
+                    Debug.LogError("Tag could not be appropritely parsed: " + tag);
+                }
+                string tagKey = splitTag[0].Trim();
+                string tagValue = splitTag[1].Trim();
 
-    public void ChangeName(string name)
-    {
-        string SpeakerName = name;
-        nameTag.text = SpeakerName;
-    }
-
+                switch (tagKey)
+                {
+                    case SPEAKER_TAG:
+                        nameTag.text = tagValue;
+                        break;
+                    default:
+                        Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
+                        break;
+                }
+            }
+        }
     public void CharacterIcon (string name)
     {
         var charIcon = Resources.Load<Sprite>("charactericons/"+name);
