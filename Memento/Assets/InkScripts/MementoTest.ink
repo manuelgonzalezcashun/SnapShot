@@ -1,16 +1,5 @@
-INCLUDE globals.ink
-EXTERNAL Icon(charName) 
-
-
-{Name("Flower")}
-{Icon("Flower")}
-
-Hey Mikey do you want any Candy ? 
-
-{Name("Mikey")}
-{Icon("Mikey")}
-
-Yes Flower I would love some candy. 
+Hey Mikey do you want any Candy ? #speaker: Flower
+Yes Flower I would love some candy. #speaker: Mikey
 How about you StarRail? 
 
 *Yes I would love some!!!!
