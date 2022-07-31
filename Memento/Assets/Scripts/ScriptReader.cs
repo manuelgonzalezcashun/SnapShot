@@ -7,29 +7,35 @@ using TMPro;
 using Ink.UnityIntegration;
 public class ScriptReader : MonoBehaviour
 {
+    [Header("Script")]
     private static ScriptReader instance;
-    [SerializeField] private TextAsset _InkJsonFile;
-    [SerializeField] private Story _StoryScript;
-    [SerializeField] private InkFile globalsInkFile;
+    private SceneChanger sceneSwitch;
+
+
+    [Header("Unity Hiearchy")]
+    [SerializeField] private Animator charIcon;
     private DialogueVariables dialogueVariables;
     public GameObject NameTagPanel;
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
-    [SerializeField] private Animator charIcon;
     public bool boolCheck;
 
-    public Image characterIcon;
-    [Header("INK TAGS")]
+    [Header("Ink Editor")]
+    [SerializeField] private Story _StoryScript;
+    [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] private TextAsset _InkJsonFile;
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
+    [SerializeField] private GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
+    //[SerializeField] AudioSource m_AudioSRC;
 
 
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
     [SerializeField] private GameObject PhoneTrigger;
-    private SceneChanger sceneSwitch;
-    //[SerializeField] AudioSource m_AudioSRC;
+    
     private void Awake()
     {
         instance = this;
@@ -43,6 +49,13 @@ public class ScriptReader : MonoBehaviour
     {
         LoadStory();
         sceneSwitch = new SceneChanger();
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
+        }
     }
     void Update()
     {
@@ -81,10 +94,10 @@ public class ScriptReader : MonoBehaviour
             text = text?.Trim();
             dialogueText.text = text;
             StartCoroutine(TypeSentence(text));
+            DisplayChoices();
         }
         else if (_StoryScript.currentChoices.Count > 0)
         {
-            DisplayChoices();
             dialogueVariables.StopListening(_StoryScript);
         }
         HandleTags(_StoryScript.currentTags);
@@ -147,48 +160,74 @@ public class ScriptReader : MonoBehaviour
             NameTagPanel.SetActive(false);
         }
     }
-
-
-    private void DisplayChoices()
-    {
-        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
-
-        for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
+            private void DisplayChoices()
         {
-            var choice = _StoryScript.currentChoices[i];
-            var button = CreateChoiceButton(choice.text);
-            button.onClick.AddListener(() => OnClickChoiceButton(choice));
-        }
-    }
+            if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
 
-    Button CreateChoiceButton(string text)
-    {
-
-        var choiceButton = Instantiate(choiceBasePrefab);
-        choiceButton.transform.SetParent(choiceHolder.transform, false);
-
-        var buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
-        buttonText.text = text;
-
-        return choiceButton;
-    }
-
-
-    void OnClickChoiceButton(Choice choice)
-    {
-        _StoryScript.ChooseChoiceIndex(choice.index);
-        RefreshChoiceView();
-        DisplayNextLine();
-    }
-
-    void RefreshChoiceView()
-    {
-        if (choiceHolder != null)
-        {
-            foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
+            for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
             {
-                Destroy(button.gameObject);
+                var choice = _StoryScript.currentChoices[i];
+                var button = CreateChoiceButton(choice.text);
+                button.onClick.AddListener(() => OnClickChoiceButton(choice));
             }
         }
-    }
+
+        Button CreateChoiceButton(string text)
+        {
+
+            var choiceButton = Instantiate(choiceBasePrefab);
+            choiceButton.transform.SetParent(choiceHolder.transform, false);
+
+            var buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
+            buttonText.text = text;
+
+            return choiceButton;
+        }
+
+
+        void OnClickChoiceButton(Choice choice)
+        {
+            _StoryScript.ChooseChoiceIndex(choice.index);
+            RefreshChoiceView();
+            DisplayNextLine();
+        }
+
+        void RefreshChoiceView()
+        {
+            if (choiceHolder != null)
+            {
+                foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
+                {
+                    Destroy(button.gameObject);
+                }
+            }
+        }
 }
+
+
+ /// New Button Script
+   /* private void DisplayChoices()
+    {
+        List<Choice> currentchoices = _StoryScript.currentChoices;
+
+        if (currentchoices.Count > choices.Length)
+        {
+            Debug.LogError("More choices were given than the UI can handle");
+        }
+
+        int index = 0;
+        foreach (Choice choice in currentchoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+    }
+        public void MakeChoice(int choiceIndex)
+    {
+        _StoryScript.ChooseChoiceIndex(choiceIndex);
+    } */
