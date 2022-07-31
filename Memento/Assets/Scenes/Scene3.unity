@@ -250,7 +250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965dfa4c319e7f4aa6e331c1a244e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InkJsonFile: {fileID: 4900000, guid: 62e0b1841630f274ebecc4febeffbf05, type: 3}
+  charIcon: {fileID: 0}
+  NameTagPanel: {fileID: 1165214731}
+  DialoguePanel: {fileID: 922585785}
+  dialogueText: {fileID: 1496866846}
+  nameTag: {fileID: 757816044}
+  boolCheck: 0
   globalsInkFile:
     compileAutomatically: 0
     inkAsset: {fileID: 102900000, guid: 2ac64161bb1f1794c9f4565fc50452eb, type: 3}
@@ -265,13 +270,8 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
-  NameTagPanel: {fileID: 1165214731}
-  DialoguePanel: {fileID: 922585785}
-  dialogueText: {fileID: 1496866846}
-  nameTag: {fileID: 757816044}
-  charIcon: {fileID: 0}
-  boolCheck: 0
-  characterIcon: {fileID: 0}
+  _InkJsonFile: {fileID: 4900000, guid: 62e0b1841630f274ebecc4febeffbf05, type: 3}
+  choices: []
   choiceHolder: {fileID: 1072675039}
   choiceBasePrefab: {fileID: 7518865520211421218, guid: 70606bc90c553e44a8e6f04eff4e4c24, type: 3}
   PhoneTrigger: {fileID: 0}
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -813,8 +813,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -8.5}
-  m_SizeDelta: {x: 185, y: 250}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1010489100
 Animator:
@@ -1053,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -182.63, y: -108.5}
+  m_AnchoredPosition: {x: -174, y: -58.607}
   m_SizeDelta: {x: 134.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165214733

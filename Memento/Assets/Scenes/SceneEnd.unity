@@ -1985,7 +1985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2488,7 +2488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965dfa4c319e7f4aa6e331c1a244e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InkJsonFile: {fileID: 4900000, guid: a01fd4337353c8d4f8d07b41b4086fa0, type: 3}
+  charIcon: {fileID: 0}
+  NameTagPanel: {fileID: 0}
+  DialoguePanel: {fileID: 492929850}
+  dialogueText: {fileID: 1833284181}
+  nameTag: {fileID: 0}
+  boolCheck: 0
   globalsInkFile:
     compileAutomatically: 0
     inkAsset: {fileID: 102900000, guid: 2ac64161bb1f1794c9f4565fc50452eb, type: 3}
@@ -2503,12 +2508,8 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
-  NameTagPanel: {fileID: 0}
-  DialoguePanel: {fileID: 492929850}
-  dialogueText: {fileID: 1833284181}
-  nameTag: {fileID: 0}
-  boolCheck: 0
-  characterIcon: {fileID: 0}
+  _InkJsonFile: {fileID: 4900000, guid: a01fd4337353c8d4f8d07b41b4086fa0, type: 3}
+  choices: []
   choiceHolder: {fileID: 0}
   choiceBasePrefab: {fileID: 0}
   PhoneTrigger: {fileID: 214252253}

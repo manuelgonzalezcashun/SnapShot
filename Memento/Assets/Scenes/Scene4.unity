@@ -255,8 +255,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.993, y: 0.0779}
-  m_SizeDelta: {x: 400.8623, y: 432.9903}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42848523
 MonoBehaviour:
@@ -888,7 +888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172, y: -108.5}
+  m_AnchoredPosition: {x: -169, y: -58.607}
   m_SizeDelta: {x: 134.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560006888
@@ -1169,7 +1169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965dfa4c319e7f4aa6e331c1a244e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InkJsonFile: {fileID: 4900000, guid: 309afcc3082dce94bb3885c85e2b2bd0, type: 3}
+  charIcon: {fileID: 0}
+  NameTagPanel: {fileID: 1673918447}
+  DialoguePanel: {fileID: 560006886}
+  dialogueText: {fileID: 910866164}
+  nameTag: {fileID: 136355229}
+  boolCheck: 0
   globalsInkFile:
     compileAutomatically: 0
     inkAsset: {fileID: 102900000, guid: 2ac64161bb1f1794c9f4565fc50452eb, type: 3}
@@ -1184,12 +1189,8 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
-  NameTagPanel: {fileID: 1673918447}
-  DialoguePanel: {fileID: 560006886}
-  dialogueText: {fileID: 910866164}
-  nameTag: {fileID: 136355229}
-  boolCheck: 0
-  characterIcon: {fileID: 0}
+  _InkJsonFile: {fileID: 4900000, guid: 309afcc3082dce94bb3885c85e2b2bd0, type: 3}
+  choices: []
   choiceHolder: {fileID: 0}
   choiceBasePrefab: {fileID: 0}
   PhoneTrigger: {fileID: 1155390354}
@@ -1326,7 +1327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387, y: -128}
+  m_AnchoredPosition: {x: -325.35, y: -87.935}
   m_SizeDelta: {x: 149.2907, y: 108.6553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155390356
@@ -1535,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1745,7 +1746,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2045169130
 GameObject:

@@ -155,12 +155,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 582041426}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -8.500004}
-  m_SizeDelta: {x: 185, y: 250}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &61218900
 CanvasRenderer:
@@ -547,7 +547,7 @@ RectTransform:
   m_Children:
   - {fileID: 430221285}
   m_Father: {fileID: 582041426}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -749,10 +749,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1119290508}
+  - {fileID: 61218899}
   - {fileID: 627344977}
   - {fileID: 1986625295}
   - {fileID: 348846272}
-  - {fileID: 61218899}
   - {fileID: 203832865}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -794,7 +794,7 @@ RectTransform:
   m_Children:
   - {fileID: 242264023}
   m_Father: {fileID: 582041426}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -873,9 +873,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125, y: 50}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -12.5}
+  m_SizeDelta: {x: 125, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1099244105
 CanvasRenderer:
@@ -1258,11 +1258,11 @@ RectTransform:
   m_Children:
   - {fileID: 1099244104}
   m_Father: {fileID: 582041426}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -182.63, y: -108.5}
+  m_AnchoredPosition: {x: -174, y: -58.607}
   m_SizeDelta: {x: 134.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986625296
@@ -1429,7 +1429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b965dfa4c319e7f4aa6e331c1a244e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InkJsonFile: {fileID: 4900000, guid: 21895a7a02bdfbe4b901386f567dfca1, type: 3}
+  charIcon: {fileID: 61218902}
+  NameTagPanel: {fileID: 0}
+  DialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 242264024}
+  nameTag: {fileID: 1099244106}
+  boolCheck: 0
   globalsInkFile:
     compileAutomatically: 0
     inkAsset: {fileID: 102900000, guid: 2ac64161bb1f1794c9f4565fc50452eb, type: 3}
@@ -1444,13 +1449,8 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
-  NameTagPanel: {fileID: 0}
-  DialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 242264024}
-  nameTag: {fileID: 1099244106}
-  charIcon: {fileID: 61218902}
-  boolCheck: 0
-  characterIcon: {fileID: 61218901}
+  _InkJsonFile: {fileID: 4900000, guid: 21895a7a02bdfbe4b901386f567dfca1, type: 3}
+  choices: []
   choiceHolder: {fileID: 430221283}
   choiceBasePrefab: {fileID: 7518865520211421218, guid: 70606bc90c553e44a8e6f04eff4e4c24, type: 3}
   PhoneTrigger: {fileID: 0}
