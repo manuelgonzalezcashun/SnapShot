@@ -16,10 +16,14 @@ public class ScriptReader : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
+    [SerializeField] private Animator charIcon;
     public bool boolCheck;
 
     public Image characterIcon;
+    [Header("INK TAGS")]
     private const string SPEAKER_TAG = "speaker";
+    private const string ICON = "icon";
+
 
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
@@ -35,10 +39,10 @@ public class ScriptReader : MonoBehaviour
     {
         return instance;
     }
-        void Start()
+    void Start()
     {
         LoadStory();
-        sceneSwitch = new SceneChanger();      
+        sceneSwitch = new SceneChanger();
     }
     void Update()
     {
@@ -53,7 +57,6 @@ public class ScriptReader : MonoBehaviour
     {
         _StoryScript = new Story(_InkJsonFile.text);
         dialogueVariables.StartListening(_StoryScript);
-        _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
         _StoryScript.BindExternalFunction("TEXT", (bool txt) => ShowObject(txt));
         _StoryScript.BindExternalFunction("VAR", (bool didTextPlay) => InkStoryEnd(didTextPlay));
         _StoryScript.BindExternalFunction("HIDE", (bool HidePanel) => hidePanel(HidePanel));
@@ -92,46 +95,44 @@ public class ScriptReader : MonoBehaviour
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         if (variableValue == null)
         {
-            Debug.LogWarning("Ink Variable was found to be null: " +variableName);
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
         }
         return variableValue;
     }
-            private void HandleTags(List<string> currentTags)
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
         {
-            foreach (string tag in currentTags)
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
             {
-                string[] splitTag = tag.Split(':');
-                if (splitTag.Length != 2)
-                {
-                    Debug.LogError("Tag could not be appropritely parsed: " + tag);
-                }
-                string tagKey = splitTag[0].Trim();
-                string tagValue = splitTag[1].Trim();
+                Debug.LogError("Tag could not be appropritely parsed: " + tag);
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
 
-                switch (tagKey)
-                {
-                    case SPEAKER_TAG:
-                        nameTag.text = tagValue;
-                        break;
-                    default:
-                        Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
-                        break;
-                }
+            switch (tagKey)
+            {
+                case SPEAKER_TAG:
+                    nameTag.text = tagValue;
+                    break;
+                case ICON:
+                    charIcon.Play(tagValue);
+                    break;
+                default:
+                    Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
+                    break;
             }
         }
-    public void CharacterIcon (string name)
-    {
-        var charIcon = Resources.Load<Sprite>("charactericons/"+name);
-        characterIcon.sprite = charIcon;
     }
-        private void ShowObject(bool txt)
+    private void ShowObject(bool txt)
     {
         if (txt == true)
         {
             PhoneTrigger.SetActive(true);
         }
     }
-    private void InkStoryEnd(bool didTextPlay) 
+    private void InkStoryEnd(bool didTextPlay)
     {
         if (didTextPlay == true)
         {
@@ -150,13 +151,13 @@ public class ScriptReader : MonoBehaviour
 
     private void DisplayChoices()
     {
-        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return; 
+        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
 
         for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
         {
             var choice = _StoryScript.currentChoices[i];
             var button = CreateChoiceButton(choice.text);
-            button.onClick.AddListener(()=> OnClickChoiceButton(choice));
+            button.onClick.AddListener(() => OnClickChoiceButton(choice));
         }
     }
 
@@ -179,12 +180,12 @@ public class ScriptReader : MonoBehaviour
         RefreshChoiceView();
         DisplayNextLine();
     }
-    
+
     void RefreshChoiceView()
     {
         if (choiceHolder != null)
         {
-            foreach(var button in choiceHolder.GetComponentsInChildren<Button>())
+            foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
             {
                 Destroy(button.gameObject);
             }

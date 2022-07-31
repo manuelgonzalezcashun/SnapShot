@@ -1,63 +1,49 @@
 INCLUDE globals.ink
-{Name("")}
-We arrived to the park
+We arrived to the park  #speaker: StarRail
 Flower looks very happy to be here
 
-{Name("Flower")}
-When I was little, I used to come to the park all the time 
 
-{Name(name)}
-Oh. So you come here often?
+When I was little, I used to come to the park all the time  #speaker: Flower
 
-{Name("Flower")}
-Not much anymore
+Oh. So you come here often?  #speaker: StarRail
+
+Not much anymore  #speaker: Flower
 I'm too busy now
 
-{Name(name)}
-Oh that's a bummer.
+Oh that's a bummer.  #speaker: StarRail.
 
 ~phoneNotif = true
 ~TEXT(phoneNotif)
-{Name("")}
+
 Suddenly a dog came to the park and Flower fell in love instantly.
 
-{Name("Flower")}
-LOOK OVER THERE! That dog is so cute!
-Quick take a picture {name}
+LOOK OVER THERE! That dog is so cute!  #speaker: Flower
+Quick take a picture 
 
-{Name(name)} 
-You want a picture of the dog?
+You want a picture of the dog?  #speaker: StarRail
 
-{Name("Flower")}
-Yes! Did you forget how to take a picture?
+Yes! Did you forget how to take a picture?  #speaker: Flower
 Just bring your reticle/mouse over the dog to take a picture of it!
 
-{Name(name)}
-I know how to use a camera {("Flower")}!
+I know how to use a camera Flower!  #speaker: StarRail
 
-{Name("Flower")}
-Well hurry up before it runs away!
+Well hurry up before it runs away!  #speaker: Flower
 ~HidePanel = true
 ~HIDE(HidePanel)
 -> Continue
 
 ===Continue===
 
-{Name("Flower")}
 Look how cute this puppy is 
 
-{Name(name)}
-The puppy is very cute
+The puppy is very cute  #speaker: StarRail
 
-{Name("Flower")}
-You should keep that picture
+You should keep that picture  #speaker: Flower
 That way you don't forget about today
-{Name(name)}
-Sounds like a good idea.
-{Name("Flower")}
-I think we should be going. it's getting late.
-{Name(name)}
-Sounds good. Lets go home.
+
+Sounds like a good idea.  #speaker: StarRail
+I think we should be going. it's getting late.  #speaker: Flower
+Sounds good. Lets go home.  #speaker: StarRail
 ~didTextPlay = true
 ~VAR(didTextPlay)
 -> DONE

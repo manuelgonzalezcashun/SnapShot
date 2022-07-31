@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 61218899}
   - component: {fileID: 61218900}
   - component: {fileID: 61218901}
+  - component: {fileID: 61218902}
   m_Layer: 5
   m_Name: CharacterIcon
   m_TagString: Untagged
@@ -158,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -38.911}
+  m_AnchoredPosition: {x: 0, y: -8.500004}
   m_SizeDelta: {x: 185, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &61218900
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1887586027, guid: 175b2db50290d7d4bbc7885f31ceb97c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -199,6 +200,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &61218902
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61218898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a64f54e26cc4aea41b705dfa1a02f7af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &159834139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -182.64, y: -134.5}
+  m_AnchoredPosition: {x: -182.63, y: -108.5}
   m_SizeDelta: {x: 134.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986625296
@@ -1427,6 +1448,7 @@ MonoBehaviour:
   DialoguePanel: {fileID: 0}
   dialogueText: {fileID: 242264024}
   nameTag: {fileID: 1099244106}
+  charIcon: {fileID: 61218902}
   boolCheck: 0
   characterIcon: {fileID: 61218901}
   choiceHolder: {fileID: 430221283}

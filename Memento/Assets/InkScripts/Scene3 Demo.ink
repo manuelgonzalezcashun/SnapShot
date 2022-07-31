@@ -1,38 +1,27 @@
 INCLUDE globals.ink
-{Name("Flower")}
-We're here!
+We're here!  #speaker: Flower
 This coffee shop is one of my favorite shops in town.
 
-{Name(name)}
-It looks really nice.
+It looks really nice.  #speaker: StarRail
 How often do you come here?
 
-{Name("Flower")}
-Only when I need a break. And after all that studying, I need a coffee break.
+Only when I need a break. And after all that studying, I need a coffee break.  #speaker: Flower
 
-{Name("")}
-("You can say that again")
+("You can say that again")  #speaker: StarRail
 
 We spent a little while here, drinking coffee and chatting.
 
-Suddenly Flower said This
+Suddenly...
+We should go to the park!  #speaker: Flower
 
-{Name("Flower")}
-We should go to the park!
+Really? what for?  #speaker: StarRail
 
-{Name(name)}
-Really? what for?
+To hang out! C'mon it'll be fun  #speaker: Flower
 
-{Name("Flower")}
-To hang out! C'mon it'll be fun
-
-{Name("")}
-("I guess I have time.") 
-{Name("Flower")}
+("I guess I have time.")  #speaker: StarRail
 Sure. Why not?
 
-{Name("Flower")}
-That's the spirit!
+That's the spirit!  #speaker: Flower
 
 ~didTextPlay = true
 ~VAR(didTextPlay)
