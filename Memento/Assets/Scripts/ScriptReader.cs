@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
-using TMPro;
 using Ink.UnityIntegration;
+using TMPro;
 public class ScriptReader : MonoBehaviour
 {
     [Header("Script")]
@@ -35,7 +35,7 @@ public class ScriptReader : MonoBehaviour
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
     [SerializeField] private GameObject PhoneTrigger;
-    
+
     private void Awake()
     {
         instance = this;
@@ -95,6 +95,7 @@ public class ScriptReader : MonoBehaviour
             dialogueText.text = text;
             StartCoroutine(TypeSentence(text));
             DisplayChoices();
+            StoryChoices();
         }
         else if (_StoryScript.currentChoices.Count > 0)
         {
@@ -160,53 +161,18 @@ public class ScriptReader : MonoBehaviour
             NameTagPanel.SetActive(false);
         }
     }
-            private void DisplayChoices()
+    private void DisplayChoices()
+    {
+        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
+
+        for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
         {
-            if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
-
-            for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
-            {
-                var choice = _StoryScript.currentChoices[i];
-                var button = CreateChoiceButton(choice.text);
-                button.onClick.AddListener(() => OnClickChoiceButton(choice));
-            }
+            var choice = _StoryScript.currentChoices[i];
+            var button = CreateChoiceButton(choice.text);
+            button.onClick.AddListener(() => OnClickChoiceButton(choice));
         }
-
-        Button CreateChoiceButton(string text)
-        {
-
-            var choiceButton = Instantiate(choiceBasePrefab);
-            choiceButton.transform.SetParent(choiceHolder.transform, false);
-
-            var buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
-            buttonText.text = text;
-
-            return choiceButton;
-        }
-
-
-        void OnClickChoiceButton(Choice choice)
-        {
-            _StoryScript.ChooseChoiceIndex(choice.index);
-            RefreshChoiceView();
-            DisplayNextLine();
-        }
-
-        void RefreshChoiceView()
-        {
-            if (choiceHolder != null)
-            {
-                foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
-                {
-                    Destroy(button.gameObject);
-                }
-            }
-        }
-}
-
-
- /// New Button Script
-   /* private void DisplayChoices()
+    }
+    private void StoryChoices()
     {
         List<Choice> currentchoices = _StoryScript.currentChoices;
 
@@ -227,7 +193,67 @@ public class ScriptReader : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
     }
-        public void MakeChoice(int choiceIndex)
+    public void MakeChoice(int choiceIndex)
     {
         _StoryScript.ChooseChoiceIndex(choiceIndex);
-    } */
+    }
+
+    Button CreateChoiceButton(string text)
+    {
+
+        var choiceButton = Instantiate(choiceBasePrefab);
+        choiceButton.transform.SetParent(choiceHolder.transform, false);
+
+        var buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
+        buttonText.text = text;
+
+        return choiceButton;
+    }
+
+
+    void OnClickChoiceButton(Choice choice)
+    {
+        _StoryScript.ChooseChoiceIndex(choice.index);
+        RefreshChoiceView();
+        DisplayNextLine();
+    }
+
+    void RefreshChoiceView()
+    {
+        if (choiceHolder != null)
+        {
+            foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
+            {
+                Destroy(button.gameObject);
+            }
+        }
+    }
+}
+
+
+/// New Button Script
+/* private void DisplayChoices()
+ {
+     List<Choice> currentchoices = _StoryScript.currentChoices;
+
+     if (currentchoices.Count > choices.Length)
+     {
+         Debug.LogError("More choices were given than the UI can handle");
+     }
+
+     int index = 0;
+     foreach (Choice choice in currentchoices)
+     {
+         choices[index].gameObject.SetActive(true);
+         choicesText[index].text = choice.text;
+         index++;
+     }
+     for (int i = index; i < choices.Length; i++)
+     {
+         choices[i].gameObject.SetActive(false);
+     }
+ }
+     public void MakeChoice(int choiceIndex)
+ {
+     _StoryScript.ChooseChoiceIndex(choiceIndex);
+ } */

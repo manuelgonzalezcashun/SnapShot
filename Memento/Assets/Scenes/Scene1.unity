@@ -1106,6 +1106,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 755221286}
+        m_TargetAssemblyTypeName: PhoneScript, Assembly-CSharp
+        m_MethodName: PlayPhoneAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Phone
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &214252256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,13 +2099,15 @@ GameObject:
   - component: {fileID: 755221284}
   - component: {fileID: 755221283}
   - component: {fileID: 755221282}
+  - component: {fileID: 755221285}
+  - component: {fileID: 755221286}
   m_Layer: 5
   m_Name: Phone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &755221282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,9 +2165,38 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9655762, y: 0}
+  m_AnchoredPosition: {x: 10, y: -436}
   m_SizeDelta: {x: 345.2794, y: 482.4041}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!111 &755221285
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755221281}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 15c5dd4f51a61464892510a5459d5cc7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 15c5dd4f51a61464892510a5459d5cc7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &755221286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755221281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e01fe353b6cf0745a82738c1e38ea00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phone: {fileID: 755221281}
 --- !u!1 &779798549
 GameObject:
   m_ObjectHideFlags: 0
