@@ -4,29 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
+using Ink.UnityIntegration;
 public class ScriptReader : MonoBehaviour
 {
+    private static ScriptReader instance;
     [SerializeField] private TextAsset _InkJsonFile;
     [SerializeField] private Story _StoryScript;
-
-    public TMP_Text dialogueBox;
-    public TMP_Text nameTag;
+    [SerializeField] private InkFile globalsInkFile;
+    private DialogueVariables dialogueVariables;
+    public GameObject NameTagPanel;
+    public GameObject DialoguePanel;
+    public TMP_Text dialogueText;
+    public TextMeshProUGUI nameTag;
     public bool boolCheck;
 
     public Image characterIcon;
 
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
+    [SerializeField] private GameObject PhoneTrigger;
     private SceneChanger sceneSwitch;
     //[SerializeField] AudioSource m_AudioSRC;
+    private void Awake()
+    {
+        instance = this;
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+    }
+    public static ScriptReader GetInstance()
+    {
+        return instance;
+    }
         void Start()
     {
-        sceneSwitch = new SceneChanger();
         LoadStory();
+        sceneSwitch = new SceneChanger();      
     }
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Fire1"))
         {
             DisplayNextLine();
             //m_AudioSRC.Play();
@@ -41,17 +56,20 @@ public class ScriptReader : MonoBehaviour
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
+        dialogueVariables.StartListening(_StoryScript);
         _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
-        _StoryScript.BindExternalFunction("BOOL", (bool isPlaying) => isPlayingCheck(isPlaying));
+        _StoryScript.BindExternalFunction("TEXT", (bool txt) => ShowObject(txt));
+        _StoryScript.BindExternalFunction("VAR", (bool didTextPlay) => InkStoryEnd(didTextPlay));
+        _StoryScript.BindExternalFunction("HIDE", (bool HidePanel) => hidePanel(HidePanel));
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueBox.text = "";
+        dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueBox.text += letter;
+            dialogueText.text += letter;
             yield return null;
         }
         yield return null;
@@ -59,30 +77,33 @@ public class ScriptReader : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        //bool boolCheck = true;
         if (_StoryScript.canContinue)
         {
             string text = _StoryScript.Continue();
             text = text?.Trim();
-            dialogueBox.text = text;
+            dialogueText.text = text;
             StartCoroutine(TypeSentence(text));
         }
         else if (_StoryScript.currentChoices.Count > 0)
         {
             DisplayChoices();
+            dialogueVariables.StopListening(_StoryScript);
         }
-        else if (_StoryScript.currentChoices.Count == 0)
+    }
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
         {
-            if (boolCheck == true){
-                sceneSwitch.LoadScene();
-            }
+            Debug.LogWarning("Ink Variable was found to be null: " +variableName);
         }
+        return variableValue;
     }
 
     public void ChangeName(string name)
     {
         string SpeakerName = name;
-
         nameTag.text = SpeakerName;
     }
 
@@ -91,8 +112,27 @@ public class ScriptReader : MonoBehaviour
         var charIcon = Resources.Load<Sprite>("charactericons/"+name);
         characterIcon.sprite = charIcon;
     }
-    public void isPlayingCheck(bool isPlaying) {
-        boolCheck = isPlaying; 
+        private void ShowObject(bool txt)
+    {
+        if (txt == true)
+        {
+            PhoneTrigger.SetActive(true);
+        }
+    }
+    private void InkStoryEnd(bool didTextPlay) 
+    {
+        if (didTextPlay == true)
+        {
+            sceneSwitch.LoadScene();
+        }
+    }
+    private void hidePanel(bool HidePanel)
+    {
+        if (HidePanel == true)
+        {
+            DialoguePanel.SetActive(false);
+            NameTagPanel.SetActive(false);
+        }
     }
 
 
@@ -138,5 +178,4 @@ public class ScriptReader : MonoBehaviour
             }
         }
     }
-
 }
