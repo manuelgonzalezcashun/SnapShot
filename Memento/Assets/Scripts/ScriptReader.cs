@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
-using TMPro;
 using Ink.UnityIntegration;
+using TMPro;
 public class ScriptReader : MonoBehaviour
 {
+    [Header("Script")]
     private static ScriptReader instance;
-    [SerializeField] private TextAsset _InkJsonFile;
-    [SerializeField] private Story _StoryScript;
-    [SerializeField] private InkFile globalsInkFile;
+    private SceneChanger sceneSwitch;
+
+
+    [Header("Unity Hiearchy")]
+    [SerializeField] private Animator charIcon;
     private DialogueVariables dialogueVariables;
     public GameObject NameTagPanel;
     public GameObject DialoguePanel;
@@ -18,13 +21,21 @@ public class ScriptReader : MonoBehaviour
     public TextMeshProUGUI nameTag;
     public bool boolCheck;
 
-    public Image characterIcon;
+    [Header("Ink Editor")]
+    [SerializeField] private Story _StoryScript;
+    [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] private TextAsset _InkJsonFile;
+    private const string SPEAKER_TAG = "speaker";
+    private const string ICON = "icon";
+    [SerializeField] private GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
+    //[SerializeField] AudioSource m_AudioSRC;
+
 
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceBasePrefab;
     [SerializeField] private GameObject PhoneTrigger;
-    private SceneChanger sceneSwitch;
-    //[SerializeField] AudioSource m_AudioSRC;
+
     private void Awake()
     {
         instance = this;
@@ -34,10 +45,17 @@ public class ScriptReader : MonoBehaviour
     {
         return instance;
     }
-        void Start()
+    void Start()
     {
         LoadStory();
-        sceneSwitch = new SceneChanger();      
+        sceneSwitch = new SceneChanger();
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
+        }
     }
     void Update()
     {
@@ -46,19 +64,12 @@ public class ScriptReader : MonoBehaviour
             DisplayNextLine();
             //m_AudioSRC.Play();
         }
-        //Tests for SceneChanger Script
-        /*if (Input.GetKeyDown(KeyCode.S))
-        {
-            sceneSwitch.LoadScene();
-        }*/
     }
 
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
         dialogueVariables.StartListening(_StoryScript);
-        _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
-        _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
         _StoryScript.BindExternalFunction("TEXT", (bool txt) => ShowObject(txt));
         _StoryScript.BindExternalFunction("VAR", (bool didTextPlay) => InkStoryEnd(didTextPlay));
         _StoryScript.BindExternalFunction("HIDE", (bool HidePanel) => hidePanel(HidePanel));
@@ -83,12 +94,14 @@ public class ScriptReader : MonoBehaviour
             text = text?.Trim();
             dialogueText.text = text;
             StartCoroutine(TypeSentence(text));
+            DisplayChoices();
+            StoryChoices();
         }
         else if (_StoryScript.currentChoices.Count > 0)
         {
-            DisplayChoices();
             dialogueVariables.StopListening(_StoryScript);
         }
+        HandleTags(_StoryScript.currentTags);
     }
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
@@ -96,30 +109,44 @@ public class ScriptReader : MonoBehaviour
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         if (variableValue == null)
         {
-            Debug.LogWarning("Ink Variable was found to be null: " +variableName);
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
         }
         return variableValue;
     }
-
-    public void ChangeName(string name)
+    private void HandleTags(List<string> currentTags)
     {
-        string SpeakerName = name;
-        nameTag.text = SpeakerName;
-    }
+        foreach (string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
+            {
+                Debug.LogError("Tag could not be appropritely parsed: " + tag);
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
 
-    public void CharacterIcon (string name)
-    {
-        var charIcon = Resources.Load<Sprite>("charactericons/"+name);
-        characterIcon.sprite = charIcon;
+            switch (tagKey)
+            {
+                case SPEAKER_TAG:
+                    nameTag.text = tagValue;
+                    break;
+                case ICON:
+                    charIcon.Play(tagValue);
+                    break;
+                default:
+                    Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
+                    break;
+            }
+        }
     }
-        private void ShowObject(bool txt)
+    private void ShowObject(bool txt)
     {
         if (txt == true)
         {
             PhoneTrigger.SetActive(true);
         }
     }
-    private void InkStoryEnd(bool didTextPlay) 
+    private void InkStoryEnd(bool didTextPlay)
     {
         if (didTextPlay == true)
         {
@@ -134,18 +161,41 @@ public class ScriptReader : MonoBehaviour
             NameTagPanel.SetActive(false);
         }
     }
-
-
     private void DisplayChoices()
     {
-        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return; 
+        if (choiceHolder.GetComponentsInChildren<Button>().Length > 0) return;
 
         for (int i = 0; i < _StoryScript.currentChoices.Count; i++)
         {
             var choice = _StoryScript.currentChoices[i];
             var button = CreateChoiceButton(choice.text);
-            button.onClick.AddListener(()=> OnClickChoiceButton(choice));
+            button.onClick.AddListener(() => OnClickChoiceButton(choice));
         }
+    }
+    private void StoryChoices()
+    {
+        List<Choice> currentchoices = _StoryScript.currentChoices;
+
+        if (currentchoices.Count > choices.Length)
+        {
+            Debug.LogError("More choices were given than the UI can handle");
+        }
+
+        int index = 0;
+        foreach (Choice choice in currentchoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+    }
+    public void MakeChoice(int choiceIndex)
+    {
+        _StoryScript.ChooseChoiceIndex(choiceIndex);
     }
 
     Button CreateChoiceButton(string text)
@@ -167,15 +217,43 @@ public class ScriptReader : MonoBehaviour
         RefreshChoiceView();
         DisplayNextLine();
     }
-    
+
     void RefreshChoiceView()
     {
         if (choiceHolder != null)
         {
-            foreach(var button in choiceHolder.GetComponentsInChildren<Button>())
+            foreach (var button in choiceHolder.GetComponentsInChildren<Button>())
             {
                 Destroy(button.gameObject);
             }
         }
     }
 }
+
+
+/// New Button Script
+/* private void DisplayChoices()
+ {
+     List<Choice> currentchoices = _StoryScript.currentChoices;
+
+     if (currentchoices.Count > choices.Length)
+     {
+         Debug.LogError("More choices were given than the UI can handle");
+     }
+
+     int index = 0;
+     foreach (Choice choice in currentchoices)
+     {
+         choices[index].gameObject.SetActive(true);
+         choicesText[index].text = choice.text;
+         index++;
+     }
+     for (int i = index; i < choices.Length; i++)
+     {
+         choices[i].gameObject.SetActive(false);
+     }
+ }
+     public void MakeChoice(int choiceIndex)
+ {
+     _StoryScript.ChooseChoiceIndex(choiceIndex);
+ } */
