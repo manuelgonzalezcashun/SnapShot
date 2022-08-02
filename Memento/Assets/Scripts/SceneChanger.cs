@@ -12,6 +12,13 @@ public class SceneChanger: MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+    public void QuitGame()
+    {
+        if (PausingScript.gameIsPaused == true) 
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     public void LoadScene()
     {
         if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 7)
