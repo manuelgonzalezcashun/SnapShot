@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 70e3ff5c2a63fcc4b833f046f5e2878f
   - enabled: 1
-    path: Assets/Scenes/Scene1.unity
-    guid: b8f43e52b509ca643b19771d5cec55e1
+    path: Assets/Scenes/FlowerHangout.unity
+    guid: d1b76f3fce730584a88d19db552faec8
   m_configObjects: {}

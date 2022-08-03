@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Jump"))
         {
             DisplayNextLine();
         }
