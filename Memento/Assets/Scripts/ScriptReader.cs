@@ -59,10 +59,13 @@ public class ScriptReader : MonoBehaviour
     }
     void Update()
     {
+        if (PausingScript.gameIsPaused == false) 
+        {
         if (Input.GetButtonDown("Fire1"))
         {
             DisplayNextLine();
             //m_AudioSRC.Play();
+        }
         }
     }
 
