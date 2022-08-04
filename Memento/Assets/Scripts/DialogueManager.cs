@@ -22,28 +22,48 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset _InkJsonFile;
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
-    //private const string TEXT = "gotText";
     private const string ENTER = "entersChat";
-    private const string SCENE = "sceneChange";
+    private const string SCENE = "endScene";
+    private const string NOTIFICATION = "notif";
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     [SerializeField] private GameObject PhoneTrigger;
     private static string _loadedState;
-    private bool _notification;
-    public bool Notification
+    /// Variable Observers
+   // private bool _notification;
+    // private bool _endScene;
+    /*public bool Notification
     {
         get => _notification;
         private set
         {
             Debug.Log($"Updating Notification value. Old value: {_notification}. new value: {value}");
             _notification = value;
+            if (value == true)
+            {
+                PhoneTrigger.SetActive(true);
+            }
+            else
+            {
+                PhoneTrigger.SetActive(false);
+            }
         }
+
     }
+    public bool EndScene
+    {
+        get => _endScene;
+        private set
+        {
+            Debug.Log($"Updating EndScene value. Old value: {_endScene}. new value: {value}");
+            _endScene = value;
+        }
+    } */
+    /// END LINE
 
     void Start()
     {
         LoadStory();
-        InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
@@ -59,10 +79,6 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextLine();
         }
-        if (Notification == true) 
-        {
-            PhoneTrigger.SetActive(true);
-        }
     }
     void LoadStory()
     {
@@ -73,17 +89,6 @@ public class DialogueManager : MonoBehaviour
             _loadedState = null;
         }
     }
-    private void InitializeVariables()
-    {
-        Notification = (bool)_StoryScript.variablesState["notification"];
-        Debug.Log($"Logging ink variables. Notification: {Notification}");
-
-        _StoryScript.ObserveVariable("notification", (arg, value) =>
-        {
-            Notification = (bool)value;
-        });
-    }
-
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -136,11 +141,15 @@ public class DialogueManager : MonoBehaviour
                 case ICON:
                     charIcon.Play(tagValue);
                     break;
-                /*case TEXT:
-                    PhoneTrigger.SetActive(true);
-                    break;*/
                 case ENTER:
                     charPanel.SetActive(true);
+                    break;
+                case NOTIFICATION:
+                    PhoneTrigger.SetActive(true);
+                    break;
+                case SCENE:
+                    DialoguePanel.SetActive(false);
+                    NameTagPanel.SetActive(false);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
@@ -175,3 +184,23 @@ public class DialogueManager : MonoBehaviour
     }
 
 }
+
+
+    /*
+     private void InitializeVariables()
+     {
+         Notification = (bool)_StoryScript.variablesState["notification"];
+         EndScene = (bool)_StoryScript.variablesState["endScene"];
+         Debug.Log($"Logging ink variables. Notification: {Notification}");
+         Debug.Log($"Logging ink variables. EndScene: {EndScene}");
+
+         _StoryScript.ObserveVariable("notification", (arg, value) =>
+         {
+             Notification = (bool)value;
+         });
+         _StoryScript.ObserveVariable("endScene", (arg, value) =>
+         {
+             EndScene = (bool)value;
+         });
+     }
+ */
