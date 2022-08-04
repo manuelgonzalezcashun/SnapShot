@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset _InkJsonFile;
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
-    private const string TEXT = "gotText";
+    //private const string TEXT = "gotText";
     private const string ENTER = "entersChat";
     private const string SCENE = "sceneChange";
     [SerializeField] private GameObject[] choices;
@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         LoadStory();
+        InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
@@ -50,17 +51,6 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        InitializeVariables();
-    }
-    private void InitializeVariables()
-    {
-        Notification = (bool)_StoryScript.variablesState["notification"];
-        Debug.Log($"Logging ink variables. Notification: {Notification}");
-
-        _StoryScript.ObserveVariable("notification", (arg, value) => 
-        {
-            Notification = (bool)value;
-        });
     }
 
     void Update()
@@ -68,6 +58,10 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             DisplayNextLine();
+        }
+        if (Notification == true) 
+        {
+            PhoneTrigger.SetActive(true);
         }
     }
     void LoadStory()
@@ -78,6 +72,16 @@ public class DialogueManager : MonoBehaviour
             _StoryScript?.state?.LoadJson(_loadedState);
             _loadedState = null;
         }
+    }
+    private void InitializeVariables()
+    {
+        Notification = (bool)_StoryScript.variablesState["notification"];
+        Debug.Log($"Logging ink variables. Notification: {Notification}");
+
+        _StoryScript.ObserveVariable("notification", (arg, value) =>
+        {
+            Notification = (bool)value;
+        });
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -132,9 +136,9 @@ public class DialogueManager : MonoBehaviour
                 case ICON:
                     charIcon.Play(tagValue);
                     break;
-                case TEXT:
+                /*case TEXT:
                     PhoneTrigger.SetActive(true);
-                    break;
+                    break;*/
                 case ENTER:
                     charPanel.SetActive(true);
                     break;

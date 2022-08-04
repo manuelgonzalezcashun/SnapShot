@@ -69,8 +69,6 @@ private SaveData CreateSaveGameObject()
   public void ExitGame()
   {
     Application.Quit();
-  }
-
-  
+  }  
 }
 
