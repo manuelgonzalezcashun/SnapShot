@@ -45,4 +45,29 @@ Alright. How about we get started on our homework then? I'll help you.
 
 Wait! For Real! #speaker: Flower #icon: Flower_shocked
 Yes! Thank you so much! Let's get started.#icon: Flower_happy
--> DONE
+
+Flower and I spent a while doing our homework. #speaker: #icon: 
+
+Wow we finally finished our homework. #speaker: Flower #icon:default
+Say, why don't we go out to get some coffee.
+There's a little spot that I like. 
+
+("I could use a coffee") #speaker: StarRail
+-> Coffee
+
+===Coffee==
+Well are you ready to get some coffee StarRail? #speaker:Flower #icon:default
++[Yes] -> Cafe
++[No] -> Wait
+
+===Cafe===
+Yeah let's get some coffee! #speaker:StarRail
+Alright let's go then! #speaker:Flower #icon:Flower_happy
+->DONE
+
+===Wait===
+Actually, I need to do something real quick #speaker:StarRail
+Really?  #speaker:Flower #icon:Flower_confused
+Well go handle what you have to do then.. . 
+-> Coffee
+-> END
