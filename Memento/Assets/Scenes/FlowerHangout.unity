@@ -2383,7 +2383,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 6fe37538d6777d34aab78a9c0558f5cd, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &804359770
@@ -5037,18 +5037,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 804359770}
-        m_TargetAssemblyTypeName: playAnimation, Assembly-CSharp
-        m_MethodName: PlayPhoneAnimation
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: NewPhone
-          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1413269796}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
