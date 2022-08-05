@@ -1,7 +1,10 @@
 #speaker: 
 // variables
-VAR choice = false
-VAR blank = ""
+VAR deactivateScene = false
+VAR deactivebgName = ""
+VAR saveCharacterData = false
+VAR saveBackgroundData = false
+VAR bgName = ""
 -> main
 ===main==
 It is 9:00 am on Saturday. 
@@ -29,7 +32,13 @@ Time to head to the kitchen.
 -> KitchenScene
 
 ===KitchenScene===
+~deactivateScene = true
+~deactivebgName = "DormBackground"
 #entersChat:true
+~saveCharacterData = true
+~saveBackgroundData = true
+~bgName = "KitchenBackground"
+
 Hey Flower! #speaker:StarRail
 Nice to show up unnanounced like that.
 Hahaha I just wanted to hang out with a friend today, that's all. #speaker: Flower

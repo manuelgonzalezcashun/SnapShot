@@ -1397,6 +1397,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1007271026}
+        m_TargetAssemblyTypeName: playAnimation, Assembly-CSharp
+        m_MethodName: PlayBackgroundAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: KitchenBackgroundAnim
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1380684523}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &522392249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6226,10 +6250,15 @@ MonoBehaviour:
   DialoguePanel: {fileID: 1231373424}
   dialogueText: {fileID: 1711467}
   nameTag: {fileID: 602431053}
+  objectToFind: {fileID: 0}
   _InkJsonFile: {fileID: 4900000, guid: ebd61769d1662ea4886e9a23c108fd6a, type: 3}
   choices:
   - {fileID: 522392246}
   - {fileID: 264975660}
+  backgrounds:
+  - {fileID: 806859934}
+  - {fileID: 1007271022}
+  - {fileID: 1380684523}
   PhoneTrigger: {fileID: 1413269796}
 --- !u!114 &1850534683
 MonoBehaviour:
