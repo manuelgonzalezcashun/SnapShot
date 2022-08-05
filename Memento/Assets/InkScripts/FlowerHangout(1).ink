@@ -7,14 +7,15 @@ VAR saveBackgroundData = false
 VAR bgName = ""
 -> main
 ===main==
+#PlaySound: PolaroidSound
 It is 9:00 am on Saturday. 
 #speaker: StarRail 
 ("Yawn. What a beautiful day outside.") 
 ("What am I gonna do today?")
-"*bzzt*" "*bzzt*" #speaker:
-#notif:true
+"*bzzt*" "*bzzt*" #speaker: #PlaySound:PhoneNotification
 What's this, it looks like I have a text from Flower.#speaker:StarRail 
 I should check this out! 
+#notif:true
 Looks like she's coming over. #endScene:true
 ->isReady
 
@@ -72,11 +73,32 @@ Well are you ready to get some coffee StarRail? #speaker:Flower #icon:default
 ===Cafe===
 Yeah let's get some coffee! #speaker:StarRail
 Alright let's go then! #speaker:Flower #icon:Flower_happy
-->DONE
+->CoffeeDate
 
 ===Wait===
 Actually, I need to do something real quick #speaker:StarRail
 Really?  #speaker:Flower #icon:Flower_confused
 Well go handle what you have to do then.. . 
 -> Coffee
+
+===CoffeeDate===
+We're here! #speaker: Flower #icon:default
+This coffee shop is one of my favorite shops in town.
+It looks really nice. #speaker: StarRail
+How often do you come here? 
+Only when I need a break. And after all that studying, I need a coffee break.#speaker: Flower
+("You can say that again") #speaker: StarRail
+We spent a little while here, drinking coffee and chatting. #speaker: 
+Hey do you still have that camera from Photo Club? #speaker: Flower
+Yeah, why? #speaker: StarRail
+You should take a picture here! #speaker: Flower #icon: Flower_happy
+It would be a beautiful picture to show the Photo Club.
+It would be... #speaker: StarRail #icon: default
+Would you let me take a picture of you Flower?
+WHAT!? You wanna take a picture of me? #speaker: Flower #icon: Flower_shocked
+Yeah. It would be a good picture. #speaker: StarRail
+Oh...#speaker: Flower #icon: Flower_sad
+I suppose #icon: default
+Alright! #speaker: StarRail
+Say "Cheese"!
 -> END

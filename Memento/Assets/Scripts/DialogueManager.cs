@@ -16,10 +16,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
-    /*public GameObject DormBackground;
-    public GameObject KitchenBackground;
-    public GameObject CafeBackground;*/
-    public GameObject objectToFind;
+    private AudioSource sound;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -35,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private const string ENTER = "entersChat";
     private const string SCENE = "endScene";
     private const string NOTIFICATION = "notif";
+    private const string AUDIO = "PlaySound";
     private const string DESTROY = "sceneToDeactivate";
 
     /// Variable Observers
@@ -252,6 +250,12 @@ public class DialogueManager : MonoBehaviour
                     {
                         backgrounds[0].SetActive(false);
                     }
+                    break;
+                case AUDIO:
+                    GameObject ObjectToFind = GameObject.Find(tagValue);
+                    sound = ObjectToFind.GetComponent<AudioSource>();
+                    sound.Play();
+                    Debug.Log(ObjectToFind.name);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
