@@ -1,15 +1,4 @@
--> main
-===main===
-Looks like she's coming over. Am I ready to see her yet?
-+ [YES] -> StoryFinished
-+ [nah] -> lazyhours
-===lazyhours===
-I should get 5 more minutes of sleep
--> main
-===StoryFinished===
-Better start getting ready.
-I should head to the kitchen.
--> kitchen
+
 
 ==kitchen==
 #entersChat:true
