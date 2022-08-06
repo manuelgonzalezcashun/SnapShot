@@ -1,5 +1,6 @@
 #speaker: 
 // variables
+VAR playAnimation = ""
 VAR bgName = ""
 VAR saveCharacterData = false
 VAR saveBackgroundData = false
@@ -34,7 +35,7 @@ Time to head to the kitchen.
 -> KitchenScene
 
 ===KitchenScene===
-#entersChat:true
+#playAnimation: DormBackground
 ~bgName = "KitchenBackground"
 ~saveCharacterData = true
 ~saveBackgroundData = true
@@ -43,6 +44,7 @@ Hey Flower! #speaker:StarRail
 ~deactivebgName = "DormBackground"
 Nice to show up unnanounced like that.
 Hahaha I just wanted to hang out with a friend today, that's all. #speaker: Flower
+#entersChat:true
 Really? #speaker: StarRail
 Yeah Really... heh heh... #speaker: Flower #icon: default
 Flower. #speaker: StarRail
@@ -73,19 +75,22 @@ Well are you ready to get some coffee StarRail? #speaker:Flower #icon:default
 ===Cafe===
 Yeah let's get some coffee! #speaker:StarRail
 Alright let's go then! #speaker:Flower #icon:Flower_happy
-->DONE
+->CoffeeDate
 
 ===Wait===
 Actually, I need to do something real quick #speaker:StarRail
 Really?  #speaker:Flower #icon:Flower_confused
 Well go handle what you have to do then.. . 
 -> Coffee
+
 ===CoffeeDate===
-~deactivebgName = "KitchenBackground"
+#playAnimation: KitchenBackground
 ~bgName = "CafeBackground"
+We made our way to cafe. #speaker: 
+We're here! #speaker: Flower #icon:default
+~deactivebgName = "KitchenBackground"
 ~saveCharacterData = true
 ~saveBackgroundData = true
-We're here! #speaker: Flower #icon:default
 This coffee shop is one of my favorite shops in town.
 It looks really nice. #speaker: StarRail
 How often do you come here? 
@@ -98,10 +103,10 @@ You should take a picture here! #speaker: Flower #icon: Flower_happy
 It would be a beautiful picture to show the Photo Club.
 It would be... #speaker: StarRail #icon: default
 Would you let me take a picture of you Flower?
-WHAT!? You wanna take a picture of me? #speaker: Flower #icon: Flower_shocked
+WHAT!? You wanna take a picture of me? #speaker:Flower #icon: Flower_shocked
 Yeah. It would be a good picture. #speaker: StarRail
-Oh...#speaker: Flower #icon: Flower_sad
-I suppose one picture wouldn't hurt... #icon: default
-Alright! #speaker: StarRail
+Oh...#speaker:Flower #icon: Flower_sad
+I suppose one picture wouldn't hurt... #icon: Flower_sad
+Alright! #speaker: StarRail #icon: default
 Say "Cheese"!
 -> END

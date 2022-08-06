@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
     private AudioSource sounds;
+    private Animation bg;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -34,7 +35,7 @@ public class DialogueManager : MonoBehaviour
     private const string SCENE = "endScene";
     private const string NOTIFICATION = "notif";
     private const string AUDIO = "PlaySound";
-    private const string DESTROY = "sceneToDeactivate";
+    private const string PLAY = "playAnimation";
 
     /// Variable Observers
     private bool _deactivateScene;
@@ -134,12 +135,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (BackgroundName == "DormBackground")
         {
-           backgrounds[0].SetActive(true);
+            backgrounds[0].SetActive(true);
         }
         if (BackgroundName == "KitchenBackground")
         {
             backgrounds[1].SetActive(true);
-            //backgrounds[0].PlayBackgroundAnimation("DormBackground")
         }
         if (BackgroundName == "CafeBackground")
         {
@@ -241,12 +241,16 @@ public class DialogueManager : MonoBehaviour
             {
                 case SPEAKER_TAG:
                     nameTag.text = tagValue;
+                    if(tagValue == "")
+                    {
+                        NameTagPanel.SetActive(false);
+                    }
+                    else{
+                        NameTagPanel.SetActive(true);
+                    }
                     break;
                 case ICON:
                     charIcon.Play(tagValue);
-                    break;
-                case ENTER:
-                    charPanel.SetActive(true);
                     break;
                 case NOTIFICATION:
                     PhoneTrigger.SetActive(true);
@@ -255,17 +259,20 @@ public class DialogueManager : MonoBehaviour
                     DialoguePanel.SetActive(false);
                     NameTagPanel.SetActive(false);
                     break;
-                case DESTROY:
-                    if (tagValue == "DormBackground")
-                    {
-                        backgrounds[0].SetActive(false);
-                    }
+                case PLAY:
+                    GameObject FindAnim = GameObject.Find(tagValue);
+                    bg = FindAnim.GetComponent<Animation>();
+                    bg.Play();
+                    Debug.Log(FindAnim.name);
                     break;
                 case AUDIO:
-                    GameObject ObjectToFind = GameObject.Find(tagValue);
-                    sounds = ObjectToFind.GetComponent<AudioSource>();
+                    GameObject FindSound = GameObject.Find(tagValue);
+                    sounds = FindSound.GetComponent<AudioSource>();
                     sounds.Play();
-                    Debug.Log(ObjectToFind.name);
+                    Debug.Log(FindSound.name);
+                    break;
+                case ENTER:
+                    charPanel.SetActive(true);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
@@ -300,23 +307,3 @@ public class DialogueManager : MonoBehaviour
     }
 
 }
-
-
-/*
- private void InitializeVariables()
- {
-     Notification = (bool)_StoryScript.variablesState["notification"];
-     EndScene = (bool)_StoryScript.variablesState["endScene"];
-     Debug.Log($"Logging ink variables. Notification: {Notification}");
-     Debug.Log($"Logging ink variables. EndScene: {EndScene}");
-
-     _StoryScript.ObserveVariable("notification", (arg, value) =>
-     {
-         Notification = (bool)value;
-     });
-     _StoryScript.ObserveVariable("endScene", (arg, value) =>
-     {
-         EndScene = (bool)value;
-     });
- }
-*/
