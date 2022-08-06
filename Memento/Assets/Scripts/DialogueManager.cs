@@ -6,7 +6,7 @@ using Ink.Runtime;
 using TMPro;
 public class DialogueManager : MonoBehaviour
 {
-    [Header("Script")]
+    [Header("C# Scripts")]
     private SceneChanger sceneSwitch;
     private playAnimation play;
 
@@ -17,8 +17,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
+    [SerializeField] private GameObject PhoneTrigger;
     private AudioSource sounds;
-    private Animation bg;
+    private Animation bgAnims;
+    private GameObject bg;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -26,8 +28,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     [SerializeField] private GameObject[] backgrounds;
     private TextMeshProUGUI[] choicesText;
-    [SerializeField] private GameObject PhoneTrigger;
     private static string _loadedState;
+
     [Header("Ink Tags")]
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
@@ -38,20 +40,11 @@ public class DialogueManager : MonoBehaviour
     private const string PLAY = "playAnimation";
 
     /// Variable Observers
-    private bool _deactivateScene;
+    //private string _deactivateScene;
     private bool _saveCharacterData;
     private bool _saveBackgroundData;
-    private string _bgName;
+    private string _activebgName;
     private string _deactivebgName;
-    public bool DeactivateScene
-    {
-        get => _deactivateScene;
-        private set
-        {
-            Debug.Log($"Updating deactivateScene value. Old value: {_deactivateScene}. new value: {value}");
-            _deactivateScene = value;
-        }
-    }
     public bool SaveCharacterData
     {
         get => _saveCharacterData;
@@ -70,16 +63,16 @@ public class DialogueManager : MonoBehaviour
             _saveBackgroundData = value;
         }
     }
-    public string BackgroundName
+    public string ActivateBackground
     {
-        get => _bgName;
+        get => _activebgName;
         private set
         {
-            Debug.Log($"Updating BackgroundName value. Old value: {_bgName}. new value: {value}");
-            _bgName = value;
+            Debug.Log($"Updating ActiveBackgroundName value. Old value: {_activebgName}. new value: {value}");
+            _activebgName = value;
         }
     }
-    public string DeactivateBackgroundName
+    public string DeactivateBackground
     {
         get => _deactivebgName;
         private set
@@ -106,9 +99,8 @@ public class DialogueManager : MonoBehaviour
     {
         SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
         SaveBackgroundData = (bool)_StoryScript.variablesState["saveBackgroundData"];
-        DeactivateScene = (bool)_StoryScript.variablesState["deactivateScene"];
-        BackgroundName = (string)_StoryScript.variablesState["bgName"];
-        DeactivateBackgroundName = (string)_StoryScript.variablesState["deactivebgName"];
+        ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
+        DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
         _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
         {
@@ -118,50 +110,43 @@ public class DialogueManager : MonoBehaviour
         {
             SaveBackgroundData = (bool)value;
         });
-        _StoryScript.ObserveVariable("deactivateScene", (arg, value) =>
+        _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
-            DeactivateScene = (bool)value;
+            ActivateBackground = (string)value;
         });
-        _StoryScript.ObserveVariable("bgName", (arg, value) =>
+        _StoryScript.ObserveVariable("DeactivateScene", (arg, value) =>
         {
-            BackgroundName = (string)value;
-        });
-        _StoryScript.ObserveVariable("deactivebgName", (arg, value) =>
-        {
-            DeactivateBackgroundName = (string)value;
+            DeactivateBackground = (string)value;
         });
     }
-    public void sceneChange()
+    public void ActivateScene()
     {
-        if (BackgroundName == "DormBackground")
+        if (ActivateBackground == "DormBackground")
         {
             backgrounds[0].SetActive(true);
         }
-        if (BackgroundName == "KitchenBackground")
+        if (ActivateBackground == "KitchenBackground")
         {
             backgrounds[1].SetActive(true);
         }
-        if (BackgroundName == "CafeBackground")
+        if (ActivateBackground == "CafeBackground")
         {
             backgrounds[2].SetActive(true);
         }
     }
-    public void removeBackground()
+    public void DeactivateScene()
     {
-        if (DeactivateScene == true)
+        if (DeactivateBackground == "DormBackground")
         {
-            if (DeactivateBackgroundName == "DormBackground")
-            {
-                backgrounds[0].SetActive(false);
-            }
-            else if (DeactivateBackgroundName == "KitchenBackground")
-            {
-                backgrounds[1].SetActive(false);
-            }
-            else if (DeactivateBackgroundName == "CafeBackground")
-            {
-                backgrounds[2].SetActive(false);
-            }
+            backgrounds[0].SetActive(false);
+        }
+        else if (DeactivateBackground == "KitchenBackground")
+        {
+            backgrounds[1].SetActive(false);
+        }
+        else if (DeactivateBackground == "CafeBackground")
+        {
+            backgrounds[2].SetActive(false);
         }
     }
 
@@ -177,12 +162,12 @@ public class DialogueManager : MonoBehaviour
         }
         if (SaveBackgroundData == true)
         {
-            GameObject findBG = GameObject.Find(BackgroundName);
+            ///GameObject findBG = GameObject.Find(BackgroundName);
             //findBG = backgrounds[1];
             //backgrounds[1].SetActive(true);
         }
-        removeBackground();
-        sceneChange();
+        ActivateScene();
+        DeactivateScene();
     }
     void LoadStory()
     {
@@ -241,11 +226,12 @@ public class DialogueManager : MonoBehaviour
             {
                 case SPEAKER_TAG:
                     nameTag.text = tagValue;
-                    if(tagValue == "")
+                    if (tagValue == "")
                     {
                         NameTagPanel.SetActive(false);
                     }
-                    else{
+                    else
+                    {
                         NameTagPanel.SetActive(true);
                     }
                     break;
@@ -261,8 +247,8 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case PLAY:
                     GameObject FindAnim = GameObject.Find(tagValue);
-                    bg = FindAnim.GetComponent<Animation>();
-                    bg.Play();
+                    bgAnims = FindAnim.GetComponent<Animation>();
+                    bgAnims.Play();
                     Debug.Log(FindAnim.name);
                     break;
                 case AUDIO:

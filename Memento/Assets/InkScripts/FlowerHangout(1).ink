@@ -1,14 +1,13 @@
 #speaker: 
 // variables
 VAR playAnimation = ""
-VAR bgName = ""
 VAR saveCharacterData = false
 VAR saveBackgroundData = false
-VAR deactivateScene = false
-VAR deactivebgName = ""
+VAR ActivateScene = ""
+VAR DeactivateScene = ""
 -> main
 ===main==
-~bgName = "DormBackground"
+~ActivateScene = "DormBackground"
 #PlaySound: PolaroidSound
 It is 9:00 am on Saturday. 
 #speaker: StarRail 
@@ -36,14 +35,13 @@ Time to head to the kitchen.
 
 ===KitchenScene===
 #playAnimation: DormBackground
-~bgName = "KitchenBackground"
+~ActivateScene = "KitchenBackground"
 ~saveCharacterData = true
 ~saveBackgroundData = true
 Hey Flower! #speaker:StarRail
-~deactivateScene = true
-~deactivebgName = "DormBackground"
+~DeactivateScene = "DormBackground"
 Nice to show up unnanounced like that.
-Hahaha I just wanted to hang out with a friend today, that's all. #speaker: Flower
+Hahaha I just wanted to hang out with a fri""d today, that's all. #speaker: Flower
 #entersChat:true
 Really? #speaker: StarRail
 Yeah Really... heh heh... #speaker: Flower #icon: default
@@ -85,10 +83,10 @@ Well go handle what you have to do then.. .
 
 ===CoffeeDate===
 #playAnimation: KitchenBackground
-~bgName = "CafeBackground"
+~ActivateScene = "CafeBackground"
 We made our way to cafe. #speaker: 
 We're here! #speaker: Flower #icon:default
-~deactivebgName = "KitchenBackground"
+~DeactivateScene = "KitchenBackground"
 ~saveCharacterData = true
 ~saveBackgroundData = true
 This coffee shop is one of my favorite shops in town.
