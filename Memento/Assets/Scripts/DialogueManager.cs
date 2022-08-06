@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("Script")]
     private SceneChanger sceneSwitch;
+    private playAnimation play;
 
     [Header("Unity Hiearchy")]
     [SerializeField] private Animator charIcon;
@@ -25,51 +26,118 @@ public class DialogueManager : MonoBehaviour
     private const string ENTER = "entersChat";
     private const string SCENE = "endScene";
     private const string NOTIFICATION = "notif";
+        private const string AUDIO = "PlaySound";
+    private const string DESTROY = "sceneToDeactivate";
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     [SerializeField] private GameObject PhoneTrigger;
     private static string _loadedState;
     /// Variable Observers
-   // private bool _notification;
-    // private bool _endScene;
-    /*public bool Notification
+   private bool _deactivateScene;
+    private bool _saveCharacterData;
+    private bool _saveBackgroundData;
+    private string _bgName;
+    private string _deactivebgName;
+    public bool DeactivateScene
     {
-        get => _notification;
+        get => _deactivateScene;
         private set
         {
-            Debug.Log($"Updating Notification value. Old value: {_notification}. new value: {value}");
-            _notification = value;
-            if (value == true)
-            {
-                PhoneTrigger.SetActive(true);
-            }
-            else
-            {
-                PhoneTrigger.SetActive(false);
-            }
+            Debug.Log($"Updating deactivateScene value. Old value: {_deactivateScene}. new value: {value}");
+            _deactivateScene = value;
         }
-
     }
-    public bool EndScene
+    public bool SaveCharacterData
     {
-        get => _endScene;
+        get => _saveCharacterData;
         private set
         {
-            Debug.Log($"Updating EndScene value. Old value: {_endScene}. new value: {value}");
-            _endScene = value;
+            Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
+            _saveCharacterData = value;
         }
-    } */
+    }
+    public bool SaveBackgroundData
+    {
+        get => _saveBackgroundData;
+        private set
+        {
+            Debug.Log($"Updating saveBackgroundData value. Old value: {_saveBackgroundData}. new value: {value}");
+            _saveBackgroundData = value;
+        }
+    }
+    public string BackgroundName
+    {
+        get => _bgName;
+        private set
+        {
+            Debug.Log($"Updating BackgroundName value. Old value: {_bgName}. new value: {value}");
+            _bgName = value;
+        }
+    }
+    public string DeactivateBackgroundName
+    {
+        get => _deactivebgName;
+        private set
+        {
+            Debug.Log($"Updating DeactiveBackgroundName value. Old value: {_deactivebgName}. new value: {value}");
+            _deactivebgName = value;
+        }
+    }
     /// END LINE
 
     void Start()
     {
         LoadStory();
+        InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
+        }
+        //objectToFind = GameObject.Find(bgName);
+        //Debug.Log(objectToFind.name);
+
+    }
+    public void timer() 
+    {
+          for (int i = 1;i>0;i--)
+        {
+            Debug.Log(i);
+        }
+    }
+    public void sceneChange()
+    {
+        if (BackgroundName == "DormBackground")
+        {
+            backgrounds[0].SetActive(true);
+        }
+        if (BackgroundName == "KitchenBackground")
+        {
+            backgrounds[1].SetActive(true);
+        }
+        if (BackgroundName == "CafeBackground")
+        {
+            backgrounds[2].SetActive(true);
+        }
+    }
+    public void removeBackground()
+    {
+        if (DeactivateScene == true)
+        {
+            if (DeactivateBackgroundName == "DormBackground")
+            {
+                backgrounds[0].SetActive(false);
+            }
+            else if (DeactivateBackgroundName == "KitchenBackground")
+            {
+                backgrounds[1].SetActive(false);
+            }
+            else if (DeactivateBackgroundName == "CafeBackground")
+            {
+                backgrounds[2].SetActive(false);
+            }
         }
     }
 
@@ -79,6 +147,19 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextLine();
         }
+        if (SaveCharacterData == true)
+        {
+            charPanel.SetActive(true);
+        }
+        if (SaveBackgroundData == true)
+        {
+            GameObject findBG = GameObject.Find(BackgroundName);
+            findBG = backgrounds[1];
+            backgrounds[1].SetActive(true);
+        }
+        timer();
+        sceneChange();
+        removeBackground();
     }
     void LoadStory()
     {
@@ -150,6 +231,18 @@ public class DialogueManager : MonoBehaviour
                 case SCENE:
                     DialoguePanel.SetActive(false);
                     NameTagPanel.SetActive(false);
+                    break;
+                    case DESTROY:
+                    if (tagValue == "DormBackground")
+                    {
+                        backgrounds[0].SetActive(false);
+                    }
+                    break;
+                case AUDIO:
+                    GameObject ObjectToFind = GameObject.Find(tagValue);
+                    sound = ObjectToFind.GetComponent<AudioSource>();
+                    sound.Play();
+                    Debug.Log(ObjectToFind.name);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
