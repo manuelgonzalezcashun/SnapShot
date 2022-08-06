@@ -1,9 +1,9 @@
 #speaker: 
 // variables
 VAR bgName = ""
-VAR saveCharacterData = true
+VAR saveCharacterData = false
 VAR saveBackgroundData = false
-VAR deactivateScene = true
+VAR deactivateScene = false
 VAR deactivebgName = ""
 -> main
 ===main==
@@ -13,10 +13,10 @@ It is 9:00 am on Saturday.
 #speaker: StarRail 
 ("Yawn. What a beautiful day outside.") 
 ("What am I gonna do today?")
-"*bzzt*" "*bzzt*" #speaker:
-#notif:true
+"*bzzt*" "*bzzt*" #speaker: #PlaySound:PhoneNotification
 What's this, it looks like I have a text from Flower.#speaker:StarRail 
 I should check this out! 
+#notif:true
 Looks like she's coming over. #endScene:true
 ->isReady
 
@@ -41,8 +41,6 @@ Time to head to the kitchen.
 Hey Flower! #speaker:StarRail
 ~deactivateScene = true
 ~deactivebgName = "DormBackground"
-~saveCharacterData = false
-~saveBackgroundData = false
 Nice to show up unnanounced like that.
 Hahaha I just wanted to hang out with a friend today, that's all. #speaker: Flower
 Really? #speaker: StarRail

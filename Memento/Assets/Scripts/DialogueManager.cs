@@ -17,23 +17,27 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
+    private AudioSource sounds;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
     [SerializeField] private TextAsset _InkJsonFile;
+    [SerializeField] private GameObject[] choices;
+    [SerializeField] private GameObject[] backgrounds;
+    private TextMeshProUGUI[] choicesText;
+    [SerializeField] private GameObject PhoneTrigger;
+    private static string _loadedState;
+    [Header("Ink Tags")]
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
     private const string ENTER = "entersChat";
     private const string SCENE = "endScene";
     private const string NOTIFICATION = "notif";
-        private const string AUDIO = "PlaySound";
+    private const string AUDIO = "PlaySound";
     private const string DESTROY = "sceneToDeactivate";
-    [SerializeField] private GameObject[] choices;
-    private TextMeshProUGUI[] choicesText;
-    [SerializeField] private GameObject PhoneTrigger;
-    private static string _loadedState;
+
     /// Variable Observers
-   private bool _deactivateScene;
+    private bool _deactivateScene;
     private bool _saveCharacterData;
     private bool _saveBackgroundData;
     private string _bgName;
@@ -96,26 +100,46 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        //objectToFind = GameObject.Find(bgName);
-        //Debug.Log(objectToFind.name);
-
     }
-    public void timer() 
+    private void InitializeVariables()
     {
-          for (int i = 1;i>0;i--)
+        SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
+        SaveBackgroundData = (bool)_StoryScript.variablesState["saveBackgroundData"];
+        DeactivateScene = (bool)_StoryScript.variablesState["deactivateScene"];
+        BackgroundName = (string)_StoryScript.variablesState["bgName"];
+        DeactivateBackgroundName = (string)_StoryScript.variablesState["deactivebgName"];
+
+        _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
         {
-            Debug.Log(i);
-        }
+            SaveCharacterData = (bool)value;
+        });
+        _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
+        {
+            SaveBackgroundData = (bool)value;
+        });
+        _StoryScript.ObserveVariable("deactivateScene", (arg, value) =>
+        {
+            DeactivateScene = (bool)value;
+        });
+        _StoryScript.ObserveVariable("bgName", (arg, value) =>
+        {
+            BackgroundName = (string)value;
+        });
+        _StoryScript.ObserveVariable("deactivebgName", (arg, value) =>
+        {
+            DeactivateBackgroundName = (string)value;
+        });
     }
     public void sceneChange()
     {
         if (BackgroundName == "DormBackground")
         {
-            backgrounds[0].SetActive(true);
+           backgrounds[0].SetActive(true);
         }
         if (BackgroundName == "KitchenBackground")
         {
             backgrounds[1].SetActive(true);
+            //backgrounds[0].PlayBackgroundAnimation("DormBackground")
         }
         if (BackgroundName == "CafeBackground")
         {
@@ -154,12 +178,11 @@ public class DialogueManager : MonoBehaviour
         if (SaveBackgroundData == true)
         {
             GameObject findBG = GameObject.Find(BackgroundName);
-            findBG = backgrounds[1];
-            backgrounds[1].SetActive(true);
+            //findBG = backgrounds[1];
+            //backgrounds[1].SetActive(true);
         }
-        timer();
-        sceneChange();
         removeBackground();
+        sceneChange();
     }
     void LoadStory()
     {
@@ -232,7 +255,7 @@ public class DialogueManager : MonoBehaviour
                     DialoguePanel.SetActive(false);
                     NameTagPanel.SetActive(false);
                     break;
-                    case DESTROY:
+                case DESTROY:
                     if (tagValue == "DormBackground")
                     {
                         backgrounds[0].SetActive(false);
@@ -240,8 +263,8 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case AUDIO:
                     GameObject ObjectToFind = GameObject.Find(tagValue);
-                    sound = ObjectToFind.GetComponent<AudioSource>();
-                    sound.Play();
+                    sounds = ObjectToFind.GetComponent<AudioSource>();
+                    sounds.Play();
                     Debug.Log(ObjectToFind.name);
                     break;
                 default:
@@ -279,21 +302,21 @@ public class DialogueManager : MonoBehaviour
 }
 
 
-    /*
-     private void InitializeVariables()
-     {
-         Notification = (bool)_StoryScript.variablesState["notification"];
-         EndScene = (bool)_StoryScript.variablesState["endScene"];
-         Debug.Log($"Logging ink variables. Notification: {Notification}");
-         Debug.Log($"Logging ink variables. EndScene: {EndScene}");
+/*
+ private void InitializeVariables()
+ {
+     Notification = (bool)_StoryScript.variablesState["notification"];
+     EndScene = (bool)_StoryScript.variablesState["endScene"];
+     Debug.Log($"Logging ink variables. Notification: {Notification}");
+     Debug.Log($"Logging ink variables. EndScene: {EndScene}");
 
-         _StoryScript.ObserveVariable("notification", (arg, value) =>
-         {
-             Notification = (bool)value;
-         });
-         _StoryScript.ObserveVariable("endScene", (arg, value) =>
-         {
-             EndScene = (bool)value;
-         });
-     }
- */
+     _StoryScript.ObserveVariable("notification", (arg, value) =>
+     {
+         Notification = (bool)value;
+     });
+     _StoryScript.ObserveVariable("endScene", (arg, value) =>
+     {
+         EndScene = (bool)value;
+     });
+ }
+*/
