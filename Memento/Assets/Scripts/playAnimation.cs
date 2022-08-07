@@ -24,6 +24,7 @@ public class playAnimation : MonoBehaviour
     }
     public void PlayBackgroundAnimation(string animName)
     {
-        bgChange.Play(animName);
+        bgChange.Play();
+        bgChange.Stop();
     }
 }
