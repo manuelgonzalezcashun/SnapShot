@@ -41,26 +41,17 @@ public class DialogueManager : MonoBehaviour
 
     /// Variable Observers
     //private string _deactivateScene;
-    private bool _saveCharacterData;
+    private bool _photoMode;
     private bool _saveBackgroundData;
     private string _activebgName;
     private string _deactivebgName;
-    public bool SaveCharacterData
+    public bool PhotoMode
     {
-        get => _saveCharacterData;
+        get => _photoMode;
         private set
         {
-            Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
-            _saveCharacterData = value;
-        }
-    }
-    public bool SaveBackgroundData
-    {
-        get => _saveBackgroundData;
-        private set
-        {
-            Debug.Log($"Updating saveBackgroundData value. Old value: {_saveBackgroundData}. new value: {value}");
-            _saveBackgroundData = value;
+            Debug.Log($"Updating saveCharacterData value. Old value: {_photoMode}. new value: {value}");
+            _photoMode = value;
         }
     }
     public string ActivateBackground
@@ -82,7 +73,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
     /// END LINE
-
     void Start()
     {
         LoadStory();
@@ -97,18 +87,13 @@ public class DialogueManager : MonoBehaviour
     }
     private void InitializeVariables()
     {
-        SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
-        SaveBackgroundData = (bool)_StoryScript.variablesState["saveBackgroundData"];
+        PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
         DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
-        _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
+        _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
-            SaveCharacterData = (bool)value;
-        });
-        _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
-        {
-            SaveBackgroundData = (bool)value;
+            PhotoMode = (bool)value;
         });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
@@ -119,6 +104,7 @@ public class DialogueManager : MonoBehaviour
             DeactivateBackground = (string)value;
         });
     }
+    /// Ink Variable Functions ///
     public void ActivateScene()
     {
         if (ActivateBackground == "DormBackground")
@@ -132,6 +118,14 @@ public class DialogueManager : MonoBehaviour
         if (ActivateBackground == "CafeBackground")
         {
             backgrounds[2].SetActive(true);
+        }
+         if (ActivateBackground == "EnterPhotoMode")
+        {
+            backgrounds[3].SetActive(true);
+        }
+        if (ActivateBackground == "transition")
+        {
+            backgrounds[4].SetActive(true);
         }
     }
     public void DeactivateScene()
@@ -148,6 +142,23 @@ public class DialogueManager : MonoBehaviour
         {
             backgrounds[2].SetActive(false);
         }
+         else if (DeactivateBackground == "EnterPhotoMode")
+        {
+            backgrounds[3].SetActive(false);
+        }
+          else if (DeactivateBackground == "transition")
+        {
+            backgrounds[4].SetActive(false);
+        }
+    }
+    public void activatePhotoMode() 
+    {
+        if (PhotoMode == true)
+        {
+            charPanel.SetActive(false);
+           // DialoguePanel.SetActive(false);
+            NameTagPanel.SetActive(false);
+        }
     }
 
     void Update()
@@ -156,18 +167,10 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextLine();
         }
-        if (SaveCharacterData == true)
-        {
-            charPanel.SetActive(true);
-        }
-        if (SaveBackgroundData == true)
-        {
-            ///GameObject findBG = GameObject.Find(BackgroundName);
-            //findBG = backgrounds[1];
-            //backgrounds[1].SetActive(true);
-        }
+        /// Ink Variables Calls ///
         ActivateScene();
         DeactivateScene();
+        activatePhotoMode();
     }
     void LoadStory()
     {

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger: MonoBehaviour
 {
-    public void StartLoad()
+    public void LoadGame()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -18,10 +18,5 @@ public class SceneChanger: MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }
-    public void LoadScene()
-    {
-        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 7)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
