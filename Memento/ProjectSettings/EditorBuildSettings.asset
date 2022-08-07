@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlowerHangout.unity
     guid: d1b76f3fce730584a88d19db552faec8
+  - enabled: 1
+    path: Assets/Scenes/Polaroid Scene.unity
+    guid: 818cbceccaa4a334dbc6dbd5bfda1883
+  - enabled: 1
+    path: Assets/Scenes/PhotoWall Scene.unity
+    guid: fbd1aab38bb16574baea2bd1430e3475
   m_configObjects: {}
