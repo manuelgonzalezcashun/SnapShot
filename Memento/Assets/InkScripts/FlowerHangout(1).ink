@@ -1,8 +1,8 @@
 #speaker: 
 // variables
 VAR playAnimation = ""
-VAR photoMode = false
-VAR saveData = false
+VAR saveCharacterData = false
+VAR saveBackgroundData = false
 VAR ActivateScene = ""
 VAR DeactivateScene = ""
 -> main
@@ -86,6 +86,8 @@ Well go handle what you have to do then.. .
 We made our way to cafe. #speaker: 
 We're here! #speaker: Flower #icon:default
 ~DeactivateScene = "KitchenBackground"
+~saveCharacterData = true
+~saveBackgroundData = true
 This coffee shop is one of my favorite shops in town.
 It looks really nice. #speaker: StarRail
 How often do you come here? 
@@ -105,17 +107,6 @@ I suppose one picture wouldn't hurt... #icon: Flower_sad
 Alright then. #icon: default
 Please take my picture StarRail.
 #speaker: StarRail #icon: default
-Alright Flower... 
+My pleasure Flower. 
 Say "Cheese"!
-#playAnimation: CafeBackground
-text
-~DeactivateScene = "CafeBackground"
-~ActivateScene = "transition"
-text
-#playAnimation: transition
-lol
-~ActivateScene = "EnterPhotoMode"
-lol
-~DeactivateScene = "transition"
-~photoMode = true
 -> END
