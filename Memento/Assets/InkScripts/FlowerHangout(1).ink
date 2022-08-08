@@ -7,8 +7,6 @@ VAR ActivateScene = ""
 VAR DeactivateScene = ""
 -> main
 ===main==
-~ActivateScene = "DormBackground"
-#PlaySound: PolaroidSound
 It is 9:00 am on Saturday. 
 #speaker: StarRail 
 ("Yawn. What a beautiful day outside.") 
@@ -34,15 +32,16 @@ Time to head to the kitchen.
 -> KitchenScene
 
 ===KitchenScene===
+#speaker:
 #playAnimation: DormBackground
 ~ActivateScene = "KitchenBackground"
-~saveCharacterData = true
-~saveBackgroundData = true
-Hey Flower! #speaker:StarRail
+I walked to the front door and let Flower in.
+I led Flower to the kitchen so she can sit down.
+So Flower... #speaker:StarRail
 ~DeactivateScene = "DormBackground"
 Nice to show up unnanounced like that.
-Hahaha I just wanted to hang out with a fri""d today, that's all. #speaker: Flower
 #entersChat:true
+Hahaha I just wanted to hang out with a friend today, that's all. #speaker: Flower.
 Really? #speaker: StarRail
 Yeah Really... heh heh... #speaker: Flower #icon: default
 Flower. #speaker: StarRail
@@ -105,6 +104,9 @@ WHAT!? You wanna take a picture of me? #speaker:Flower #icon: Flower_shocked
 Yeah. It would be a good picture. #speaker: StarRail
 Oh...#speaker:Flower #icon: Flower_sad
 I suppose one picture wouldn't hurt... #icon: Flower_sad
-Alright! #speaker: StarRail #icon: default
+Alright then. #icon: default
+Please take my picture StarRail.
+#speaker: StarRail #icon: default
+My pleasure Flower. 
 Say "Cheese"!
 -> END
