@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
         {
             backgrounds[2].SetActive(true);
         }
-         if (ActivateBackground == "EnterPhotoMode")
+        if (ActivateBackground == "EnterPhotoMode")
         {
             backgrounds[3].SetActive(true);
         }
@@ -142,21 +142,21 @@ public class DialogueManager : MonoBehaviour
         {
             backgrounds[2].SetActive(false);
         }
-         else if (DeactivateBackground == "EnterPhotoMode")
+        else if (DeactivateBackground == "EnterPhotoMode")
         {
             backgrounds[3].SetActive(false);
         }
-          else if (DeactivateBackground == "transition")
+        else if (DeactivateBackground == "transition")
         {
             backgrounds[4].SetActive(false);
         }
     }
-    public void activatePhotoMode() 
+    public void activatePhotoMode()
     {
         if (PhotoMode == true)
         {
-            charPanel.SetActive(false);
-           // DialoguePanel.SetActive(false);
+            //charPanel.SetActive(false);
+            DialoguePanel.SetActive(false);
             NameTagPanel.SetActive(false);
         }
     }
@@ -261,7 +261,14 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log(FindSound.name);
                     break;
                 case ENTER:
-                    charPanel.SetActive(true);
+                    if (tagValue == "false")
+                    {
+                        charPanel.SetActive(false);
+                    }
+                    else if (tagValue == "true")
+                    {
+                        charPanel.SetActive(true);
+                    }
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
