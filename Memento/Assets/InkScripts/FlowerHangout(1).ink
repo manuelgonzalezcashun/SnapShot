@@ -13,7 +13,7 @@ It is 9:00 am on Saturday.
 "*bzzt*" "*bzzt*" #speaker: #PlaySound:PhoneNotification
 What's this, it looks like I have a text from Flower.#speaker:StarRail 
 I should check this out! 
-#notif:true
+#notif: Phone
 Looks like she's coming over. #endScene:true
 ->isReady
 
@@ -114,4 +114,5 @@ placeholder
 ~ActivateScene = "EnterPhotoMode"
 #playAnimation: transition
 ~photoMode = true
+#notif: Picture
 -> END

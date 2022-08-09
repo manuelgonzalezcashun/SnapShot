@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
     [SerializeField] private GameObject PhoneTrigger;
+     [SerializeField] private GameObject PictureTrigger;
     private AudioSource sounds;
     private Animation bgAnims;
     private GameObject bg;
@@ -242,7 +243,14 @@ public class DialogueManager : MonoBehaviour
                     charIcon.Play(tagValue);
                     break;
                 case NOTIFICATION:
-                    PhoneTrigger.SetActive(true);
+                    if (tagValue == "Phone")
+                    {
+                        PhoneTrigger.SetActive(true);
+                    }
+                    if (tagValue == "Picture")
+                    {
+                        PictureTrigger.SetActive(true);
+                    }
                     break;
                 case SCENE:
                     DialoguePanel.SetActive(false);
