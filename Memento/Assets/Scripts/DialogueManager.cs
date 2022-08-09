@@ -6,8 +6,9 @@ using Ink.Runtime;
 using TMPro;
 public class DialogueManager : MonoBehaviour
 {
-    [Header("Script")]
+    [Header("C# Scripts")]
     private SceneChanger sceneSwitch;
+    private playAnimation play;
 
     [Header("Unity Hiearchy")]
     [SerializeField] private Animator charIcon;
@@ -16,33 +17,66 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
+    [SerializeField] private GameObject PhoneTrigger;
+    private AudioSource sounds;
+    private Animation bgAnims;
+    private GameObject bg;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
     [SerializeField] private TextAsset _InkJsonFile;
+    [SerializeField] private GameObject[] choices;
+    [SerializeField] private GameObject[] backgrounds;
+    private TextMeshProUGUI[] choicesText;
+    private static string _loadedState;
+
+    [Header("Ink Tags")]
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
-    private const string TEXT = "gotText";
     private const string ENTER = "entersChat";
-    private const string SCENE = "sceneChange";
-    [SerializeField] private GameObject[] choices;
-    private TextMeshProUGUI[] choicesText;
-    [SerializeField] private GameObject PhoneTrigger;
-    private static string _loadedState;
-    private bool _notification;
-    public bool Notification
+    private const string SCENE = "endScene";
+    private const string NOTIFICATION = "notif";
+    private const string AUDIO = "PlaySound";
+    private const string PLAY = "playAnimation";
+
+    /// Variable Observers
+    //private string _deactivateScene;
+    private bool _photoMode;
+    private bool _saveBackgroundData;
+    private string _activebgName;
+    private string _deactivebgName;
+    public bool PhotoMode
     {
-        get => _notification;
+        get => _photoMode;
         private set
         {
-            Debug.Log($"Updating Notification value. Old value: {_notification}. new value: {value}");
-            _notification = value;
+            Debug.Log($"Updating saveCharacterData value. Old value: {_photoMode}. new value: {value}");
+            _photoMode = value;
         }
     }
-
+    public string ActivateBackground
+    {
+        get => _activebgName;
+        private set
+        {
+            Debug.Log($"Updating ActiveBackgroundName value. Old value: {_activebgName}. new value: {value}");
+            _activebgName = value;
+        }
+    }
+    public string DeactivateBackground
+    {
+        get => _deactivebgName;
+        private set
+        {
+            Debug.Log($"Updating DeactiveBackgroundName value. Old value: {_deactivebgName}. new value: {value}");
+            _deactivebgName = value;
+        }
+    }
+    /// END LINE
     void Start()
     {
         LoadStory();
+        InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
@@ -50,17 +84,81 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        InitializeVariables();
     }
     private void InitializeVariables()
     {
-        Notification = (bool)_StoryScript.variablesState["notification"];
-        Debug.Log($"Logging ink variables. Notification: {Notification}");
+        PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
+        ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
+        DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
-        _StoryScript.ObserveVariable("notification", (arg, value) => 
+        _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
-            Notification = (bool)value;
+            PhotoMode = (bool)value;
         });
+        _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
+        {
+            ActivateBackground = (string)value;
+        });
+        _StoryScript.ObserveVariable("DeactivateScene", (arg, value) =>
+        {
+            DeactivateBackground = (string)value;
+        });
+    }
+    /// Ink Variable Functions ///
+    public void ActivateScene()
+    {
+        if (ActivateBackground == "DormBackground")
+        {
+            backgrounds[0].SetActive(true);
+        }
+        if (ActivateBackground == "KitchenBackground")
+        {
+            backgrounds[1].SetActive(true);
+        }
+        if (ActivateBackground == "CafeBackground")
+        {
+            backgrounds[2].SetActive(true);
+        }
+         if (ActivateBackground == "EnterPhotoMode")
+        {
+            backgrounds[3].SetActive(true);
+        }
+        if (ActivateBackground == "transition")
+        {
+            backgrounds[4].SetActive(true);
+        }
+    }
+    public void DeactivateScene()
+    {
+        if (DeactivateBackground == "DormBackground")
+        {
+            backgrounds[0].SetActive(false);
+        }
+        else if (DeactivateBackground == "KitchenBackground")
+        {
+            backgrounds[1].SetActive(false);
+        }
+        else if (DeactivateBackground == "CafeBackground")
+        {
+            backgrounds[2].SetActive(false);
+        }
+         else if (DeactivateBackground == "EnterPhotoMode")
+        {
+            backgrounds[3].SetActive(false);
+        }
+          else if (DeactivateBackground == "transition")
+        {
+            backgrounds[4].SetActive(false);
+        }
+    }
+    public void activatePhotoMode() 
+    {
+        if (PhotoMode == true)
+        {
+            charPanel.SetActive(false);
+           // DialoguePanel.SetActive(false);
+            NameTagPanel.SetActive(false);
+        }
     }
 
     void Update()
@@ -69,6 +167,10 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextLine();
         }
+        /// Ink Variables Calls ///
+        ActivateScene();
+        DeactivateScene();
+        activatePhotoMode();
     }
     void LoadStory()
     {
@@ -79,7 +181,6 @@ public class DialogueManager : MonoBehaviour
             _loadedState = null;
         }
     }
-
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -128,12 +229,36 @@ public class DialogueManager : MonoBehaviour
             {
                 case SPEAKER_TAG:
                     nameTag.text = tagValue;
+                    if (tagValue == "")
+                    {
+                        NameTagPanel.SetActive(false);
+                    }
+                    else
+                    {
+                        NameTagPanel.SetActive(true);
+                    }
                     break;
                 case ICON:
                     charIcon.Play(tagValue);
                     break;
-                case TEXT:
+                case NOTIFICATION:
                     PhoneTrigger.SetActive(true);
+                    break;
+                case SCENE:
+                    DialoguePanel.SetActive(false);
+                    NameTagPanel.SetActive(false);
+                    break;
+                case PLAY:
+                    GameObject FindAnim = GameObject.Find(tagValue);
+                    bgAnims = FindAnim.GetComponent<Animation>();
+                    bgAnims.Play();
+                    Debug.Log(FindAnim.name);
+                    break;
+                case AUDIO:
+                    GameObject FindSound = GameObject.Find(tagValue);
+                    sounds = FindSound.GetComponent<AudioSource>();
+                    sounds.Play();
+                    Debug.Log(FindSound.name);
                     break;
                 case ENTER:
                     charPanel.SetActive(true);

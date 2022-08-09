@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
-  private DialogueManager _inkManager;
+  private DialogueManager _dialogueManager;
 
   private void Start()
   {
-    _inkManager = FindObjectOfType<DialogueManager>();
+    _dialogueManager = FindObjectOfType<DialogueManager>();
   }
 
   public void StartGame()
   {
-    UnityEngine.SceneManagement.SceneManager.LoadScene("FlowerHangout");
+    SceneManager.LoadScene("FlowerHangout");
   }
 
   public void SaveGame()
@@ -38,7 +39,7 @@ private SaveData CreateSaveGameObject()
 {
   return new SaveData
   {
-    InkStoryState = _inkManager.GetStoryState(),
+    InkStoryState = _dialogueManager.GetStoryState(),
   };
 }
   
@@ -65,12 +66,14 @@ private SaveData CreateSaveGameObject()
         Debug.Log("No game saved!");
     }
   }
+  public void QuitGame() 
+  {
+    SceneManager.LoadScene("StartScene");
+  }
 
   public void ExitGame()
   {
     Application.Quit();
-  }
-
-  
+  }  
 }
 

@@ -7,10 +7,11 @@ public class PausingScript : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject Phone;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !Phone.activeInHierarchy)
         {
             if (gameIsPaused == true) 
             {
