@@ -1,6 +1,6 @@
 #speaker: 
 // variables
-VAR playAnimation = ""
+VAR photoMode = false
 VAR saveCharacterData = false
 VAR saveBackgroundData = false
 VAR ActivateScene = ""
