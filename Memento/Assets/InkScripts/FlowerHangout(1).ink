@@ -107,12 +107,22 @@ Please take my picture StarRail.
 #speaker: StarRail #icon: default
 My pleasure Flower. 
 Say "Cheese"!
+~DeactivateScene = "CafeBackground"
 ~ActivateScene = "transition"
 #entersChat:false
 #playAnimation: CafeBackground
 placeholder
+~DeactivateScene = "transition"
 ~ActivateScene = "EnterPhotoMode"
 #playAnimation: transition
-~photoMode = true
+placeholder
 #notif: Picture
+~ActivateScene = "photoWall"
+#playAnimation: EnterPhotoMode
+placeholder
+~DeactivateScene = "EnterPhotoMode"
+placeholder 
+~photoMode = true 
+#notif: Inventory
+placeholder
 -> END

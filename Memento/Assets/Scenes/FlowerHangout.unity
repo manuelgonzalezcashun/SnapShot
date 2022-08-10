@@ -7826,6 +7826,7 @@ MonoBehaviour:
   nameTag: {fileID: 602431053}
   PhoneTrigger: {fileID: 1413269796}
   PictureTrigger: {fileID: 28838528}
+  InventoryTrigger: {fileID: 1233422370}
   _InkJsonFile: {fileID: 4900000, guid: ebd61769d1662ea4886e9a23c108fd6a, type: 3}
   choices:
   - {fileID: 522392246}
@@ -7836,6 +7837,7 @@ MonoBehaviour:
   - {fileID: 1104084800}
   - {fileID: 1135042374}
   - {fileID: 1844297830}
+  - {fileID: 63537970}
 --- !u!114 &1850534683
 MonoBehaviour:
   m_ObjectHideFlags: 0

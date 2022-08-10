@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
     private SceneChanger sceneSwitch;
-    private playAnimation play; 
+    private playAnimation play;
     private PausingScript pause;
 
     [Header("Unity Hiearchy")]
@@ -19,7 +19,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
     [SerializeField] private GameObject PhoneTrigger;
-     [SerializeField] private GameObject PictureTrigger;
+    [SerializeField] private GameObject PictureTrigger;
+    [SerializeField] private GameObject InventoryTrigger;
     private AudioSource sounds;
     private Animation bgAnims;
     private GameObject bg;
@@ -129,6 +130,10 @@ public class DialogueManager : MonoBehaviour
         {
             backgrounds[4].SetActive(true);
         }
+        if (ActivateBackground == "photoWall")
+        {
+            backgrounds[5].SetActive(true);
+        }
     }
     public void DeactivateScene()
     {
@@ -151,6 +156,10 @@ public class DialogueManager : MonoBehaviour
         else if (DeactivateBackground == "transition")
         {
             backgrounds[4].SetActive(false);
+        }
+        else if (DeactivateBackground == "photoWall")
+        {
+            backgrounds[5].SetActive(false);
         }
     }
     public void activatePhotoMode()
@@ -251,6 +260,10 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "Picture")
                     {
                         PictureTrigger.SetActive(true);
+                    }
+                    if (tagValue == "Inventory")
+                    {
+                        InventoryTrigger.SetActive(true);
                     }
                     break;
                 case SCENE:
