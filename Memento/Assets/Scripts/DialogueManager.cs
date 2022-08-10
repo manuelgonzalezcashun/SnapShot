@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
     private SceneChanger sceneSwitch;
-    private playAnimation play;
+    private playAnimation play; 
+    private PausingScript pause;
 
     [Header("Unity Hiearchy")]
     [SerializeField] private Animator charIcon;
@@ -164,7 +165,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (PausingScript.gameIsPaused == false && Input.GetButtonDown("Jump"))
         {
             DisplayNextLine();
         }
