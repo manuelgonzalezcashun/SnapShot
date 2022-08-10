@@ -110,9 +110,19 @@ Say "Cheese"!
 ~ActivateScene = "transition"
 #entersChat:false
 #playAnimation: CafeBackground
+~DeactivateScene = "CafeBackground"
 placeholder
 ~ActivateScene = "EnterPhotoMode"
 #playAnimation: transition
-~photoMode = true
+~DeactivateScene = "transition"
 #notif: Picture
+placeholder
+~ActivateScene = "PhotoWallBackground"
+#playAnimation: EnterPhotoMode
+~DeactivateScene = "EnterPhotoMode"
+placeholder
+~photoMode = true
+placeholder
+
+placeholder
 -> END

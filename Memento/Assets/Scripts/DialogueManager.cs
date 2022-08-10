@@ -128,6 +128,10 @@ public class DialogueManager : MonoBehaviour
         {
             backgrounds[4].SetActive(true);
         }
+        if (ActivateBackground == "PhotoWallBackground")
+        {
+            backgrounds[5].SetActive(true);
+        }
     }
     public void DeactivateScene()
     {
@@ -150,6 +154,10 @@ public class DialogueManager : MonoBehaviour
         else if (DeactivateBackground == "transition")
         {
             backgrounds[4].SetActive(false);
+        }
+         else if (DeactivateBackground == "PhotoWallBackground")
+        {
+            backgrounds[5].SetActive(false);
         }
     }
     public void activatePhotoMode()
