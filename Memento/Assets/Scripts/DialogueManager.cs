@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
@@ -41,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     private const string NOTIFICATION = "notif";
     private const string AUDIO = "PlaySound";
     private const string PLAY = "playAnimation";
+    private const string END = "EndGame";
 
     /// Variable Observers
     //private string _deactivateScene;
@@ -291,6 +293,12 @@ public class DialogueManager : MonoBehaviour
                     {
                         charPanel.SetActive(true);
                     }
+                    break;
+                case END:
+                    if (tagValue == "true")
+                    {
+                        SceneManager.LoadScene("EndCreditScene");
+                    } 
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);

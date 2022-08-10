@@ -111,18 +111,18 @@ Say "Cheese"!
 ~ActivateScene = "transition"
 #entersChat:false
 #playAnimation: CafeBackground
-placeholder
+Press Space to enter PhotoMode
 ~DeactivateScene = "transition"
 ~ActivateScene = "EnterPhotoMode"
 #playAnimation: transition
-placeholder
+Press Space to pull up your camera reticle
 #notif: Picture
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
-placeholder
+Click on the Reticle to take a photo. After you take a photo, double click on it to save to your inventory. Press Space to continue.
 ~DeactivateScene = "EnterPhotoMode"
-placeholder 
-~photoMode = true 
+Press Space to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall.
 #notif: Inventory
-placeholder
+Press Space to end Game :)
+#EndGame: true
 -> END
