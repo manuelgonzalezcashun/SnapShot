@@ -11,7 +11,7 @@ public class PausingScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !Phone.activeInHierarchy)
+        if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy)
         {
             if (gameIsPaused == true) 
             {
