@@ -48,7 +48,7 @@ I led Flower to the kitchen so she can sit down. She sat next to me with a smile
 ...#speaker: Flower 
 "I needed help to do my homework, it is very difficult this week! It has been stressing me out this whole week too!" #icon: Flower_sad
 "I knew it!" #speaker: StarRail
-('Well I should get my homework out of the way to enjoy the rest of the day. Need to emjoy the weekend!')
+('Well I should get my homework out of the way to enjoy the rest of the day. Need to enjoy the weekend!')
 "Alright. How about we get started on our homework then? I'll help you. Also, if you still want to hangout, we can think of a place."
 
 "Wait...for real? That'd be awesome! I'll pick the spot if you don't mind." #speaker: Flower #icon: Flower_shocked
