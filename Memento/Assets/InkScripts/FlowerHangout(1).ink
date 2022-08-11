@@ -6,6 +6,7 @@ VAR ActivateScene = ""
 VAR DeactivateScene = ""
 -> main
 ===main==
+~ActivateScene = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
@@ -13,7 +14,7 @@ Yawn ('What a beautiful day outside!')
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Flower!"#speaker:StarRail 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
-#notif: Phone
+#notif:PhoneTrigger
 "Looks like she's coming over. I better get the place cleaned up!" #endScene:true
 ->isReady
 
@@ -70,7 +71,7 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 
 ===ParkFun==
 "I'm ready whenever you are!"#speaker: StarRail
-"Great! Let's go!" #speaker: Flowee #icon: Flower_happy
+"Great! Let's go!" #speaker: Flower #icon: Flower_happy
 -> ParkDate
 
 ==StudyHard==
@@ -118,7 +119,7 @@ Flower and I spent a while at the park, talking more about dogs and some of the 
 -> Coffee
 
 ===CoffeeDate===
-#playAnimation: KitchenBackground
+#playAnimation: ParkBackground
 ~ActivateScene = "CafeBackground"
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
@@ -140,16 +141,23 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 "Mhm. It would make a good picture, plus we get to capture all that we did today!" #speaker: StarRail
 "Oh I see...well, when you put it like that...#speaker:Flower #icon: Flower_sad
 "How could I say no?" #speaker:Flower #icon: Flower_happy
-"Nice! Let me get out my camera!" #icon default
+"Nice! Let me get out my camera!" #icon: default
 "And StarRail, thanks for hanging out with me!" #speaker:Flower #icon: Flower_happy
 "Thank you for inviting me! Now..." #speaker: StarRail
 "Say 'Cheese'!"
-~ActivateScene = "transition"
+~DeactivateScene = "CafeBackground"
 #entersChat:false
 #playAnimation: CafeBackground
-placeholder
+Press Space to enter PhotoMode
 ~ActivateScene = "EnterPhotoMode"
-#playAnimation: transition
-~photoMode = true
-#notif: Picture
+Press Space to pull up your camera reticle
+#notif: PictureTrigger
+~ActivateScene = "photoWall"
+#playAnimation: EnterPhotoMode
+Click on the Reticle to take a photo. After you take a photo, double click on it to save to your inventory. Press Space to continue.
+~DeactivateScene = "EnterPhotoMode"
+Press Space to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall.
+#notif: Inventory
+Press Space to end Game :)
+#EndGame: true
 -> END

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: transition
+  m_Name: ParkBackground
   serializedVersion: 6
   m_Legacy: 1
   m_Compressed: 0
@@ -48,7 +48,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: a0aa0160980050241b038dd8e6011f8f, type: 3}
+      value: {fileID: 21300000, guid: 87d3debf8556f42059add6b05be65d67, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212

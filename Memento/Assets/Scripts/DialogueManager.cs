@@ -19,9 +19,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
-    [SerializeField] private GameObject PhoneTrigger;
-    [SerializeField] private GameObject PictureTrigger;
-    [SerializeField] private GameObject InventoryTrigger;
     private AudioSource sounds;
     private Animation bgAnims;
     private GameObject bg;
@@ -31,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset _InkJsonFile;
     [SerializeField] private GameObject[] choices;
     [SerializeField] private GameObject[] backgrounds;
+    [SerializeField] private GameObject[] triggers;
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
 
@@ -112,56 +110,22 @@ public class DialogueManager : MonoBehaviour
     /// Ink Variable Functions ///
     public void ActivateScene()
     {
-        if (ActivateBackground == "DormBackground")
+        foreach (GameObject background in backgrounds)
         {
-            backgrounds[0].SetActive(true);
-        }
-        if (ActivateBackground == "KitchenBackground")
-        {
-            backgrounds[1].SetActive(true);
-        }
-        if (ActivateBackground == "CafeBackground")
-        {
-            backgrounds[2].SetActive(true);
-        }
-        if (ActivateBackground == "EnterPhotoMode")
-        {
-            backgrounds[3].SetActive(true);
-        }
-        if (ActivateBackground == "transition")
-        {
-            backgrounds[4].SetActive(true);
-        }
-        if (ActivateBackground == "photoWall")
-        {
-            backgrounds[5].SetActive(true);
+            if (ActivateBackground == background.name)
+            {
+                background.SetActive(true);
+            }
         }
     }
     public void DeactivateScene()
     {
-        if (DeactivateBackground == "DormBackground")
+        foreach (GameObject background in backgrounds)
         {
-            backgrounds[0].SetActive(false);
-        }
-        else if (DeactivateBackground == "KitchenBackground")
-        {
-            backgrounds[1].SetActive(false);
-        }
-        else if (DeactivateBackground == "CafeBackground")
-        {
-            backgrounds[2].SetActive(false);
-        }
-        else if (DeactivateBackground == "EnterPhotoMode")
-        {
-            backgrounds[3].SetActive(false);
-        }
-        else if (DeactivateBackground == "transition")
-        {
-            backgrounds[4].SetActive(false);
-        }
-        else if (DeactivateBackground == "photoWall")
-        {
-            backgrounds[5].SetActive(false);
+            if (DeactivateBackground == background.name)
+            {
+                background.SetActive(false);
+            }
         }
     }
     public void activatePhotoMode()
@@ -255,18 +219,13 @@ public class DialogueManager : MonoBehaviour
                     charIcon.Play(tagValue);
                     break;
                 case NOTIFICATION:
-                    if (tagValue == "Phone")
+                foreach(GameObject trigger in triggers) 
+                {
+                    if(tagValue == trigger.name)
                     {
-                        PhoneTrigger.SetActive(true);
+                        trigger.SetActive(true);
                     }
-                    if (tagValue == "Picture")
-                    {
-                        PictureTrigger.SetActive(true);
-                    }
-                    if (tagValue == "Inventory")
-                    {
-                        InventoryTrigger.SetActive(true);
-                    }
+                }
                     break;
                 case SCENE:
                     DialoguePanel.SetActive(false);
@@ -298,7 +257,7 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "true")
                     {
                         SceneManager.LoadScene("EndCreditScene");
-                    } 
+                    }
                     break;
                 default:
                     Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
