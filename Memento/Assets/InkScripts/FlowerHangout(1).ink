@@ -154,6 +154,7 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 "And StarRail, thanks for hanging out with me!" #speaker:Flower #icon: Flower_happy
 "Thank you for inviting me! Now..." #speaker: StarRail
 "Say 'Cheese'!"
+#speaker: 
 ~saveCharacterData = false
 ~DeactivateScene = "CafeBackground"
 #entersChat:false
@@ -161,14 +162,14 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
 You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
-Press C to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
+Press C (B on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~cameraCheck = false
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
 Once you save your picture in the Inventory you'll be able to continue.
 ~DeactivateScene = "EnterPhotoMode"
 ~inventoryCheck = false
-Press I to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
+Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
 Press Space to end Game :)
 #EndGame: true
 -> END

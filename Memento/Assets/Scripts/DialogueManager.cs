@@ -16,12 +16,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator charIcon;
     [SerializeField] private GameObject charPanel;
     public GameObject NameTagPanel;
+    public GameObject FriendTagPanel;
     public GameObject DialoguePanel;
     public GameObject ButtonPanel;
     public GameObject Inventory;
     public GameObject Picture;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
+    public TextMeshProUGUI friendTag;
     private AudioSource sounds;
     private Animation bgAnims;
     private GameObject bg;
@@ -233,16 +235,17 @@ public class DialogueManager : MonoBehaviour
             //charPanel.SetActive(false);
             DialoguePanel.SetActive(false);
             NameTagPanel.SetActive(false);
+            FriendTagPanel.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false)
         {
             triggers[1].SetActive(true);
         }
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
         {
             Inventory.SetActive(true);
         }
@@ -313,14 +316,21 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    nameTag.text = tagValue;
                     if (tagValue == "")
                     {
                         NameTagPanel.SetActive(false);
                     }
+                    else if (tagValue == "StarRail")
+                    {
+                        nameTag.text = tagValue;
+                        NameTagPanel.SetActive(true);
+                        FriendTagPanel.SetActive(false);
+                    }
                     else
                     {
-                        NameTagPanel.SetActive(true);
+                        friendTag.text = tagValue;
+                        FriendTagPanel.SetActive(true);
+                        NameTagPanel.SetActive(false);
                     }
                     break;
                 case ICON:
