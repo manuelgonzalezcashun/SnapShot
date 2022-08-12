@@ -87,11 +87,11 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 ===ParkDate===
 #playAnimation: KitchenBackground
 ~ActivateScene = "ParkBackground"
+~saveBackgroundData = "ParkBackground"
 Flower and I walked to the park together, enjoying our time as we came upon people at the park. #speaker:
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
 ~DeactivateScene = "KitchenBackground"
-~saveBackgroundData = ""
 "Let's go hangout on the swing set then." 
 "Isn't that a little awkward Flower?" #speaker: StarRail
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
@@ -128,10 +128,10 @@ Flower and I spent a while at the park, talking more about dogs and some of the 
 ===CoffeeDate===
 #playAnimation: ParkBackground
 ~ActivateScene = "CafeBackground"
+~saveBackgroundData = "CafeBackground"
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
 ~DeactivateScene = "ParkBackground"
-~saveBackgroundData = true
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
 "So how often do you come here, Flower?"
@@ -152,11 +152,13 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 "And StarRail, thanks for hanging out with me!" #speaker:Flower #icon: Flower_happy
 "Thank you for inviting me! Now..." #speaker: StarRail
 "Say 'Cheese'!"
+~saveCharacterData = false
 ~DeactivateScene = "CafeBackground"
 #entersChat:false
 #playAnimation: CafeBackground
 Press Space to enter PhotoMode
 ~ActivateScene = "EnterPhotoMode"
+~saveBackgroundData = "EnterPhotoMode"
 Press Space to pull up your camera reticle
 #notif: PictureTrigger
 ~ActivateScene = "photoWall"

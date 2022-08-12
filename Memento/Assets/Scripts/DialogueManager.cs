@@ -161,6 +161,10 @@ public class DialogueManager : MonoBehaviour
         {
             charPanel.SetActive(true);
         }
+        else
+        {
+            charPanel.SetActive(false);
+        }
         if(ActivateButton == true)
         {
             ButtonPanel.SetActive(true);
