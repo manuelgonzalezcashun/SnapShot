@@ -2186,6 +2186,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1399668535}
   Phone: {fileID: 804359764}
   Controls: {fileID: 1049982587}
+  PhoneTrigger: {fileID: 28838528}
 --- !u!82 &531863029
 AudioSource:
   m_ObjectHideFlags: 0
