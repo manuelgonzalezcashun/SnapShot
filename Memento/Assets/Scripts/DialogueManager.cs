@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject NameTagPanel;
     public GameObject DialoguePanel;
     public GameObject ButtonPanel;
+    public GameObject Inventory;
+    public GameObject Picture;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
     private AudioSource sounds;
@@ -51,6 +53,10 @@ public class DialogueManager : MonoBehaviour
     private string _activebgName;
     private string _deactivebgName;
     private bool _activateButton;
+    private bool _cameraCheck;
+    private bool _inventoryCheck;
+
+
     public bool PhotoMode
     {
         get => _photoMode;
@@ -60,7 +66,25 @@ public class DialogueManager : MonoBehaviour
             _photoMode = value;
         }
     }
-     public bool SaveCharacterData
+    public bool CameraCheck
+    {
+        get => _cameraCheck;
+        private set
+        {
+            Debug.Log($"Updating Camera CheckPoint. Old value: {_cameraCheck}. new value: {value}");
+            _cameraCheck = value;
+        }
+    }
+    public bool InventoryCheck
+    {
+        get => _inventoryCheck;
+        private set
+        {
+            Debug.Log($"Updating Inventory CheckPoint. Old value: {_inventoryCheck}. new value: {value}");
+            _inventoryCheck = value;
+        }
+    }
+    public bool SaveCharacterData
     {
         get => _saveCharacterData;
         private set
@@ -69,7 +93,7 @@ public class DialogueManager : MonoBehaviour
             _saveCharacterData = value;
         }
     }
-     public bool ActivateButton
+    public bool ActivateButton
     {
         get => _activateButton;
         private set
@@ -96,7 +120,7 @@ public class DialogueManager : MonoBehaviour
             _deactivebgName = value;
         }
     }
-     public string SaveBackground
+    public string SaveBackground
     {
         get => _saveBackgroundData;
         private set
@@ -121,6 +145,8 @@ public class DialogueManager : MonoBehaviour
     private void InitializeVariables()
     {
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
+        CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
+        InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
         SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
         ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
         SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
@@ -131,6 +157,14 @@ public class DialogueManager : MonoBehaviour
         {
             PhotoMode = (bool)value;
         });
+        _StoryScript.ObserveVariable("cameraCheck", (arg, value) =>
+       {
+           CameraCheck = (bool)value;
+       });
+        _StoryScript.ObserveVariable("inventoryCheck", (arg, value) =>
+       {
+           InventoryCheck = (bool)value;
+       });
         _StoryScript.ObserveVariable("ActivateButton", (arg, value) =>
         {
             ActivateButton = (bool)value;
@@ -139,10 +173,10 @@ public class DialogueManager : MonoBehaviour
         {
             SaveCharacterData = (bool)value;
         });
-          _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
-        {
-            SaveBackground = (string)value;
-        });
+        _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
+      {
+          SaveBackground = (string)value;
+      });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
             ActivateBackground = (string)value;
@@ -152,12 +186,13 @@ public class DialogueManager : MonoBehaviour
             DeactivateBackground = (string)value;
         });
     }
-    public void SaveBackgroundData(){
-        if(SaveBackground == ActivateBackground)
+    public void SaveBackgroundData()
+    {
+        if (SaveBackground == ActivateBackground)
         {
             ActivateScene();
         }
-        if(SaveCharacterData == true)
+        if (SaveCharacterData == true)
         {
             charPanel.SetActive(true);
         }
@@ -165,7 +200,7 @@ public class DialogueManager : MonoBehaviour
         {
             charPanel.SetActive(false);
         }
-        if(ActivateButton == true)
+        if (ActivateButton == true)
         {
             ButtonPanel.SetActive(true);
         }
@@ -203,7 +238,15 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (PausingScript.gameIsPaused == false && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Fire2"))
+        {
+            triggers[1].SetActive(true);
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            Inventory.SetActive(true);
+        }
+        if (PausingScript.gameIsPaused == false && Input.GetButtonDown("Jump") && CameraCheck == true && InventoryCheck == true)
         {
             DisplayNextLine();
         }
@@ -235,7 +278,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        if (_StoryScript.canContinue && PausingScript.gameIsPaused == false)
+        if (_StoryScript.canContinue && PausingScript.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
         {
             dialogueText.text = "";
             string text = _StoryScript.Continue();
@@ -284,13 +327,13 @@ public class DialogueManager : MonoBehaviour
                     charIcon.Play(tagValue);
                     break;
                 case NOTIFICATION:
-                foreach(GameObject trigger in triggers) 
-                {
-                    if(tagValue == trigger.name)
+                    foreach (GameObject trigger in triggers)
                     {
-                        trigger.SetActive(true);
+                        if (tagValue == trigger.name)
+                        {
+                            trigger.SetActive(true);
+                        }
                     }
-                }
                     break;
                 case SCENE:
                     DialoguePanel.SetActive(false);
@@ -356,4 +399,12 @@ public class DialogueManager : MonoBehaviour
         _StoryScript.ChooseChoiceIndex(choiceIndex);
     }
 
+    public void CameraCheckPoint()
+    {
+        CameraCheck = true;
+    }
+    public void InventoryCheckPoint()
+    {
+        InventoryCheck = true;
+    }
 }

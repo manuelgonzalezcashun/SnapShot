@@ -64,7 +64,6 @@ public class GameStateManager : MonoBehaviour
             file.Close();
             DialogueManager.LoadState(save.InkStoryState);
             SceneManager.LoadScene("FlowerHangout");
-            //StartGame();
         }
         else
         {

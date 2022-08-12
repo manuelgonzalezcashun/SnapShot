@@ -6,6 +6,8 @@ VAR saveBackgroundData = ""
 VAR ActivateScene = ""
 VAR DeactivateScene = ""
 VAR ActivateButton = false
+VAR cameraCheck = true
+VAR inventoryCheck = true
 -> main
 ===main==
 ~ActivateScene = "DormBackground"
@@ -156,17 +158,17 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ~DeactivateScene = "CafeBackground"
 #entersChat:false
 #playAnimation: CafeBackground
-Press Space to enter PhotoMode
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
-Press Space to pull up your camera reticle
-#notif: PictureTrigger
+You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
+Press C to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
+~cameraCheck = false
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
-Click on the Reticle to take a photo. After you take a photo, double click on it to save to your inventory. Press Space to continue.
+Once you save your picture in the Inventory you'll be able to continue.
 ~DeactivateScene = "EnterPhotoMode"
-Press Space to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall.
-#notif: Inventory
+~inventoryCheck = false
+Press I to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
 Press Space to end Game :)
 #EndGame: true
 -> END
