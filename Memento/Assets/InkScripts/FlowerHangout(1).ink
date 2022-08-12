@@ -47,10 +47,10 @@ I led Flower to the kitchen so she can sit down. She sat next to me with a smile
 ~DeactivateScene = "DormBackground"
 "Nice to show up so quickly. Need something? You can tell me. I don't bite!"
 #entersChat:true
-"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower.
+"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower #icon: default
 ~saveCharacterData = true
 "Really? Are you sure?" #speaker: StarRail
-"Yeah. really... heh heh..." #speaker: Flower #icon: default
+"Yeah. really... heh heh..." #speaker: Flower 
 "Flower," #speaker: StarRail
 "Why are you really here?"
 ...#speaker: Flower 
