@@ -45,7 +45,7 @@ I walked to the front door and let Flower in.
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
 ~DeactivateScene = "DormBackground"
-"Nice to show up unnanounced like that. Need something? You can tell me. I don't bite!"
+"Nice to show up so quickly. Need something? You can tell me. I don't bite!"
 #entersChat:true
 "Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower.
 ~saveCharacterData = true
@@ -162,7 +162,7 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
 You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
-Press C (B on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
+Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~cameraCheck = false
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
