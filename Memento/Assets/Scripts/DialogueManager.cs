@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject charPanel;
     public GameObject NameTagPanel;
     public GameObject DialoguePanel;
+    public GameObject ButtonPanel;
     public TMP_Text dialogueText;
     public TextMeshProUGUI nameTag;
     private AudioSource sounds;
@@ -45,16 +46,36 @@ public class DialogueManager : MonoBehaviour
     /// Variable Observers
     //private string _deactivateScene;
     private bool _photoMode;
-    private bool _saveBackgroundData;
+    private string _saveBackgroundData;
+    private bool _saveCharacterData;
     private string _activebgName;
     private string _deactivebgName;
+    private bool _activateButton;
     public bool PhotoMode
     {
         get => _photoMode;
         private set
         {
-            Debug.Log($"Updating saveCharacterData value. Old value: {_photoMode}. new value: {value}");
+            Debug.Log($"Updating PhotoMode value. Old value: {_photoMode}. new value: {value}");
             _photoMode = value;
+        }
+    }
+     public bool SaveCharacterData
+    {
+        get => _saveCharacterData;
+        private set
+        {
+            Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
+            _saveCharacterData = value;
+        }
+    }
+     public bool ActivateButton
+    {
+        get => _activateButton;
+        private set
+        {
+            Debug.Log($"Updating Button value. Old value: {_activateButton}. new value: {value}");
+            _activateButton = value;
         }
     }
     public string ActivateBackground
@@ -75,6 +96,15 @@ public class DialogueManager : MonoBehaviour
             _deactivebgName = value;
         }
     }
+     public string SaveBackground
+    {
+        get => _saveBackgroundData;
+        private set
+        {
+            Debug.Log($"Updating BackgroundData value. Old value: {_saveBackgroundData}. new value: {value}");
+            _saveBackgroundData = value;
+        }
+    }
     /// END LINE
     void Start()
     {
@@ -91,12 +121,27 @@ public class DialogueManager : MonoBehaviour
     private void InitializeVariables()
     {
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
+        SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
+        ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
+        SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
         DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
             PhotoMode = (bool)value;
+        });
+        _StoryScript.ObserveVariable("ActivateButton", (arg, value) =>
+        {
+            ActivateButton = (bool)value;
+        });
+        _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
+        {
+            SaveCharacterData = (bool)value;
+        });
+          _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
+        {
+            SaveBackground = (string)value;
         });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
@@ -106,6 +151,20 @@ public class DialogueManager : MonoBehaviour
         {
             DeactivateBackground = (string)value;
         });
+    }
+    public void SaveBackgroundData(){
+        if(SaveBackground == ActivateBackground)
+        {
+            ActivateScene();
+        }
+        if(SaveCharacterData == true)
+        {
+            charPanel.SetActive(true);
+        }
+        if(ActivateButton == true)
+        {
+            ButtonPanel.SetActive(true);
+        }
     }
     /// Ink Variable Functions ///
     public void ActivateScene()
@@ -146,6 +205,7 @@ public class DialogueManager : MonoBehaviour
         }
         /// Ink Variables Calls ///
         ActivateScene();
+        SaveBackgroundData();
         DeactivateScene();
         activatePhotoMode();
     }
@@ -171,8 +231,9 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        if (_StoryScript.canContinue)
+        if (_StoryScript.canContinue && PausingScript.gameIsPaused == false)
         {
+            dialogueText.text = "";
             string text = _StoryScript.Continue();
             text = text?.Trim();
             dialogueText.text = text;

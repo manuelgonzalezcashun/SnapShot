@@ -8123,6 +8123,7 @@ MonoBehaviour:
   charPanel: {fileID: 165701074}
   NameTagPanel: {fileID: 1406631246}
   DialoguePanel: {fileID: 1231373424}
+  ButtonPanel: {fileID: 1297705657}
   dialogueText: {fileID: 1711467}
   nameTag: {fileID: 602431053}
   _InkJsonFile: {fileID: 4900000, guid: ebd61769d1662ea4886e9a23c108fd6a, type: 3}

@@ -18,10 +18,14 @@ public class GameStateManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("ControlsScene");
+        PausingScript.gameIsPaused = false;
+        Time.timeScale = 1f;
     }
     public void ContinueButton()
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      PausingScript.gameIsPaused = false;
+      Time.timeScale = 1f;
     }
 
     public void SaveGame()
@@ -58,10 +62,9 @@ public class GameStateManager : MonoBehaviour
             file.Position = 0;
             SaveData save = (SaveData)bf.Deserialize(file);
             file.Close();
-
             DialogueManager.LoadState(save.InkStoryState);
-
-            StartGame();
+            SceneManager.LoadScene("FlowerHangout");
+            //StartGame();
         }
         else
         {

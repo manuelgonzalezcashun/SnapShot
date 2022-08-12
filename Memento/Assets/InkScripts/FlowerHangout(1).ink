@@ -1,12 +1,15 @@
 #speaker: 
 // variables
 VAR photoMode = false
-VAR saveBackgroundData = false
+VAR saveCharacterData = false
+VAR saveBackgroundData = ""
 VAR ActivateScene = ""
 VAR DeactivateScene = ""
+VAR ActivateButton = false
 -> main
 ===main==
 ~ActivateScene = "DormBackground"
+~saveBackgroundData = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
@@ -35,6 +38,7 @@ Yawn ('What a beautiful day outside!')
 #speaker:
 #playAnimation: DormBackground
 ~ActivateScene = "KitchenBackground"
+~saveBackgroundData = "KitchenBackground"
 I walked to the front door and let Flower in.
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
@@ -42,6 +46,7 @@ I led Flower to the kitchen so she can sit down. She sat next to me with a smile
 "Nice to show up unnanounced like that. Need something? You can tell me. I don't bite!"
 #entersChat:true
 "Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower.
+~saveCharacterData = true
 "Really? Are you sure?" #speaker: StarRail
 "Yeah. really... heh heh..." #speaker: Flower #icon: default
 "Flower," #speaker: StarRail
@@ -66,8 +71,9 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 
 ===Park===
 "Ready to head out. StarRail?"
-+[Yeah, let's go!] -> ParkFun
-+[Let me look over the problems once more...] ->StudyHard
+~ActivateButton = true
++ [Yeah, let's go!] -> ParkFun
++ [Let me look over the problems once more...] -> StudyHard
 
 ===ParkFun==
 "I'm ready whenever you are!"#speaker: StarRail
@@ -85,7 +91,7 @@ Flower and I walked to the park together, enjoying our time as we came upon peop
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
 ~DeactivateScene = "KitchenBackground"
-~saveBackgroundData = true
+~saveBackgroundData = ""
 "Let's go hangout on the swing set then." 
 "Isn't that a little awkward Flower?" #speaker: StarRail
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
@@ -105,6 +111,7 @@ Flower and I spent a while at the park, talking more about dogs and some of the 
 
 ===Coffee==
 "Well, are you ready to grab a latte and a bite to eat? I'll pay, it's my treat since you are new!" #speaker: Flower #icon: default
+~ActivateButton = true
 +[Yes] -> Cafe
 +[No] -> Wait
 
