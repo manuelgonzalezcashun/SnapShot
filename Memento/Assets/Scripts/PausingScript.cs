@@ -12,6 +12,10 @@ public class PausingScript : MonoBehaviour
 
     void Update()
     {
+        if(GameObject.Find("Cursor").activeInHierarchy)
+        {
+            Time.timeScale = 1f;
+        }
         if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy && !Controls.activeInHierarchy)
         {
             if (gameIsPaused == true) 
