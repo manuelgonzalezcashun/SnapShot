@@ -9,7 +9,7 @@ public class SceneChanger: MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
         }
     }
     public void QuitGame()

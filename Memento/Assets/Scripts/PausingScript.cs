@@ -8,10 +8,12 @@ public class PausingScript : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject Phone;
+    public GameObject Controls;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !Phone.activeInHierarchy)
+        
+        if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy && !Controls.activeInHierarchy)
         {
             if (gameIsPaused == true) 
             {
@@ -34,5 +36,13 @@ public class PausingScript : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        isCursorActive();
+    }
+    private void isCursorActive()
+    {
+        if(GameObject.Find("Cursor").activeInHierarchy)
+        {
+            Time.timeScale = 1f;
+        }
     }
 }

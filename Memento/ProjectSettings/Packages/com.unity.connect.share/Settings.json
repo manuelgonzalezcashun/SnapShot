@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/flapp/Documents/GitHub/MementoGame/Memento/WebGL Builds;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Demo3/WebGL;C:/Users/kidf6/OneDrive/Documents/GitHub/MementoRealGame/MementoGame/Memento/SnapShot;C:/Users/kidf6/OneDrive/Documents/GitHub/MementoRealGame/MementoGame/Memento/WebGL Builds;C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Demo2/WebGL_Build;C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Alpha2/WebGL_Build;C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Demo/mem;C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Demo/ItchWebGL(V2);C:/Users/flapp/Documents/GitHub/MementoGame/Memento/Builds/Demo/ItchWebGL;C:/Users/flapp/Documents/GitHub/MementoGame/Memento/WebGL Builds;\"}"
             }
         ]
     }
