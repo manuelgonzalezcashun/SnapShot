@@ -9,12 +9,11 @@ public class PausingScript : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject Phone;
     public GameObject Controls;
-    public GameObject PhoneTrigger;
 
     void Update()
     {
         
-        if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy && !Controls.activeInHierarchy && !PhoneTrigger.activeInHierarchy)
+        if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy && !Controls.activeInHierarchy)
         {
             if (gameIsPaused == true) 
             {
