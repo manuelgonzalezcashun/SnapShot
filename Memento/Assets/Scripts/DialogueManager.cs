@@ -175,7 +175,7 @@ public class DialogueManager : MonoBehaviour
         });
         _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
       {
-          SaveBackground = (string)value;
+          //SaveBackground = (string)value;
       });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
