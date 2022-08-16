@@ -1,11 +1,17 @@
 #speaker: 
 // variables
 VAR photoMode = false
-VAR saveBackgroundData = false
+VAR saveCharacterData = false
+VAR saveBackgroundData = ""
 VAR ActivateScene = ""
 VAR DeactivateScene = ""
+VAR ActivateButton = false
+VAR cameraCheck = true
+VAR inventoryCheck = true
 -> main
 ===main==
+~ActivateScene = "DormBackground"
+~saveBackgroundData = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
@@ -13,7 +19,7 @@ Yawn ('What a beautiful day outside!')
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Flower!"#speaker:StarRail 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
-#notif: Phone
+#notif:PhoneTrigger
 "Looks like she's coming over. I better get the place cleaned up!" #endScene:true
 ->isReady
 
@@ -34,13 +40,15 @@ Yawn ('What a beautiful day outside!')
 #speaker:
 #playAnimation: DormBackground
 ~ActivateScene = "KitchenBackground"
+~saveBackgroundData = "KitchenBackground"
 I walked to the front door and let Flower in.
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
 ~DeactivateScene = "DormBackground"
-"Nice to show up unnanounced like that. Need something? You can tell me. I don't bite!"
+"Nice to show up so quickly. Need something? You can tell me. I don't bite!"
 #entersChat:true
-"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower.
+"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower
+~saveCharacterData = true
 "Really? Are you sure?" #speaker: StarRail
 "Yeah. really... heh heh..." #speaker: Flower #icon: default
 "Flower," #speaker: StarRail
@@ -48,7 +56,7 @@ I led Flower to the kitchen so she can sit down. She sat next to me with a smile
 ...#speaker: Flower 
 "I needed help to do my homework, it is very difficult this week! It has been stressing me out this whole week too!" #icon: Flower_sad
 "I knew it!" #speaker: StarRail
-('Well I should get my homework out of the way to enjoy the rest of the day. Need to emjoy the weekend!')
+('Well I should get my homework out of the way to enjoy the rest of the day. Need to enjoy the weekend!')
 "Alright. How about we get started on our homework then? I'll help you. Also, if you still want to hangout, we can think of a place."
 
 "Wait...for real? That'd be awesome! I'll pick the spot if you don't mind." #speaker: Flower #icon: Flower_shocked
@@ -65,12 +73,13 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 
 ===Park===
 "Ready to head out. StarRail?"
-+[Yeah, let's go!] -> ParkFun
-+[Let me look over the problems once more...] ->StudyHard
+~ActivateButton = true
++ [Yeah, let's go!] -> ParkFun
++ [Let me look over the problems once more...] -> StudyHard
 
 ===ParkFun==
 "I'm ready whenever you are!"#speaker: StarRail
-"Great! Let's go!" #speaker: Flowee #icon: Flower_happy
+"Great! Let's go!" #speaker: Flower #icon: Flower_happy
 -> ParkDate
 
 ==StudyHard==
@@ -80,11 +89,11 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 ===ParkDate===
 #playAnimation: KitchenBackground
 ~ActivateScene = "ParkBackground"
+~saveBackgroundData = "ParkBackground"
 Flower and I walked to the park together, enjoying our time as we came upon people at the park. #speaker:
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
 ~DeactivateScene = "KitchenBackground"
-~saveBackgroundData = true
 "Let's go hangout on the swing set then." 
 "Isn't that a little awkward Flower?" #speaker: StarRail
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
@@ -104,6 +113,7 @@ Flower and I spent a while at the park, talking more about dogs and some of the 
 
 ===Coffee==
 "Well, are you ready to grab a latte and a bite to eat? I'll pay, it's my treat since you are new!" #speaker: Flower #icon: default
+~ActivateButton = true
 +[Yes] -> Cafe
 +[No] -> Wait
 
@@ -118,12 +128,12 @@ Flower and I spent a while at the park, talking more about dogs and some of the 
 -> Coffee
 
 ===CoffeeDate===
-#playAnimation: KitchenBackground
+#playAnimation: ParkBackground
 ~ActivateScene = "CafeBackground"
+~saveBackgroundData = "CafeBackground"
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
 ~DeactivateScene = "ParkBackground"
-~saveBackgroundData = true
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
 "So how often do you come here, Flower?"
@@ -140,16 +150,26 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 "Mhm. It would make a good picture, plus we get to capture all that we did today!" #speaker: StarRail
 "Oh I see...well, when you put it like that...#speaker:Flower #icon: Flower_sad
 "How could I say no?" #speaker:Flower #icon: Flower_happy
-"Nice! Let me get out my camera!" #icon default
+"Nice! Let me get out my camera!" #icon: default
 "And StarRail, thanks for hanging out with me!" #speaker:Flower #icon: Flower_happy
 "Thank you for inviting me! Now..." #speaker: StarRail
 "Say 'Cheese'!"
-~ActivateScene = "transition"
+#speaker: 
+~saveCharacterData = false
+~DeactivateScene = "CafeBackground"
 #entersChat:false
 #playAnimation: CafeBackground
-placeholder
 ~ActivateScene = "EnterPhotoMode"
-#playAnimation: transition
-~photoMode = true
-#notif: Picture
+~saveBackgroundData = "EnterPhotoMode"
+You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
+Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
+~cameraCheck = false
+~ActivateScene = "photoWall"
+#playAnimation: EnterPhotoMode
+Once you save your picture in the Inventory you'll be able to continue.
+~DeactivateScene = "EnterPhotoMode"
+~inventoryCheck = false
+Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
+Press Space to end Game :)
+#EndGame: true
 -> END
