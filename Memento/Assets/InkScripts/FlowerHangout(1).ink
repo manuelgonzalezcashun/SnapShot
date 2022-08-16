@@ -152,7 +152,6 @@ Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle 
 ~cameraCheck = false
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
-Once you save your picture in the Inventory you'll be able to continue.
 ~DeactivateScene = "EnterPhotoMode"
 ~inventoryCheck = false
 Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
