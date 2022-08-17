@@ -41,26 +41,24 @@ Yawn ('What a beautiful day outside!')
 #playAnimation: DormBackground
 ~ActivateScene = "KitchenBackground"
 ~saveBackgroundData = "KitchenBackground"
-I walked to the front door and let Flower in.
+I walked to the front door and let Flower in. #icon: default
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
 ~DeactivateScene = "DormBackground"
 "Nice to show up so quickly. Need something? You can tell me. I don't bite!"
-#entersChat:true
-"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower
-~saveCharacterData = true
-"Really? Are you sure?" #speaker: StarRail
-"Yeah. really... heh heh..." #speaker: Flower #icon: default
-"Flower," #speaker: StarRail
+"Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower #icon:Flower_happy
+"Really? Are you sure?" #speaker: StarRail #icon:default
+"Yeah. really... heh heh..." #speaker: Flower #icon:Flower_happy
+"Flower," #speaker: StarRail #icon:default
 "Why are you really here?"
 ...#speaker: Flower 
-"I needed help to do my homework, it is very difficult this week! It has been stressing me out this whole week too!" #icon: Flower_sad
-"I knew it!" #speaker: StarRail
-('Well I should get my homework out of the way to enjoy the rest of the day. Need to enjoy the weekend!')
+"I needed help to do my homework, it is very difficult this week! It has been stressing me out this whole week too!" #icon:Flower_sad
+"I knew it!" #speaker:StarRail
+('Well I should get my homework out of the way to enjoy the rest of the day. Need to enjoy the weekend!') 
 "Alright. How about we get started on our homework then? I'll help you. Also, if you still want to hangout, we can think of a place."
 
 "Wait...for real? That'd be awesome! I'll pick the spot if you don't mind." #speaker: Flower #icon: Flower_shocked
-"Sure, no problem Flower!" #speaker: StarRail
+"Sure, no problem Flower!" #speaker: StarRail #icon:default
 "Yes! Thank you so much! Let's get started." #speaker: Flower #icon: Flower_happy
 
 Flower and I spent a while doing our homework. #speaker: #icon: 
@@ -70,7 +68,7 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 "There's a cafe that I would like to take you to. The coffee there is really good!"
 -> HangoutChoices
 ==HangoutChoices==
-"Where would you like to go StarRail? You pick!" #speaker: Flower #icon: Flower_happy
+"Where would you like to go StarRail? You pick!" #speaker: Flower 
 ~ActivateButton = true
 +[Cafe] -> Cafe
 +[Park] -> ParkFun
@@ -81,33 +79,34 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 ===ParkDate===
 #playAnimation: KitchenBackground
 ~ActivateScene = "ParkBackground"
+#icon:default
 Flower and I walked to the park together, enjoying our time as we came upon people at the park. #speaker:
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
-"I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
+"I agree, it is so warm here too!" #speaker: Flower 
 ~DeactivateScene = "KitchenBackground"
 ~saveBackgroundData = "ParkBackground"
-"Let's go hangout on the swing set then." 
-"Isn't that a little awkward Flower?" #speaker: StarRail
+"Let's go hangout on the swing set then." #icon: Flower_happy
+"Isn't that a little awkward Flower?" #speaker: StarRail #icon:default
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
-"It would. What kind of dogs do you like Flower? Got a preference?" #speaker: StarRail
+"It would. What kind of dogs do you like Flower? Got a preference?" #speaker: StarRail #icon:default
 "Oh, well, I sort of like beagles! They are so innocent and cute! How could anyone say no to that face? #speaker: Flower #icon: Flower_happy
-"I'm more of a chihuahua person myself." #speaker: StarRail
-"Small dogs can be a handfull, but I think with enough time, they are all good in the end." #speaker: Flower #icon: default
+"I'm more of a chihuahua person myself." #speaker: StarRail #icon:default
+"Small dogs can be a handfull, but I think with enough time, they are all good in the end." #speaker: Flower
 ('If there was one here, I'd totally would take a picture...') #speaker: StarRail
 As if on cue, a woman was walking her dog and Flower is quick to notice. Flower quickly went over to the woman and her dog. #icon: Flower_shocked
 "Excuse me, miss? Can I pet your dog? He is so precious!" #speaker: Flower #icon: Flower_happy
-"Oh, sure! He loves the attention!" #speaker: Woman
+"Oh, sure! He loves the attention!" #speaker: Woman #icon:default
 Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
-"Here StarRail, come quick! This dog is so amazing!"
-('That dog is really cute. I reminds me of the one I saw last week. I love living here!')
-"Is it alright if I take a photo of your dog ma'am?" #speaker: StarRail
+"Here StarRail, come quick! This dog is so amazing!" #icon:Flower_happy
+('That dog is really cute. I reminds me of the one I saw last week. I love living here!') 
+"Is it alright if I take a photo of your dog ma'am?" #speaker: StarRail #icon:default
 "I'd be happy if you would!" #speaker: Woman
 "Great! Oh, and you can keep petting him Flower. This is gonna look great!" #speaker: StarRail
 "Good idea!" #speaker: Flower #icon: Flower_happy
-Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards.
+Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards. #icon:default
 "I had a good afternoon Flower! Thanks for iviting me to hangout. It means quite a lot to me. I think I am gonna head home now." #speaker: StarRail
 "Well it was very worth it! Next time I will have to take you somewhere different! I am sure you would like it! Text me when you get home, okay?"" #speaker: Flower #icon: Flower_happy
-Flower and I waved goodbye to each other as we walked our separate ways home.
+Flower and I waved goodbye to each other as we walked our separate ways home. #icon:
 -> DONE
 ===Cafe===
 "I would like to go to the cafe, please!" #speaker: StarRail
