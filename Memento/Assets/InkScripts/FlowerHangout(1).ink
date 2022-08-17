@@ -85,7 +85,7 @@ Flower and I walked to the park together, enjoying our time as we came upon peop
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
 ~DeactivateScene = "KitchenBackground"
-~saveBackgroundData = true
+~saveBackgroundData = "ParkBackground"
 "Let's go hangout on the swing set then." 
 "Isn't that a little awkward Flower?" #speaker: StarRail
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
