@@ -16,12 +16,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator charIcon;
     [SerializeField] private GameObject charPanel;
     public GameObject NameTagPanel;
+    public GameObject FriendTagPanel;
     public GameObject DialoguePanel;
     public GameObject ButtonPanel;
     public GameObject Inventory;
     public GameObject Picture;
-    public TMP_Text dialogueText;
+    public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameTag;
+    public TextMeshProUGUI friendTag;
     private AudioSource sounds;
     private Animation bgAnims;
     private GameObject bg;
@@ -29,6 +31,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
     [SerializeField] private TextAsset _InkJsonFile;
+    private Coroutine displayTextCoroutine;
+    private bool canContinueToNextLine = true;
+    private bool submitButtonPressed = true;
     [SerializeField] private GameObject[] choices;
     [SerializeField] private GameObject[] backgrounds;
     [SerializeField] private GameObject[] triggers;
@@ -175,7 +180,7 @@ public class DialogueManager : MonoBehaviour
         });
         _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
       {
-          //SaveBackground = (string)value;
+          SaveBackground = (string)value;
       });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
@@ -233,22 +238,32 @@ public class DialogueManager : MonoBehaviour
             //charPanel.SetActive(false);
             DialoguePanel.SetActive(false);
             NameTagPanel.SetActive(false);
+            FriendTagPanel.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Jump"))
+        {
+            submitButtonPressed = true;
+        }
+        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false)
         {
             triggers[1].SetActive(true);
         }
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
         {
             Inventory.SetActive(true);
         }
-        if (PausingScript.gameIsPaused == false && Input.GetButtonDown("Jump") && CameraCheck == true && InventoryCheck == true)
+        if (DialoguePanel.activeInHierarchy && PausingScript.gameIsPaused == false && CameraCheck == true && InventoryCheck == true)
         {
-            DisplayNextLine();
+            if (canContinueToNextLine && Input.GetButtonDown("Jump") && submitButtonPressed)
+            {
+                submitButtonPressed = false;
+                DisplayNextLine();
+            }
+
         }
         /// Ink Variables Calls ///
         ActivateScene();
@@ -268,26 +283,35 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        canContinueToNextLine = false;
         foreach (char letter in sentence.ToCharArray())
         {
+            if (submitButtonPressed)
+            {
+                submitButtonPressed = false;
+                dialogueText.text = sentence;
+                break;
+            }
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
-        yield return null;
+        canContinueToNextLine = true;
     }
-
     public void DisplayNextLine()
     {
-        if (_StoryScript.canContinue && PausingScript.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
+        if (PausingScript.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
         {
-            dialogueText.text = "";
-            string text = _StoryScript.Continue();
-            text = text?.Trim();
-            dialogueText.text = text;
-            StartCoroutine(TypeSentence(text));
-            StoryChoices();
+            if (_StoryScript.canContinue)
+            {
+                if (displayTextCoroutine != null)
+                {
+                    StopCoroutine(displayTextCoroutine);
+                }
+                displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
+                StoryChoices();
+            }
+            HandleTags(_StoryScript.currentTags);
         }
-        HandleTags(_StoryScript.currentTags);
     }
     public string GetStoryState()
     {
@@ -313,14 +337,21 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    nameTag.text = tagValue;
                     if (tagValue == "")
                     {
                         NameTagPanel.SetActive(false);
                     }
+                    else if (tagValue == "StarRail")
+                    {
+                        nameTag.text = tagValue;
+                        NameTagPanel.SetActive(true);
+                        FriendTagPanel.SetActive(false);
+                    }
                     else
                     {
-                        NameTagPanel.SetActive(true);
+                        friendTag.text = tagValue;
+                        FriendTagPanel.SetActive(true);
+                        NameTagPanel.SetActive(false);
                     }
                     break;
                 case ICON:

@@ -71,6 +71,7 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 -> HangoutChoices
 ==HangoutChoices==
 "Where would you like to go StarRail? You pick!" #speaker: Flower #icon: Flower_happy
+~ActivateButton = true
 +[Cafe] -> Cafe
 +[Park] -> ParkFun
 ===ParkFun==
@@ -84,7 +85,7 @@ Flower and I walked to the park together, enjoying our time as we came upon peop
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower #icon: Flower_happy
 ~DeactivateScene = "KitchenBackground"
-~saveBackgroundData = true
+~saveBackgroundData = "ParkBackground"
 "Let's go hangout on the swing set then." 
 "Isn't that a little awkward Flower?" #speaker: StarRail
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
@@ -119,7 +120,7 @@ Flower and I waved goodbye to each other as we walked our separate ways home.
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
 ~DeactivateScene = "ParkBackground"
-~saveBackgroundData = true
+~saveBackgroundData = "CafeBackground"
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
 "So how often do you come here, Flower?"
@@ -148,11 +149,10 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
 You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
-Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~cameraCheck = false
+Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
-Once you save your picture in the Inventory you'll be able to continue.
 ~DeactivateScene = "EnterPhotoMode"
 ~inventoryCheck = false
 Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
