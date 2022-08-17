@@ -71,6 +71,7 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 -> HangoutChoices
 ==HangoutChoices==
 "Where would you like to go StarRail? You pick!" #speaker: Flower #icon: Flower_happy
+~ActivateButton = true
 +[Cafe] -> Cafe
 +[Park] -> ParkFun
 ===ParkFun==
@@ -119,7 +120,7 @@ Flower and I waved goodbye to each other as we walked our separate ways home.
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
 ~DeactivateScene = "ParkBackground"
-~saveBackgroundData = true
+~saveBackgroundData = "CafeBackground"
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
 "So how often do you come here, Flower?"
@@ -148,8 +149,8 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
 You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
-Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~cameraCheck = false
+Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
 ~DeactivateScene = "EnterPhotoMode"
