@@ -148,14 +148,14 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 #playAnimation: CafeBackground
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
-You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)
+<i>You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)</i>
 ~cameraCheck = false
-Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.
+<i>Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.</i>
 ~ActivateScene = "photoWall"
 #playAnimation: EnterPhotoMode
 ~DeactivateScene = "EnterPhotoMode"
 ~inventoryCheck = false
-Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture
-Press Space to end Game :)
+<i>Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>
+<i>Press Space to end Game</i> :)
 #EndGame: true
 -> END
