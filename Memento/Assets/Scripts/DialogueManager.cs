@@ -284,6 +284,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
         canContinueToNextLine = false;
+        bool isAddingRichText = false;
         foreach (char letter in sentence.ToCharArray())
         {
             if (submitButtonPressed)
@@ -292,8 +293,21 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.text = sentence;
                 break;
             }
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            if (letter == '<' || isAddingRichText)
+            {
+                isAddingRichText = true;
+                dialogueText.text += letter;
+                if (letter == '>')
+                {
+                    isAddingRichText = false;
+                }
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(0.02f);
+            }
+
         }
         canContinueToNextLine = true;
     }
