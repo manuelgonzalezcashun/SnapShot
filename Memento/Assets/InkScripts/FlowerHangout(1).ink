@@ -132,12 +132,12 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 
 ===ParkDateEnd===
 ~DeactivateScene = "ParkPhoto"
-~ActivateScene = "ParkBackground"
+~ActivateScene = "AfternoonParkBackground"
 Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards. #icon:default
 "I had a good afternoon Flower! Thanks for inviting me to hangout. It means quite a lot to me. I think I am gonna head home now." #speaker: StarRail
 "Well it was very worth it! Next time I will have to take you somewhere different! I am sure you would like it! Text me when you get home, okay?" #speaker: Flower #icon: Flower_happy
 Flower and I waved goodbye to each other as we walked our separate ways home. #speaker: #icon: default
-~DeactivateScene = "ParkBackground"
+~DeactivateScene = "AfternoonParkBackground"
 -> WalkingHome
 
 ===Cafe===
