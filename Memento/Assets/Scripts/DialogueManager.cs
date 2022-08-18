@@ -253,6 +253,10 @@ public class DialogueManager : MonoBehaviour
         {
             triggers[2].SetActive(true);
         }
+        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "BirdPhotoScene")
+        {
+            triggers[3].SetActive(true);
+        }
         if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
         {
             Inventory.SetActive(true);

@@ -27,6 +27,7 @@ A bird flew onto the edge of the window next to the bed.
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
 ~cameraCheck = false
 (<i>Press C to pull up your camera and take a picture of the bird. Then double click on the picture to save it to your inventory</i>)
+~DeactivateScene = "BirdPhotoScene"
 -> main
 ===main===
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
@@ -110,8 +111,8 @@ As if on cue, a woman was walking her dog and Flower is quick to notice. Flower 
 "Excuse me, miss? Can I pet your dog? He is so precious!" #speaker: Flower #icon: Flower_happy
 "Oh, sure! He loves the attention!" #speaker: Woman #icon:default
 Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
-"Here StarRail, come quick! This dog is so amazing!" #icon:Flower_happy
-('That dog is really cute. I reminds me of the one I saw last week. I love living here!') 
+"Here StarRail, come quick! This dog is so amazing!"#speaker:Flower #icon:Flower_happy
+('That dog is really cute. I reminds me of the one I saw last week. I love living here!') #speaker: 
 "Is it alright if I take a photo of your dog ma'am?" #speaker: StarRail #icon:default
 "I'd be happy if you would!" #speaker: Woman
 "Great! Oh, and you can keep petting him Flower. This is gonna look great!" #speaker: StarRail
