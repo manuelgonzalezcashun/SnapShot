@@ -16,6 +16,9 @@ It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
 ('What am I gonna do today?')
+A bird flew onto the edge of the window next to the bed.
+('Wasn't expecting that..., but it sure does look cute! I'll take a photo. just hold still...')
+
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Flower!"#speaker:StarRail 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
@@ -102,31 +105,13 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 ('That dog is really cute. I reminds me of the one I saw last week. I love living here!')
 "Is it alright if I take a photo of your dog ma'am?" #speaker: StarRail
 "I'd be happy if you would!" #speaker: Woman
-"Great! Oh, and you can keep petting him Flower. This is gonna look great! Say Cheese!" #speaker: StarRail
+"Great! Oh, and you can keep petting him Flower. This is gonna look great!" #speaker: StarRail
 "Good idea!" #speaker: Flower #icon: Flower_happy
-#speaker: 
-~saveCharacterData = false
-~DeactivateScene = "ParkBackground"
-#entersChat:false
-#playAnimation: ParkBackground
-~ActivateScene = "EnterPhotoMode"
-~saveBackgroundData = "EnterPhotoMode"
-<i>You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)</i>
-~cameraCheck = false
-<i>Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.</i>
-~ActivateScene = "photoWall"
-#playAnimation: EnterPhotoMode
-~DeactivateScene = "EnterPhotoMode"
-~inventoryCheck = false
-<i>Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>
-~ActivateScene = "ParkBackground"
 Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards.
 "I had a good afternoon Flower! Thanks for iviting me to hangout. It means quite a lot to me. I think I am gonna head home now." #speaker: StarRail
 "Well it was very worth it! Next time I will have to take you somewhere different! I am sure you would like it! Text me when you get home, okay?"" #speaker: Flower #icon: Flower_happy
-Flower and I waved goodbye to each other as we walked our separate ways home. #speaker:
-<i>Press Space to end Game</i> :)
-#EndGame: true
--> END
+Flower and I waved goodbye to each other as we walked our separate ways home.
+-> DONE
 ===Cafe===
 "I would like to go to the cafe, please!" #speaker: StarRail
 "Alright, let's go ahead and go!" #speaker:Flower #icon:Flower_happy
