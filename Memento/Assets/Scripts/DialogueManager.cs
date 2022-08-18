@@ -87,15 +87,15 @@ public class DialogueManager : MonoBehaviour
             _inventoryCheck = value;
         }
     }
-   /* public bool SaveCharacterData
-    {
-        get => _saveCharacterData;
-        private set
-        {
-            Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
-            _saveCharacterData = value;
-        }
-    }*/
+    /* public bool SaveCharacterData
+     {
+         get => _saveCharacterData;
+         private set
+         {
+             Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
+             _saveCharacterData = value;
+         }
+     }*/
     public bool ActivateButton
     {
         get => _activateButton;
@@ -172,10 +172,10 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateButton = (bool)value;
         });
-       /* _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
-        {
-            SaveCharacterData = (bool)value;
-        });*/
+        /* _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
+         {
+             SaveCharacterData = (bool)value;
+         });*/
         _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
       {
           SaveBackground = (string)value;
@@ -280,6 +280,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        HideStoryChoices();
         canContinueToNextLine = false;
         bool isAddingRichText = false;
         foreach (char letter in sentence.ToCharArray())
@@ -304,9 +305,9 @@ public class DialogueManager : MonoBehaviour
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(0.02f);
             }
-
         }
         canContinueToNextLine = true;
+        StoryChoices();
     }
     public void DisplayNextLine()
     {
@@ -319,7 +320,6 @@ public class DialogueManager : MonoBehaviour
                     StopCoroutine(displayTextCoroutine);
                 }
                 displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
-                StoryChoices();
             }
             HandleTags(_StoryScript.currentTags);
         }
@@ -432,6 +432,17 @@ public class DialogueManager : MonoBehaviour
         for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
+        }
+    }
+    private void HideStoryChoices()
+    {
+        List<Choice> currentchoices = _StoryScript.currentChoices;
+        foreach (Choice choice in currentchoices)
+        {
+            for (int i = 0; i < choices.Length; i++)
+            {
+                choices[i].gameObject.SetActive(false);
+            }
         }
     }
     public void MakeChoice(int choiceIndex)
