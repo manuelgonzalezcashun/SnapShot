@@ -1181,9 +1181,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1143992737}
-        m_TargetAssemblyTypeName: LoadGameButtonScript, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 740520837}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
