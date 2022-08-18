@@ -43,7 +43,6 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink Tags")]
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
-    private const string ENTER = "entersChat";
     private const string SCENE = "endScene";
     private const string NOTIFICATION = "notif";
     private const string AUDIO = "PlaySound";
@@ -51,10 +50,9 @@ public class DialogueManager : MonoBehaviour
     private const string END = "EndGame";
 
     /// Variable Observers
-    //private string _deactivateScene;
     private bool _photoMode;
     private string _saveBackgroundData;
-    private bool _saveCharacterData;
+    //private bool _saveCharacterData;
     private string _activebgName;
     private string _deactivebgName;
     private bool _activateButton;
@@ -89,15 +87,15 @@ public class DialogueManager : MonoBehaviour
             _inventoryCheck = value;
         }
     }
-    public bool SaveCharacterData
-    {
-        get => _saveCharacterData;
-        private set
-        {
-            Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
-            _saveCharacterData = value;
-        }
-    }
+    /* public bool SaveCharacterData
+     {
+         get => _saveCharacterData;
+         private set
+         {
+             Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
+             _saveCharacterData = value;
+         }
+     }*/
     public bool ActivateButton
     {
         get => _activateButton;
@@ -152,7 +150,7 @@ public class DialogueManager : MonoBehaviour
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
         CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
         InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
-        SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
+        //SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
         ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
         SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
@@ -174,10 +172,10 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateButton = (bool)value;
         });
-        _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
-        {
-            SaveCharacterData = (bool)value;
-        });
+        /* _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
+         {
+             SaveCharacterData = (bool)value;
+         });*/
         _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
       {
           SaveBackground = (string)value;
@@ -197,14 +195,14 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateScene();
         }
-        if (SaveCharacterData == true)
+        /*if (SaveCharacterData == true)
         {
             charPanel.SetActive(true);
         }
         else
         {
             charPanel.SetActive(false);
-        }
+        }*/
         if (ActivateButton == true)
         {
             ButtonPanel.SetActive(true);
@@ -235,7 +233,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (PhotoMode == true)
         {
-            //charPanel.SetActive(false);
             DialoguePanel.SetActive(false);
             NameTagPanel.SetActive(false);
             FriendTagPanel.SetActive(false);
@@ -248,9 +245,17 @@ public class DialogueManager : MonoBehaviour
         {
             submitButtonPressed = true;
         }
-        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false)
+        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "CafePhoto")
         {
             triggers[1].SetActive(true);
+        }
+        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "ParkPhoto")
+        {
+            triggers[2].SetActive(true);
+        }
+        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "BirdPhotoScene")
+        {
+            triggers[3].SetActive(true);
         }
         if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
         {
@@ -283,6 +288,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        HideStoryChoices();
         canContinueToNextLine = false;
         bool isAddingRichText = false;
         foreach (char letter in sentence.ToCharArray())
@@ -305,11 +311,11 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
-
         }
         canContinueToNextLine = true;
+        StoryChoices();
     }
     public void DisplayNextLine()
     {
@@ -322,7 +328,6 @@ public class DialogueManager : MonoBehaviour
                     StopCoroutine(displayTextCoroutine);
                 }
                 displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
-                StoryChoices();
             }
             HandleTags(_StoryScript.currentTags);
         }
@@ -369,7 +374,15 @@ public class DialogueManager : MonoBehaviour
                     }
                     break;
                 case ICON:
-                    charIcon.Play(tagValue);
+                    if (tagValue == "")
+                    {
+                        charPanel.SetActive(false);
+                    }
+                    else
+                    {
+                        charPanel.SetActive(true);
+                        charIcon.Play(tagValue);
+                    }
                     break;
                 case NOTIFICATION:
                     foreach (GameObject trigger in triggers)
@@ -395,16 +408,6 @@ public class DialogueManager : MonoBehaviour
                     sounds = FindSound.GetComponent<AudioSource>();
                     sounds.Play();
                     Debug.Log(FindSound.name);
-                    break;
-                case ENTER:
-                    if (tagValue == "false")
-                    {
-                        charPanel.SetActive(false);
-                    }
-                    else if (tagValue == "true")
-                    {
-                        charPanel.SetActive(true);
-                    }
                     break;
                 case END:
                     if (tagValue == "true")
@@ -437,6 +440,17 @@ public class DialogueManager : MonoBehaviour
         for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
+        }
+    }
+    private void HideStoryChoices()
+    {
+        List<Choice> currentchoices = _StoryScript.currentChoices;
+        foreach (Choice choice in currentchoices)
+        {
+            for (int i = 0; i < choices.Length; i++)
+            {
+                choices[i].gameObject.SetActive(false);
+            }
         }
     }
     public void MakeChoice(int choiceIndex)
