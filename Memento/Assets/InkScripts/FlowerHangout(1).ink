@@ -110,7 +110,6 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 
 ===ParkPhoto===
 #speaker: #icon:
-#playAnimation: ParkBackgroundExit
 ~ActivateScene = "ParkPhoto"
 ~saveBackgroundData = "ParkPhoto"
 ~saveCharacterData = false
@@ -121,7 +120,6 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 -> ParkDateEnd
 
 ===ParkDateEnd===
-#playAnimation: ParkBackgroundEnter
 ~DeactivateScene = "ParkPhoto"
 ~ActivateScene = "ParkBackground"
 Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards. #icon:default
@@ -189,8 +187,6 @@ Flower and I parted ways for the day, waving goodbye to each other after leaving
 
 ===WalkingHome==
 #icon: 
-#playAnimation: ParkBackgroundExit
-#playAnimation: CafeBackgroundExit
 ~ActivateScene = "NightSidewalkBackground"
 ~saveBackgroundData = "NightSidewalkBackground"
 ('I had a lot of fun with Flower today. We definitely need to hangout more!')
@@ -209,7 +205,6 @@ Once I got situated in my room, I layed across my bed before looking up at my co
 ===PhotoWall===
 ~DeactivateScene = "NightDormBackground"
 ~ActivateScene = "photoWall"
-#playAnimation: EnterPhotoMode
 ~inventoryCheck = false
 <i>Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>
 <i>Press Space to end Game</i> :)
