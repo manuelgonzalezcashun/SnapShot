@@ -16,6 +16,9 @@ It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
 ('What am I gonna do today?')
+A bird flew onto the edge of the window next to the bed.
+('Wasn't expecting that..., but it sure does look cute! I'll take a photo. just hold still...')
+
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Flower!"#speaker:StarRail 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
