@@ -8,8 +8,8 @@ VAR DeactivateScene = ""
 VAR ActivateButton = false
 VAR cameraCheck = true
 VAR inventoryCheck = true
--> main
-===main==
+-> start
+===start==
 ~ActivateScene = "DormBackground"
 ~saveBackgroundData = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
@@ -18,7 +18,17 @@ Yawn ('What a beautiful day outside!')
 ('What am I gonna do today?')
 A bird flew onto the edge of the window next to the bed.
 ('Wasn't expecting that..., but it sure does look cute! I'll take a photo. just hold still...')
+->birbscene
+===birbscene===
+#speaker: #icon:
+~ActivateScene = "BirdPhotoScene"
+~saveBackgroundData = "BirdPhotoScene"
 
+Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
+~cameraCheck = false
+(<i>Press C to pull up your camera and take a picture of the bird. Then double click on the picture to save it to your inventory</i>)
+-> main
+===main===
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Flower!"#speaker:StarRail 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
