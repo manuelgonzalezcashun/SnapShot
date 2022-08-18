@@ -143,10 +143,9 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 "And StarRail, thanks for hanging out with me!" #speaker:Flower #icon: Flower_happy
 "Thank you for inviting me! Now..." #speaker: StarRail
 "Say 'Cheese'!"
-#speaker: 
+#speaker: #icon: 
 ~saveCharacterData = false
 ~DeactivateScene = "CafeBackground"
-#entersChat:false
 #playAnimation: CafeBackground
 ~ActivateScene = "EnterPhotoMode"
 ~saveBackgroundData = "EnterPhotoMode"
