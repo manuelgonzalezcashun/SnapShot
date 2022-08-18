@@ -197,7 +197,7 @@ Flower and I parted ways for the day, waving goodbye to each other after leaving
 -> WalkingHome
 
 ===WalkingHome==
-#icon: 
+#icon: #speaker: 
 ~ActivateScene = "NightSidewalkBackground"
 ~saveBackgroundData = "NightSidewalkBackground"
 ('I had a lot of fun with Flower today. We definitely need to hangout more!')
