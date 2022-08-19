@@ -245,9 +245,17 @@ public class DialogueManager : MonoBehaviour
         {
             submitButtonPressed = true;
         }
-        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false)
+        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "CafePhoto")
         {
             triggers[1].SetActive(true);
+        }
+        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "ParkPhoto")
+        {
+            triggers[2].SetActive(true);
+        }
+        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "BirdPhotoScene")
+        {
+            triggers[3].SetActive(true);
         }
         if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
         {
@@ -303,7 +311,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
         canContinueToNextLine = true;
