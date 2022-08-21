@@ -26,7 +26,7 @@ A bird flew onto the edge of the window next to the bed.
 
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
 ~cameraCheck = false
-(<i>Press C to pull up your camera and take a picture of the bird. Then double click on the picture to save it to your inventory</i>)
+(<i>Press C or Y if your using an XboxController to pull up your camera and take a picture of the bird. Then double click on the picture to save it to your inventory</i>)
 ~DeactivateScene = "BirdPhotoScene"
 -> main
 ===main===
@@ -149,7 +149,7 @@ Flower and I waved goodbye to each other as we walked our separate ways home. #s
 #playAnimation: KitchenBackground
 ~ActivateScene = "CafeBackground"
 We made our way to the cafe #speaker:
-"Here we are, the place I was telling you about! The built it here like a year ago." #speaker: Flower #icon: default
+"Here we are, the place I was telling you about! They built it here like a year ago." #speaker: Flower #icon: default
 ~DeactivateScene = "KitchenBackground"
 ~saveBackgroundData = "CafeBackground"
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
