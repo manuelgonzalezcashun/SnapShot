@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004787604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73bca1d1f01be424190ca31581b83c9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cce52a7a2d86c04abf06d9ad77a3128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 2004787607}
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.761
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

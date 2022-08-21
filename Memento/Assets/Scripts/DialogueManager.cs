@@ -257,7 +257,7 @@ public class DialogueManager : MonoBehaviour
         {
             triggers[3].SetActive(true);
         }
-        if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false)
+        if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false && ActivateBackground == "photoWall")
         {
             Inventory.SetActive(true);
         }
