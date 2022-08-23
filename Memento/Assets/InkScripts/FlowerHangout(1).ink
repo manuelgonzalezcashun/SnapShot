@@ -120,14 +120,12 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 -> ParkPhoto
 
 ===ParkPhoto===
-#speaker: #icon:
+~cameraCheck = false
 ~ActivateScene = "ParkPhoto"
 ~saveBackgroundData = "ParkPhoto"
 ~saveCharacterData = false
-<i>You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)</i>
 ~DeactivateScene = "ParkBackground"
-~cameraCheck = false
-<i>Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.</i>
+Take a photo quickly StarRail, I wanna keep playing with him! #icon:
 -> ParkDateEnd
 
 ===ParkDateEnd===
@@ -175,21 +173,19 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 -> CafePhoto
 
 ===CafePhoto===
-#speaker: #icon: 
-~saveCharacterData = false
+~cameraCheck = false
 ~DeactivateScene = "CafeBackground"
 ~ActivateScene = "CafePhoto"
 ~saveBackgroundData = "CafePhoto"
-<i>You are now in Photo Mode. Don't worry if it's your first time taking a picture, we will walk you through it :)</i>
-~cameraCheck = false
-<i>Press C (Y on the Xbox Controller) to pull up your Camera. Click on the Reticle to take a photo. After you take a photo, double click on it with left mouse button to save to your inventory.</i>
+"Cheese!" #speaker: Flower #icon: 
 ->CoffeeDateEnd
 
 ===CoffeeDateEnd==
 ~ActivateScene = "CafeBackground"
 ~DeactivateScene = "CafePhoto"
-"Oh that's a great photo! You have to keep that one StarRail!" #speaker: Flower #icon: Flower_happy
-"Oh thanks!" #speaker: StarRail
+Hey Flower! Take a look at the photo! #speaker: StarRail
+"Wow that's a great photo! You have to keep that one StarRail!" #speaker: Flower #icon: Flower_happy
+"Thanks!" #speaker: StarRail
 "Well it is getting a bit late. Think we should call it a day?" #speaker: Flower #icon: default
 "Sounds good to me, I'll catch you later, Flower!" #speaker: StarRail
 Flower and I parted ways for the day, waving goodbye to each other after leaving the cafe.
