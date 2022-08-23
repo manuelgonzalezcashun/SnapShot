@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Inventory;
     public GameObject Picture;
     public TextMeshProUGUI dialogueText;
+    public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI friendTag;
     private AudioSource sounds;
@@ -360,6 +361,14 @@ public class DialogueManager : MonoBehaviour
                     {
                         NameTagPanel.SetActive(false);
                     }
+                    //Player Name Input: WIP
+                    /*if(NameInput.text != "")
+                    {
+                        tagValue = NameInput.text;
+                        nameTag.text = tagValue;
+                        NameTagPanel.SetActive(true);
+                        FriendTagPanel.SetActive(false);
+                    }*/
                     else if (tagValue == "StarRail")
                     {
                         nameTag.text = tagValue;
