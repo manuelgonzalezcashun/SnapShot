@@ -13,6 +13,7 @@ public class PhoneTextManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     public GameObject[] TextMessages;
     public TextMeshProUGUI[] Dialogue;
+    private bool MadeChoice = false;
 
     private const string SENTENCE = "sentence";
     private int _sentenceNum;
@@ -67,6 +68,10 @@ public class PhoneTextManager : MonoBehaviour
         {
             DisplayNextLine(phoneStory.Continue());
         }
+        else if (!phoneStory.canContinue && MadeChoice == true)
+        {
+            GameObject.Find("Phone").SetActive(false);
+        }
     }
     public void DisplayNextLine(string sentence)
     {
@@ -101,6 +106,7 @@ public class PhoneTextManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         phoneStory.ChooseChoiceIndex(choiceIndex);
+        MadeChoice = true;
     }
     private IEnumerator SelectFirstChoice()
     {
