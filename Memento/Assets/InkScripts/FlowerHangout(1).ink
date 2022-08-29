@@ -23,7 +23,6 @@ A bird flew onto the edge of the window next to the bed.
 #speaker: #icon:
 ~ActivateScene = "BirdPhotoScene"
 ~saveBackgroundData = "BirdPhotoScene"
-
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
 ~cameraCheck = false
 (<i>Press C or Y if your using an XboxController to pull up your camera and take a picture of the bird. Then double click on the picture to save it to your inventory</i>)

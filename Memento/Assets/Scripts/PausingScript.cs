@@ -5,7 +5,6 @@ using UnityEngine;
 public class PausingScript : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-
     public GameObject pauseMenuUI;
     public GameObject Phone;
     public GameObject Controls;
@@ -36,13 +35,10 @@ public class PausingScript : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        isCursorActive();
+        SetCursorActive();
     }
-    private void isCursorActive()
+    void SetCursorActive()
     {
-        if(GameObject.Find("Cursor").activeInHierarchy)
-        {
-            Time.timeScale = 1f;
-        }
+        Time.timeScale = 1f;
     }
 }

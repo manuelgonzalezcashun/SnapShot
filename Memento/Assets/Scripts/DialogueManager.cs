@@ -145,6 +145,7 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+        pause = FindObjectOfType<PausingScript>();
     }
     private void InitializeVariables()
     {
@@ -324,7 +325,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (_StoryScript.canContinue)
             {
-                if (displayTextCoroutine != null)
+                if (displayTextCoroutine != null && pause.pauseMenuUI.activeInHierarchy == false)
                 {
                     StopCoroutine(displayTextCoroutine);
                 }
