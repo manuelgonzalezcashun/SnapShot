@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     private bool _activateButton;
     private bool _cameraCheck;
     private bool _inventoryCheck;
-
+    private bool pictureTaken;
 
     public bool PhotoMode
     {
@@ -243,40 +243,59 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            submitButtonPressed = true;
-        }
-        if (Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "CafePhoto")
-        {
-            triggers[1].SetActive(true);
-        }
-        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "ParkPhoto")
-        {
-            triggers[2].SetActive(true);
-        }
-        else if(Input.GetButtonDown("Fire2") && PausingScript.gameIsPaused == false && ActivateBackground == "BirdPhotoScene")
-        {
-            triggers[3].SetActive(true);
-        }
-        if (Input.GetButtonDown("Fire3") && PausingScript.gameIsPaused == false && ActivateBackground == "photoWall")
-        {
-            Inventory.SetActive(true);
-        }
-        if (DialoguePanel.activeInHierarchy && PausingScript.gameIsPaused == false && CameraCheck == true && InventoryCheck == true)
-        {
-            if (canContinueToNextLine && Input.GetButtonDown("Jump") && submitButtonPressed)
-            {
-                submitButtonPressed = false;
-                DisplayNextLine();
-            }
-
-        }
         /// Ink Variables Calls ///
         ActivateScene();
         SaveBackgroundData();
         DeactivateScene();
         activatePhotoMode();
+
+        if (PausingScript.gameIsPaused == false)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                submitButtonPressed = true;
+                if (DialoguePanel.activeInHierarchy)
+                {
+                    if (CameraCheck == true && InventoryCheck == true)
+                    {
+                        if (canContinueToNextLine && submitButtonPressed)
+                        {
+                            submitButtonPressed = false;
+                            DisplayNextLine();
+                        }
+                    }
+                }
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                if(CameraCheck == false)
+                {
+                    pictureTaken = false;
+                }
+                if (pictureTaken == false)
+                {
+                    if (ActivateBackground == "CafePhoto")
+                    {
+                        triggers[1].SetActive(true);
+                        pictureTaken = true;
+                    }
+                    else if (ActivateBackground == "ParkPhoto")
+                    {
+                        triggers[2].SetActive(true);
+                        pictureTaken = true;
+                    }
+                    else if (ActivateBackground == "BirdPhotoScene")
+                    {
+                        triggers[3].SetActive(true);
+                        pictureTaken = true;
+                    }
+                }
+            }
+            if (Input.GetButtonDown("Fire3") && ActivateBackground == "photoWall")
+            {
+                Inventory.SetActive(true);
+            }
+        }
     }
     void LoadStory()
     {
