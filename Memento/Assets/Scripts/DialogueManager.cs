@@ -269,7 +269,7 @@ public class DialogueManager : MonoBehaviour
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                if(CameraCheck == false)
+                if (CameraCheck == false)
                 {
                     pictureTaken = false;
                 }
@@ -339,7 +339,7 @@ public class DialogueManager : MonoBehaviour
         }
         canContinueToNextLine = true;
         StoryChoices();
-        if(canContinueToNextLine)
+        if (canContinueToNextLine && CameraCheck == true)
         {
             ArrowSprite.SetActive(true);
         }

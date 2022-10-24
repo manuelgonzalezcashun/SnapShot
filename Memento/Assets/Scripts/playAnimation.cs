@@ -8,7 +8,7 @@ public class playAnimation : MonoBehaviour
     [Header("Phone")]
     [SerializeField] private GameObject Phone;
     private Animation PhoneAnim;
-
+    private Animation ArrowAnim;
     void Start()
     {
         PhoneAnim = Phone.GetComponent<Animation>();
@@ -17,5 +17,9 @@ public class playAnimation : MonoBehaviour
     public void PlayPhoneAnimation(string animName)
     {
         PhoneAnim.Play(animName);
+    }
+    public void PlayArrowAnimation(string animName)
+    {
+            ArrowAnim.Play(animName);
     }
 }
