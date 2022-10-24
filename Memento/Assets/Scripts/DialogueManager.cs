@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject ButtonPanel;
     public GameObject Inventory;
     public GameObject Picture;
+    public GameObject ArrowSprite;
     public TextMeshProUGUI dialogueText;
     public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
@@ -312,6 +313,7 @@ public class DialogueManager : MonoBehaviour
         HideStoryChoices();
         canContinueToNextLine = false;
         bool isAddingRichText = false;
+        ArrowSprite.SetActive(false);
         foreach (char letter in sentence.ToCharArray())
         {
             if (submitButtonPressed)
@@ -337,6 +339,10 @@ public class DialogueManager : MonoBehaviour
         }
         canContinueToNextLine = true;
         StoryChoices();
+        if(canContinueToNextLine)
+        {
+            ArrowSprite.SetActive(true);
+        }
     }
     public void DisplayNextLine()
     {
