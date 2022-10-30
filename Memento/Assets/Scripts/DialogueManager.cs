@@ -60,6 +60,7 @@ public class DialogueManager : MonoBehaviour
     private bool _activateButton;
     private bool _cameraCheck;
     private bool _inventoryCheck;
+    public bool DialoguePaused;
     private bool pictureTaken;
 
     public bool PhotoMode
@@ -272,6 +273,15 @@ public class DialogueManager : MonoBehaviour
                 if (CameraCheck == false)
                 {
                     pictureTaken = false;
+                    DialoguePaused = true;
+                }
+                if (DialoguePaused == true)
+                {
+                    DialoguePanel.SetActive(false);
+                }
+                if (DialoguePaused == false)
+                {
+                    DialoguePanel.SetActive(true);
                 }
                 if (pictureTaken == false)
                 {
