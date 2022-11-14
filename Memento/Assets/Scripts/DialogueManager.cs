@@ -250,7 +250,10 @@ public class DialogueManager : MonoBehaviour
         SaveBackgroundData();
         DeactivateScene();
         activatePhotoMode();
-
+        if(triggers[0].activeInHierarchy)
+        {
+            DialoguePanel.SetActive(false);
+        }
         if (PausingScript.gameIsPaused == false)
         {
             if (Input.GetButtonDown("Jump"))
@@ -274,14 +277,6 @@ public class DialogueManager : MonoBehaviour
                 {
                     pictureTaken = false;
                     DialoguePaused = true;
-                }
-                if (DialoguePaused == true)
-                {
-                    DialoguePanel.SetActive(false);
-                }
-                if (DialoguePaused == false)
-                {
-                    DialoguePanel.SetActive(true);
                 }
                 if (pictureTaken == false)
                 {

@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Video;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger: MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
+    public VideoPlayer splashScreen;
+    void Start()
+    {
+        splashScreen.loopPointReached += FinishSplashScreen;
+    }
     public void LoadGame()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            SceneManager.LoadScene(3);
-        }
+        SceneManager.LoadScene(3);
     }
     public void QuitGame()
     {
-        if (PausingScript.gameIsPaused == true) 
+        if (PausingScript.gameIsPaused == true)
         {
             SceneManager.LoadScene(0);
         }
+    }
+    public void FinishSplashScreen(VideoPlayer sp)
+    {
+        SceneManager.LoadScene(1);
     }
 }
