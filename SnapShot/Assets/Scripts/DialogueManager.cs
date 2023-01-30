@@ -54,8 +54,6 @@ public class DialogueManager : MonoBehaviour
 
     /// Variable Observers
     private bool _photoMode;
-    private string _saveBackgroundData;
-    //private bool _saveCharacterData;
     private string _activebgName;
     private bool _activateButton;
     private bool _cameraCheck;
@@ -117,15 +115,6 @@ public class DialogueManager : MonoBehaviour
             _activebgName = value;
         }
     }
-    public string SaveBackground
-    {
-        get => _saveBackgroundData;
-        private set
-        {
-            Debug.Log($"Updating BackgroundData value. Old value: {_saveBackgroundData}. new value: {value}");
-            _saveBackgroundData = value;
-        }
-    }
     /// END LINE
     void Start()
     {
@@ -145,9 +134,7 @@ public class DialogueManager : MonoBehaviour
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
         CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
         InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
-        //SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
         ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
-        SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
@@ -166,37 +153,10 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateButton = (bool)value;
         });
-        /* _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
-         {
-             SaveCharacterData = (bool)value;
-         });*/
-        _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
-      {
-          SaveBackground = (string)value;
-      });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
             ActivateBackground = (string)value;
         });
-    }
-    public void SaveBackgroundData()
-    {
-        if (SaveBackground == ActivateBackground)
-        {
-            ActivateScene();
-        }
-        /*if (SaveCharacterData == true)
-        {
-            charPanel.SetActive(true);
-        }
-        else
-        {
-            charPanel.SetActive(false);
-        }*/
-        if (ActivateButton == true)
-        {
-            ButtonPanel.SetActive(true);
-        }
     }
     /// Ink Variable Functions ///
     public void ActivateScene()

@@ -1,8 +1,6 @@
 #speaker: 
 // variables
 VAR photoMode = false
-VAR saveCharacterData = false
-VAR saveBackgroundData = ""
 VAR ActivateScene = ""
 VAR ActivateButton = false
 VAR cameraCheck = true
@@ -10,7 +8,6 @@ VAR inventoryCheck = true
 -> start
 ===start==
 ~ActivateScene = "DormBackground"
-~saveBackgroundData = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: StarRail 
 Yawn ('What a beautiful day outside!') 
@@ -21,7 +18,6 @@ A bird flew onto the edge of the window next to the bed.
 ===birbscene===
 #speaker: #icon:
 ~ActivateScene = "BirdPhotoScene"
-~saveBackgroundData = "BirdPhotoScene"
 ~cameraCheck = false
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
 -> main
@@ -48,9 +44,7 @@ Wow! What a beautiful bird! I should take out my Camera and take a picture of it
 
 ===KitchenScene===
 #speaker:
-#playAnimation: DormBackground
 ~ActivateScene = "KitchenBackground"
-~saveBackgroundData = "KitchenBackground"
 I walked to the front door and let Flower in. #icon: default
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
@@ -86,13 +80,11 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 "Great! Let's go!" #speaker: Flower #icon: Flower_happy
 -> ParkDate
 ===ParkDate===
-#playAnimation: KitchenBackground
 ~ActivateScene = "ParkBackground"
 #icon:default
 Flower and I walked to the park together, enjoying our time as we came upon people at the park. #speaker:
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower 
-~saveBackgroundData = "ParkBackground"
 "Let's go hangout on the swing set then." #icon: Flower_happy
 "Isn't that a little awkward Flower?" #speaker: StarRail #icon:default
 "Oh nonsense, we'll be fine! Besides, there aren't too many people here anyway. This place would be good for a dog to play at though!" #speaker: Flower #icon: Flower_happy
@@ -116,8 +108,6 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 ===ParkPhoto===
 ~cameraCheck = false
 ~ActivateScene = "ParkPhoto"
-~saveBackgroundData = "ParkPhoto"
-~saveCharacterData = false
 Take a photo quickly StarRail, I wanna keep playing with him! #icon:
 -> ParkDateEnd
 
@@ -135,11 +125,9 @@ Flower and I waved goodbye to each other as we walked our separate ways home. #s
 ->CoffeeDate
 
 ===CoffeeDate===
-#playAnimation: KitchenBackground
 ~ActivateScene = "CafeBackground"
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! They built it here like a year ago." #speaker: Flower #icon: default
-~saveBackgroundData = "CafeBackground"
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
 "So how often do you come here, Flower?"
@@ -165,7 +153,6 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 ===CafePhoto===
 ~cameraCheck = false
 ~ActivateScene = "CafePhoto"
-~saveBackgroundData = "CafePhoto"
 "Cheese!" #speaker: Flower #icon: 
 ->CoffeeDateEnd
 
@@ -182,14 +169,11 @@ Flower and I parted ways for the day, waving goodbye to each other after leaving
 ===WalkingHome==
 #icon: #speaker: 
 ~ActivateScene = "NightSidewalkBackground"
-~saveBackgroundData = "NightSidewalkBackground"
 ('I had a lot of fun with Flower today. We definitely need to hangout more!')
 I walked for a little while back to my dorm, feeling a little tired.
 ~ActivateScene = "NightTimeKitchenBackground"
-~saveBackgroundData = "NightTimeKitchenBackground"
 Once I got home, I went through the kitchen and straight to my room.
 ~ActivateScene = "NightDormBackground"
-~saveBackgroundData = "NightDormBackground"
 Once I got situated in my room, I layed across my bed before looking up at my corkboard.
 ('I should totally put that photo of Flower on the wall. Don't wanna forget about this.')
 -> PhotoWall
