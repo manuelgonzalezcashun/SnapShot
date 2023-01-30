@@ -4,7 +4,6 @@ VAR photoMode = false
 VAR saveCharacterData = false
 VAR saveBackgroundData = ""
 VAR ActivateScene = ""
-VAR DeactivateScene = ""
 VAR ActivateButton = false
 VAR cameraCheck = true
 VAR inventoryCheck = true
@@ -25,7 +24,6 @@ A bird flew onto the edge of the window next to the bed.
 ~saveBackgroundData = "BirdPhotoScene"
 ~cameraCheck = false
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
-~DeactivateScene = "BirdPhotoScene"
 -> main
 ===main===
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
@@ -56,7 +54,6 @@ Wow! What a beautiful bird! I should take out my Camera and take a picture of it
 I walked to the front door and let Flower in. #icon: default
 I led Flower to the kitchen so she can sit down. She sat next to me with a smile.
 "So Flower..." #speaker:StarRail
-~DeactivateScene = "DormBackground"
 "Nice to show up so quickly. Need something? You can tell me. I don't bite!"
 "Hahaha! I just wanted to hang out with a friend today, that's all!" #speaker: Flower #icon:Flower_happy
 "Really? Are you sure?" #speaker: StarRail #icon:default
@@ -95,7 +92,6 @@ Flower and I spent a while doing our homework. #speaker: #icon:
 Flower and I walked to the park together, enjoying our time as we came upon people at the park. #speaker:
 "Wow, I have never been here, but I can tell it is a good spot!" #speaker: StarRail
 "I agree, it is so warm here too!" #speaker: Flower 
-~DeactivateScene = "KitchenBackground"
 ~saveBackgroundData = "ParkBackground"
 "Let's go hangout on the swing set then." #icon: Flower_happy
 "Isn't that a little awkward Flower?" #speaker: StarRail #icon:default
@@ -122,18 +118,15 @@ Flower pet the dog, earning a few licks on her hand. She beckoned StarRail over.
 ~ActivateScene = "ParkPhoto"
 ~saveBackgroundData = "ParkPhoto"
 ~saveCharacterData = false
-~DeactivateScene = "ParkBackground"
 Take a photo quickly StarRail, I wanna keep playing with him! #icon:
 -> ParkDateEnd
 
 ===ParkDateEnd===
-~DeactivateScene = "ParkPhoto"
 ~ActivateScene = "AfternoonParkBackground"
 Flower and I spent a while at the park, playing with the dog and chilling on the swings afterwards. #icon:default
 "I had a good afternoon Flower! Thanks for inviting me to hangout. It means quite a lot to me. I think I am gonna head home now." #speaker: StarRail
 "Well it was very worth it! Next time I will have to take you somewhere different! I am sure you would like it! Text me when you get home, okay?" #speaker: Flower #icon: Flower_happy
 Flower and I waved goodbye to each other as we walked our separate ways home. #speaker: #icon: default
-~DeactivateScene = "AfternoonParkBackground"
 -> WalkingHome
 
 ===Cafe===
@@ -146,7 +139,6 @@ Flower and I waved goodbye to each other as we walked our separate ways home. #s
 ~ActivateScene = "CafeBackground"
 We made our way to the cafe #speaker:
 "Here we are, the place I was telling you about! They built it here like a year ago." #speaker: Flower #icon: default
-~DeactivateScene = "KitchenBackground"
 ~saveBackgroundData = "CafeBackground"
 "This has been one of my favorite shop since! I can't get enough of the aroma and vibe here, ya know?"
 "It does look really nice in here." #speaker: StarRail
@@ -172,7 +164,6 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 
 ===CafePhoto===
 ~cameraCheck = false
-~DeactivateScene = "CafeBackground"
 ~ActivateScene = "CafePhoto"
 ~saveBackgroundData = "CafePhoto"
 "Cheese!" #speaker: Flower #icon: 
@@ -180,14 +171,12 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 
 ===CoffeeDateEnd==
 ~ActivateScene = "CafeBackground"
-~DeactivateScene = "CafePhoto"
 Hey Flower! Take a look at the photo! #speaker: StarRail
 "Wow that's a great photo! You have to keep that one StarRail!" #speaker: Flower #icon: Flower_happy
 "Thanks!" #speaker: StarRail
 "Well it is getting a bit late. Think we should call it a day?" #speaker: Flower #icon: default
 "Sounds good to me, I'll catch you later, Flower!" #speaker: StarRail
 Flower and I parted ways for the day, waving goodbye to each other after leaving the cafe.
-~DeactivateScene = "CafeBackground"
 -> WalkingHome
 
 ===WalkingHome==
@@ -197,18 +186,15 @@ Flower and I parted ways for the day, waving goodbye to each other after leaving
 ('I had a lot of fun with Flower today. We definitely need to hangout more!')
 I walked for a little while back to my dorm, feeling a little tired.
 ~ActivateScene = "NightTimeKitchenBackground"
-~DeactivateScene = "NightSidewalkBackground"
 ~saveBackgroundData = "NightTimeKitchenBackground"
 Once I got home, I went through the kitchen and straight to my room.
 ~ActivateScene = "NightDormBackground"
-~DeactivateScene = "NightTimeKitchenBackground"
 ~saveBackgroundData = "NightDormBackground"
 Once I got situated in my room, I layed across my bed before looking up at my corkboard.
 ('I should totally put that photo of Flower on the wall. Don't wanna forget about this.')
 -> PhotoWall
 
 ===PhotoWall===
-~DeactivateScene = "NightDormBackground"
 ~ActivateScene = "photoWall"
 ~inventoryCheck = false
 <i>Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
@@ -23,12 +24,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject Picture;
     public GameObject ArrowSprite;
     public TextMeshProUGUI dialogueText;
-    public TMP_InputField NameInput;
+    //public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI friendTag;
     private AudioSource sounds;
     private Animation bgAnims;
-    private GameObject bg;
+    public GameObject Background;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -37,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = true;
     private bool submitButtonPressed = true;
     [SerializeField] private GameObject[] choices;
-    [SerializeField] private GameObject[] backgrounds;
+    public Background[] backgrounds;
     [SerializeField] private GameObject[] triggers;
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
@@ -56,7 +57,6 @@ public class DialogueManager : MonoBehaviour
     private string _saveBackgroundData;
     //private bool _saveCharacterData;
     private string _activebgName;
-    private string _deactivebgName;
     private bool _activateButton;
     private bool _cameraCheck;
     private bool _inventoryCheck;
@@ -117,15 +117,6 @@ public class DialogueManager : MonoBehaviour
             _activebgName = value;
         }
     }
-    public string DeactivateBackground
-    {
-        get => _deactivebgName;
-        private set
-        {
-            Debug.Log($"Updating DeactiveBackgroundName value. Old value: {_deactivebgName}. new value: {value}");
-            _deactivebgName = value;
-        }
-    }
     public string SaveBackground
     {
         get => _saveBackgroundData;
@@ -158,7 +149,6 @@ public class DialogueManager : MonoBehaviour
         ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
         SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
-        DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
@@ -188,10 +178,6 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateBackground = (string)value;
         });
-        _StoryScript.ObserveVariable("DeactivateScene", (arg, value) =>
-        {
-            DeactivateBackground = (string)value;
-        });
     }
     public void SaveBackgroundData()
     {
@@ -215,21 +201,25 @@ public class DialogueManager : MonoBehaviour
     /// Ink Variable Functions ///
     public void ActivateScene()
     {
-        foreach (GameObject background in backgrounds)
+        foreach (Background bg in backgrounds)
         {
-            if (ActivateBackground == background.name)
+            if (ActivateBackground == bg.name)
             {
-                background.SetActive(true);
-            }
-        }
-    }
-    public void DeactivateScene()
-    {
-        foreach (GameObject background in backgrounds)
-        {
-            if (DeactivateBackground == background.name)
-            {
-                background.SetActive(false);
+                if (Background.GetComponent<Image>() == null)
+                {
+                    Image img = Background.AddComponent<Image>();
+                    Sprite bgsprite = img.GetComponent<Sprite>();
+                    bgsprite = bg.backgroundSprite;
+                    img.sprite = bgsprite;
+                    return;
+                }
+                else 
+                {
+                    Image img = Background.GetComponent<Image>();
+                    Sprite bgsprite = img.GetComponent<Sprite>();
+                    bgsprite = bg.backgroundSprite;
+                    img.sprite = bgsprite;
+                }
             }
         }
     }
@@ -247,8 +237,6 @@ public class DialogueManager : MonoBehaviour
     {
         /// Ink Variables Calls ///
         ActivateScene();
-        SaveBackgroundData();
-        DeactivateScene();
         activatePhotoMode();
         if(triggers[0].activeInHierarchy)
         {
