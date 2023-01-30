@@ -88,15 +88,6 @@ public class DialogueManager : MonoBehaviour
             _inventoryCheck = value;
         }
     }
-    /* public bool SaveCharacterData
-     {
-         get => _saveCharacterData;
-         private set
-         {
-             Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
-             _saveCharacterData = value;
-         }
-     }*/
     public bool ActivateButton
     {
         get => _activateButton;
