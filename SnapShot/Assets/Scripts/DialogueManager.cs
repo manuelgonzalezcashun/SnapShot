@@ -377,10 +377,7 @@ public class DialogueManager : MonoBehaviour
                     NameTagPanel.SetActive(false);
                     break;
                 case AUDIO:
-                    GameObject FindSound = GameObject.Find(tagValue);
-                    sounds = FindSound.GetComponent<AudioSource>();
-                    sounds.Play();
-                    Debug.Log(FindSound.name);
+                    FindObjectOfType<SoundManager>().Play(tagValue);
                     break;
                 case END:
                     if (tagValue == "true")
