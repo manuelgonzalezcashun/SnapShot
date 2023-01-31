@@ -376,12 +376,6 @@ public class DialogueManager : MonoBehaviour
                     DialoguePanel.SetActive(false);
                     NameTagPanel.SetActive(false);
                     break;
-                case PLAY:
-                    GameObject FindAnim = GameObject.Find(tagValue);
-                    bgAnims = FindAnim.GetComponent<Animation>();
-                    bgAnims.Play();
-                    Debug.Log(FindAnim.name);
-                    break;
                 case AUDIO:
                     GameObject FindSound = GameObject.Find(tagValue);
                     sounds = FindSound.GetComponent<AudioSource>();
