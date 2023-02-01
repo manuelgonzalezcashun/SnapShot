@@ -180,7 +180,6 @@ Once I got situated in my room, I layed across my bed before looking up at my co
 ===PhotoWall===
 ~ActivateScene = "photoWall"
 ~inventoryCheck = false
-<i>Press I (B on the Xbox Controller) to pull up your Inventory. After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>
-<i>Press Space to end Game</i> :)
+<i>Press I (B on the Xbox Controller) to pull up your Inventory.After your Inventory pops up, click on the picture to post it on the wall. You will be able to continue after you post your picture</i>
 #EndGame: true
 -> END

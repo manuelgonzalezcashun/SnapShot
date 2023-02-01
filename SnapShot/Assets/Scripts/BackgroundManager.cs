@@ -13,6 +13,7 @@ public class BackgroundManager : MonoBehaviour
             bg.backgroundImage = gameObject.AddComponent<Image>();
         }
     }
+    
     public void SetBackground(string name)
     {
         Background bg = Array.Find(backgrounds, background => background.backgroundName == name);
