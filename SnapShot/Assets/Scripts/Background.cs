@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 [System.Serializable]
 public class Background 
 {
-    public string name;
+    public string backgroundName;
     public Sprite backgroundSprite;
+
+    [HideInInspector]
+    public Image backgroundImage;
 }

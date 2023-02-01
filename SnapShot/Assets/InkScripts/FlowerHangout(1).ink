@@ -1,13 +1,12 @@
 #speaker: 
 // variables
 VAR photoMode = false
-VAR ActivateScene = ""
+VAR ActivateScene = "DormBackground"
 VAR ActivateButton = false
 VAR cameraCheck = true
 VAR inventoryCheck = true
 -> start
 ===start==
-~ActivateScene = "DormBackground"
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
 #speaker: Sam 
 Yawn ('What a beautiful day outside!') 

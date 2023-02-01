@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour
     private SceneChanger sceneSwitch;
     private playAnimation play;
     private PausingScript pause;
+    [SerializeField] private bool stopAudio;
+    [SerializeField] private float typingSpeed = 0.04f;
+    [SerializeField] private int frequecy = 2;
 
     [Header("Unity Hiearchy")]
     [SerializeField] private Animator charIcon;
@@ -29,7 +32,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI friendTag;
     private AudioSource sounds;
     private Animation bgAnims;
-    public GameObject Background;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -38,7 +40,6 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = true;
     private bool submitButtonPressed = true;
     [SerializeField] private GameObject[] choices;
-    public Background[] backgrounds;
     [SerializeField] private GameObject[] triggers;
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
@@ -152,27 +153,7 @@ public class DialogueManager : MonoBehaviour
     /// Ink Variable Functions ///
     public void ActivateScene()
     {
-        foreach (Background bg in backgrounds)
-        {
-            if (ActivateBackground == bg.name)
-            {
-                if (Background.GetComponent<Image>() == null)
-                {
-                    Image img = Background.AddComponent<Image>();
-                    Sprite bgsprite = img.GetComponent<Sprite>();
-                    bgsprite = bg.backgroundSprite;
-                    img.sprite = bgsprite;
-                    return;
-                }
-                else 
-                {
-                    Image img = Background.GetComponent<Image>();
-                    Sprite bgsprite = img.GetComponent<Sprite>();
-                    bgsprite = bg.backgroundSprite;
-                    img.sprite = bgsprite;
-                }
-            }
-        }
+        FindObjectOfType<BackgroundManager>().SetBackground(ActivateBackground);
     }
     public void activatePhotoMode()
     {
@@ -183,13 +164,15 @@ public class DialogueManager : MonoBehaviour
             FriendTagPanel.SetActive(false);
         }
     }
-
+    void FixedUpdate()
+    {
+        ActivateScene();
+    }
     void Update()
     {
         /// Ink Variables Calls ///
-        ActivateScene();
         activatePhotoMode();
-        if(triggers[0].activeInHierarchy)
+        if (triggers[0].activeInHierarchy)
         {
             DialoguePanel.SetActive(false);
         }
@@ -254,16 +237,19 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        dialogueText.maxVisibleCharacters = 0;
         HideStoryChoices();
         canContinueToNextLine = false;
         bool isAddingRichText = false;
         ArrowSprite.SetActive(false);
+
         foreach (char letter in sentence.ToCharArray())
         {
             if (submitButtonPressed)
             {
                 submitButtonPressed = false;
                 dialogueText.text = sentence;
+                dialogueText.maxVisibleCharacters = sentence.Length;
                 break;
             }
             if (letter == '<' || isAddingRichText)
@@ -277,8 +263,10 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                dialogueText.maxVisibleCharacters++;
+                //TypingSound(dialogueText.maxVisibleCharacters);
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(typingSpeed);
             }
         }
         canContinueToNextLine = true;
@@ -286,6 +274,17 @@ public class DialogueManager : MonoBehaviour
         if (canContinueToNextLine && CameraCheck == true)
         {
             ArrowSprite.SetActive(true);
+        }
+    }
+    private void TypingSound(int visibleCharacters)
+    {
+        if (visibleCharacters % frequecy == 0)
+        {
+            if (stopAudio)
+            {
+                FindObjectOfType<SoundManager>().StopAudio("TypingSound");
+            }
+            FindObjectOfType<SoundManager>().PlayOneShot("TypingSound");
         }
     }
     public void DisplayNextLine()
@@ -339,7 +338,7 @@ public class DialogueManager : MonoBehaviour
                         NameTagPanel.SetActive(true);
                         FriendTagPanel.SetActive(false);
                     }*/
-                    else if (tagValue == "StarRail")
+                    else if (tagValue == "Sam")
                     {
                         nameTag.text = tagValue;
                         NameTagPanel.SetActive(true);
