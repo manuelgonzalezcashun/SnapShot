@@ -10,9 +10,8 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
-    private SceneChanger sceneSwitch;
+    private GameManagement sceneSwitch;
     private playAnimation play;
-    private PausingScript pause;
     [SerializeField] private bool stopAudio;
     [SerializeField] private float typingSpeed = 0.04f;
     [SerializeField] private int frequecy = 2;
@@ -120,7 +119,6 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        pause = FindObjectOfType<PausingScript>();
     }
     private void InitializeVariables()
     {
@@ -181,7 +179,7 @@ public class DialogueManager : MonoBehaviour
         {
             DialoguePanel.SetActive(false);
         }
-        if (PausingScript.gameIsPaused == false)
+        if (GameManagement.gameIsPaused == false)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -294,11 +292,11 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextLine()
     {
-        if (PausingScript.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
+        if (GameManagement.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
         {
             if (_StoryScript.canContinue)
             {
-                if (displayTextCoroutine != null && pause.pauseMenuUI.activeInHierarchy == false)
+                if (displayTextCoroutine != null && FindObjectOfType<GameManagement>().pauseMenuUI.activeInHierarchy == false)
                 {
                     StopCoroutine(displayTextCoroutine);
                 }
