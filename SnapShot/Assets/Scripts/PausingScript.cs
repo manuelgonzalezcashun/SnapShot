@@ -6,13 +6,13 @@ public class PausingScript : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
-    public GameObject Phone;
+    public GameObject XboxCursor;
     public GameObject Controls;
 
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1") && !Phone.activeInHierarchy && !Controls.activeInHierarchy)
+        if (Input.GetButtonDown("Fire1") && !Controls.activeInHierarchy)
         {
             if (gameIsPaused == true)
             {
@@ -39,7 +39,7 @@ public class PausingScript : MonoBehaviour
     }
     void SetCursorActive()
     {
-        if (GameObject.Find("Cursor").activeInHierarchy)
+        if (XboxCursor.activeInHierarchy)
         {
             Time.timeScale = 1f;
         }

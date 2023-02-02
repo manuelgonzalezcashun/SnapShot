@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
@@ -170,6 +171,10 @@ public class DialogueManager : MonoBehaviour
     }
     void Update()
     {
+        if (ActivateButton == true)
+        {
+            ButtonPanel.SetActive(true);
+        }
         /// Ink Variables Calls ///
         activatePhotoMode();
         if (triggers[0].activeInHierarchy)
@@ -410,6 +415,7 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
+        StartCoroutine(SelectFirstChoice());
     }
     private void HideStoryChoices()
     {
@@ -425,6 +431,12 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         _StoryScript.ChooseChoiceIndex(choiceIndex);
+    }
+    private IEnumerator SelectFirstChoice()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
     public void CameraCheckPoint()

@@ -14,10 +14,13 @@ public class PhoneTextManager : MonoBehaviour
     public GameObject[] TextMessages;
     public TextMeshProUGUI[] Dialogue;
     private bool MadeChoice = false;
+    private bool finishedText;
     [SerializeField] private float textInterval = 2f;
 
     private const string SENTENCE = "sentence";
     private int _sentenceNum;
+
+    private DialogueManager dm;
 
     public int Sentence
     {
@@ -30,6 +33,8 @@ public class PhoneTextManager : MonoBehaviour
     }
     void Start()
     {
+        dm = FindObjectOfType<DialogueManager>();
+        finishedText = false;
         LoadStory();
         InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -81,6 +86,8 @@ public class PhoneTextManager : MonoBehaviour
             FindObjectOfType<playAnimation>().PlayPhoneAnimation("PhoneSlideDown");
             yield return new WaitForSeconds(1.1f);
             GameObject.Find("Phone").SetActive(false);
+            dm.DialoguePanel.SetActive(true);
+            dm.NameTagPanel.SetActive(true);
         }
         
     }

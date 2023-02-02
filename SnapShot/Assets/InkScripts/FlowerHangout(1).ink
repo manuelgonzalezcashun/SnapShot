@@ -29,6 +29,7 @@ Wow! What a beautiful bird! I should take out my Camera and take a picture of it
 ->isReady
 
 ===isReady===
+~ActivateButton = true
 ('Am I ready to see her yet?')
 + [Yes.] -> StoryFinished
 + [No.] -> lazyhours
