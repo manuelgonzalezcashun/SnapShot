@@ -7,7 +7,20 @@ public class SettingsMenu : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
-    void Start ()
+    private int currentResolutionIndex = 0;
+    void Start()
+    {
+        SetResolution();
+    }
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+    void SetResolution()
     {
         resolutions = Screen.resolutions;
 
@@ -15,14 +28,12 @@ public class SettingsMenu : MonoBehaviour
 
         List<string> options = new List<string>();
 
-        int currentResolutionIndex = 0;
-
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && 
+            if (resolutions[i].width == Screen.currentResolution.width &&
             resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
@@ -31,13 +42,5 @@ public class SettingsMenu : MonoBehaviour
 
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
-    }
-    public void SetQuality (int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-    public void SetFullscreen (bool isFullscreen) 
-    {
-        Screen.fullScreen = isFullscreen;
     }
 }

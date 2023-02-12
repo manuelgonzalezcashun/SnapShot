@@ -20,6 +20,6 @@ public class playAnimation : MonoBehaviour
     }
     public void PlayArrowAnimation(string animName)
     {
-            ArrowAnim.Play(animName);
+        ArrowAnim.Play(animName);
     }
 }
