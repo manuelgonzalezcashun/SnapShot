@@ -17,8 +17,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private int frequecy = 2;
 
     [Header("Unity Hiearchy")]
+
     [SerializeField] private Animator charIcon;
     [SerializeField] private GameObject charPanel;
+
     public GameObject NameTagPanel;
     public GameObject FriendTagPanel;
     public GameObject DialoguePanel;
@@ -30,8 +32,6 @@ public class DialogueManager : MonoBehaviour
     //public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI friendTag;
-    private AudioSource sounds;
-    private Animation bgAnims;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -56,9 +56,9 @@ public class DialogueManager : MonoBehaviour
     /// Variable Observers
     private bool _photoMode;
     private string _activebgName;
-    private bool _activateButton;
     private bool _cameraCheck;
     private bool _inventoryCheck;
+    
     public bool DialoguePaused;
     private bool pictureTaken;
 
@@ -67,7 +67,6 @@ public class DialogueManager : MonoBehaviour
         get => _photoMode;
         private set
         {
-            Debug.Log($"Updating PhotoMode value. Old value: {_photoMode}. new value: {value}");
             _photoMode = value;
         }
     }
@@ -76,7 +75,6 @@ public class DialogueManager : MonoBehaviour
         get => _cameraCheck;
         private set
         {
-            Debug.Log($"Updating Camera CheckPoint. Old value: {_cameraCheck}. new value: {value}");
             _cameraCheck = value;
         }
     }
@@ -85,17 +83,7 @@ public class DialogueManager : MonoBehaviour
         get => _inventoryCheck;
         private set
         {
-            Debug.Log($"Updating Inventory CheckPoint. Old value: {_inventoryCheck}. new value: {value}");
             _inventoryCheck = value;
-        }
-    }
-    public bool ActivateButton
-    {
-        get => _activateButton;
-        private set
-        {
-            Debug.Log($"Updating Button value. Old value: {_activateButton}. new value: {value}");
-            _activateButton = value;
         }
     }
     public string ActivateBackground
@@ -103,7 +91,6 @@ public class DialogueManager : MonoBehaviour
         get => _activebgName;
         private set
         {
-            Debug.Log($"Updating ActiveBackgroundName value. Old value: {_activebgName}. new value: {value}");
             _activebgName = value;
         }
     }
@@ -125,7 +112,6 @@ public class DialogueManager : MonoBehaviour
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
         CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
         InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
-        ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
@@ -140,10 +126,6 @@ public class DialogueManager : MonoBehaviour
        {
            InventoryCheck = (bool)value;
        });
-        _StoryScript.ObserveVariable("ActivateButton", (arg, value) =>
-        {
-            ActivateButton = (bool)value;
-        });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
             ActivateBackground = (string)value;
@@ -163,16 +145,9 @@ public class DialogueManager : MonoBehaviour
             FriendTagPanel.SetActive(false);
         }
     }
-    void FixedUpdate()
-    {
-        ActivateScene();
-    }
     void Update()
     {
-        if (ActivateButton == true)
-        {
-            ButtonPanel.SetActive(true);
-        }
+        ActivateScene();
         /// Ink Variables Calls ///
         activatePhotoMode();
         if (triggers[0].activeInHierarchy)
@@ -272,11 +247,12 @@ public class DialogueManager : MonoBehaviour
                 yield return new WaitForSeconds(typingSpeed);
             }
         }
-        canContinueToNextLine = true;
         StoryChoices();
+        canContinueToNextLine = true;
         if (canContinueToNextLine && CameraCheck == true)
         {
             ArrowSprite.SetActive(true);
+            
         }
     }
     private void TypingSound(int visibleCharacters)
@@ -415,6 +391,7 @@ public class DialogueManager : MonoBehaviour
         }
         StartCoroutine(SelectFirstChoice());
     }
+
     private void HideStoryChoices()
     {
         List<Choice> currentchoices = _StoryScript.currentChoices;

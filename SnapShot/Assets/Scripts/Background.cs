@@ -4,9 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class Background 
 {
-    public string backgroundName;
-    public Sprite backgroundSprite;
+    public string name;
+    public Sprite bgSprite;
 
-    [HideInInspector]
-    public Image backgroundImage;
+    [HideInInspector] public SpriteRenderer bgSpriteRenderer;
 }

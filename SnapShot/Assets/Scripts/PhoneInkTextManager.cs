@@ -5,7 +5,7 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class PhoneTextManager : MonoBehaviour
+public class PhoneInkTextManager : MonoBehaviour
 {
     [SerializeField] private Story phoneStory;
     [SerializeField] private TextAsset inkJsonFile;
@@ -14,7 +14,6 @@ public class PhoneTextManager : MonoBehaviour
     public GameObject[] TextMessages;
     public TextMeshProUGUI[] Dialogue;
     private bool MadeChoice = false;
-    private bool finishedText;
     [SerializeField] private float textInterval = 2f;
 
     private const string SENTENCE = "sentence";
@@ -27,14 +26,12 @@ public class PhoneTextManager : MonoBehaviour
         get => _sentenceNum;
         private set
         {
-            Debug.Log($"Updating sentenceNum value. Old value: {_sentenceNum}. new value: {value}");
             _sentenceNum = value;
         }
     }
     void Start()
     {
         dm = FindObjectOfType<DialogueManager>();
-        finishedText = false;
         LoadStory();
         InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -85,7 +82,7 @@ public class PhoneTextManager : MonoBehaviour
         {
             FindObjectOfType<playAnimation>().PlayPhoneAnimation("PhoneSlideDown");
             yield return new WaitForSeconds(1.1f);
-            GameObject.Find("Phone").SetActive(false);
+            TurnOffPhone();
             dm.DialoguePanel.SetActive(true);
             dm.NameTagPanel.SetActive(true);
         }
@@ -135,5 +132,9 @@ public class PhoneTextManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
+    void TurnOffPhone()
+    {
+        gameObject.SetActive(false);
     }
 }
