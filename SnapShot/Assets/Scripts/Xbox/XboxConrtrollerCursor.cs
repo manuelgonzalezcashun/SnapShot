@@ -31,7 +31,6 @@ public class XboxConrtrollerCursor : MonoBehaviour
     private void OnEnable() {
         mainCamera = Camera.main;
         currentMouse = Mouse.current; 
-
         if (virtualMouse == null)  {
             virtualMouse = (Mouse) InputSystem.AddDevice("VirtualMouse");
         }

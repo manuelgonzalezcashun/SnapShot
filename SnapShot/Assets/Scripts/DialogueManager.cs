@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
-    private GameManagement sceneSwitch;
     private playAnimation play;
     [SerializeField] private bool stopAudio;
     [SerializeField] private float typingSpeed = 0.04f;
@@ -58,7 +57,7 @@ public class DialogueManager : MonoBehaviour
     private string _activebgName;
     private bool _cameraCheck;
     private bool _inventoryCheck;
-    
+
     public bool DialoguePaused;
     private bool pictureTaken;
 
@@ -147,14 +146,15 @@ public class DialogueManager : MonoBehaviour
     }
     void Update()
     {
-        ActivateScene();
         /// Ink Variables Calls ///
+        ActivateScene();
         activatePhotoMode();
+
         if (triggers[0].activeInHierarchy)
         {
             DialoguePanel.SetActive(false);
         }
-        if (GameManagement.gameIsPaused == false)
+        if (PauseMenu.gameIsPaused == false)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -171,38 +171,44 @@ public class DialogueManager : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                if (CameraCheck == false)
-                {
-                    pictureTaken = false;
-                    DialoguePaused = true;
-                }
-                if (pictureTaken == false)
-                {
-                    if (ActivateBackground == "CafePhoto")
-                    {
-                        triggers[1].SetActive(true);
-                        pictureTaken = true;
-                    }
-                    else if (ActivateBackground == "ParkPhoto")
-                    {
-                        triggers[2].SetActive(true);
-                        pictureTaken = true;
-                    }
-                    else if (ActivateBackground == "BirdPhotoScene")
-                    {
-                        triggers[3].SetActive(true);
-                        pictureTaken = true;
-                    }
-                }
-            }
+            LoadTrigger();
             if (Input.GetButtonDown("Fire3") && ActivateBackground == "photoWall")
             {
                 Inventory.SetActive(true);
             }
         }
     }
+
+    void LoadTrigger()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (CameraCheck == false)
+            {
+                pictureTaken = false;
+                DialoguePaused = true;
+            }
+            if (pictureTaken == false)
+            {
+                if (ActivateBackground == "CafePhoto")
+                {
+                    triggers[1].SetActive(true);
+                    pictureTaken = true;
+                }
+                else if (ActivateBackground == "ParkPhoto")
+                {
+                    triggers[2].SetActive(true);
+                    pictureTaken = true;
+                }
+                else if (ActivateBackground == "BirdPhotoScene")
+                {
+                    triggers[3].SetActive(true);
+                    pictureTaken = true;
+                }
+            }
+        }
+    }
+
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
@@ -252,7 +258,7 @@ public class DialogueManager : MonoBehaviour
         if (canContinueToNextLine && CameraCheck == true)
         {
             ArrowSprite.SetActive(true);
-            
+
         }
     }
     private void TypingSound(int visibleCharacters)
@@ -268,14 +274,14 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextLine()
     {
-        if (GameManagement.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
+        if (PauseMenu.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
         {
             if (_StoryScript.canContinue)
             {
-                if (displayTextCoroutine != null && FindObjectOfType<GameManagement>().pauseMenuUI.activeInHierarchy == false)
-                {
-                    StopCoroutine(displayTextCoroutine);
-                }
+                // if (displayTextCoroutine != null && FindObjectOfType<PauseMenu>().pauseMenuUI.activeInHierarchy == false)
+                // {
+                //     StopCoroutine(displayTextCoroutine);
+                // }
                 displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
             }
             HandleTags(_StoryScript.currentTags);

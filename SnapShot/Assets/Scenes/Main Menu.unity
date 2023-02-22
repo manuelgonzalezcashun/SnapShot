@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -1328,16 +1328,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 531863030}
-        m_TargetAssemblyTypeName: GameManagement, Assembly-CSharp
+      - m_Target: {fileID: 531863031}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: StartGame
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: FlowerHangout
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &224817432
@@ -2380,7 +2380,6 @@ GameObject:
   - component: {fileID: 378037003}
   - component: {fileID: 378037002}
   - component: {fileID: 378037001}
-  - component: {fileID: 378037006}
   m_Layer: 5
   m_Name: Settings Canvas
   m_TagString: Untagged
@@ -2446,6 +2445,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2471,25 +2471,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &378037006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378037000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e38e06cd3a84c4594b1572160cd0d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splashScreen: {fileID: 0}
-  loadingScreen: {fileID: 0}
-  loadingBar: {fileID: 0}
-  LoadingTextPercent: {fileID: 0}
-  pauseMenuUI: {fileID: 0}
-  XboxCursor: {fileID: 472667181}
-  Controls: {fileID: 0}
 --- !u!1 &385984079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3138,7 @@ GameObject:
   - component: {fileID: 531863029}
   - component: {fileID: 531863028}
   - component: {fileID: 531863030}
+  - component: {fileID: 531863031}
   m_Layer: 5
   m_Name: Main Menu Canvas
   m_TagString: Untagged
@@ -3222,6 +3204,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3293,16 +3276,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 531863023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e38e06cd3a84c4594b1572160cd0d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b28c164cf28a3a499fc4e5f2181b96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashScreen: {fileID: 0}
   loadingScreen: {fileID: 923077192}
   loadingBar: {fileID: 1253540709}
   LoadingTextPercent: {fileID: 1832129941}
-  pauseMenuUI: {fileID: 0}
-  XboxCursor: {fileID: 0}
-  Controls: {fileID: 0}
+--- !u!114 &531863031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531863023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8a076c437afa346b3eecb77e396ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &568182531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,8 +5381,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 531863030}
-        m_TargetAssemblyTypeName: GameManagement, Assembly-CSharp
+      - m_Target: {fileID: 531863031}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -5702,9 +5693,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
