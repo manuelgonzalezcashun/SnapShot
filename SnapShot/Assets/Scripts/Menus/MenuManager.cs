@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
     public void QuitGame(string sceneName)
     {
         SceneSwitcher.instance.StartCoroutine(SceneSwitcher.instance.LoadAsync(sceneName));
+        PauseMenu.gameIsPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void ExitGame()

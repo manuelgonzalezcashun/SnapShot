@@ -25,7 +25,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public GameObject ButtonPanel;
     public GameObject Inventory;
-    public GameObject Picture;
     public GameObject ArrowSprite;
     public TextMeshProUGUI dialogueText;
     //public TMP_InputField NameInput;
@@ -43,24 +42,36 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
 
-    [Header("Ink Tags")]
+    # region Ink Tags
     private const string SPEAKER_TAG = "speaker";
     private const string ICON = "icon";
     private const string SCENE = "endScene";
-    private const string NOTIFICATION = "notif";
     private const string AUDIO = "PlaySound";
     private const string PLAY = "playAnimation";
     private const string END = "EndGame";
+    private const string PHONE = "phone";
+    # endregion
 
-    /// Variable Observers
+    # region Variable Observers
     private bool _photoMode;
     private string _activebgName;
     private bool _cameraCheck;
     private bool _inventoryCheck;
+    private string pictureName;
+    #endregion
 
     public bool DialoguePaused;
-    private bool pictureTaken;
 
+    public static DialogueManager instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("Found more than one Dialogue Managers");
+        }
+        instance = this;
+    }
     public bool PhotoMode
     {
         get => _photoMode;
@@ -93,6 +104,14 @@ public class DialogueManager : MonoBehaviour
             _activebgName = value;
         }
     }
+    public string PictureName
+    {
+        get => pictureName;
+        private set
+        {
+            pictureName = value;
+        }
+    }
     /// END LINE
     void Start()
     {
@@ -112,6 +131,7 @@ public class DialogueManager : MonoBehaviour
         CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
         InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
+        PictureName = (string)_StoryScript.variablesState["PictureName"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
@@ -129,6 +149,10 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateBackground = (string)value;
         });
+        _StoryScript.ObserveVariable("PictureName", (arg, value) =>
+        {
+            PictureName = (string)value;
+        });
     }
     /// Ink Variable Functions ///
     public void ActivateScene()
@@ -144,71 +168,44 @@ public class DialogueManager : MonoBehaviour
             FriendTagPanel.SetActive(false);
         }
     }
+    void PausingDialogue()
+    {
+        if (!CameraCheck || !InventoryCheck || Inventory.activeInHierarchy)
+        {
+            DialoguePaused = true;
+        }
+        else
+        {
+            DialoguePaused = false;
+        }
+    }
     void Update()
     {
+        if (PauseMenu.gameIsPaused == true)
+            return;
         /// Ink Variables Calls ///
         ActivateScene();
         activatePhotoMode();
+        PausingDialogue();
+        if (Input.GetButtonDown("Jump"))
+        {
+            submitButtonPressed = true;
+            if (canContinueToNextLine && submitButtonPressed)
+            {
+                submitButtonPressed = false;
+                DisplayNextLine();
+            }
+        }
+        PictureCapture.instance.LoadTrigger();
 
-        if (triggers[0].activeInHierarchy)
+
+        /// ADD TO INVENTORY SCRIPT WHEN INVENTORY GETS ADDED !
+        if (Input.GetButtonDown("Fire3") && ActivateBackground == "photoWall")
         {
-            DialoguePanel.SetActive(false);
+            Inventory.SetActive(true);
         }
-        if (PauseMenu.gameIsPaused == false)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                submitButtonPressed = true;
-                if (DialoguePanel.activeInHierarchy)
-                {
-                    if (CameraCheck == true && InventoryCheck == true)
-                    {
-                        if (canContinueToNextLine && submitButtonPressed)
-                        {
-                            submitButtonPressed = false;
-                            DisplayNextLine();
-                        }
-                    }
-                }
-            }
-            LoadTrigger();
-            if (Input.GetButtonDown("Fire3") && ActivateBackground == "photoWall")
-            {
-                Inventory.SetActive(true);
-            }
-        }
+
     }
-
-    void LoadTrigger()
-    {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            if (CameraCheck == false)
-            {
-                pictureTaken = false;
-                DialoguePaused = true;
-            }
-            if (pictureTaken == false)
-            {
-                if (ActivateBackground == "CafePhoto")
-                {
-                    triggers[1].SetActive(true);
-                    pictureTaken = true;
-                }
-                else if (ActivateBackground == "ParkPhoto")
-                {
-                    triggers[2].SetActive(true);
-                    pictureTaken = true;
-                }
-                else if (ActivateBackground == "BirdPhotoScene")
-                {
-                    triggers[3].SetActive(true);
-                    pictureTaken = true;
-                }
-            }
-        }
-    }
-
     void LoadStory()
     {
         _StoryScript = new Story(_InkJsonFile.text);
@@ -258,7 +255,6 @@ public class DialogueManager : MonoBehaviour
         if (canContinueToNextLine && CameraCheck == true)
         {
             ArrowSprite.SetActive(true);
-
         }
     }
     private void TypingSound(int visibleCharacters)
@@ -274,19 +270,20 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextLine()
     {
-        if (PauseMenu.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
+        if (DialoguePaused || !DialoguePanel.activeInHierarchy)
+            return;
+        if (_StoryScript.canContinue)
         {
-            if (_StoryScript.canContinue)
+            if (displayTextCoroutine != null)
             {
-                // if (displayTextCoroutine != null && FindObjectOfType<PauseMenu>().pauseMenuUI.activeInHierarchy == false)
-                // {
-                //     StopCoroutine(displayTextCoroutine);
-                // }
-                displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
+                StopCoroutine(displayTextCoroutine);
             }
-            HandleTags(_StoryScript.currentTags);
+            displayTextCoroutine = StartCoroutine(TypeSentence(_StoryScript.Continue()));
         }
+        HandleTags(_StoryScript.currentTags);
     }
+
+    # region Story State
     public string GetStoryState()
     {
         return _StoryScript.state.ToJson();
@@ -296,6 +293,8 @@ public class DialogueManager : MonoBehaviour
     {
         _loadedState = state;
     }
+    #endregion
+
     private void HandleTags(List<string> currentTags)
     {
         foreach (string tag in currentTags)
@@ -347,14 +346,9 @@ public class DialogueManager : MonoBehaviour
                         charIcon.Play(tagValue);
                     }
                     break;
-                case NOTIFICATION:
-                    foreach (GameObject trigger in triggers)
-                    {
-                        if (tagValue == trigger.name)
-                        {
-                            trigger.SetActive(true);
-                        }
-                    }
+                case PHONE:
+                    if (tagValue == "text")
+                        triggers[0].SetActive(true);
                     break;
                 case SCENE:
                     DialoguePanel.SetActive(false);
@@ -375,6 +369,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
+    # region Choice UI
     private void StoryChoices()
     {
         List<Choice> currentchoices = _StoryScript.currentChoices;
@@ -419,6 +415,8 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
+
+    #endregion
 
     public void CameraCheckPoint()
     {
