@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private Animator charIcon;
     [SerializeField] private GameObject charPanel;
+    [SerializeField] GameObject phone;
 
     public GameObject NameTagPanel;
     public GameObject FriendTagPanel;
@@ -38,7 +39,6 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = true;
     private bool submitButtonPressed = true;
     [SerializeField] private GameObject[] choices;
-    [SerializeField] private GameObject[] triggers;
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
 
@@ -348,7 +348,7 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case PHONE:
                     if (tagValue == "text")
-                        triggers[0].SetActive(true);
+                        phone.SetActive(true);
                     break;
                 case SCENE:
                     DialoguePanel.SetActive(false);

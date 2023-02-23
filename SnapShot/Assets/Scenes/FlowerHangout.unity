@@ -10241,6 +10241,7 @@ MonoBehaviour:
   frequecy: 4
   charIcon: {fileID: 1242847505}
   charPanel: {fileID: 1242847502}
+  phone: {fileID: 1413269796}
   NameTagPanel: {fileID: 1406631246}
   FriendTagPanel: {fileID: 88879262}
   DialoguePanel: {fileID: 1231373424}
@@ -10254,8 +10255,6 @@ MonoBehaviour:
   choices:
   - {fileID: 522392246}
   - {fileID: 264975660}
-  triggers:
-  - {fileID: 1413269796}
   DialoguePaused: 0
 --- !u!1 &1852732180
 GameObject:
