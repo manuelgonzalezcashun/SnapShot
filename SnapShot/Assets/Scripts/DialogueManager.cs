@@ -16,9 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private int frequecy = 2;
 
     [Header("Unity Hiearchy")]
-
-    [SerializeField] private Animator charIcon;
-    [SerializeField] private GameObject charPanel;
+    [SerializeField] private GameObject characterSprite;
     [SerializeField] GameObject phone;
 
     public GameObject NameTagPanel;
@@ -310,18 +308,12 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    if (tagValue == "")
+                    if (tagValue == Character.instance.character.name)
                     {
+                        friendTag.text = Character.instance.character.name;
+                        FriendTagPanel.SetActive(true);
                         NameTagPanel.SetActive(false);
                     }
-                    //Player Name Input: WIP
-                    /*if(NameInput.text != "")
-                    {
-                        tagValue = NameInput.text;
-                        nameTag.text = tagValue;
-                        NameTagPanel.SetActive(true);
-                        FriendTagPanel.SetActive(false);
-                    }*/
                     else if (tagValue == "Sam")
                     {
                         nameTag.text = tagValue;
@@ -330,20 +322,18 @@ public class DialogueManager : MonoBehaviour
                     }
                     else
                     {
-                        friendTag.text = tagValue;
-                        FriendTagPanel.SetActive(true);
                         NameTagPanel.SetActive(false);
                     }
                     break;
                 case ICON:
                     if (tagValue == "")
                     {
-                        charPanel.SetActive(false);
+                        characterSprite.SetActive(false);
                     }
                     else
                     {
-                        charPanel.SetActive(true);
-                        charIcon.Play(tagValue);
+                        characterSprite.SetActive(true);
+                        Character.instance.CharacterExpressions(tagValue);
                     }
                     break;
                 case PHONE:
@@ -427,3 +417,14 @@ public class DialogueManager : MonoBehaviour
         InventoryCheck = true;
     }
 }
+
+
+
+//Player Name Input: WIP
+/*if(NameInput.text != "")
+{
+    tagValue = NameInput.text;
+    nameTag.text = tagValue;
+    NameTagPanel.SetActive(true);
+    FriendTagPanel.SetActive(false);
+}*/
