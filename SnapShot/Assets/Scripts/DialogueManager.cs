@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class DialogueManager : MonoBehaviour
 {
     [Header("C# Scripts")]
-    private SceneChanger sceneSwitch;
+    private GameManagement sceneSwitch;
     private playAnimation play;
-    private PausingScript pause;
+    [SerializeField] private bool stopAudio;
+    [SerializeField] private float typingSpeed = 0.04f;
+    [SerializeField] private int frequecy = 2;
 
     [Header("Unity Hiearchy")]
     [SerializeField] private Animator charIcon;
@@ -23,12 +27,11 @@ public class DialogueManager : MonoBehaviour
     public GameObject Picture;
     public GameObject ArrowSprite;
     public TextMeshProUGUI dialogueText;
-    public TMP_InputField NameInput;
+    //public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI friendTag;
     private AudioSource sounds;
     private Animation bgAnims;
-    private GameObject bg;
 
     [Header("Ink Editor")]
     [SerializeField] private Story _StoryScript;
@@ -37,7 +40,6 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = true;
     private bool submitButtonPressed = true;
     [SerializeField] private GameObject[] choices;
-    [SerializeField] private GameObject[] backgrounds;
     [SerializeField] private GameObject[] triggers;
     private TextMeshProUGUI[] choicesText;
     private static string _loadedState;
@@ -53,10 +55,7 @@ public class DialogueManager : MonoBehaviour
 
     /// Variable Observers
     private bool _photoMode;
-    private string _saveBackgroundData;
-    //private bool _saveCharacterData;
     private string _activebgName;
-    private string _deactivebgName;
     private bool _activateButton;
     private bool _cameraCheck;
     private bool _inventoryCheck;
@@ -90,15 +89,6 @@ public class DialogueManager : MonoBehaviour
             _inventoryCheck = value;
         }
     }
-    /* public bool SaveCharacterData
-     {
-         get => _saveCharacterData;
-         private set
-         {
-             Debug.Log($"Updating saveCharacterData value. Old value: {_saveCharacterData}. new value: {value}");
-             _saveCharacterData = value;
-         }
-     }*/
     public bool ActivateButton
     {
         get => _activateButton;
@@ -117,24 +107,6 @@ public class DialogueManager : MonoBehaviour
             _activebgName = value;
         }
     }
-    public string DeactivateBackground
-    {
-        get => _deactivebgName;
-        private set
-        {
-            Debug.Log($"Updating DeactiveBackgroundName value. Old value: {_deactivebgName}. new value: {value}");
-            _deactivebgName = value;
-        }
-    }
-    public string SaveBackground
-    {
-        get => _saveBackgroundData;
-        private set
-        {
-            Debug.Log($"Updating BackgroundData value. Old value: {_saveBackgroundData}. new value: {value}");
-            _saveBackgroundData = value;
-        }
-    }
     /// END LINE
     void Start()
     {
@@ -147,18 +119,14 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-        pause = FindObjectOfType<PausingScript>();
     }
     private void InitializeVariables()
     {
         PhotoMode = (bool)_StoryScript.variablesState["photoMode"];
         CameraCheck = (bool)_StoryScript.variablesState["cameraCheck"];
         InventoryCheck = (bool)_StoryScript.variablesState["inventoryCheck"];
-        //SaveCharacterData = (bool)_StoryScript.variablesState["saveCharacterData"];
         ActivateButton = (bool)_StoryScript.variablesState["ActivateButton"];
-        SaveBackground = (string)_StoryScript.variablesState["saveBackgroundData"];
         ActivateBackground = (string)_StoryScript.variablesState["ActivateScene"];
-        DeactivateBackground = (string)_StoryScript.variablesState["DeactivateScene"];
 
         _StoryScript.ObserveVariable("photoMode", (arg, value) =>
         {
@@ -176,62 +144,15 @@ public class DialogueManager : MonoBehaviour
         {
             ActivateButton = (bool)value;
         });
-        /* _StoryScript.ObserveVariable("saveCharacterData", (arg, value) =>
-         {
-             SaveCharacterData = (bool)value;
-         });*/
-        _StoryScript.ObserveVariable("saveBackgroundData", (arg, value) =>
-      {
-          SaveBackground = (string)value;
-      });
         _StoryScript.ObserveVariable("ActivateScene", (arg, value) =>
         {
             ActivateBackground = (string)value;
         });
-        _StoryScript.ObserveVariable("DeactivateScene", (arg, value) =>
-        {
-            DeactivateBackground = (string)value;
-        });
-    }
-    public void SaveBackgroundData()
-    {
-        if (SaveBackground == ActivateBackground)
-        {
-            ActivateScene();
-        }
-        /*if (SaveCharacterData == true)
-        {
-            charPanel.SetActive(true);
-        }
-        else
-        {
-            charPanel.SetActive(false);
-        }*/
-        if (ActivateButton == true)
-        {
-            ButtonPanel.SetActive(true);
-        }
     }
     /// Ink Variable Functions ///
     public void ActivateScene()
     {
-        foreach (GameObject background in backgrounds)
-        {
-            if (ActivateBackground == background.name)
-            {
-                background.SetActive(true);
-            }
-        }
-    }
-    public void DeactivateScene()
-    {
-        foreach (GameObject background in backgrounds)
-        {
-            if (DeactivateBackground == background.name)
-            {
-                background.SetActive(false);
-            }
-        }
+        FindObjectOfType<BackgroundManager>().SetBackground(ActivateBackground);
     }
     public void activatePhotoMode()
     {
@@ -242,19 +163,23 @@ public class DialogueManager : MonoBehaviour
             FriendTagPanel.SetActive(false);
         }
     }
-
+    void FixedUpdate()
+    {
+        ActivateScene();
+    }
     void Update()
     {
+        if (ActivateButton == true)
+        {
+            ButtonPanel.SetActive(true);
+        }
         /// Ink Variables Calls ///
-        ActivateScene();
-        SaveBackgroundData();
-        DeactivateScene();
         activatePhotoMode();
-        if(triggers[0].activeInHierarchy)
+        if (triggers[0].activeInHierarchy)
         {
             DialoguePanel.SetActive(false);
         }
-        if (PausingScript.gameIsPaused == false)
+        if (GameManagement.gameIsPaused == false)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -315,16 +240,19 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        dialogueText.maxVisibleCharacters = 0;
         HideStoryChoices();
         canContinueToNextLine = false;
         bool isAddingRichText = false;
         ArrowSprite.SetActive(false);
+
         foreach (char letter in sentence.ToCharArray())
         {
             if (submitButtonPressed)
             {
                 submitButtonPressed = false;
                 dialogueText.text = sentence;
+                dialogueText.maxVisibleCharacters = sentence.Length;
                 break;
             }
             if (letter == '<' || isAddingRichText)
@@ -338,8 +266,10 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                dialogueText.maxVisibleCharacters++;
+                //TypingSound(dialogueText.maxVisibleCharacters);
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(typingSpeed);
             }
         }
         canContinueToNextLine = true;
@@ -349,13 +279,24 @@ public class DialogueManager : MonoBehaviour
             ArrowSprite.SetActive(true);
         }
     }
+    private void TypingSound(int visibleCharacters)
+    {
+        if (visibleCharacters % frequecy == 0)
+        {
+            if (stopAudio)
+            {
+                FindObjectOfType<SoundManager>().StopAudio("TypingSound");
+            }
+            FindObjectOfType<SoundManager>().PlayOneShot("TypingSound");
+        }
+    }
     public void DisplayNextLine()
     {
-        if (PausingScript.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
+        if (GameManagement.gameIsPaused == false && !Inventory.activeInHierarchy && !triggers[1].activeInHierarchy && !Picture.activeInHierarchy)
         {
             if (_StoryScript.canContinue)
             {
-                if (displayTextCoroutine != null && pause.pauseMenuUI.activeInHierarchy == false)
+                if (displayTextCoroutine != null && FindObjectOfType<GameManagement>().pauseMenuUI.activeInHierarchy == false)
                 {
                     StopCoroutine(displayTextCoroutine);
                 }
@@ -400,7 +341,7 @@ public class DialogueManager : MonoBehaviour
                         NameTagPanel.SetActive(true);
                         FriendTagPanel.SetActive(false);
                     }*/
-                    else if (tagValue == "StarRail")
+                    else if (tagValue == "Sam")
                     {
                         nameTag.text = tagValue;
                         NameTagPanel.SetActive(true);
@@ -437,17 +378,8 @@ public class DialogueManager : MonoBehaviour
                     DialoguePanel.SetActive(false);
                     NameTagPanel.SetActive(false);
                     break;
-                case PLAY:
-                    GameObject FindAnim = GameObject.Find(tagValue);
-                    bgAnims = FindAnim.GetComponent<Animation>();
-                    bgAnims.Play();
-                    Debug.Log(FindAnim.name);
-                    break;
                 case AUDIO:
-                    GameObject FindSound = GameObject.Find(tagValue);
-                    sounds = FindSound.GetComponent<AudioSource>();
-                    sounds.Play();
-                    Debug.Log(FindSound.name);
+                    FindObjectOfType<SoundManager>().Play(tagValue);
                     break;
                 case END:
                     if (tagValue == "true")
@@ -481,6 +413,7 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
+        StartCoroutine(SelectFirstChoice());
     }
     private void HideStoryChoices()
     {
@@ -496,6 +429,12 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         _StoryScript.ChooseChoiceIndex(choiceIndex);
+    }
+    private IEnumerator SelectFirstChoice()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
     public void CameraCheckPoint()

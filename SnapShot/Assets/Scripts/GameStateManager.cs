@@ -1,33 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     private DialogueManager _dialogueManager;
-    private PausingScript pause;
 
     private void Start()
     {
         _dialogueManager = FindObjectOfType<DialogueManager>();
     }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("ControlsScene");
-        PausingScript.gameIsPaused = false;
-        Time.timeScale = 1f;
-    }
-    public void ContinueButton()
-    {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-      PausingScript.gameIsPaused = false;
-      Time.timeScale = 1f;
-    }
-
     public void SaveGame()
     {
         SaveData save = CreateSaveGameObject();
@@ -43,7 +26,6 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Game saved");
 
     }
-
     private SaveData CreateSaveGameObject()
     {
         return new SaveData
@@ -63,21 +45,11 @@ public class GameStateManager : MonoBehaviour
             SaveData save = (SaveData)bf.Deserialize(file);
             file.Close();
             DialogueManager.LoadState(save.InkStoryState);
-            SceneManager.LoadScene("FlowerHangout");
         }
         else
         {
             Debug.Log("No game saved!");
         }
-    }
-    public void QuitGame()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
     }
 }
 

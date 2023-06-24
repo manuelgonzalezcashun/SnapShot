@@ -19,7 +19,7 @@ public class LoadGameButtonScript : MonoBehaviour
     public void OnClick()
     {
         _gameStateManager?.LoadGame();
-        PausingScript.gameIsPaused = false;
+        GameManagement.gameIsPaused = false;
         Time.timeScale = 1f;
     }
 }

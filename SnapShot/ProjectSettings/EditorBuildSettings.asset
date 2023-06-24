@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash Image.unity
     guid: 8c96c53627771c040ad358d5e93c5c20
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: 45e658cfe7d4d5840a52c108437a7416
-  - enabled: 1
-    path: Assets/Scenes/ControlsScene.unity
-    guid: 4252abea0c261544c82084265e30f651
+    path: Assets/Scenes/Main Menu.unity
+    guid: ad8d8074b7a4c044693b0ab9d3527697
   - enabled: 1
     path: Assets/Scenes/FlowerHangout.unity
     guid: d1b76f3fce730584a88d19db552faec8
   - enabled: 1
     path: Assets/Scenes/EndCreditScene.unity
     guid: 8f2be87edd972254bb4c65eabe0b66f5
+  - enabled: 0
+    path: Assets/Scenes/ControlsScene.unity
+    guid: 4252abea0c261544c82084265e30f651
   m_configObjects: {}

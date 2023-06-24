@@ -22,6 +22,7 @@ public class XboxConrtrollerCursor : MonoBehaviour
     private Mouse virtualMouse;
     private Mouse currentMouse; 
     private Camera mainCamera;
+    private Vector2 cursorPos = new Vector2(0, 0);
 
     private string previousControlScheme = "";
     private const string gamepadScheme = "Gamepad";

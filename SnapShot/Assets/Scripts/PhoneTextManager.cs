@@ -14,9 +14,13 @@ public class PhoneTextManager : MonoBehaviour
     public GameObject[] TextMessages;
     public TextMeshProUGUI[] Dialogue;
     private bool MadeChoice = false;
+    private bool finishedText;
+    [SerializeField] private float textInterval = 2f;
 
     private const string SENTENCE = "sentence";
     private int _sentenceNum;
+
+    private DialogueManager dm;
 
     public int Sentence
     {
@@ -29,6 +33,8 @@ public class PhoneTextManager : MonoBehaviour
     }
     void Start()
     {
+        dm = FindObjectOfType<DialogueManager>();
+        finishedText = false;
         LoadStory();
         InitializeVariables();
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -37,6 +43,10 @@ public class PhoneTextManager : MonoBehaviour
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
+        }
+        if (phoneStory.canContinue)
+        {
+            StartCoroutine(PhoneTexting(textInterval));
         }
     }
     private void InitializeVariables()
@@ -61,17 +71,25 @@ public class PhoneTextManager : MonoBehaviour
     {
         phoneStory = new Story(inkJsonFile.text);
     }
-    void Update()
+    IEnumerator PhoneTexting(float interval)
     {
-        SentenceNum();
-        if (Input.GetButtonDown("Jump") && phoneStory.canContinue)
+        if (phoneStory.canContinue)
         {
+            yield return new WaitForSeconds(interval);
+            SentenceNum();
             DisplayNextLine(phoneStory.Continue());
+            StartCoroutine(PhoneTexting(textInterval));
         }
-        else if (!phoneStory.canContinue && MadeChoice == true)
+        yield return new WaitForSeconds(5f);
+        if (!phoneStory.canContinue && MadeChoice == true)
         {
+            FindObjectOfType<playAnimation>().PlayPhoneAnimation("PhoneSlideDown");
+            yield return new WaitForSeconds(1.1f);
             GameObject.Find("Phone").SetActive(false);
+            dm.DialoguePanel.SetActive(true);
+            dm.NameTagPanel.SetActive(true);
         }
+        
     }
     public void DisplayNextLine(string sentence)
     {
@@ -107,6 +125,10 @@ public class PhoneTextManager : MonoBehaviour
     {
         phoneStory.ChooseChoiceIndex(choiceIndex);
         MadeChoice = true;
+        if (MadeChoice == true)
+        {
+            StartCoroutine(PhoneTexting(textInterval));
+        }
     }
     private IEnumerator SelectFirstChoice()
     {
