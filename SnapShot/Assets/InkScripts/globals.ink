@@ -1,0 +1,1 @@
+﻿VAR relationship_score = 0

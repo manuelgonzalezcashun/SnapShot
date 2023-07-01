@@ -26,7 +26,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject Inventory;
     public GameObject ArrowSprite;
     public TextMeshProUGUI dialogueText;
-    //public TMP_InputField NameInput;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI friendTag;
 
@@ -417,14 +416,3 @@ public class DialogueManager : MonoBehaviour
         InventoryCheck = true;
     }
 }
-
-
-
-//Player Name Input: WIP
-/*if(NameInput.text != "")
-{
-    tagValue = NameInput.text;
-    nameTag.text = tagValue;
-    NameTagPanel.SetActive(true);
-    FriendTagPanel.SetActive(false);
-}*/
