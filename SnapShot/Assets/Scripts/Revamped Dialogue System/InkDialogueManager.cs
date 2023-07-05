@@ -6,6 +6,7 @@ using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Ink.UnityIntegration;
+using UnityEngine.Events;
 
 public class InkDialogueManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] GameObject NameTagPanel;
     [SerializeField] TMP_Text NameTagText;
+    [SerializeField] GameObject charSprite;
     [SerializeField] GameObject responseBox;
     [SerializeField] RectTransform responseBoxTransform;
     [SerializeField] GameObject responsePrefab;
@@ -35,6 +37,8 @@ public class InkDialogueManager : MonoBehaviour
     #endregion
     # region Ink Tags
     private const string SPEAKER_TAG = "speaker";
+    private const string BACKGROUND_TAG = "background";
+    private const string ICON_TAG = "icon";
     #endregion
 
     #region Singleton Stuff
@@ -117,6 +121,19 @@ public class InkDialogueManager : MonoBehaviour
                     {
                         NameTagPanel.SetActive(true);
                         NameTagText.text = tagValue;
+                    }
+                    break;
+                case BACKGROUND_TAG:
+                    if (tagValue != null)
+                    {
+                        FindObjectOfType<BackgroundManager>().SetBackground(tagValue);
+                    }
+                    break;
+                case ICON_TAG:
+                    if (tagValue != null)
+                    {
+                        charSprite.SetActive(true);
+                        FindObjectOfType<Character>().CharacterExpressions(tagValue);
                     }
                     break;
                 default:

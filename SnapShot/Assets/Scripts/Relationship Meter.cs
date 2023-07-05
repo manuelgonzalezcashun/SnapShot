@@ -9,13 +9,15 @@ public class RelationshipMeter : MonoBehaviour
     [SerializeField] GameObject[] meter_bars;
     int relationshipScore;
     int maxRelationshipScore = 5;
+    int rFillAmount;
     void Update()
     {
+        int rFillAmount = ((Ink.Runtime.IntValue)InkDialogueManager.instance.GetVariableState("relationship_score")).value;
+
         if (relationshipScore > maxRelationshipScore) relationshipScore = maxRelationshipScore;
         RelationshipMeterFiller();
-        relationshipScore = ((Ink.Runtime.IntValue)InkDialogueManager.instance.GetVariableState("relationship_score")).value;
+        Fill(rFillAmount);
     }
-
     void RelationshipMeterFiller()
     {
         for (int i = 0; i < meter_bars.Length; i++)

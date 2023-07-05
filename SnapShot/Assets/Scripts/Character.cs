@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,15 @@ public class Character : MonoBehaviour
     public CharacterData character;
     private Animator animator;
 
-    public static Character instance;
-
     void Awake()
     {
+        animator = GetComponent<Animator>();
         gameObject.name = character.name;
-        gameObject.SetActive(false);
-        instance = this;
     }
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        gameObject.SetActive(false);
     }
 
     public void CharacterExpressions(string charExpression)
