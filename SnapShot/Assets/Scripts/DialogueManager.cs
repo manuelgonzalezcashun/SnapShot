@@ -307,9 +307,9 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    if (tagValue == Character.instance.character.name)
+                    if (tagValue != null)
                     {
-                        friendTag.text = Character.instance.character.name;
+                        //friendTag.text = Character.instance.character.name;
                         FriendTagPanel.SetActive(true);
                         NameTagPanel.SetActive(false);
                     }
@@ -332,7 +332,7 @@ public class DialogueManager : MonoBehaviour
                     else
                     {
                         characterSprite.SetActive(true);
-                        Character.instance.CharacterExpressions(tagValue);
+                        //Character.instance.CharacterExpressions(tagValue);
                     }
                     break;
                 case PHONE:
