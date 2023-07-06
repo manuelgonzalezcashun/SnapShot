@@ -1,5 +1,6 @@
 ﻿INCLUDE globals.ink
-#background: bg0
+
+~changeBackground("bg0")
 Hello! #speaker: Aisha #icon: default
 I am testing the new Dialogue System.
 or Am i? 
@@ -9,16 +10,18 @@ What do you think?
 * [I don't even know] -> huh
 
 ===lying===
-#background: bg1 #icon: Flower_angry
+#icon: Flower_angry
+~changeBackground("bg1")
 ~ relationship_score = 0
 How Dare You!
--> DONE
+-> END
 
 ===truth===
-#background: bg2 #icon: Flower_happy
+#icon: Flower_happy
+~changeBackground("bg2")
 ~ relationship_score = 5
 Look's like we will be friends...
--> DONE
+-> END
 
 ===huh===
 What do you mean you don't know???

@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Theme
-    clip: {fileID: 8300000, guid: 2d36ed596eacd1d408042e56c008b3a8, type: 3}
+    clip: {fileID: 8300000, guid: 8fc488baf5bba7a4ea3969523014c022, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
@@ -2044,7 +2044,7 @@ MonoBehaviour:
   dialogueText: {fileID: 2083052716}
   NameTagPanel: {fileID: 430403583}
   NameTagText: {fileID: 1960421144}
-  charSprite: {fileID: 183721533}
+  characterPrefab: {fileID: 183721533}
   responseBox: {fileID: 1434397368}
   responseBoxTransform: {fileID: 1434397369}
   responsePrefab: {fileID: 9127578171947685182, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
@@ -2063,7 +2063,6 @@ MonoBehaviour:
     masterInkAsset: {fileID: 0}
     includePaths: []
     includes: []
-  typingSpeed: 0.04
 --- !u!1 &1955684258
 GameObject:
   m_ObjectHideFlags: 0

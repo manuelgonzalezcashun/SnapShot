@@ -10,16 +10,17 @@ using UnityEngine.Events;
 
 public class InkDialogueManager : MonoBehaviour
 {
-    #region Unity Variables
     [Header("Unity UI")]
-    [SerializeField] GameObject dialogueBox;
-    [SerializeField] TMP_Text dialogueText;
-    [SerializeField] GameObject NameTagPanel;
-    [SerializeField] TMP_Text NameTagText;
-    [SerializeField] GameObject charSprite;
-    [SerializeField] GameObject responseBox;
-    [SerializeField] RectTransform responseBoxTransform;
-    [SerializeField] GameObject responsePrefab;
+    #region Unity Variables
+    
+    public GameObject dialogueBox;
+    public TMP_Text dialogueText;
+    public GameObject NameTagPanel;
+    public TMP_Text NameTagText;
+    public GameObject characterPrefab;
+    public GameObject responseBox;
+    public RectTransform responseBoxTransform;
+    public GameObject responsePrefab;
     List<GameObject> tempButtons = new List<GameObject>();
 
     [Header("Ink Editor")]
@@ -29,11 +30,13 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] InkFile globalsInkFile;
 
     [Header("Game Runtime Variables")]
-    [SerializeField] private float typingSpeed = 0.04f;
+    private float typingSpeed = 0.03f;
     private bool submitButtonPressed = true;
     private bool canContinueToNextLine = true;
     private Coroutine displayTextCoroutine;
     private InkDialogueObserver dialogueObserver;
+    private InkExternalFunctions inkExternalFunctions;
+    private InkTagHandler tagHandler;
     #endregion
     # region Ink Tags
     private const string SPEAKER_TAG = "speaker";
@@ -53,6 +56,8 @@ public class InkDialogueManager : MonoBehaviour
         instance = this;
 
         dialogueObserver = new InkDialogueObserver(globalsInkFile.filePath);
+        inkExternalFunctions = new InkExternalFunctions();
+        tagHandler = new InkTagHandler();
     }
     # endregion
     void Start()
@@ -81,6 +86,7 @@ public class InkDialogueManager : MonoBehaviour
         }
 
         dialogueObserver.StartListening(inkStoryScript);
+        inkExternalFunctions.Bind(inkStoryScript);
     }
 
     public void DisplayNextLine()
@@ -95,54 +101,20 @@ public class InkDialogueManager : MonoBehaviour
         }
         else if (!inkStoryScript.canContinue)
         {
-            NameTagPanel.SetActive(false);
-            dialogueText.text = "";
-            dialogueObserver.StopListening(inkStoryScript);
+            EndStory();
         }
-        HandleTags(inkStoryScript.currentTags);
-    }
-    #region Ink Tag Handler
-    private void HandleTags(List<string> currentTags)
-    {
-        foreach (string tag in currentTags)
-        {
-            string[] splitTag = tag.Split(':');
-            if (splitTag.Length != 2)
-            {
-                Debug.LogError("Tag could not be appropritely parsed: " + tag);
-            }
-            string tagKey = splitTag[0].Trim();
-            string tagValue = splitTag[1].Trim();
 
-            switch (tagKey)
-            {
-                case SPEAKER_TAG:
-                    if (tagValue != null)
-                    {
-                        NameTagPanel.SetActive(true);
-                        NameTagText.text = tagValue;
-                    }
-                    break;
-                case BACKGROUND_TAG:
-                    if (tagValue != null)
-                    {
-                        FindObjectOfType<BackgroundManager>().SetBackground(tagValue);
-                    }
-                    break;
-                case ICON_TAG:
-                    if (tagValue != null)
-                    {
-                        charSprite.SetActive(true);
-                        FindObjectOfType<Character>().CharacterExpressions(tagValue);
-                    }
-                    break;
-                default:
-                    Debug.LogWarning("Tag came in but it is currently being handled: " + tag);
-                    break;
-            }
-        }
+        tagHandler.HandleTags(inkStoryScript.currentTags);
     }
-    #endregion
+    private void EndStory()
+    {
+        NameTagPanel.SetActive(false);
+        dialogueText.text = "";
+        dialogueBox.SetActive(false);
+
+        inkExternalFunctions.Unbind(inkStoryScript);
+        dialogueObserver.StopListening(inkStoryScript);
+    }
     # region Story State
     public string GetStoryState()
     {
