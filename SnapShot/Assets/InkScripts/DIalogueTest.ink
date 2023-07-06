@@ -11,6 +11,7 @@ What do you think?
 
 ===lying===
 #icon: Flower_angry
+~playSound("snd1")
 ~changeBackground("bg1")
 ~ relationship_score = 0
 How Dare You!
@@ -18,8 +19,9 @@ How Dare You!
 
 ===truth===
 #icon: Flower_happy
+~playSound("snd2")
 ~changeBackground("bg2")
-~ relationship_score = 5
+~ relationship_score += 1
 Look's like we will be friends...
 -> END
 

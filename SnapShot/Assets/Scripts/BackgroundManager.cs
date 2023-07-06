@@ -8,14 +8,10 @@ public class BackgroundManager : MonoBehaviour
     private int newOrderInLayer = -5;
     private Background background;
 
-    void Awake()
+    private void Awake()
     {
-        foreach (Background bg in backgrounds)
-        {
-            bg.bgSpriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        }
+        gameObject.AddComponent<SpriteRenderer>();
     }
-
     public void SetBackground(string name)
     {
         Background bg = Array.Find(backgrounds, background => background.name == name);

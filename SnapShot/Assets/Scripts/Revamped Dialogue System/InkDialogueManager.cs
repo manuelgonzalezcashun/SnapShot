@@ -12,7 +12,7 @@ public class InkDialogueManager : MonoBehaviour
 {
     [Header("Unity UI")]
     #region Unity Variables
-    
+
     public GameObject dialogueBox;
     public TMP_Text dialogueText;
     public GameObject NameTagPanel;
@@ -93,6 +93,7 @@ public class InkDialogueManager : MonoBehaviour
     {
         if (inkStoryScript.canContinue)
         {
+            canContinueToNextLine = true;
             if (displayTextCoroutine != null)
             {
                 StopCoroutine(displayTextCoroutine);
@@ -101,6 +102,7 @@ public class InkDialogueManager : MonoBehaviour
         }
         else if (!inkStoryScript.canContinue)
         {
+            canContinueToNextLine = false;
             EndStory();
         }
 

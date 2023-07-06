@@ -8,10 +8,11 @@ public class InkExternalFunctions
     public void Bind(Story story)
     {
         story.BindExternalFunction("changeBackground", (string backgroundName) => GameObject.FindObjectOfType<BackgroundManager>().SetBackground(backgroundName));
+        story.BindExternalFunction("playSound", (string soundName) => GameObject.FindObjectOfType<SoundManager>().Play(soundName));
     }
     public void Unbind(Story story)
     {
         story.UnbindExternalFunction("changeBackground");
-        Debug.Log("Function Unbinded");
+        story.UnbindExternalFunction("playSound");
     }
 }

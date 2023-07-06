@@ -1615,6 +1615,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: snd1
+    clip: {fileID: 8300000, guid: 218016558c33300419f647cf05b9a03f, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: snd2
+    clip: {fileID: 8300000, guid: f7c16b95e79bc394a8f5544e713c0cef, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1706735817
 GameObject:
   m_ObjectHideFlags: 0
