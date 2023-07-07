@@ -24,10 +24,11 @@ public class InkDialogueManager : MonoBehaviour
     List<GameObject> tempButtons = new List<GameObject>();
 
     [Header("Ink Editor")]
-    [SerializeField] Story inkStoryScript;
+
     [SerializeField] TextAsset inkJsonFile;
     private static string _loadedState;
     [SerializeField] InkFile globalsInkFile;
+    public Story inkStoryScript { get; private set; }
 
     [Header("Game Runtime Variables")]
     private float typingSpeed = 0.03f;
