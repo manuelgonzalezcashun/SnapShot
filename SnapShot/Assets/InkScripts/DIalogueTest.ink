@@ -37,5 +37,5 @@ What do you think?
 ===GoodEnding===
 #speaker: Narrator
 ~relationship_score = 5
-Flower and the player proceed to commit multiple war crimes together!
+Flower and the player proceed to have a picnic.
 -> END
