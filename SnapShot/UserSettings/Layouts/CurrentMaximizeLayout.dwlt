@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 3165
+  controlID: 3374
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3110
+  controlID: 3319
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 3086
+  controlID: 3295
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -238,7 +238,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c6faffff
+      m_ExpandedIDs: c6faffff20650000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -770,22 +770,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/Backgrounds/finailzed folder
+    - Assets/Scripts/Relationship Mechanic
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/Backgrounds/finailzed folder
+  - Assets/Scripts/Relationship Mechanic
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Unity Projects\SnapShot\SnapShot
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 766a0000
-    m_LastClickedID: 27254
+    m_SelectedIDs: ea740000
+    m_LastClickedID: 29930
     m_ExpandedIDs: 00000000aa2900000267000004670000186700006a6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -839,9 +839,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: d2650000
-    m_LastClickedInstanceID: 26066
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 6ed8ffff
+    m_LastClickedInstanceID: -10130
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300009472000068650000fe7800003c790000a26a0000f67b0000000000002e740000f0710000f2710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -922,8 +922,8 @@ MonoBehaviour:
     y: 0
     width: 620
     height: 1299
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -968,7 +968,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 26066
+  m_LastInspectedObjectInstanceID: -10130
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

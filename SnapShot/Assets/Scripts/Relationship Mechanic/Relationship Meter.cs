@@ -6,14 +6,24 @@ using UnityEngine.Events;
 
 public class RelationshipMeter : MonoBehaviour
 {
+    public UnityEvent relScoreChange;
     [SerializeField] GameObject relationship_meter;
     [SerializeField] GameObject[] meter_bars;
     int relationshipScore;
     int maxRelationshipScore = 5;
+    private int inkRelationshipScore;
+    void Start()
+    {
+        relScoreChange.AddListener(inkScoreTracker);
+        relScoreChange.AddListener(() => SoundManager.instance.Play("relScoreChange"));
+    }
     void Update()
     {
-        relationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
-
+        inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
+        if (inkRelationshipScore != relationshipScore)
+        {
+            relScoreChange.Invoke();
+        }
         if (relationshipScore > maxRelationshipScore) relationshipScore = maxRelationshipScore;
         RelationshipMeterFiller();
     }
@@ -28,12 +38,15 @@ public class RelationshipMeter : MonoBehaviour
     {
         return pointNumber >= _relationshipScore;
     }
-
+    void inkScoreTracker()
+    {
+        relationshipScore = inkRelationshipScore;
+    }
     public void Fill(int fillAmount)
     {
         if (relationshipScore < maxRelationshipScore) relationshipScore += fillAmount;
+        Debug.Log(relationshipScore);
     }
-
     public void Empty(int emptyAmount)
     {
         if (relationshipScore > 0) relationshipScore -= emptyAmount;

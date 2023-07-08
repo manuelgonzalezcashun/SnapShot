@@ -5,7 +5,6 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Ink.UnityIntegration;
 using UnityEngine.Events;
 
 public class InkDialogueManager : MonoBehaviour
@@ -27,7 +26,7 @@ public class InkDialogueManager : MonoBehaviour
 
     [SerializeField] TextAsset inkJsonFile;
     private static string _loadedState;
-    [SerializeField] InkFile globalsInkFile;
+    [SerializeField] TextAsset loadGlobalsFile;
     public Story inkStoryScript { get; private set; }
 
     [Header("Game Runtime Variables")]
@@ -56,7 +55,7 @@ public class InkDialogueManager : MonoBehaviour
         }
         instance = this;
 
-        dialogueObserver = new InkDialogueObserver(globalsInkFile.filePath);
+        dialogueObserver = new InkDialogueObserver(loadGlobalsFile);
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
     }
@@ -86,7 +85,7 @@ public class InkDialogueManager : MonoBehaviour
             _loadedState = null;
         }
 
-        dialogueObserver.StartListening(inkStoryScript);
+        //dialogueObserver.StartListening(inkStoryScript);
         inkExternalFunctions.Bind(inkStoryScript);
     }
 
@@ -116,7 +115,7 @@ public class InkDialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
 
         inkExternalFunctions.Unbind(inkStoryScript);
-        dialogueObserver.StopListening(inkStoryScript);
+        //dialogueObserver.StopListening(inkStoryScript);
     }
     # region Story State
     public string GetStoryState()
@@ -133,7 +132,7 @@ public class InkDialogueManager : MonoBehaviour
     # region Typewriter Effect
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
+        dialogueText.text = sentence;
         dialogueText.maxVisibleCharacters = 0;
         canContinueToNextLine = false;
         bool isAddingRichText = false;
@@ -142,14 +141,12 @@ public class InkDialogueManager : MonoBehaviour
             if (submitButtonPressed)
             {
                 submitButtonPressed = false;
-                dialogueText.text = sentence;
                 dialogueText.maxVisibleCharacters = sentence.Length;
                 break;
             }
             if (letter == '<' || isAddingRichText)
             {
                 isAddingRichText = true;
-                dialogueText.text += letter;
                 if (letter == '>')
                 {
                     isAddingRichText = false;
@@ -158,7 +155,6 @@ public class InkDialogueManager : MonoBehaviour
             else
             {
                 dialogueText.maxVisibleCharacters++;
-                dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
         }

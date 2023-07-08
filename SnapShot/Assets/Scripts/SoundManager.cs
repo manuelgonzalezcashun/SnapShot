@@ -5,9 +5,21 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     public Sounds[] sounds;
     void Awake()
     {
+        # region Singleton stuff
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        #endregion
         foreach (Sounds s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
