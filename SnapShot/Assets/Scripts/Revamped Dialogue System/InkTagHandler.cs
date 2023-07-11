@@ -23,6 +23,10 @@ public class InkTagHandler
                 case SPEAKER_TAG:
                     if (tagValue != null)
                     {
+                        if (tagValue != InkDialogueManager.instance.characterPrefab.name)
+                        {
+                            InkDialogueManager.instance.characterPrefab.GetComponent<SpriteRenderer>().color = Color.gray;
+                        }
                         InkDialogueManager.instance.NameTagPanel.SetActive(true);
                         InkDialogueManager.instance.NameTagText.text = tagValue;
                     }
