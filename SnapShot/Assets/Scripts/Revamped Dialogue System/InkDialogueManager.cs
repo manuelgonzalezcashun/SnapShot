@@ -5,7 +5,6 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Events;
 
 public class InkDialogueManager : MonoBehaviour
 {
@@ -20,6 +19,7 @@ public class InkDialogueManager : MonoBehaviour
     public GameObject responseBox;
     public RectTransform responseBoxTransform;
     public GameObject responsePrefab;
+
     List<GameObject> tempButtons = new List<GameObject>();
 
     [Header("Ink Editor")]
@@ -33,6 +33,7 @@ public class InkDialogueManager : MonoBehaviour
     private float typingSpeed = 0.03f;
     private bool submitButtonPressed = true;
     private bool canContinueToNextLine = true;
+
     private Coroutine displayTextCoroutine;
     private InkDialogueObserver dialogueObserver;
     private InkExternalFunctions inkExternalFunctions;
@@ -85,7 +86,7 @@ public class InkDialogueManager : MonoBehaviour
             _loadedState = null;
         }
 
-        //dialogueObserver.StartListening(inkStoryScript);
+        dialogueObserver.StartListening(inkStoryScript);
         inkExternalFunctions.Bind(inkStoryScript);
     }
 
@@ -115,7 +116,7 @@ public class InkDialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
 
         inkExternalFunctions.Unbind(inkStoryScript);
-        //dialogueObserver.StopListening(inkStoryScript);
+        dialogueObserver.StopListening(inkStoryScript);
     }
     # region Story State
     public string GetStoryState()

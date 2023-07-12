@@ -12,7 +12,6 @@ What do you think?
 ===lying===
 ~relationship_score -= 1
 #icon: Flower_angry
-~playSound("snd1")
 ~changeBackground("bg1")
 How Dare You!
 -> END
@@ -20,7 +19,6 @@ How Dare You!
 ===truth===
 ~relationship_score += 1
 #icon: Flower_happy
-~playSound("snd2")
 ~changeBackground("bg2")
 Look's like we will be friends...
 * [I don't want to be your friend!] -> lying
@@ -35,7 +33,7 @@ What do you think?
 + [I don't even know] -> huh
 
 ===GoodEnding===
-~relationship_score = 5
+~relationship_score += 5
 #speaker: Narrator
 Flower and the player proceed to have a picnic.
 -> END

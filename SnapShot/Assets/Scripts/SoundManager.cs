@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         #endregion
         foreach (Sounds s in sounds)
         {
@@ -33,6 +33,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         Play("Theme");
+        SnapshotEvents.instance.relScoreChange.AddListener(() => Play("relScoreChange"));
     }
     public void Play(string name)
     {
