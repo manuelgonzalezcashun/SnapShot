@@ -26,7 +26,7 @@ public class RelationshipMeter : MonoBehaviour
         
         if (relationshipScore > inkRelationshipScore) 
         {
-            SnapshotEvents.instance?.IncrementRelScore.Invoke();
+            SnapshotEvents.instance?.DecrementRelScore.Invoke();
         }
         else if (relationshipScore < inkRelationshipScore)
         {

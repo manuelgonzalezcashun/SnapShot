@@ -1735,6 +1735,21 @@ MonoBehaviour:
           m_StringArgument: relScoreAdd
           m_BoolArgument: 0
         m_CallState: 1
+  DecrementRelScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1630035215}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: relScoreRemove
+          m_BoolArgument: 0
+        m_CallState: 1
   showMeter:
     m_PersistentCalls:
       m_Calls:

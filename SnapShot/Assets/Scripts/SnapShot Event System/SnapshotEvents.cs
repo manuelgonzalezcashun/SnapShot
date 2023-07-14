@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class SnapshotEvents : MonoBehaviour
 {
     public UnityEvent IncrementRelScore;
+    public UnityEvent DecrementRelScore;
     public UnityEvent showMeter;
     #region Singleton Stuff
     public static SnapshotEvents instance;
