@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class RelationshipMeter : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class RelationshipMeter : MonoBehaviour
     public int inkRelationshipScore { get; private set; }
     private int relationshipScore;
     private int maxRelationshipScore = 5;
-
     void Update()
     {
         inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
@@ -20,30 +18,22 @@ public class RelationshipMeter : MonoBehaviour
         if (inkRelationshipScore >= maxRelationshipScore)
         {
             inkRelationshipScore = maxRelationshipScore;
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
         }
         else if (inkRelationshipScore <= 0)
         {
             inkRelationshipScore = 0;
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
         }
-        else
+        
+        if (relationshipScore > inkRelationshipScore) 
         {
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
+            SnapshotEvents.instance?.IncrementRelScore.Invoke();
+        }
+        else if (relationshipScore < inkRelationshipScore)
+        {
+            SnapshotEvents.instance.IncrementRelScore?.Invoke();
         }
 
+        relationshipScore = inkRelationshipScore;
         #endregion
 
         RelationshipMeterFiller();

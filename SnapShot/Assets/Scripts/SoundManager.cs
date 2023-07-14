@@ -28,12 +28,12 @@ public class SoundManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.mute = s.mute;
         }
     }
     void Start()
     {
         Play("Theme");
-        SnapshotEvents.instance.relScoreChange.AddListener(() => Play("relScoreChange"));
     }
     public void Play(string name)
     {

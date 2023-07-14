@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,8 @@ using UnityEngine.Events;
 
 public class SnapshotEvents : MonoBehaviour
 {
-    public UnityEvent relScoreChange;
-
+    public UnityEvent IncrementRelScore;
+    public UnityEvent showMeter;
     #region Singleton Stuff
     public static SnapshotEvents instance;
     void Awake()
@@ -21,6 +22,4 @@ public class SnapshotEvents : MonoBehaviour
         }
     }
     #endregion
-
-
 }

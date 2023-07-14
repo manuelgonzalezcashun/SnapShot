@@ -177,7 +177,11 @@ public class InkDialogueManager : MonoBehaviour
             tempButtons.Add(responseButton);
             index++;
         }
-        if (responseBox.activeSelf) StartCoroutine(SelectFirstChoice());
+        if (responseBox.activeSelf)
+        {
+            SnapshotEvents.instance.showMeter?.Invoke();
+            StartCoroutine(SelectFirstChoice());
+        }
     }
     void MakeChoice(int choiceIndex)
     {
@@ -197,7 +201,7 @@ public class InkDialogueManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(tempButtons[0].gameObject);
     }
-    # endregion
+    #endregion
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
         Ink.Runtime.Object variableValue = null;
