@@ -34,6 +34,5 @@ What do you think?
 
 ===GoodEnding===
 ~relationship_score += 5
-#speaker: Narrator
 Flower and the player proceed to have a picnic.
 -> END

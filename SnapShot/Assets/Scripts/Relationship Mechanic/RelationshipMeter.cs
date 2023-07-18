@@ -11,31 +11,7 @@ public class RelationshipMeter : MonoBehaviour
     private int maxRelationshipScore = 5;
     void Update()
     {
-        inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
-
-        #region Relationship Score Observer
-
-        if (inkRelationshipScore >= maxRelationshipScore)
-        {
-            inkRelationshipScore = maxRelationshipScore;
-        }
-        else if (inkRelationshipScore <= 0)
-        {
-            inkRelationshipScore = 0;
-        }
-        
-        if (relationshipScore > inkRelationshipScore) 
-        {
-            SnapshotEvents.instance?.DecrementRelScore.Invoke();
-        }
-        else if (relationshipScore < inkRelationshipScore)
-        {
-            SnapshotEvents.instance.IncrementRelScore?.Invoke();
-        }
-
-        relationshipScore = inkRelationshipScore;
-        #endregion
-
+        inkRelationshipTracker();
         RelationshipMeterFiller();
     }
     void RelationshipMeterFiller()
@@ -48,5 +24,31 @@ public class RelationshipMeter : MonoBehaviour
     bool DisplayScorePoints(int _relationshipScore, int pointNumber)
     {
         return pointNumber >= _relationshipScore;
+    }
+    void inkRelationshipTracker()
+    {
+        inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
+
+        #region Relationship Score Observer
+        if (inkRelationshipScore >= maxRelationshipScore)
+        {
+            inkRelationshipScore = maxRelationshipScore;
+        }
+        else if (inkRelationshipScore <= 0)
+        {
+            inkRelationshipScore = 0;
+        }
+
+        if (relationshipScore > inkRelationshipScore)
+        {
+            SnapshotEvents.instance?.DecrementRelScore.Invoke();
+        }
+        else if (relationshipScore < inkRelationshipScore)
+        {
+            SnapshotEvents.instance.IncrementRelScore?.Invoke();
+        }
+        #endregion
+
+        relationshipScore = inkRelationshipScore;
     }
 }

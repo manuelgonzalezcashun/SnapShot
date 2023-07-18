@@ -33,7 +33,7 @@ public class InkTagHandler
                     break;
                 case ICON_TAG:
                     if (tagValue != null)
-                    {
+                    { 
                         InkDialogueManager.instance.characterPrefab.SetActive(true);
                         GameObject.FindObjectOfType<Character>().CharacterExpressions(tagValue);
                     }

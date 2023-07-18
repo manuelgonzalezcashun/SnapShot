@@ -6,12 +6,12 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CharacterData character;
-    private Animator animator;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
-    {
-        animator = GetComponent<Animator>();
+    { 
         gameObject.name = character.name;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -21,14 +21,12 @@ public class Character : MonoBehaviour
 
     public void CharacterExpressions(string charExpression)
     {
-        foreach (AnimationClip expresion in character.expressions)
+        foreach (Sprite expresion in character.expressions)
         {
             if (expresion.name == charExpression)
             {
-                animator.Play(expresion.name);
+                spriteRenderer.sprite = expresion;
             }
         }
     }
-
-
 }

@@ -85,9 +85,10 @@ public class InkDialogueManager : MonoBehaviour
             inkStoryScript?.state?.LoadJson(_loadedState);
             _loadedState = null;
         }
-
         dialogueObserver.StartListening(inkStoryScript);
         inkExternalFunctions.Bind(inkStoryScript);
+
+        DisplayNextLine();
     }
 
     public void DisplayNextLine()

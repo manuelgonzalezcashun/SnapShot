@@ -139,11 +139,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Expression_Sheet_0
+      name: default
       rect:
         serializedVersion: 2
         x: 33
@@ -164,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Expression_Sheet_1
+      name: Flower_happy
       rect:
         serializedVersion: 2
         x: 615
@@ -185,7 +197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Expression_Sheet_2
+      name: Flower_sad
       rect:
         serializedVersion: 2
         x: 1152
@@ -206,7 +218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Expression_Sheet_3
+      name: Flower_angry
       rect:
         serializedVersion: 2
         x: 1700
@@ -227,7 +239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Expression_Sheet_4
+      name: Flower_confused
       rect:
         serializedVersion: 2
         x: 6
@@ -248,7 +260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Expression_Sheet_5
+      name: Flower_shocked
       rect:
         serializedVersion: 2
         x: 619
@@ -279,12 +291,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Expression_Sheet_0: 769037831
-      Expression_Sheet_1: -2133410606
-      Expression_Sheet_2: -177415165
-      Expression_Sheet_3: -1623200357
-      Expression_Sheet_4: 1447045894
-      Expression_Sheet_5: 637660365
+      Flower_angry: -1623200357
+      Flower_confused: 1447045894
+      Flower_happy: -2133410606
+      Flower_sad: -177415165
+      Flower_shocked: 637660365
+      default: 769037831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

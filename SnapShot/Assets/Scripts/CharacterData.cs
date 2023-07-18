@@ -7,6 +7,5 @@ using UnityEngine.Events;
 public class CharacterData : ScriptableObject
 {
     new public string name;
-    public AnimationClip[] expressions;
-    public Animator animator;
+    public Sprite[] expressions;
 }
