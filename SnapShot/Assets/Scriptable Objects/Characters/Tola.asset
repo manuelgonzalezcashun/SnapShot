@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tola
   expressions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  animator: {fileID: 0}
+  - {fileID: -809885711, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: -784645244, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: 538494527, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: 272705288, guid: 1ea9ddf9467594598ade29782450172f, type: 3}

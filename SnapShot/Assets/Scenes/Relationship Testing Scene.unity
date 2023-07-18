@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 7601127377425966182, guid: a5d6eb65f923bfc4297fe70db0e9fe7d, type: 3}
       propertyPath: character
       value: 
-      objectReference: {fileID: 11400000, guid: a6856aa1dd2dad64388ce69e7c79a6f8, type: 2}
+      objectReference: {fileID: 11400000, guid: 16800a4949b79415bbde40d3cb43ab37, type: 2}
     m_RemovedComponents:
     - {fileID: 470205143921882701, guid: a5d6eb65f923bfc4297fe70db0e9fe7d, type: 3}
     m_RemovedGameObjects: []
@@ -990,7 +990,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.58761287, g: 1, b: 0.53207546, a: 0}
+  m_BackGroundColor: {r: 0.6275915, g: 0.3150943, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1534,13 +1534,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgrounds:
   - name: bg0
-    bgSprite: {fileID: 21300000, guid: edd7d7dfce4f441afa43cf4f46ca7abd, type: 3}
+    bgSprite: {fileID: 0}
     bgSpriteRenderer: {fileID: 0}
   - name: bg1
-    bgSprite: {fileID: 21300000, guid: 9ce6f2ed7431b43578dc08277523caf7, type: 3}
+    bgSprite: {fileID: 0}
     bgSpriteRenderer: {fileID: 0}
   - name: bg2
-    bgSprite: {fileID: 21300000, guid: 356ac680a54a243b4bf716576004f2d4, type: 3}
+    bgSprite: {fileID: 0}
     bgSpriteRenderer: {fileID: 0}
 --- !u!1 &1960421142
 GameObject:

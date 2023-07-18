@@ -1,7 +1,7 @@
 ﻿INCLUDE globals.ink
 
 ~changeBackground("bg0")
-Hello! #speaker: Aisha #icon: default
+Hello! #speaker: Tola #icon: Tola_neutral
 I am testing the new Dialogue System.
 or Am i? 
 What do you think?
@@ -11,14 +11,14 @@ What do you think?
 
 ===lying===
 ~relationship_score -= 1
-#icon: Flower_angry
+#icon: Tola_sad
 ~changeBackground("bg1")
 How Dare You!
 -> END
 
 ===truth===
 ~relationship_score += 1
-#icon: Flower_happy
+#icon: Tola_happy
 ~changeBackground("bg2")
 Look's like we will be friends...
 * [I don't want to be your friend!] -> lying
@@ -34,5 +34,5 @@ What do you think?
 
 ===GoodEnding===
 ~relationship_score += 5
-Flower and the player proceed to have a picnic.
+Tola and the player proceed to have a picnic.
 -> END
