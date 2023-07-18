@@ -5,11 +5,21 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     public Sounds[] sounds;
-    [SerializeField] Slider volumeSlider;
-
     void Awake()
     {
+        # region Singleton stuff
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        #endregion
         foreach (Sounds s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -18,20 +28,12 @@ public class SoundManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.mute = s.mute;
         }
     }
     void Start()
     {
         Play("Theme");
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            Load();
-        }
-        else
-        {
-            Load();
-        }
     }
     public void Play(string name)
     {
@@ -62,18 +64,5 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("Sound " + s + " was not found!");
             return;
         }
-    }
-    public void ChangeVolume()
-    {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-    }
-    private void Load()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
-    }
-    private void Save()
-    {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }

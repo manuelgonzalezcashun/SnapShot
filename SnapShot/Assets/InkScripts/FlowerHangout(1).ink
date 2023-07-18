@@ -1,10 +1,12 @@
 #speaker: 
 // variables
 VAR photoMode = false
+VAR Notification = false
 VAR ActivateScene = "DormBackground"
-VAR ActivateButton = false
 VAR cameraCheck = true
 VAR inventoryCheck = true
+VAR PictureName = ""
+
 -> start
 ===start==
 It is 9:00 am on Saturday, the birds are chirping and the sun is so bright...
@@ -18,18 +20,18 @@ A bird flew onto the edge of the window next to the bed.
 #speaker: #icon:
 ~ActivateScene = "BirdPhotoScene"
 ~cameraCheck = false
+~PictureName = "BirdPicture"
 Wow! What a beautiful bird! I should take out my Camera and take a picture of it to save this moment!
 -> main
 ===main===
 "*bzzt* *bzzt*" #speaker: #PlaySound:PhoneNotification
 "What's this? It looks like I have a text from Aisha!"#speaker:Sam 
 "I should check this out! Better see what she wants. Haven't spoken to her since a few days ago."
-#notif:PhoneTrigger
+#phone : text
 "Looks like she's coming over. I better get the place cleaned up!" #endScene:true
 ->isReady
 
 ===isReady===
-~ActivateButton = true
 ('Am I ready to see her yet?')
 + [Yes.] -> StoryFinished
 + [No.] -> lazyhours
@@ -72,7 +74,6 @@ Aisha and I spent a while doing our homework. #speaker: #icon:
 -> HangoutChoices
 ==HangoutChoices==
 "Where would you like to go Sam? You pick!" #speaker: Aisha 
-~ActivateButton = true
 +[Cafe] -> Cafe
 +[Park] -> ParkFun
 ===ParkFun==
@@ -107,6 +108,7 @@ Aisha pet the dog, earning a few licks on her hand. She beckoned Sam over.
 
 ===ParkPhoto===
 ~cameraCheck = false
+~PictureName = "ParkPicture"
 ~ActivateScene = "ParkPhoto"
 Take a photo quickly Sam, I wanna keep playing with him! #icon:
 -> ParkDateEnd
@@ -152,6 +154,7 @@ We spent a little while here, drinking coffee and chatting. #speaker:
 
 ===CafePhoto===
 ~cameraCheck = false
+~PictureName = "CafePicture"
 ~ActivateScene = "CafePhoto"
 "Cheese!" #speaker: Aisha #icon: 
 ->CoffeeDateEnd
