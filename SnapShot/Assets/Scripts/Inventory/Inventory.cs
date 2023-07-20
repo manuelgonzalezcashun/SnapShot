@@ -5,35 +5,40 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> items = new List<GameObject>();
+    private List<ItemsData> items = new List<ItemsData>();
     [SerializeField] private GameObject[] inventorySlots;
     private void Start()
     {
-        foreach (GameObject item in items)
+        foreach (ItemsData item in items)
         {
             Debug.Log(item.name);
         }
     }
-    public void AddInventory(GameObject obj)
+    public void AddInventory(ItemsData item)
     {
-        items.Add(obj);
+        items.Add(item);
         ShowItems();
-        Destroy(obj);
     }
     private void ShowItems()
     {
         int i = 0;
-        foreach (GameObject item in items)
+        foreach (ItemsData item in items)
         {
-            inventorySlots[i].GetComponentInChildren<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+            inventorySlots[i].GetComponentInChildren<Image>().sprite = item.itemSprite;
             i++;
         }
     }
     public void UseItem()
     {
-        foreach (GameObject item in items)
+        int i = 0;
+        foreach (ItemsData item in items)
         {
-            Instantiate(item);
+            if (inventorySlots[i].GetComponentInChildren<Image>().sprite != null)
+            {
+                Instantiate(item.itemPrefab);
+                inventorySlots[i].GetComponentInChildren<Image>().sprite = null;
+            }
+            i++;
         }
     }
 }
