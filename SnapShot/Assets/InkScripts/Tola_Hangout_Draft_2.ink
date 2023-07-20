@@ -8,13 +8,18 @@ VAR inventoryCheck = true
 VAR PictureName = ""
 
 -> start
-===start==
+===start===
+~ActivateScene "
+I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #Speaker: Sam #icon:
+->Day start
+
+===Day start==
 ~ActivateScene
 Hey Sam right? #Speaker: Sam #icon: 
 That's me Tola right? #Speaker: Tola #icon: 
 Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #Speaker: Sam #icon: 
 ->Oh Sure! i need somebody to help with a few parts too 
-->Oh um, Nah I'm good]]
+->Oh um, Nah I'm good
 
 ===Oh Sure! i need somebody to help with a few parts too===
 So um.. #Speaker: Sam #icon: 
@@ -235,9 +240,10 @@ Wanna go get some breakfast? #Speaker: Tola #Icon:
 ->Sure, Im down
 
 ->Im pretty beat and might catch some shuteye
+
 ===Sure, Im down===
-Yess! Let's go get some! #speaker: Tola
-Sounds good #speaker: Sam
+Yess! Let's go get some! #speaker: Tola #icon
+Sounds good #speaker: Sam #Icon
 //They go to the cafetria and get breakfast//
 ~ActivateScene "
 I'm Starving.. #speaker: Tola
@@ -253,7 +259,7 @@ Alright let's dig in #speaker: Tola #Icon
 *they scarf down the breakfast*
 Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #Icon
 Yeah no worries! #Icon
-*They walk back to their dorm* #Icon
+*They walk back to their dorm* 
 ->Today was great
 
 ===Today was great===
@@ -292,7 +298,7 @@ Thanks for the offer! but i'll pass, I got some other projects to work on so i m
 Ah ok, understandble i'll see you another time then! #Speaker: Tola
 Yep see ya! #Speaker: Sam 
 *Tola walks off and you go do homework*
-[[->Neutral Ending]]
+->Neutral Ending
 
 ===Neutral Ending===
 Wow.. You finished like fast.. Roll credits I guess #Speaker: Narrator 
