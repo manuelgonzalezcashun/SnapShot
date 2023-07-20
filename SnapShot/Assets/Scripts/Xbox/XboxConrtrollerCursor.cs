@@ -17,10 +17,10 @@ public class XboxConrtrollerCursor : MonoBehaviour
     private float cursorSpeed = 1000f;
     [SerializeField]
     private float padding = 35f;
-    
+
     private bool previousMouseState;
     private Mouse virtualMouse;
-    private Mouse currentMouse; 
+    private Mouse currentMouse;
     private Camera mainCamera;
     private Vector2 cursorPos = new Vector2(0, 0);
 
@@ -28,44 +28,51 @@ public class XboxConrtrollerCursor : MonoBehaviour
     private const string gamepadScheme = "Gamepad";
     private const string mouseScheme = "Keyboard&Mouse";
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         mainCamera = Camera.main;
-        currentMouse = Mouse.current; 
-        if (virtualMouse == null)  {
-            virtualMouse = (Mouse) InputSystem.AddDevice("VirtualMouse");
+        currentMouse = Mouse.current;
+        if (virtualMouse == null)
+        {
+            virtualMouse = (Mouse)InputSystem.AddDevice("VirtualMouse");
         }
-        else if (!virtualMouse.added) {
+        else if (!virtualMouse.added)
+        {
             InputSystem.AddDevice(virtualMouse);
         }
 
         InputUser.PerformPairingWithDevice(virtualMouse, playerInput.user);
 
-        if (cursorTransform != null) {
+        if (cursorTransform != null)
+        {
             Vector2 position = cursorTransform.anchoredPosition;
-            InputState.Change(virtualMouse.position, position); 
+            InputState.Change(virtualMouse.position, position);
         }
 
         InputSystem.onAfterUpdate += UpdateMotion;
         playerInput.onControlsChanged += OnControlsChanged;
     }
 
-    private void OnDisable() {
-       if (virtualMouse != null && virtualMouse.added) InputSystem.RemoveDevice(virtualMouse);
+    private void OnDisable()
+    {
+        if (virtualMouse != null && virtualMouse.added) InputSystem.RemoveDevice(virtualMouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
         playerInput.onControlsChanged -= OnControlsChanged;
     }
 
 
-    private void UpdateMotion() {
-        if (virtualMouse == null || Gamepad.current == null) { 
+    private void UpdateMotion()
+    {
+        if (virtualMouse == null || Gamepad.current == null)
+        {
             return;
         }
 
-        Vector2  deltaValue = Gamepad.current.leftStick.ReadValue();
+        Vector2 deltaValue = Gamepad.current.leftStick.ReadValue();
         deltaValue *= cursorSpeed * Time.deltaTime;
 
         Vector2 currentPosition = virtualMouse.position.ReadValue();
-        Vector2 newPosition = currentPosition + deltaValue; 
+        Vector2 newPosition = currentPosition + deltaValue;
 
         newPosition.x = Mathf.Clamp(newPosition.x, padding, Screen.width - padding);
         newPosition.y = Mathf.Clamp(newPosition.y, padding, Screen.height - padding);
@@ -74,7 +81,8 @@ public class XboxConrtrollerCursor : MonoBehaviour
         InputState.Change(virtualMouse.delta, deltaValue);
 
         bool aButtonIsPressed = Gamepad.current.aButton.IsPressed();
-        if (previousMouseState != aButtonIsPressed) {
+        if (previousMouseState != aButtonIsPressed)
+        {
             virtualMouse.CopyState<MouseState>(out var mouseState);
             mouseState.WithButton(MouseButton.Left, aButtonIsPressed);
             InputState.Change(virtualMouse, mouseState);
@@ -82,23 +90,27 @@ public class XboxConrtrollerCursor : MonoBehaviour
         }
 
         AnchorCursor(newPosition);
-    } 
-
-    private void AnchorCursor(Vector2 position) {
-       Vector2 anchoredPosition;
-       RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, canvas.renderMode 
-           == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
-       cursorTransform.anchoredPosition = anchoredPosition;
     }
 
-    private void OnControlsChanged(PlayerInput input) {
-        if (playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme) {
+    private void AnchorCursor(Vector2 position)
+    {
+        Vector2 anchoredPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, canvas.renderMode
+            == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
+        cursorTransform.anchoredPosition = anchoredPosition;
+    }
+
+    private void OnControlsChanged(PlayerInput input)
+    {
+        if (playerInput.currentControlScheme == mouseScheme && previousControlScheme != mouseScheme)
+        {
             cursorTransform.gameObject.SetActive(false);
             Cursor.visible = true;
-            currentMouse.WarpCursorPosition(virtualMouse.position.ReadValue());
-            previousControlScheme = mouseScheme;   
+            currentMouse?.WarpCursorPosition(virtualMouse.position.ReadValue());
+            previousControlScheme = mouseScheme;
         }
-        else if (playerInput.currentControlScheme == gamepadScheme && previousControlScheme != gamepadScheme) {
+        else if (playerInput.currentControlScheme == gamepadScheme && previousControlScheme != gamepadScheme)
+        {
             cursorTransform.gameObject.SetActive(true);
             Cursor.visible = false;
             InputState.Change(virtualMouse.position, currentMouse.position.ReadValue());

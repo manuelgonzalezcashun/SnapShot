@@ -6,39 +6,58 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private List<ItemsData> items = new List<ItemsData>();
+
     [SerializeField] private GameObject[] inventorySlots;
-    private void Start()
-    {
-        foreach (ItemsData item in items)
-        {
-            Debug.Log(item.name);
-        }
-    }
+
+    // Adds Items into inventory
     public void AddInventory(ItemsData item)
     {
+        foreach (ItemsData itemData in items)
+        {
+            if (item == itemData)
+            {
+                Debug.Log("Item already exists in inventory");
+                return;
+            }
+        }
+
         items.Add(item);
         ShowItems();
     }
+    // Shows the Inventory UI
     private void ShowItems()
     {
         int i = 0;
-        foreach (ItemsData item in items)
         {
-            inventorySlots[i].GetComponentInChildren<Image>().sprite = item.itemSprite;
-            i++;
-        }
-    }
-    public void UseItem()
-    {
-        int i = 0;
-        foreach (ItemsData item in items)
-        {
-            if (inventorySlots[i].GetComponentInChildren<Image>().sprite != null)
+            foreach (ItemsData item in items)
             {
-                Instantiate(item.itemPrefab);
-                inventorySlots[i].GetComponentInChildren<Image>().sprite = null;
+                if (item != null)
+                {
+                    inventorySlots[i].GetComponentInChildren<Image>().sprite = item.itemSprite;
+                }
+                i++;
             }
-            i++;
         }
     }
 }
+
+
+
+/*  THIS CODE NEEDS TO BE PUT IN A DIFFERENT SCRIPT TO WORK
+     private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!isInventoryShowing) 
+            {
+                isInventoryShowing = true;
+                gameObject.SetActive(true);
+            }
+            else
+            {
+                isInventoryShowing = false;
+                gameObject.SetActive(false);
+            }
+        }
+    }
+*/
