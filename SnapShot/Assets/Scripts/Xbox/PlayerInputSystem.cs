@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class PlayerInputSystem : MonoBehaviour
 {
-    public static event Action openInventoryEvent;
+    public static event Action onInventoryEvent;
     public static event Action continueDialogueEvent;
 
     private void Update()
     {
-        OpenInventoryInput();
+        OnInventoryInput();
         OnDialogueInput();
     }
-    public void OpenInventoryInput()
+    public void OnInventoryInput()
     {
         if (Input.GetKeyDown(KeyCode.I))
         { 
-            openInventoryEvent?.Invoke();
+            onInventoryEvent?.Invoke();
         }
     }
     public void OnDialogueInput()

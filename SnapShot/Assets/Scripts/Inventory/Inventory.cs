@@ -13,12 +13,12 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        PlayerInputSystem.openInventoryEvent += OpenInventory;
+        PlayerInputSystem.onInventoryEvent += OpenInventory;
         gameObject.SetActive(isInventoryShowing);
     }
     private void OnDestroy()
     {
-        PlayerInputSystem.openInventoryEvent -= OpenInventory;
+        PlayerInputSystem.onInventoryEvent -= OpenInventory;
     }
 
 
