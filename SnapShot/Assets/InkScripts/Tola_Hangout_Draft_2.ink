@@ -11,25 +11,25 @@ VAR PictureName = ""
 ===start===
 ~ActivateScene "
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #Speaker: Sam #icon:
-->Day start
+[Day start] ->Day start
 
 ===Day start==
 ~ActivateScene
 Hey Sam right? #Speaker: Sam #icon: 
 That's me Tola right? #Speaker: Tola #icon: 
 Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #Speaker: Sam #icon: 
-->Oh Sure! i need somebody to help with a few parts too 
-->Oh um, Nah I'm good
+[Oh Sure! i need somebody to help with a few parts too] ->Oh Sure! i need somebody to help with a few parts too 
+[Oh um, Nah I'm good]->Oh um, Nah I'm good
 
 ===Oh Sure! i need somebody to help with a few parts too===
 So um.. #Speaker: Sam #icon: 
-->where would we hang out?
+[where would we hang out?]->where would we hang out?
 
 ===where would we hang out?===
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #Speaker: Tola #icon: 
 Well we can go to my dorm? it's decently cleaned #Speaker: Sam #icon: 
 Ah alright sounds good!  #Speaker: Tola #icon: 
-->Go to dorm
+[Go to dorm] ->Go to dorm
 
 ===Go to dorm===
 ~ActivateScene: "
@@ -38,26 +38,27 @@ Thanks! Trying to go for that 90's vintage vibe. #Speaker: Sam #icon:
 *Sam puts an Album on to listen while working* 
 You cool with this is sort of Music? #Speaker: Sam #icon: 
 Yep #Speaker: Tola  #icon: 
-->Alright let's get to doiing this homework!
+[Alright let's get to doiing this homework!] ->Alright let's get to doiing this homework!
 
 ===Alright let's get to doiing this homework!===
 //They do some homework together// 
 Hey so, Do you know what this problem is?  #Speaker: Tola #icon: 
 Oh, Ummmm  #Speaker: Sam #icon: 
-->I'm pretty sure in the notes..
-->I'm not totally sure 
-->Just figure it out
+[I'm pretty sure in the notes..] ->I'm pretty sure in the notes..
+[I'm not totally sure] ->I'm not totally sure 
+[Just figure it out] ->Just figure it out
 
 ===I'm pretty sure in the notes..===
 Ohhh Got it, Dang this hoemwork is hard, Usaully I find it easy #Speaker: Tola #icon: 
 Haha yeah, Usually i find it easy too! #Speaker: Sam #icon: 
-->Oh cool you have a Zonic pin
+[Oh cool you have a Zonic pin] ->Oh cool you have a Zonic pin
 
 ===Oh cool you have a Zonic pin===
 Oh yeah, I'm like a super geek about that game series do you play it? #Speaker: Tola 
-#icon: 
-->Yeah i've played it! 
-->Nah but i've seen some edits and gameplay
+#icon:
+Have you played it? #Speaker: Tola #icon: 
+[Yeah i've played it!]->Yeah i've played it! 
+[Nah but i've seen some edits and gameplay] ->Nah but i've seen some edits and gameplay
 
 ===Yeah i've played it!===
 Really!! what do you like about it? #Speaker: Tola #icon: 
@@ -65,7 +66,7 @@ Personally I love the gameplay it's pretty fun! Being able to zip and Zop around
 (//Wow, I never met someone this hyped, Usaully people just say its cool and move on//) #Speaker: Sam #icon: 
 Same! it's Gameplay is super cool love being able to go super fast pretty fun to go throiugh loops!and yeah the designs are really cool too, the shape language is done so well being able to convey how fast the charcter is meant to be by having a bunch of  , ! The story really captivated me freeing different animals around the different maps!  #Speaker: Sam #icon: 
 Right! It's fun being able to talk to someone who also plays the game, most people are usually into the newest games.. #Speaker: Tola #icon: 
-->Any other games from the past you like playing
+[Any other games from the past you like playing] ->Any other games from the past you like playing
 
 ===Any other games from the past you like playing===
 Ooo theres this one game i played as a kid whenever i could, it's on the tip of my tonuge... ahh it'll come back to me but it was so appealing it was a simulation sandbox  game where'd you go around building and stuff #Speaker: Tola #icon: 
@@ -74,7 +75,7 @@ I don't remember inventing... Hmmm ah wait actually yeah! there was haha crazy w
 //that's pretty cool// 
 Yeah it is! #Speaker: Sam #icon: 
 So... #Speaker: Sam: 
-->What kind of genre of games do you usally like?
+[What kind of genre of games do you usally like?] ->What kind of genre of games do you usally like?
 
 ===Nah but i've seen some edits and gameplay===
 Ah thats cool too! Anything you like about it. #Speaker: Tola #icon: 
@@ -82,24 +83,24 @@ Yeah actually i found the Gameplay pretty cool, i wish i could play it but maybe
 I feel your pain.. #Speaker: Tola #icon: 
 but I do play Zario kart! #Speaker: Sam #icon: 
 Oh, Cool #Speaker: Tola #icon: 
-->What kind of genre of games do you usally like?
+[What kind of genre of games do you usally like?] ->What kind of genre of games do you usally like?
 
 ===Ready to get your butt kicked in Zario Kart===
 Haaa you wish, I've been playing with my boyfriend, so I've got some new stratigies to use! #Speaker: Tola #Icon: 
 (I may lose) Ogh cool, Which map do you wanna play? #Speaker: Sam #Icon: 
 Ooo we can play Forest road! #Speaker: Tola #Icon: 
 Sure! I've played that map a few times! #Speaker: Sam #Icon: 
-->Game Cutscene
+[Game Cutscene] ->Game Cutscene
 
 ===I'm not totally sure===
 There's an akward silence.. 
-->...
-->Oh um
+[...] ->...
+[Oh um] ->Oh um
 
 ===Just figure it out===
 Ah your right sorry... #Speaker: Tola #Icon
-->Oh um
-->...
+[Oh um] ->Oh um
+[...] ->...
 
 ===Oh um===
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #Icon
@@ -107,7 +108,7 @@ Yeah that sounds good! #speaker: Tola #Icon
 (Save) #Speaker Sam #Icon
 *Time passes*
 Hey.. #Speaker: Sam #Icon: 
-->Do you wanna take a break
+[Do you wanna take a break] ->Do you wanna take a break
 
 ===Do you wanna take a break===
 Oh sure! #Speaker: Tola #Icon
@@ -122,7 +123,7 @@ Sure it would be fun! #Speaker: Tola #Icon
 Alright, How are you on like competivte stuff #Speaker: Sam #Icon
 Not something I usaully like, usually spooks me really #Speaker: Tola #Icon
 Yeah i get that, let's have a good game. #Speaker: Sam #Icon
-->Ready to get your butt kicked in Zario Kart
+[Ready to get your butt kicked in Zario Kart] ->Ready to get your butt kicked in Zario Kart
 
 ===...===
 Hey... it's getting kinda dark do you still wanna work on the assignment together? #Speaker: Sam #Icon
@@ -130,12 +131,12 @@ Nah i should probably get going i'll.. i'll see you around.. #speaker: Tola #Ico
 Oh ok.. Right see you #Speaker: Sam #Icon
 *Tola leaves*
 ~ActivateScene
-->Bad Ending
+[Bad Ending] ->Bad Ending
 
 ===Bad Ending===
 I haven't like talked this whole time but like... 
 Yikes, you were kinda akward... Roll credits i guess #speaker: Narrator 
-->Credits
+[Credits] ->Credits
 
 
 ===What kind of genre of games do you usally like?===
@@ -143,7 +144,7 @@ Usually I'm a pretty big fan of cozy games, not the biggest on fighting games, p
 Yeah i get that, I've been there it can get pretty akward but hopeflly we can both be good sports. #Speaker: Sam #icon: 
 Yeah id like that! #Speaker: Tola #icon: 
 *They shake hands*
-->Ready to get your butt kicked in Zario Kart
+[Ready to get your butt kicked in Zario Kart]->Ready to get your butt kicked in Zario Kart
 
 ===Game Cutscene===
 ~ActivateScene
@@ -151,8 +152,8 @@ Oh Man, I'm so close.. NO NO NOT THE BOX #speaker: Tola
 Yes Yes, Im gonna win!! #speaker: Sam 
 SIKE, Hehe #speaker: Tola
 NOOO #speaker: Sam
-->Dang it!
-->Good game
+[Dang it!] ->Dang it!
+[Good game] ->Good game
 
 ===Dang it!===
 ~ActivateScene
@@ -161,14 +162,14 @@ Oh right.. i'm sorry, good game? #Speaker: Sam #Icon:
 Yeah... good game.. #Speaker: Sam #Icon: 
 Um.. it's pretty late #Speaker: Sam #Icon: 
 *3:40am*
-->We should probably go to sleep
+[We should probably go to sleep] ->We should probably go to sleep
 
 ===We should probably go to sleep===
 Yeah sounds good, Night #speaker: Tola #Icon: 
 Night #speaker: Sam #Icon: 
 (Ugh, I messed up) #speaker: Sam #Icon: 
 *They go to sleep*
--> Day
+[Day] -> Day
 
 ===Day===
 " Day arrives'' 
@@ -180,7 +181,7 @@ Yeah, No Problem #speaker: Sam #Icon:
 Oh Wait! wanna take a picture? #speaker: Sam #Icon: 
 Oh um Sure! #speaker: Tola #Icon: 
 Here, #speaker: Sam #Icon: 
-->Good ending
+[Good ending] ->Good ending
 
 ===Good game===
 ~ActivateScene
@@ -188,8 +189,8 @@ Good game! that was super fun! #speaker: Sam #Icon:
 Hahaha, You almost won if that shell hit me, but it didn't usually my boyfriend beats me with that so i developed a plan for it but Man im kinda hungry wanna get something? #Speaker: Tola #Icon: 
 "3:00 am" 
 I mean..  #speaker: Sam #Icon: 
-->Sure anything you were thinking
-->Nah im pretty burnt out from that gaming
+[Sure anything you were thinking] ->Sure anything you were thinking
+[Nah im pretty burnt out from that gaming] ->Nah im pretty burnt out from that gaming
 
 
 ===Sure anything you were thinking===
@@ -203,12 +204,12 @@ Hehehe Mac and Cheese #speaker: Tola
 Shhh i dont think we can be out late #Speaker: Sam
 I know, i know, Alright mac and cheese secured. also some hot water! #speaker: Tola
 Cool, let's head back. #Speaker: Sam
-->head back to Dorm
+[head back to Dorm] ->head back to Dorm
 
 ===head back to Dorm===
 Alright lets dig in, I'm starving #speaker: Tola #Icon: 
 Wait before that let's take a picture, this feels memoarble! #Speaker: Sam #Icon: 
-->Take picture 
+[Take picture] ->Take picture 
 
 ===Take picture {"position":"2525,1275","size":"100,100"===
 Hahah you're really into taking pictures in the moment, #speaker: Tola #Icon: 
@@ -218,7 +219,7 @@ Yep, now say cheese #Speaker: Sam #Icon:
 this looks so goofy, hehehe #speaker: Tola #Icon: 
 Dang it's almost 4am, i think we should hit the hay. #Speaker: Sam #Icon: 
 Sounds good #speaker: Tola #Icon: 
-->morning
+[morning] ->morning
 
 ===Nah im pretty burnt out from that gaming===
 I'm thinking we should go to sleep, It's pretty late. #Speaker: Sam #Icon: 
@@ -226,7 +227,7 @@ Ah alright yeah its pretty late.. geez it's 4 am, #Speaker: Tola #Icon:
 Yeah we should sleep before we look like zombies in the morning.  #Speaker: Sam #Icon: 
 I feel like i'll look like one regardless, but fair point #Speaker: Tola #Icon: 
 //Fade to Black//
-->morning
+[morning] ->morning
 
 ===morning===
 Yawnnn, Man.. I hate mornings #Speaker: Sam #Icon: 
@@ -237,9 +238,8 @@ Then we played video games till like.. 3:00am #Speaker: Sam #Icon:
 You gotta admit that was pretty Fun!  #speaker: Tola #Icon: 
 Ha yeah it was #Speaker: Sam #Icon: 
 Wanna go get some breakfast? #Speaker: Tola #Icon: 
-->Sure, Im down
-
-->Im pretty beat and might catch some shuteye
+[Sure, Im down] ->Sure, Im down
+[Im pretty beat and might catch some shuteye] ->Im pretty beat and might catch some shuteye
 
 ===Sure, Im down===
 Yess! Let's go get some! #speaker: Tola #icon
@@ -249,7 +249,7 @@ Sounds good #speaker: Sam #Icon
 I'm Starving.. #speaker: Tola
 I can't wait to dig in! #speaker: Sam
 Oh wait. #speaker: Tola
-->Before that i wanna take a picture
+[Before that i wanna take a picture] ->Before that i wanna take a picture
 
 ===Before that i wanna take a picture===
 Sounds good! I'm just gonna look at this breakfast. #speaker: Tola #Icon
@@ -260,7 +260,7 @@ Alright let's dig in #speaker: Tola #Icon
 Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #Icon
 Yeah no worries! #Icon
 *They walk back to their dorm* 
-->Today was great
+[Today was great] ->Today was great
 
 ===Today was great===
 ~ActivateScene
@@ -270,12 +270,12 @@ Most definetly we should get some snacks tho, #speaker: Tola #Icon
 Definetly top priority #Speaker: Sam #Icon
 Haha, Well im gonna get going #speaker: Tola #Icon
 Oh Wait! #Speaker: Sam #Icon
-->Wait, wanna take a picture?
+[Wait, wanna take a picture?] ->Wait, wanna take a picture?
 
 ===Im pretty beat and might catch some shuteye===
 Understanble, Well im gonna get going then! $
 By- 
-->Wait, wanna take a picture?
+[Wait, wanna take a picture?] ->Wait, wanna take a picture?
 
 ===Wait, wanna take a picture?===
 ~ActivateScene " 
@@ -285,24 +285,24 @@ Same! Hope we can hang out in the future! #speaker: Tola #Icon
 I'm sure we will! #Speaker: Sam #Icon
 Now say Cheese! 1..2..3 *Click* #Speaker: Sam #Icon
 ~ActivateScene "
-->True ending 
+[True ending ] ->True ending 
 
 ===True ending===
 Cool, you got the true ending!
 Hope you enjoyed playing!
 ROLL CREDITS 
-->Credits
+[Credits] ->Credits
 
 ===Oh um, Nah I'm good===
 Thanks for the offer! but i'll pass, I got some other projects to work on so i might just push this one off for a lil bit #Speaker: Sam
 Ah ok, understandble i'll see you another time then! #Speaker: Tola
 Yep see ya! #Speaker: Sam 
 *Tola walks off and you go do homework*
-->Neutral Ending
+[Neutral Ending] ->Neutral Ending
 
 ===Neutral Ending===
 Wow.. You finished like fast.. Roll credits I guess #Speaker: Narrator 
-->Credits
+[Credits] ->Credits
 
 ===Good ending===
 Say Cheese #speaker: Sam #Icon: 
@@ -310,7 +310,7 @@ What are we 5??? #speaker: Tola #Icon:
 Dude whatever.. 1..2..3! #speaker: Tola #Icon: 
 *Click* 
 ~ActivateScene
-->Credits
+[Credits] ->Credits
 
 ===Credits===
 thanks for playing! 
