@@ -9,6 +9,19 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject[] inventorySlots;
 
+    private bool isInventoryShowing = false;
+
+    private void Start()
+    {
+        PlayerInputSystem.openInventoryEvent += OpenInventory;
+        gameObject.SetActive(isInventoryShowing);
+    }
+    private void OnDestroy()
+    {
+        PlayerInputSystem.openInventoryEvent -= OpenInventory;
+    }
+
+
     // Adds Items into inventory
     public void AddInventory(ItemsData item)
     {
@@ -39,25 +52,17 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-}
-
-
-
-/*  THIS CODE NEEDS TO BE PUT IN A DIFFERENT SCRIPT TO WORK
-     private void Update()
+    private void OpenInventory()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (!isInventoryShowing)
         {
-            if (!isInventoryShowing) 
-            {
-                isInventoryShowing = true;
-                gameObject.SetActive(true);
-            }
-            else
-            {
-                isInventoryShowing = false;
-                gameObject.SetActive(false);
-            }
+            isInventoryShowing = true;
         }
+        else
+        {
+            isInventoryShowing = false;
+        }
+
+        gameObject.SetActive(isInventoryShowing);
     }
-*/
+}

@@ -59,23 +59,18 @@ public class InkDialogueManager : MonoBehaviour
         dialogueObserver = new InkDialogueObserver(loadGlobalsFile);
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
+
+        PlayerInputSystem.continueDialogueEvent += DialogueInputListener;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInputSystem.continueDialogueEvent -= DialogueInputListener;
     }
     # endregion
     void Start()
     {
         LoadStory();
-    }
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            submitButtonPressed = true;
-            if (canContinueToNextLine && submitButtonPressed)
-            {
-                submitButtonPressed = false;
-                DisplayNextLine();
-            }
-        }
     }
     void LoadStory()
     {
@@ -89,6 +84,16 @@ public class InkDialogueManager : MonoBehaviour
         inkExternalFunctions.Bind(inkStoryScript);
 
         DisplayNextLine();
+    }
+
+    private void DialogueInputListener()
+    {
+        submitButtonPressed = true;
+        if (canContinueToNextLine && submitButtonPressed)
+        {
+            submitButtonPressed = false;
+            DisplayNextLine();
+        }
     }
 
     public void DisplayNextLine()
@@ -112,6 +117,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void EndStory()
     {
+        canContinueToNextLine = false;
         NameTagPanel.SetActive(false);
         dialogueText.text = "";
         dialogueBox.SetActive(false);
