@@ -1,4 +1,4 @@
-﻿INCLUDE globals.ink
+INCLUDE globals.ink
 
 ~changeBackground("bg0")
 Hello! #speaker: Aisha #icon: default

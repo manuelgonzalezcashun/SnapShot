@@ -1,4 +1,4 @@
-﻿#speaker: 
+#speaker: 
 // variables
 VAR photoMode = false
 VAR Notification = false
