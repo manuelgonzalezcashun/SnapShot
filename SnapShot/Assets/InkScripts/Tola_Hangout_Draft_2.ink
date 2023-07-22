@@ -22,7 +22,7 @@ Yeah! So hey i know we have the same Film class, do you maybe wanna work on the 
 
 ===HangoutStart===
 So um.. #Speaker: Sam #icon: 
-+[where would we hang out?] -> DormQ
++ [where would we hang out?] -> DormQ
 
 ===DormQ===
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #Speaker: Tola #icon: 
