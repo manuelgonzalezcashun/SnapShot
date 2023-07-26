@@ -5,8 +5,6 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Ink.UnityIntegration;
-using UnityEngine.Events;
 
 public class InkDialogueManager : MonoBehaviour
 {
@@ -21,18 +19,21 @@ public class InkDialogueManager : MonoBehaviour
     public GameObject responseBox;
     public RectTransform responseBoxTransform;
     public GameObject responsePrefab;
+
     List<GameObject> tempButtons = new List<GameObject>();
 
     [Header("Ink Editor")]
-    [SerializeField] Story inkStoryScript;
+
     [SerializeField] TextAsset inkJsonFile;
     private static string _loadedState;
-    [SerializeField] InkFile globalsInkFile;
+    [SerializeField] TextAsset loadGlobalsFile;
+    public Story inkStoryScript { get; private set; }
 
     [Header("Game Runtime Variables")]
     private float typingSpeed = 0.03f;
     private bool submitButtonPressed = true;
     private bool canContinueToNextLine = true;
+
     private Coroutine displayTextCoroutine;
     private InkDialogueObserver dialogueObserver;
     private InkExternalFunctions inkExternalFunctions;
@@ -55,26 +56,21 @@ public class InkDialogueManager : MonoBehaviour
         }
         instance = this;
 
-        dialogueObserver = new InkDialogueObserver(globalsInkFile.filePath);
+        dialogueObserver = new InkDialogueObserver(loadGlobalsFile);
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
+
+        PlayerInputSystem.continueDialogueEvent += DialogueInputListener;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInputSystem.continueDialogueEvent -= DialogueInputListener;
     }
     # endregion
     void Start()
     {
         LoadStory();
-    }
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            submitButtonPressed = true;
-            if (canContinueToNextLine && submitButtonPressed)
-            {
-                submitButtonPressed = false;
-                DisplayNextLine();
-            }
-        }
     }
     void LoadStory()
     {
@@ -84,9 +80,20 @@ public class InkDialogueManager : MonoBehaviour
             inkStoryScript?.state?.LoadJson(_loadedState);
             _loadedState = null;
         }
-
         dialogueObserver.StartListening(inkStoryScript);
         inkExternalFunctions.Bind(inkStoryScript);
+
+        DisplayNextLine();
+    }
+
+    private void DialogueInputListener()
+    {
+        submitButtonPressed = true;
+        if (canContinueToNextLine && submitButtonPressed)
+        {
+            submitButtonPressed = false;
+            DisplayNextLine();
+        }
     }
 
     public void DisplayNextLine()
@@ -110,6 +117,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void EndStory()
     {
+        canContinueToNextLine = false;
         NameTagPanel.SetActive(false);
         dialogueText.text = "";
         dialogueBox.SetActive(false);
@@ -132,7 +140,7 @@ public class InkDialogueManager : MonoBehaviour
     # region Typewriter Effect
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
+        dialogueText.text = sentence;
         dialogueText.maxVisibleCharacters = 0;
         canContinueToNextLine = false;
         bool isAddingRichText = false;
@@ -141,14 +149,12 @@ public class InkDialogueManager : MonoBehaviour
             if (submitButtonPressed)
             {
                 submitButtonPressed = false;
-                dialogueText.text = sentence;
                 dialogueText.maxVisibleCharacters = sentence.Length;
                 break;
             }
             if (letter == '<' || isAddingRichText)
             {
                 isAddingRichText = true;
-                dialogueText.text += letter;
                 if (letter == '>')
                 {
                     isAddingRichText = false;
@@ -157,7 +163,6 @@ public class InkDialogueManager : MonoBehaviour
             else
             {
                 dialogueText.maxVisibleCharacters++;
-                dialogueText.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
             }
         }
@@ -179,7 +184,11 @@ public class InkDialogueManager : MonoBehaviour
             tempButtons.Add(responseButton);
             index++;
         }
-        if (responseBox.activeSelf) StartCoroutine(SelectFirstChoice());
+        if (responseBox.activeSelf)
+        {
+            SnapshotEvents.instance.showMeter?.Invoke();
+            StartCoroutine(SelectFirstChoice());
+        }
     }
     void MakeChoice(int choiceIndex)
     {
@@ -199,7 +208,7 @@ public class InkDialogueManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(tempButtons[0].gameObject);
     }
-    # endregion
+    #endregion
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
         Ink.Runtime.Object variableValue = null;

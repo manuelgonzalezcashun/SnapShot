@@ -21,6 +21,7 @@ public class PictureCapture : MonoBehaviour
     {
         foreach (GameObject pic in pictures)
         {
+            /*
             if (pic.name == DialogueManager.instance.PictureName)
             {
                 pic.SetActive(true);
@@ -28,12 +29,13 @@ public class PictureCapture : MonoBehaviour
             if (pic.activeInHierarchy)
             {
                 DialogueManager.instance.DialoguePaused = true;
-            }
+            }*/
         }
     }
 
     public void LoadTrigger()
     {
+        /*
         if (DialogueManager.instance.CameraCheck == true)
         {
             return;
@@ -42,5 +44,6 @@ public class PictureCapture : MonoBehaviour
         {   
             StoryCamera.SetActive(true);
         }
+        */
     }
 }

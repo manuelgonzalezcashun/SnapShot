@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bf8d3b4e1470f46b3985ce93ef7305, type: 3}
+  m_Name: Tola
+  m_EditorClassIdentifier: 
+  name: Tola
+  expressions:
+  - {fileID: -809885711, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: -784645244, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: 538494527, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
+  - {fileID: 272705288, guid: 1ea9ddf9467594598ade29782450172f, type: 3}
