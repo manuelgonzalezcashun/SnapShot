@@ -827,7 +827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2053,28 +2053,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 14861489}
-  dialogueText: {fileID: 2083052716}
+  dialogueText: {fileID: 0}
   NameTagPanel: {fileID: 430403583}
-  NameTagText: {fileID: 1960421144}
+  NameTagText: {fileID: 0}
   characterPrefab: {fileID: 183721533}
   responseBox: {fileID: 1434397368}
   responseBoxTransform: {fileID: 1434397369}
   responsePrefab: {fileID: 9127578171947685182, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
   inkJsonFile: {fileID: 4900000, guid: 8dad07b2feeef634caa8652575300a7a, type: 3}
-  globalsInkFile:
-    compileAutomatically: 0
-    inkAsset: {fileID: 102900000, guid: 5d2b86b7240f8524a83a66643a13f318, type: 3}
-    jsonAssetDirectory: {fileID: 0}
-    jsonAsset: {fileID: 0}
-    unhandledCompileErrors: []
-    errors: []
-    warnings: []
-    todos: []
-    parents: []
-    masterInkAssets: []
-    masterInkAsset: {fileID: 0}
-    includePaths: []
-    includes: []
 --- !u!1 &1955684258
 GameObject:
   m_ObjectHideFlags: 0
