@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -30,14 +28,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
-        DialogueManager.instance.DialoguePaused = true;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
     void Pause()
     {
-        DialogueManager.instance.DialoguePaused = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
