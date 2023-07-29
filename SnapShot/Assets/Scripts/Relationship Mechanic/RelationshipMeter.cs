@@ -6,42 +6,32 @@ using UnityEngine.UI;
 public class RelationshipMeter : MonoBehaviour
 {
     [SerializeField] private Slider relMeter;
-    public int inkRelationshipScore { get; private set; }
-    private int relationshipScore;
-    private int maxRelationshipScore = 5;
-    void Update()
+    [SerializeField] private Image fill;
+
+    private void Awake()
     {
-        inkRelationshipTracker();
-        Fill();
+        InkDialogueObserver.UpdateRelationshipScore += RelationshipScoreUpdater;
     }
-    void inkRelationshipTracker()
+    private void OnDestroy()
     {
-        inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
-
-        #region Relationship Score Observer
-        if (inkRelationshipScore >= maxRelationshipScore)
-        {
-            inkRelationshipScore = maxRelationshipScore;
-        }
-        else if (inkRelationshipScore <= 0)
-        {
-            inkRelationshipScore = 0;
-        }
-
-        if (relationshipScore > inkRelationshipScore)
-        {
-            SnapshotEvents.instance?.DecrementRelScore.Invoke();
-        }
-        else if (relationshipScore < inkRelationshipScore)
-        {
-            SnapshotEvents.instance.IncrementRelScore?.Invoke();
-        }
-        #endregion
-
-        relationshipScore = inkRelationshipScore;
+        InkDialogueObserver.UpdateRelationshipScore -= RelationshipScoreUpdater;
     }
-    public void Fill()
+    private void Start()
     {
-        relMeter.value = relationshipScore;
+        relMeter.value = 0;
+    }
+    public void RelationshipScoreUpdater(int score)
+    { 
+        relMeter.value = score;
+
+        if (score > 0)
+        {
+            fill.color = Color.green;
+        }
+        else if (score < 0) 
+        {
+            relMeter.value = Mathf.Abs(score);
+            fill.color = Color.red;
+        }
     }
 }

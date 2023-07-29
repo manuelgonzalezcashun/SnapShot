@@ -10,14 +10,16 @@ What do you think?
 * I don't even know -> huh #speaker: Sam
 
 ===lying===
-~relationship_score -= 1
 ~changeBackground("bg1")
+~relationship_score -= 1 
+~playSound("relScoreRemove")
 How Dare You! #speaker: Tola #icon: Tola_sad 
 -> END
 
 ===truth===
-~relationship_score += 1
 ~changeBackground("bg2")
+~relationship_score += 1
+~playSound("relScoreAdd")
 Look's like we will be friends... #speaker: Tola #icon: Tola_happy
 * [I don't want to be your friend!] -> lying
 * [Sounds good to me!] -> GoodEnding
@@ -31,7 +33,8 @@ What do you think?
 + [I don't even know] -> huh
 
 ===GoodEnding===
-~relationship_score += 5
+~relationship_score += 5 
+~playSound("relScoreAdd")
 Tola and the player proceed to have a picnic. #speaker: Narrator 
 -> END
 

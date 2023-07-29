@@ -12,8 +12,14 @@ public class Character : MonoBehaviour
     { 
         gameObject.name = character.name;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
+        InkTagHandler.onCharNameChangeEvent += MinimizeCharacter;
     }
-
+    private void OnDestroy()
+    {
+        InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
+        InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
+    }
     void Start()
     {
         gameObject.SetActive(false);
@@ -28,5 +34,9 @@ public class Character : MonoBehaviour
                 spriteRenderer.sprite = expresion;
             }
         }
+    }
+    private void MinimizeCharacter()
+    {
+        spriteRenderer.color = Color.gray;
     }
 }

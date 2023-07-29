@@ -11,14 +11,14 @@ public class InkDialogueManager : MonoBehaviour
     [Header("Unity UI")]
     #region Unity Variables
 
-    public GameObject dialogueBox;
-    public TMP_Text dialogueText;
-    public GameObject NameTagPanel;
+    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private GameObject NameTagPanel;
     public TMP_Text NameTagText;
     public GameObject characterPrefab;
-    public GameObject responseBox;
-    public RectTransform responseBoxTransform;
-    public GameObject responsePrefab;
+    [SerializeField] private GameObject responseBox;
+    [SerializeField] private RectTransform responseBoxTransform;
+    [SerializeField] private GameObject responsePrefab;
 
     List<GameObject> tempButtons = new List<GameObject>();
 
@@ -35,14 +35,10 @@ public class InkDialogueManager : MonoBehaviour
     private bool canContinueToNextLine = true;
 
     private Coroutine displayTextCoroutine;
-    private InkDialogueObserver dialogueObserver;
+
+    private InkDialogueObserver observer;
     private InkExternalFunctions inkExternalFunctions;
     private InkTagHandler tagHandler;
-    #endregion
-    # region Ink Tags
-    private const string SPEAKER_TAG = "speaker";
-    private const string BACKGROUND_TAG = "background";
-    private const string ICON_TAG = "icon";
     #endregion
 
     #region Singleton Stuff
@@ -56,7 +52,7 @@ public class InkDialogueManager : MonoBehaviour
         }
         instance = this;
 
-        dialogueObserver = new InkDialogueObserver(loadGlobalsFile);
+        observer = new InkDialogueObserver();
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
 
@@ -80,12 +76,10 @@ public class InkDialogueManager : MonoBehaviour
             inkStoryScript?.state?.LoadJson(_loadedState);
             _loadedState = null;
         }
-        dialogueObserver.StartListening(inkStoryScript);
+        observer.ObserveInkVariables(inkStoryScript);
         inkExternalFunctions.Bind(inkStoryScript);
-
         DisplayNextLine();
     }
-
     private void DialogueInputListener()
     {
         submitButtonPressed = true;
@@ -123,7 +117,6 @@ public class InkDialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
 
         inkExternalFunctions.Unbind(inkStoryScript);
-        dialogueObserver.StopListening(inkStoryScript);
     }
     # region Story State
     public string GetStoryState()
@@ -186,7 +179,6 @@ public class InkDialogueManager : MonoBehaviour
         }
         if (responseBox.activeSelf)
         {
-            SnapshotEvents.instance.showMeter?.Invoke();
             StartCoroutine(SelectFirstChoice());
         }
     }
@@ -209,14 +201,4 @@ public class InkDialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(tempButtons[0].gameObject);
     }
     #endregion
-    public Ink.Runtime.Object GetVariableState(string variableName)
-    {
-        Ink.Runtime.Object variableValue = null;
-        dialogueObserver.variables.TryGetValue(variableName, out variableValue);
-        if (variableValue == null)
-        {
-            Debug.LogWarning("Ink Variable is null: " + variableName);
-        }
-        return variableValue;
-    }
 }

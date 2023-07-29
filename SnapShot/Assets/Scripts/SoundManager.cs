@@ -1,25 +1,11 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
     public Sounds[] sounds;
     void Awake()
     {
-        # region Singleton stuff
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        #endregion
         foreach (Sounds s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -30,6 +16,11 @@ public class SoundManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.mute = s.mute;
         }
+        InkExternalFunctions.PlaySound += PlayOneShot;
+    }
+    private void OnDestroy()
+    {
+        InkExternalFunctions.PlaySound -= PlayOneShot;
     }
     void Start()
     {

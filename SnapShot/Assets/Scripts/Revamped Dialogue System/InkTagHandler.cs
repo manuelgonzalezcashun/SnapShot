@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InkTagHandler
 {
+    public static event Action<string> onCharExpressionChangeEvent;
+    public static event Action onCharNameChangeEvent;
+
     private const string SPEAKER_TAG = "speaker";
     private const string ICON_TAG = "icon";
     public void HandleTags(List<string> currentTags)
@@ -25,9 +29,8 @@ public class InkTagHandler
                     {
                         if (tagValue != InkDialogueManager.instance.characterPrefab.name)
                         {
-                            InkDialogueManager.instance.characterPrefab.GetComponent<SpriteRenderer>().color = Color.gray;
+                            onCharNameChangeEvent?.Invoke();
                         }
-                        InkDialogueManager.instance.NameTagPanel.SetActive(true);
                         InkDialogueManager.instance.NameTagText.text = tagValue;
                     }
                     break;
@@ -35,7 +38,7 @@ public class InkTagHandler
                     if (tagValue != null)
                     { 
                         InkDialogueManager.instance.characterPrefab.SetActive(true);
-                        GameObject.FindObjectOfType<Character>().CharacterExpressions(tagValue);
+                        onCharExpressionChangeEvent?.Invoke(tagValue);
                     }
                     break;
                 default:
