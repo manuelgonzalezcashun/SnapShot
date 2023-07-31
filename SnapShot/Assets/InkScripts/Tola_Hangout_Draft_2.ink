@@ -5,7 +5,7 @@ INCLUDE globals.ink
 
 ===start===
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #speaker: Sam #icon:
-Hey Sam right? #speaker: Tola #icon: 
+Hey Sam right? #speaker: Tola #icon: Tola_neutral
 That's me Tola right? #speaker: Sam #icon: 
 Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: 
 + Oh Sure! i need somebody to help with a few parts too ->HangoutStart
@@ -61,7 +61,7 @@ OH i think i know the game, would you like also fight enemies and trya and figur
 I don't remember inventing... Hmmm ah wait actually yeah! there was haha crazy we played the same video game as kids! #speaker: Tola #icon: 
 //that's pretty cool// 
 Yeah it is! #speaker: Sam #icon: 
-So... #speaker: Sam: 
+So... #speaker: Sam
 +[What kind of genre of games do you usally like?] -> Gamegenre
 
 ===Zonicedit===
