@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     public Sounds[] sounds;
     void Awake()
@@ -16,15 +16,6 @@ public class SoundManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.mute = s.mute;
         }
-        InkExternalFunctions.PlaySound += PlayOneShot;
-    }
-    private void OnDestroy()
-    {
-        InkExternalFunctions.PlaySound -= PlayOneShot;
-    }
-    void Start()
-    {
-        Play("Theme");
     }
     public void Play(string name)
     {

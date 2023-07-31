@@ -1,27 +1,23 @@
 INCLUDE globals.ink
 #speaker: 
 
-+[Start]-> start
+-> start
+
 ===start===
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #speaker: Sam #icon:
-+[Day start] -> Daystart
-
-===Daystart==
-Hey Sam right? #speaker: Sam #icon: 
-That's me Tola right? #speaker: Tola #icon: 
-Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Sam #icon: 
-+[Oh Sure! i need somebody to help with a few parts too] ->HangoutStart
-
-+[Oh um, Nah I'm good] -> NeutralEnd
+Hey Sam right? #speaker: Tola #icon: 
+That's me Tola right? #speaker: Sam #icon: 
+Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: 
++ Oh Sure! i need somebody to help with a few parts too ->HangoutStart
++ Oh um, Nah I'm good -> NeutralEnd
 
 ===HangoutStart===
 So um.. #speaker: Sam #icon: 
-+ [where would we hang out?] -> DormQ
-
-===DormQ===
+where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: 
 Well we can go to my dorm? it's decently cleaned #speaker: Sam #icon: 
-Ah alright sounds good!  #speaker: Tola #icon: 
+Ah alright sounds good!  #speaker: Tola #icon:
+
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
