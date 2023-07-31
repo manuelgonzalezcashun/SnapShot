@@ -32,7 +32,7 @@ Oh, Yeah Usaully I listen to Break-core but I like Jazz too! #speaker: Tola  #ic
 
 ===Hwstart===
 //They do some homework together// 
-Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkard
+Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkward
 Oh, Ummmm  #speaker: Sam #icon: Sam_realization
 +[I'm pretty sure in these notes..] ->HWpos
 +[I'm not totally sure] ->HWnet
@@ -47,7 +47,7 @@ Haha Yeah! I'd defintily say it's harder to remember! #speaker: Sam #icon: Sam_h
 +[Oh! you have a Zonic pin?] -> Zonicpin
 
 ===Zonicpin===
-Oh yeah, I'm like a super geek about that game series? #speaker: Tola #icon: Tola_Happy
+Oh yeah, I'm like a super geek about that game series? #speaker: Tola #icon: Tola_happy
 Have you played it? #icon: Tola_happy
 +[Yeah i've played it!] -> PlayedZonic
 +[Nah but i've seen some edits and gameplay] -> Zonicedit
@@ -78,7 +78,7 @@ Oh, Cool... #speaker: Tola #icon: Tola_neutral
 
 ===Zariokart===
 Haaa you wish, I've been playing with my boyfriend, so I've got some new stratigies to use! #speaker: Tola #icon: Tola_happy
-(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_Awkward_2
+(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_awkward_2
 Ooo we can play Forest road! #speaker: Tola #icon: Tola_happy
 Sure! I've played that map a few times! #speaker: Sam #icon: Sam_happy
 [He has not]
@@ -169,24 +169,24 @@ Oh, my boyfriend texted asking if i wanna go eat breakfast, think that's my que 
 Yeah, No Problem #speaker: Sam #icon: Sam_happy
 Oh Wait! wanna take a picture? #icon: Sam_neutral
 Oh um Sure! #speaker: Tola #icon: Tola_awkward
-Here we go! #speaker: Sam #icon: Sam_
+Here we go! #speaker: Sam #icon: Sam_happy
 +[Good ending] -> GoodEnd
 
 ===GoodGame===
-Good game! that was super fun! #speaker: Sam #icon: 
-Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time!   #speaker: Tola #icon: 
+Good game! that was super fun! #speaker: Sam #icon: Sam_happy
+Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time!   #speaker: Tola #icon: Tola_happy
 "3:00 am" 
-Man im kinda hungry wanna get something? #icon: 
-I mean..  #speaker: Sam #icon: 
+Man im kinda hungry wanna get something? #icon: Tola_happy
+I mean..  #speaker: Sam #icon: Sam_realization
 +[Sure anything you were thinking] ->Cheesecut
 +[Nah im pretty burnt out from that gaming] -> eepy
 
 
 ===Cheesecut===
-Let's get Mac and Cheese #speaker: Tola #icon: 
-Mac and Cheese? #speaker: Sam #icon: 
-Mac and Cheese! #speaker: Tola #icon: 
-Mac and Cheese.. #speaker: Sam #icon: 
+Let's get Mac and Cheese #speaker: Tola #icon: Tola_happy
+Mac and Cheese? #speaker: Sam #icon: Sam_realization
+Mac and Cheese! #speaker: Tola #icon: Sam_happy_2
+Mac and Cheese.. #speaker: Sam #icon: Sam_happy
 [Cut to black]
 //They go and grab some mac and cheese from the dorm kitchen//
 Hehehe Mac and Cheese #speaker: Tola 
@@ -203,73 +203,74 @@ Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon
 ===Cheesepic===
 Hahah you're really into taking pictures in the moment, #speaker: Tola #icon: 
 Yep, now say cheese #speaker: Sam #icon: 
-... #speaker: Tola #icon: 
+... #speaker: Tola #icon: Tola_really
 //Picture cutscene//
-this looks so goofy, hehehe #speaker: Tola #icon: 
-Dang it's almost 4am, i think we should hit the hay. #speaker: Sam #icon: 
-Sounds good #speaker: Tola #icon: 
+This looks so goofy, hehehe #speaker: Tola #icon: Tola_happy_2 
+Dang it's almost 4am, i think we should hit the hay. #speaker: Sam #icon: Sam_ughh
+Sounds good #speaker: Tola #icon: Tola_neutral
 +[morning] -> morning
 
 ===eepy===
-I'm thinking we should go to sleep, It's pretty late. #speaker: Sam #icon: 
-Ah alright yeah its pretty late.. geez it's 4 am, #speaker: Tola #icon: 
-Yeah we should sleep before we look like zombies in the morning.  #speaker: Sam #icon: 
-I feel like i'll look like one regardless, but fair point #speaker: Tola #icon: 
+I'm thinking we should go to sleep, It's pretty late. #speaker: Sam #icon: Sam_neutral
+Ah alright yeah its pretty late.. geez it's 4 am, #speaker: Tola #icon: Tola_geez
+Yeah we should sleep before we look like zombies in the morning.  #speaker: Sam #icon: Sam_ughh
+I feel like i'll look like one regardless, but fair point #speaker: Tola #icon: Tola_happy
 //Fade to Black//
 +[morning] -> morning
 
 ===morning===
-Yawnnn, Man.. I hate mornings #speaker: Sam #icon: 
-Yeah, Why can't we just have stuff start in the afternoon.. #speaker: Tola #icon: 
-Because, no one wants to work till like 7pm #speaker: Sam #icon: 
-I mean we worked till like 12am #speaker: Tola #icon: 
-Then we played video games till like.. 3:00am #speaker: Sam #icon: 
-You gotta admit that was pretty Fun!  #speaker: Tola #icon: 
-Ha yeah it was #speaker: Sam #icon: 
-Wanna go get some breakfast? #speaker: Tola #icon: 
+Yawnnn, Man.. I hate mornings #speaker: Sam #icon: Sam_ughh
+Yeah, Why can't we just have stuff start in the afternoon.. #speaker: Tola #icon: Tola_neutral
+Because, no one wants to work till like 7pm #speaker: Sam #icon: Sam_ughh
+I mean we worked till like 12am #speaker: Tola #icon: Tola_happy
+Then we played video games till like.. 3:00am #speaker: Sam #icon: Sam_happy
+You gotta admit that was pretty Fun!  #speaker: Tola #icon: Tola_happy
+Ha yeah it was #speaker: Sam #icon: Sam_happy_2
+Wanna go get some breakfast? #speaker: Tola #icon: Tola_happy_2
 +[Sure, Im down] -> Breaky
 +[Im pretty beat and might catch some shuteye] -> Shuteye
 
 ===Breaky===
-Yess! Let's go get some! #speaker: Tola #icon:
-Sounds good #speaker: Sam #icon:
+Yess! Let's go get some! #speaker: Tola #icon: Tola_happy_2
+Sounds good #speaker: Sam #icon: Tola_happy
 //They go to the cafetria and get breakfast//
-I'm Starving.. #speaker: Tola
-I can't wait to dig in! #speaker: Sam
-Oh wait. #speaker: Tola
+I'm Starving.. #speaker: Sam #icon: Sam_happy
+I can't wait to dig in! #speaker: Tola #icon: Tola_happy
+Oh wait. #speaker: Sam #icon: Sam_realization
 +[Before that i wanna take a picture] -> Breakypic
 
 ===Breakypic===
-Sounds good! I'm just gonna look at this breakfast. #speaker: Tola #icon:
-Sounds good! 1..2..3..Click  #speaker: Sam #icon:
-Done! #speaker: Sam #icon:
-Alright let's dig in #speaker: Tola #icon:
+Sounds good! I'm just gonna look at this breakfast. #speaker: Tola 
+Sounds good! 1..2..3..Click  #speaker: Sam 
+Done! #speaker: Sam 
+Alright let's dig in #speaker: Tola 
 they scarf down the breakfast
-Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #icon:
-Yeah no worries! #icon:
+Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #icon: Tola_neutral
+Yeah no worries! #speaker: Sam #icon: Sam_happy
 They walk back to their dorm
 +[Today was great] -> Yipeee
 
 ===Yipeee===
-Yeah today or would it be last night, well whatever it was amazing to hang out.  #speaker: Tola #icon:
-haha, Yeah it would be fun to do this again #speaker: Sam #icon:
-Most definetly we should get some snacks tho, #speaker: Tola #icon:
-Definetly top priority #speaker: Sam #icon:
-Haha, Well im gonna get going #speaker: Tola #icon:
-Oh Wait! #speaker: Sam #icon:
+Yeah today or would it be last night, well whatever it was amazing to hang out.  #speaker: Tola #icon: Tola_happy_2
+haha, Yeah it would be fun to do this again #speaker: Sam #icon: Sam_happy_2
+Most definetly we should get some snacks tho, #speaker: Tola #icon: Tola_happy_2
+Definetly top priority! Any snacks you like? #speaker: Sam #icon: Sam_happy
+Haha, ooo I love sour gummy worms! You?   #speaker: Tola #icon: Tola_happy
+I love hot chips! #speaker: Sam #icon: Sam_happy
+Same, Well I'll get going #speaker: Tola #icon: Tola_neutral
 +[Wait, wanna take a picture?] -> Yaypic
 
 ===Shuteye===
-Understanble, Well im gonna get going then! 
-By- 
+Understanble, Well I'm gonna get going then! #speaker: Tola #icon: Tola_neutral
 +[Wait, wanna take a picture?] -> Yaypic
 
 ===Yaypic===
 Sure! #speaker: Tola #icon:
-It was pretty fun hanging out with you man #speaker: Sam #icon:
+It was pretty fun hanging out with you man! #speaker: Sam #icon:
 Same! Hope we can hang out in the future! #speaker: Tola #icon:
 I'm sure we will! #speaker: Sam #icon:
 Now say Cheese! 1..2..3 *Click* #speaker: Sam #icon:
+[activate scene here]
 +[True ending ] -> True
 
 ===True ===
@@ -279,10 +280,10 @@ ROLL CREDITS
 +[Credits] -> Credits
 
 ===NeutralEnd===
-Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam
-Ah ok, understandble i'll see you another time then! #speaker: Tola
-Yep see ya! #speaker: Sam 
-Tola walks off and you go do homework
+Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
+Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
+Yep see ya! #speaker: Sam #icon: Sam_neutral
+Tola walks off and you go do homework [Activate scene Net_end after this line]
 +[Neutral Ending] -> Neutral
 
 ===Neutral===
