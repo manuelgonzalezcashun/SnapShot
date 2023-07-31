@@ -23,12 +23,12 @@ public class AudioEvents : MonoBehaviour
     {
         if (!isGamePaused)
         {
-            audioManager.StopAudio("Theme");
+            audioManager.Pause("Theme");
             audioManager.Play("Pause Menu");
         }
         else
         {
-            audioManager.StopAudio("Pause Menu");
+            audioManager.Stop("Pause Menu");
             audioManager.Play("Theme");
         }
     }

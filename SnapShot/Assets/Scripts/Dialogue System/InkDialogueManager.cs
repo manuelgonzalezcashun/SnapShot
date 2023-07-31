@@ -33,6 +33,7 @@ public class InkDialogueManager : MonoBehaviour
     private float typingSpeed = 0.03f;
     private bool submitButtonPressed = true;
     private bool canContinueToNextLine = true;
+    private bool pauseDialogue;
 
     private Coroutine displayTextCoroutine;
 
@@ -56,12 +57,11 @@ public class InkDialogueManager : MonoBehaviour
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
 
-        PlayerInputSystem.continueDialogueEvent += DialogueInputListener;
+        PauseManager.onPauseEvent += PauseDialogue;
     }
-
     private void OnDestroy()
     {
-        PlayerInputSystem.continueDialogueEvent -= DialogueInputListener;
+        PauseManager.onPauseEvent -= PauseDialogue;
     }
     # endregion
     void Start()
@@ -80,15 +80,23 @@ public class InkDialogueManager : MonoBehaviour
         inkExternalFunctions.Bind(inkStoryScript);
         DisplayNextLine();
     }
-    private void DialogueInputListener()
+    private void Update()
     {
-        submitButtonPressed = true;
-        if (canContinueToNextLine && submitButtonPressed)
+        if (Input.GetButtonDown("Jump") && !pauseDialogue)
         {
-            submitButtonPressed = false;
-            DisplayNextLine();
+            submitButtonPressed = true;
+            if (canContinueToNextLine && submitButtonPressed)
+            {
+                submitButtonPressed = false;
+                DisplayNextLine();
+            }
         }
     }
+    private void PauseDialogue(bool gameIsPaused)
+    {
+       pauseDialogue = !gameIsPaused;
+    }
+
 
     public void DisplayNextLine()
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -37,10 +38,20 @@ public class AudioManager : MonoBehaviour
             return;
         }
     }
-    public void StopAudio(string name)
+    public void Stop(string name)
     {
         Sounds s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + s + " was not found!");
+            return;
+        }
+    }
+    public void Pause(string name)
+    {
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Pause();
         if (s == null)
         {
             Debug.LogWarning("Sound " + s + " was not found!");
