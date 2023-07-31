@@ -78,9 +78,10 @@ Oh, Cool... #speaker: Tola #icon: Tola_neutral
 
 ===Zariokart===
 Haaa you wish, I've been playing with my boyfriend, so I've got some new stratigies to use! #speaker: Tola #icon: Tola_happy
-(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_
-Ooo we can play Forest road! #speaker: Tola #icon: 
-Sure! I've played that map a few times! #speaker: Sam #icon: 
+(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_Awkward_2
+Ooo we can play Forest road! #speaker: Tola #icon: Tola_happy
+Sure! I've played that map a few times! #speaker: Sam #icon: Sam_happy
+[He has not]
 +[Game Cutscene] -> GameCut
 
 ===HWnet===
@@ -89,37 +90,37 @@ There's an akward silence..
 +[Oh um] -> Makeup
 
 ===HWneg===
-Ah your right sorry... #speaker: Tola #icon:
+Ah your right sorry... #speaker: Tola #icon: Tola_sad
 +[Oh um] ->Makeup
 +[...] -> Silence 
 
 ===Makeup===
-Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon:
-Yeah that sounds good! #speaker: Tola #icon:
-(Save) #speaker Sam #icon:
+Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
+Yeah that sounds good! #speaker: Tola #icon: Tola_happy
+(Save) #speaker Sam #icon: Sam_happy
 [Time passes]
-Hey.. #speaker: Sam #icon: 
+Hey.. #speaker: Sam #icon: Sam_neutral
 +[Do you wanna take a break] -> Break
 
 ===Break===
-Oh sure! #speaker: Tola #icon:
-You play any games? #speaker: Sam #icon:
-Oh i play Zario Kart! #speaker: Tola #icon:
-Oh same, any character you like playing?  #speaker: Sam #icon:
-Hmmm personally love playing ghostie #speaker: Tola #icon:
-I get that usually i play treema love their little foresty vibes! #speaker: Sam #icon:
-Yeah their so cute! #speaker: Tola #icon:
-So wanna play, a few rounds? #speaker: Sam #icon:
-Sure it would be fun! #speaker: Tola #icon:
-Alright, How are you on like competivte stuff #speaker: Sam #icon:
-Not something I usaully like, usually spooks me really #speaker: Tola #icon:
-Yeah i get that, let's have a good game. #speaker: Sam #icon:
+Oh sure! #speaker: Tola #icon: Tola_neutral
+You play any games? #speaker: Sam #icon: Sam_happy
+Oh I play Zario Kart and some other games like Zonic and 7 Nights! #speaker: Tola #icon: Tola_happy
+Oh same, any character you like playing?  #speaker: Sam #icon: Sam_happy
+Hmmm personally love playing ghostie #speaker: Tola #icon: Tola_happy
+I get that usually i play treema love their little foresty vibes! #speaker: Sam #icon: Sam_happy
+Yeah their so cute! #speaker: Tola #icon: Tola_happy_2
+So wanna play, a few rounds? #speaker: Sam #icon: Sam_neutral
+Sure it would be fun! #speaker: Tola #icon: Tola_happy_2
+Alright, How are you on like competivte stuff #speaker: Sam #icon: Sam_neutral
+Not something I usaully like, usually spooks me really #speaker: Tola #icon: Tola_Awkward
+Yeah i get that, let's have a good game. #speaker: Sam #icon: Sam_happy
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===Silence===
-Hey... it's getting kinda dark do you still wanna work on the assignment together? #speaker: Sam #icon:
-Nah i should probably get going i'll.. i'll see you around.. #speaker: Tola #icon:
-Oh ok.. Right see you #speaker: Sam #icon:
+Hey... it's getting kinda dark do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
+Nah i should probably get going i'll.. i'll see you around.. #speaker: Tola #icon: Tola_sad
+Oh ok.. Right see you #speaker: Sam #icon: Sam_awkward
 [Tola leaves]
 +[Bad Ending] -> Bad 
 
@@ -130,9 +131,9 @@ Yikes, you were kinda akward... Roll credits i guess #speaker: Narrator
 
 
 ===Gamegenre===
-Usually I'm a pretty big fan of cozy games, not the biggest on fighting games, people can get [pretty mad when they lose] not really a fun setting to be in. #speaker: Tola #icon: 
-Yeah i get that, I've been there it can get pretty akward but hopeflly we can both be good sports. #speaker: Sam #icon: 
-Yeah id like that! #speaker: Tola #icon: 
+Usually I'm a pretty big fan of cozy games, not the biggest on fighting games, people can get pretty mad when they lose not really a fun setting to be in. #speaker: Tola #icon: Tola_awkward_2
+Yeah i get that, I've been there it can get pretty akward but hopeflly we can both be good sports. #speaker: Sam #icon: Sam_happy
+Yeah id like that! #speaker: Tola #icon: Tola_happy
 [They shake hands]
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
@@ -146,29 +147,29 @@ NOOO #speaker: Sam
 
 ===Dang===
 Tola backs away
-Oh right.. i'm sorry, good game? #speaker: Sam #icon: 
-Yeah... good game.. #speaker: Sam #icon: 
-Um.. it's pretty late  #speaker: Sam #icon: 
+Oh right.. i'm sorry, good game? #speaker: Sam #icon: Sam_awkward
+Yeah... good game.. #speaker: Sam #icon: Tola_awkward_2
+Um.. it's pretty late  #speaker: Sam #icon: Sam_awkward
 [3:40am]
 [We should probably go to sleep] -> Honkshoo
 
 ===Honkshoo===
-Yeah sounds good, Night #speaker: Tola #icon: 
-Night #speaker: Sam #icon: 
-(Ugh, I messed up) #speaker: Sam #icon: 
+Yeah sounds good, Night #speaker: Tola #icon: Tola_awkward_2
+Night #speaker: Sam #icon: Sam_awkward_2
+(Ugh, I messed up) #speaker: Sam #icon: Sam_awkward
 [They go to sleep]
 +[Day] -> Day
 
 ===Day===
 " Day arrives'' 
-AUghhhh #speaker: Sam #icon: 
-Omg I forgot how much I hate the morning. #speaker: Tola #icon: 
+AUghhhh #speaker: Sam #icon: Sam_ughh
+Not a morning person? #speaker: Tola #icon: Tola_neutral
 Yeah, I am not a morning person. #speaker: Tola #icon: 
-Oh, my boyfriend texted asking if i wanna go eat breakfast, think that's my que to leave!  thanks for the hangout it was a blast! #speaker: Tola #icon: 
-Yeah, No Problem #speaker: Sam #icon: 
-Oh Wait! wanna take a picture? #speaker: Sam #icon: 
-Oh um Sure! #speaker: Tola #icon: 
-Here, #speaker: Sam #icon: 
+Oh, my boyfriend texted asking if i wanna go eat breakfast, think that's my que to leave!  thanks for the hangout it was a blast! #speaker: Tola #icon: Tola_happy
+Yeah, No Problem #speaker: Sam #icon: Sam_happy
+Oh Wait! wanna take a picture? #icon: Sam_neutral
+Oh um Sure! #speaker: Tola #icon: Tola_awkward
+Here we go! #speaker: Sam #icon: Sam_
 +[Good ending] -> GoodEnd
 
 ===GoodGame===
