@@ -5,76 +5,80 @@ INCLUDE globals.ink
 
 ===start===
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #speaker: Sam #icon:
++Let's Go -> Notebook
+
+===Notebook===
 Hey Sam right? #speaker: Tola #icon: Tola_neutral
-That's me Tola right? #speaker: Sam #icon: 
-Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: 
-+ Oh Sure! i need somebody to help with a few parts too ->HangoutStart
+That's me Tola right? #speaker: Sam #icon: Sam_neutral
+Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: Tola_awkard
++ Oh Sure! i need some help with a few parts too ->HangoutStart
 + Oh um, Nah I'm good -> NeutralEnd
 
 ===HangoutStart===
-So um.. #speaker: Sam #icon: 
+So um.. #speaker: Sam #icon: Sam_realization
 where would we hang out?
-Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: 
-Well we can go to my dorm? it's decently cleaned #speaker: Sam #icon: 
-Ah alright sounds good!  #speaker: Tola #icon:
-
+Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
+Well we can go to my dorm? it's decently cleaned #speaker: Sam #icon: Sam_neutral
+Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
-Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange #speaker: Tola #icon: 
-Thanks! Trying to go for that 90's vintage vibe. #speaker: Sam #icon: 
+Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange #speaker: Tola #icon: Tola_happy
+Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working]
-You cool with this is sort of Music? #speaker: Sam #icon: 
-Yep #speaker: Tola  #icon: 
+You cool with this is sort of Music? #speaker: Sam #icon: Sam_realization
+Oh, Yeah Usaully I listen to Break-core but I like Jazz too! #speaker: Tola  #icon: Tola_happy
 +[Alright let's get to doiing this homework!] -> Hwstart
 
 ===Hwstart===
 //They do some homework together// 
-Hey so, Do you know what this problem is?  #speaker: Tola #icon: 
-Oh, Ummmm  #speaker: Sam #icon: 
-+[I'm pretty sure in the notes..] ->HWpos
+Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkard
+Oh, Ummmm  #speaker: Sam #icon: Sam_realization
++[I'm pretty sure in these notes..] ->HWpos
 +[I'm not totally sure] ->HWnet
 +[Just figure it out] -> HWneg
 
 ===HWpos===
-Ohhh Got it, Dang this hoemwork is hard, Usaully I find it easy #speaker: Tola #icon: 
-Haha yeah, Usually i find it easy too! #speaker: Sam #icon: 
-+[Oh cool you have a Zonic pin] -> Zonicpin
+Ohhh Got it, Dang I would've probably been stuck on that for a while thanks!  #speaker: Tola #icon: Tola_happy
+No Problem! My sister has me go over these a lot, She's kinda a big film nerd #speaker: Sam #icon: Sam_Happy
+Oh that's cool, I used to watch some film theory and film practice videos but it's definitely harder now that I'm doing Hw for it.   #speaker: Tola #icon: Tola_happy
+Haha Yeah! I'd defintily say it's harder to remember! #speaker: Sam #icon: Sam_happy
+[Sam looks at Tola's pins] 
++[Oh! you have a Zonic pin?] -> Zonicpin
 
 ===Zonicpin===
-Oh yeah, I'm like a super geek about that game series do you play it? #speaker: Tola #icon:
-Have you played it? #speaker: Tola #icon: 
+Oh yeah, I'm like a super geek about that game series? #speaker: Tola #icon: Tola_Happy
+Have you played it? #icon: Tola_happy
 +[Yeah i've played it!] -> PlayedZonic
 +[Nah but i've seen some edits and gameplay] -> Zonicedit
 
 ===PlayedZonic===
-Really!! what do you like about it? #speaker: Tola #icon: 
-Personally I love the gameplay it's pretty fun! Being able to zip and Zop around! Love how we can play as a Porcupine, It's pretty funny to think about but usually a lot of games are like that #speaker: Tola #icon: 
-[Wow, I never met someone this hyped, Usaully people just say its cool and move on] #speaker: Sam #icon: 
-Same! it's Gameplay is super cool love being able to go super fast pretty fun to go throiugh loops!and yeah the designs are really cool too, the shape language is done so well being able to convey how fast the charcter is meant to be by having a bunch of  , ! The story really captivated me freeing different animals around the different maps!  #speaker: Sam #icon: 
-Right! It's fun being able to talk to someone who also plays the game, most people are usually into the newest games.. #speaker: Tola #icon: 
+Really!! what do you like about it? #speaker: Tola #icon: Tola_happy
+Personally I love the gameplay it's pretty fun! Being able to zip and Zop around! Love how we can play as a Porcupine, It's pretty funny to think about but usually a lot of games are like that #speaker: Tola #icon: Tola_happy
+[Wow, I never met someone this hyped, Usaully people just say its cool and move on] #speaker: Sam #icon: Sam_realization
+Same! it's Gameplay is super cool love being able to go super fast pretty fun to go throiugh loops!and yeah the designs are really cool too, the shape language is done so well being able to convey how fast the charcter is meant to be by having a bunch of  , ! The story really captivated me freeing different animals around the different maps!  #speaker: Sam #icon: Sam_happy
+Right! It's fun being able to talk to someone who also plays the game, most people are usually into the newest games.. #speaker: Tola #icon: Tola_happy
 +[Any other games from the past you like playing] -> Nostalgia
 
 ===Nostalgia===
-Ooo theres this one game i played as a kid whenever i could, it's on the tip of my tonuge... ahh it'll come back to me but it was so appealing it was a simulation sandbox  game where'd you go around building and stuff #speaker: Tola #icon: 
-OH i think i know the game, would you like also fight enemies and trya and figure out different methods and you could also invent things right?  #speaker: Sam #icon: 
-I don't remember inventing... Hmmm ah wait actually yeah! there was haha crazy we played the same video game as kids! #speaker: Tola #icon: 
-//that's pretty cool// 
-Yeah it is! #speaker: Sam #icon: 
-So... #speaker: Sam
+Ooo theres this one game I played as a kid whenever I could, it's on the tip of my tonuge... ahh it'll come back to me but it was so appealing it was a simulation sandbox game where'd you go around building and stuff! #speaker: Tola #icon: Tola_neutral
+OH I think I know the game, I think it came out like 11 or 12 years ago? Would you like also fight enemies and trya and figure out different methods and you could also invent things right?  #speaker: Sam #icon: Sam_realization
+I don't remember inventing... Hmmm ah wait actually yeah! there was haha crazy we played the same video game as kids!  #speaker: Tola #icon: Tola_happy
+Yeah it is! #speaker: Sam #icon: Sam_happy
+So... #icon: Sam_neutral
 +[What kind of genre of games do you usally like?] -> Gamegenre
 
 ===Zonicedit===
-Ah thats cool too! Anything you like about it. #speaker: Tola #icon: 
-Yeah actually i found the Gameplay pretty cool, i wish i could play it but maybe when i can buy it without textbooks burrying me.. #speaker: Sam #icon: 
-I feel your pain.. #speaker: Tola #icon: 
-but I do play Zario kart! #speaker: Sam #icon: 
-Oh, Cool #speaker: Tola #icon: 
+Ah thats cool too! Anything you like about it. #speaker: Tola #icon: Tola_neutral
+Yeah actually i found the Gameplay pretty cool, i wish i could play it but maybe when I can buy it without textbooks burrying me.. #speaker: Sam #icon: Sam_happy
+I feel your pain.. #speaker: Tola #icon: Tola_disgust
+But I do play Zario kart! #speaker: Sam #icon: Sam_neutral
+Oh, Cool... #speaker: Tola #icon: Tola_neutral
 +[What kind of genre of games do you usally like?] -> Gamegenre
 
 ===Zariokart===
-Haaa you wish, I've been playing with my boyfriend, so I've got some new stratigies to use! #speaker: Tola #icon: 
-(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: 
+Haaa you wish, I've been playing with my boyfriend, so I've got some new stratigies to use! #speaker: Tola #icon: Tola_happy
+(I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_
 Ooo we can play Forest road! #speaker: Tola #icon: 
 Sure! I've played that map a few times! #speaker: Sam #icon: 
 +[Game Cutscene] -> GameCut
@@ -169,8 +173,9 @@ Here, #speaker: Sam #icon:
 
 ===GoodGame===
 Good game! that was super fun! #speaker: Sam #icon: 
-Hahaha, You almost won if that shell hit me, but it didn't usually my boyfriend beats me with that so i developed a plan for it but Man im kinda hungry wanna get something? #speaker: Tola #icon: 
+Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time!   #speaker: Tola #icon: 
 "3:00 am" 
+Man im kinda hungry wanna get something? #icon: 
 I mean..  #speaker: Sam #icon: 
 +[Sure anything you were thinking] ->Cheesecut
 +[Nah im pretty burnt out from that gaming] -> eepy
@@ -254,7 +259,7 @@ Oh Wait! #speaker: Sam #icon:
 +[Wait, wanna take a picture?] -> Yaypic
 
 ===Shuteye===
-Understanble, Well im gonna get going then! $
+Understanble, Well im gonna get going then! 
 By- 
 +[Wait, wanna take a picture?] -> Yaypic
 
@@ -273,7 +278,7 @@ ROLL CREDITS
 +[Credits] -> Credits
 
 ===NeutralEnd===
-Thanks for the offer! but i'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam
+Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam
 Ah ok, understandble i'll see you another time then! #speaker: Tola
 Yep see ya! #speaker: Sam 
 Tola walks off and you go do homework
@@ -285,7 +290,7 @@ Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator
 
 ===GoodEnd===
 Say Cheese #speaker: Sam #icon: 
-What are we 5??? #speaker: Tola #icon: 
+What are we 5?? #speaker: Tola #icon: 
 Dude whatever.. 1..2..3! #speaker: Tola #icon: 
 *Click* 
 [Credits] -> Credits
