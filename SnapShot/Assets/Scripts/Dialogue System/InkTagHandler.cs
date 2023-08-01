@@ -34,7 +34,6 @@ public class InkTagHandler
                 case ICON_TAG:
                     if (tagValue != null)
                     { 
-                        InkDialogueManager.instance.characterPrefab.SetActive(true);
                         onCharExpressionChangeEvent?.Invoke(tagValue);
                     }
                     break;

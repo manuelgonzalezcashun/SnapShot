@@ -128,6 +128,7 @@ Oh ok.. Right see you #speaker: Sam #icon: Sam_awkward
 +[Bad Ending] -> Bad 
 
 ===Bad===
+~show_characters = false
 I haven't like talked this whole time but like... 
 Yikes, you were kinda akward... Roll credits i guess #speaker: Narrator 
 +[Credits] -> Credits
@@ -277,6 +278,7 @@ It was pretty fun hanging out with you man! #speaker: Sam #icon:
 Same! Hope we can hang out in the future! #speaker: Tola #icon:
 I'm sure we will! #speaker: Sam #icon:
 Now say Cheese! 1..2..3 *Click* #speaker: Sam #icon:
+~show_characters = false
 ~changeBackground("TrueEndCut")
 +[True ending ] -> True
 
@@ -288,9 +290,10 @@ ROLL CREDITS
 
 ===NeutralEnd===
 Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
-Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
+Ah ok, understandble I'll see you another time then! #speaker: Tola #icon: Tola_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
 Tola walks off and you go do homework
+~show_characters = false
 ~changeBackground("NeutralEndCut")
 +[Neutral Ending] -> Neutral
 
@@ -300,6 +303,7 @@ Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator
 [Credits] -> Credits
 
 ===GoodEnd===
+~show_characters = false
 ~changeBackground("GoodEndCut")
 Say Cheese #speaker: Sam #icon: 
 What are we 5?? #speaker: Tola #icon: 
@@ -309,4 +313,5 @@ Dude whatever.. 1..2..3! #speaker: Tola #icon:
 
 ===Credits===
 thanks for playing! 
+~changeUnityScene("EndCreditScene")
 ->DONE

@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 204082681}
   - component: {fileID: 204082683}
   - component: {fileID: 204082682}
+  - component: {fileID: 204082684}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -662,6 +663,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204082680}
   m_CullTransparentMesh: 1
+--- !u!114 &204082684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204082680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bcf1c51e34246643bf638ab503de4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstButton: {fileID: 224817431}
 --- !u!1 &213707753
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +897,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1411013675}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1706,6 +1720,7 @@ GameObject:
   - component: {fileID: 964820476}
   - component: {fileID: 964820475}
   - component: {fileID: 964820474}
+  - component: {fileID: 964820477}
   m_Layer: 5
   m_Name: QuitGamePanel
   m_TagString: Untagged
@@ -1773,6 +1788,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964820477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964820473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bcf1c51e34246643bf638ab503de4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstButton: {fileID: 1193326954}
 --- !u!1 &967778387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 224817429}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &967778390
@@ -1837,17 +1865,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: 0}
-  m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
-  m_MiddleClickAction: {fileID: 0}
-  m_RightClickAction: {fileID: 0}
-  m_ScrollWheelAction: {fileID: 0}
-  m_TrackedDevicePositionAction: {fileID: 0}
-  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_PointAction: {fileID: -8243623152487001441, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_MoveAction: {fileID: 1603908221576716206, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_SubmitAction: {fileID: -8545631402154589526, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_CancelAction: {fileID: 4334199400164454397, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_LeftClickAction: {fileID: 7937292485561115843, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_MiddleClickAction: {fileID: -7662445070879956494, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_RightClickAction: {fileID: 2944769990925544899, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_ScrollWheelAction: {fileID: 6841958646455823064, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 7381546943507805138, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1936552457646796008, guid: c30984fb8ac2aa545b3877599dc829c5, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0

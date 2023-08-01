@@ -96,8 +96,6 @@ public class InkDialogueManager : MonoBehaviour
     {
        pauseDialogue = !gameIsPaused;
     }
-
-
     public void DisplayNextLine()
     {
         if (inkStoryScript.canContinue)

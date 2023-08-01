@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -12,13 +9,18 @@ public class Character : MonoBehaviour
     {
         gameObject.name = character.name;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void OnEnable()
+    {
         InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent += MinimizeCharacter;
+        InkDialogueObserver.UpdateShowCharacters += ShowCharacters;
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
+        InkDialogueObserver.UpdateShowCharacters -= ShowCharacters;
     }
     public void CharacterExpressions(string charExpression)
     {
@@ -41,5 +43,9 @@ public class Character : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
 
+    }
+    private void ShowCharacters(bool show)
+    {
+        gameObject.SetActive(show);
     }
 }

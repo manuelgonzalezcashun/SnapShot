@@ -3,8 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Event Listeners
+    private void OnEnable()
+    {
+        InkExternalFunctions.ChangeUnityScene += LoadScene;
+    }
+    private void OnDisable()
+    {
+        InkExternalFunctions.ChangeUnityScene -= LoadScene;
+    }
+    #endregion
+   
     //Game Management 
-    public void StartGame(string sceneName)
+    public void LoadScene(string sceneName)
     {
         LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(sceneName));
     }
