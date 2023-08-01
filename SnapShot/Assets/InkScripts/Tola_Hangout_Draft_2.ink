@@ -4,10 +4,12 @@ INCLUDE globals.ink
 -> start
 
 ===start===
+~changeBackground(BookCut)
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #speaker: Sam #icon:
 +Let's Go -> Notebook
 
 ===Notebook===
+~changeBackground(bgName)
 Hey Sam right? #speaker: Tola #icon: Tola_neutral
 That's me Tola right? #speaker: Sam #icon: Sam_neutral
 Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: Tola_awkard
@@ -23,6 +25,7 @@ Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
+~changeBackground(bgName)
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working]
@@ -97,7 +100,7 @@ Ah your right sorry... #speaker: Tola #icon: Tola_sad
 ===Makeup===
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
-(Save) #speaker Sam #icon: Sam_happy
+(Save) #speaker: Sam #icon: Sam_happy
 [Time passes]
 Hey.. #speaker: Sam #icon: Sam_neutral
 +[Do you wanna take a break] -> Break
@@ -270,7 +273,7 @@ It was pretty fun hanging out with you man! #speaker: Sam #icon:
 Same! Hope we can hang out in the future! #speaker: Tola #icon:
 I'm sure we will! #speaker: Sam #icon:
 Now say Cheese! 1..2..3 *Click* #speaker: Sam #icon:
-[activate scene here]
+~changeBackground(TrueEndCut)
 +[True ending ] -> True
 
 ===True ===
@@ -283,14 +286,17 @@ ROLL CREDITS
 Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
 Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
-Tola walks off and you go do homework [Activate scene Net_end after this line]
+Tola walks off and you go do homework
+~changeBackground(NeutralEndCut)
 +[Neutral Ending] -> Neutral
 
 ===Neutral===
+~changeBackground(BadEndCut)
 Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator 
 [Credits] -> Credits
 
 ===GoodEnd===
+~changeBackground(GoodEndCut)
 Say Cheese #speaker: Sam #icon: 
 What are we 5?? #speaker: Tola #icon: 
 Dude whatever.. 1..2..3! #speaker: Tola #icon: 

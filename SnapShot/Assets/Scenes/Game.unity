@@ -564,6 +564,21 @@ MonoBehaviour:
   - name: bg2
     bgSprite: {fileID: 0}
     bgSpriteRenderer: {fileID: 0}
+  - name: BookCut
+    bgSprite: {fileID: 21300000, guid: 94bb789cabcef408395318e6888c4188, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: GoodEnd
+    bgSprite: {fileID: 21300000, guid: 2f57a94e48ed14164815b27e9c83140d, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: TrueEnd
+    bgSprite: {fileID: 21300000, guid: afe6a11c8ef414c2793dad9eef03aa95, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: BadEnd
+    bgSprite: {fileID: 21300000, guid: eee8dea56e62e4e61979a0be23710bdc, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: NeutralEnd
+    bgSprite: {fileID: 21300000, guid: 1445a8edf15404aa2bc02e4a2bdc73f2, type: 3}
+    bgSpriteRenderer: {fileID: 0}
 --- !u!1001 &183721532
 PrefabInstance:
   m_ObjectHideFlags: 0
