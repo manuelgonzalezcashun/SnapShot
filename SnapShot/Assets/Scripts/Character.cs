@@ -20,11 +20,6 @@ public class Character : MonoBehaviour
         InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
     }
-    void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void CharacterExpressions(string charExpression)
     {
         foreach (Sprite expresion in character.expressions)
