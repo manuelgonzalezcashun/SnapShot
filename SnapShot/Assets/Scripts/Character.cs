@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     void Awake()
-    { 
+    {
         gameObject.name = character.name;
         spriteRenderer = GetComponent<SpriteRenderer>();
         InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
@@ -30,8 +30,16 @@ public class Character : MonoBehaviour
             }
         }
     }
-    private void MinimizeCharacter()
+    private void MinimizeCharacter(string name)
     {
-        spriteRenderer.color = Color.gray;
+        if (name != character.name)
+        {
+            spriteRenderer.color = Color.gray;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
+
     }
 }

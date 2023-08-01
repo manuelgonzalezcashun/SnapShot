@@ -21,9 +21,14 @@ public class PauseManager : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             onPauseEvent?.Invoke(gameIsPaused);
-
-            if (!gameIsPaused) Pause();
-            else Resume();
+            if (!gameIsPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
         }
     }
 

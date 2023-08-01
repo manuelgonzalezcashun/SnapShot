@@ -6,7 +6,7 @@ using UnityEngine;
 public class InkTagHandler
 {
     public static event Action<string> onCharExpressionChangeEvent;
-    public static event Action onCharNameChangeEvent;
+    public static event Action<string> onCharNameChangeEvent;
 
     private const string SPEAKER_TAG = "speaker";
     private const string ICON_TAG = "icon";
@@ -27,10 +27,7 @@ public class InkTagHandler
                 case SPEAKER_TAG:
                     if (tagValue != null)
                     {
-                        if (tagValue != InkDialogueManager.instance.characterPrefab.name)
-                        {
-                            onCharNameChangeEvent?.Invoke();
-                        }
+                        onCharNameChangeEvent?.Invoke(tagValue);
                         InkDialogueManager.instance.NameTagText.text = tagValue;
                     }
                     break;
