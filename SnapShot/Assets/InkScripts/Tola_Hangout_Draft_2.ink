@@ -10,32 +10,34 @@ I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe
 
 ===Notebook===
 //insert Background here//
-Hey Sam right? #speaker: Tola #icon: Tola_neutral
-That's me Tola right? #speaker: Sam #icon: Sam_neutral
-Yeah! So hey i know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: Tola_awkard
-+ Oh Sure! i need some help with a few parts too ->HangoutStart
+Hey, Sam right? #speaker: Tola #icon: Tola_neutral
+That's me, Tola right? #speaker: Sam #icon: Sam_neutral
+Yeah! So hey I know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: Tola_awkard
++ Oh Sure! I need some help with a few parts too ->HangoutStart
 + Oh um, Nah I'm good -> NeutralEnd
 
 ===HangoutStart===
 So um.. #speaker: Sam #icon: Sam_realization
-where would we hang out?
+Where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
-Well we can go to my dorm? it's decently cleaned #speaker: Sam #icon: Sam_neutral
+Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
 ~changeBackground("bg1")
-Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange #speaker: Tola #icon: Tola_happy
+Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange! #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working]
+//Album Choices//
 You cool with this is sort of Music? #speaker: Sam #icon: Sam_realization
 Oh, Yeah Usaully I listen to Break-core but I like Jazz too! #speaker: Tola  #icon: Tola_happy
-+[Alright let's get to doiing this homework!] -> Hwstart
++[Alright, let's get to doing this homework!] -> Hwstart
 
 ===Hwstart===
-//They do some homework together// 
+The two do some homework together! #speaker: Narrator
 Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkward
+//Hw image//
 Oh, Ummmm  #speaker: Sam #icon: Sam_realization
 +[I'm pretty sure in these notes..] ->HWpos
 +[I'm not totally sure] ->HWnet
@@ -46,7 +48,7 @@ Ohhh Got it, Dang I would've probably been stuck on that for a while thanks!  #s
 No Problem! My sister has me go over these a lot, She's kinda a big film nerd #speaker: Sam #icon: Sam_Happy
 Oh that's cool, I used to watch some film theory and film practice videos but it's definitely harder now that I'm doing Hw for it.   #speaker: Tola #icon: Tola_happy
 Haha Yeah! I'd defintily say it's harder to remember! #speaker: Sam #icon: Sam_happy
-[Sam looks at Tola's pins] 
+[Sam looks at Tola's pins #speaker: Narrator 
 +[Oh! you have a Zonic pin?] -> Zonicpin
 
 ===Zonicpin===
@@ -84,11 +86,11 @@ Haaa you wish, I've been playing with my boyfriend, so I've got some new stratig
 (I may lose) Ogh cool, Which map do you wanna play? #speaker: Sam #icon: Sam_awkward_2
 Ooo we can play Forest road! #speaker: Tola #icon: Tola_happy
 Sure! I've played that map a few times! #speaker: Sam #icon: Sam_happy
-[He has not]
+He has not #speaker: Narrator
 +[Game Cutscene] -> GameCut
 
 ===HWnet===
-There's an akward silence.. 
+There's an akward silence.. #speaker: Narrator
 +[...] ->Silence
 +[Oh um] -> Makeup
 
@@ -111,39 +113,39 @@ You play any games? #speaker: Sam #icon: Sam_happy
 Oh I play Zario Kart and some other games like Zonic and 7 Nights! #speaker: Tola #icon: Tola_happy
 Oh same, any character you like playing?  #speaker: Sam #icon: Sam_happy
 Hmmm personally love playing ghostie #speaker: Tola #icon: Tola_happy
-I get that usually i play treema love their little foresty vibes! #speaker: Sam #icon: Sam_happy
+I get that usually I play treema love their little foresty vibes! #speaker: Sam #icon: Sam_happy
 Yeah their so cute! #speaker: Tola #icon: Tola_happy_2
 So wanna play, a few rounds? #speaker: Sam #icon: Sam_neutral
 Sure it would be fun! #speaker: Tola #icon: Tola_happy_2
-Alright, How are you on like competivte stuff #speaker: Sam #icon: Sam_neutral
-Not something I usaully like, usually spooks me really #speaker: Tola #icon: Tola_Awkward
+Alright, How are you on like competivte stuff? #speaker: Sam #icon: Sam_neutral
+<b>Not something I usaully like, usually spooks me really..<b>  #speaker: Tola #icon: Tola_Awkward
 Yeah i get that, let's have a good game. #speaker: Sam #icon: Sam_happy
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===Silence===
-Hey... it's getting kinda dark do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
-Nah i should probably get going i'll.. i'll see you around.. #speaker: Tola #icon: Tola_sad
-Oh ok.. Right see you #speaker: Sam #icon: Sam_awkward
-[Tola leaves]
+Hey... It's getting kinda dark, do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
+Nah I.. I should probably get going I'll.. I'll see you around.. #speaker: Tola #icon: Tola_sad
+Oh ok.. Right see you.. #speaker: Sam #icon: Sam_awkward
+Tola leaves #Speaker: Narrator 
 +[Bad Ending] -> Bad 
 
 ===Bad===
-I haven't like talked this whole time but like... 
-Yikes, you were kinda akward... Roll credits i guess #speaker: Narrator 
+~changeBackground("BadEndCut")
+Yikes, you were kinda akward... Roll credits I guess..  #speaker: Narrator 
 +[Credits] -> Credits
 
 
 ===Gamegenre===
 Usually I'm a pretty big fan of cozy games, not the biggest on fighting games, people can get pretty mad when they lose not really a fun setting to be in. #speaker: Tola #icon: Tola_awkward_2
 Yeah i get that, I've been there it can get pretty akward but hopeflly we can both be good sports. #speaker: Sam #icon: Sam_happy
-Yeah id like that! #speaker: Tola #icon: Tola_happy
-[They shake hands]
+Yeah, i'd like that! #speaker: Tola #icon: Tola_happy
+They shake hands #speaker: Narrator 
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===GameCut===
 //Insert Cutscene//
 Oh Man, I'm so close.. NO NO NOT THE BOX #speaker: Tola
-Yes Yes, Im gonna win!! #speaker: Sam 
+Yes Yes, I'm gonna win!! #speaker: Sam 
 SIKE, Hehe #speaker: Tola
 NOOO #speaker: Sam
 +[Dang it!] -> Dang
@@ -161,7 +163,7 @@ Um.. it's pretty late  #speaker: Sam #icon: Sam_awkward
 Yeah sounds good, Night #speaker: Tola #icon: Tola_awkward_2
 Night #speaker: Sam #icon: Sam_awkward_2
 (Ugh, I messed up) #speaker: Sam #icon: Sam_awkward
-[They go to sleep]
+They go to sleep #speaker: Narrator 
 +[Day] -> Day
 
 ===Day===
@@ -191,8 +193,8 @@ Let's get Mac and Cheese #speaker: Tola #icon: Tola_happy
 Mac and Cheese? #speaker: Sam #icon: Sam_realization
 Mac and Cheese! #speaker: Tola #icon: Sam_happy_2
 Mac and Cheese.. #speaker: Sam #icon: Sam_happy
-[Cut to black]
-//They go and grab some mac and cheese from the dorm kitchen//
+[Cut to black] //Transition//
+They go and grab some mac and cheese from the dorm kitchen #speaker: Narrator
 Hehehe Mac and Cheese #speaker: Tola 
 Shhh i dont think we can be out late #speaker: Sam
 I know, i know, Alright mac and cheese secured. also some hot water! #speaker: Tola
@@ -205,12 +207,12 @@ Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon
 +[Take picture] -> Cheesepic
 
 ===Cheesepic===
-Hahah you're really into taking pictures in the moment, #speaker: Tola #icon: 
+Hahah you're really into taking pictures in the moment! #speaker: Tola #icon: 
 Yep, now say cheese #speaker: Sam #icon: 
-... #speaker: Tola #icon: Tola_really
+..did you just.. #speaker: Tola #icon: Tola_really
 //Picture cutscene//
 This looks so goofy, hehehe #speaker: Tola #icon: Tola_happy_2 
-Dang it's almost 4am, i think we should hit the hay. #speaker: Sam #icon: Sam_ughh
+Haha, oh dang it's almost 4am, I think we should hit the hay. #speaker: Sam #icon: Sam_ughh
 Sounds good #speaker: Tola #icon: Tola_neutral
 +[morning] -> morning
 
@@ -229,18 +231,23 @@ Because, no one wants to work till like 7pm #speaker: Sam #icon: Sam_ughh
 I mean we worked till like 12am #speaker: Tola #icon: Tola_happy
 Then we played video games till like.. 3:00am #speaker: Sam #icon: Sam_happy
 You gotta admit that was pretty Fun!  #speaker: Tola #icon: Tola_happy
-Ha yeah it was #speaker: Sam #icon: Sam_happy_2
+Ha! yeah it was! #speaker: Sam #icon: Sam_happy_2
 Wanna go get some breakfast? #speaker: Tola #icon: Tola_happy_2
-+[Sure, Im down] -> Breaky
-+[Im pretty beat and might catch some shuteye] -> Shuteye
++[Sure, Im down!] -> Breaky
++[Im pretty beat and might catch some shuteye.] -> Shuteye
 
 ===Breaky===
 Yess! Let's go get some! #speaker: Tola #icon: Tola_happy_2
 Sounds good #speaker: Sam #icon: Tola_happy
-//They go to the cafetria and get breakfast//
+They go to the cafetria and get breakfast #Speaker: Narrator 
 //Insert Background here//
-I'm Starving.. #speaker: Sam #icon: Sam_happy
-I can't wait to dig in! #speaker: Tola #icon: Tola_happy
+I'm Starving.. What do you usally like to eat for breakfast? #speaker: Sam #icon: Sam_happy 
+Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this
+//Insert picture//
+Oh cool! I never had one before you definitely have to get me one! 
+I'll defintley bring you one, man all this talk about food is getting me hungry but yeah what kind of breakfast do you like? #speaker: Sam #icon: 
+Usually I just like have cinnamon pancakes, nothing super special but yeah when im feeling fancy i'll add whipped cream! #speaker: Sam #icon: Sam_happy_2
+Oh nice! Man I can't wait to dig in! #speaker: Tola #icon: Tola_happy
 Oh wait. #speaker: Sam #icon: Sam_realization
 +[Before that i wanna take a picture] -> Breakypic
 
@@ -250,8 +257,8 @@ Sounds good! I'm just gonna look at this breakfast. #speaker: Tola
 Sounds good! 1..2..3..Click  #speaker: Sam 
 //camera scene//
 Done! #speaker: Sam 
-Alright let's dig in #speaker: Tola 
-they scarf down the breakfast
+Alright let's dig in! #speaker: Tola 
+They scarf down the breakfast #speaker: Narrator 
 Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #icon: Tola_neutral
 Yeah no worries! #speaker: Sam #icon: Sam_happy
 They walk back to their dorm
@@ -290,12 +297,12 @@ ROLL CREDITS
 Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
 Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
-Tola walks off and you go do homework
+Tola walks off and Sam goes to do homework #Speaker: Narrator 
 ~changeBackground("NeutralEndCut")
 +[Neutral Ending] -> Neutral
 
 ===Neutral===
-~changeBackground("BadEndCut")
+~changeBackground("NeutralEndCut")
 Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator 
 [Credits] -> Credits
 
@@ -304,7 +311,7 @@ Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator
 Say Cheese #speaker: Sam #icon: 
 What are we 5?? #speaker: Tola #icon: 
 Dude whatever.. 1..2..3! #speaker: Tola #icon: 
-*Click* 
+[Click]
 [Credits] -> Credits
 
 ===Credits===
