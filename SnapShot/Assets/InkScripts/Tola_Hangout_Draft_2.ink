@@ -25,7 +25,7 @@ Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
-~changeBackground("bg1")
+~changeBackground("Dorm")
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working]
