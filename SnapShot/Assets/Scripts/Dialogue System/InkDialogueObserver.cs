@@ -4,8 +4,12 @@ using Ink.Runtime;
 
 public class InkDialogueObserver
 {
+    public static event Action<int> onReachedMaxScore;
     public static event Action<int> UpdateRelationshipScore;
     public static event Action<bool> UpdateShowCharacters;
+
+    private int maxScore = 5;
+    private int minScore = -5;
 
     private int _relationshipScore;
     private bool _showCharacters;
@@ -26,9 +30,12 @@ public class InkDialogueObserver
         {
             RelationshipScore = (int)value;
 
-            if (RelationshipScore > 5) RelationshipScore = 5;
-            else if (RelationshipScore < -5) RelationshipScore = -5;
-
+            if (RelationshipScore >= maxScore)
+            {
+                RelationshipScore = maxScore;
+                onReachedMaxScore?.Invoke(RelationshipScore);
+            } 
+            else if (RelationshipScore < minScore) RelationshipScore = minScore;
             UpdateRelationshipScore?.Invoke(RelationshipScore);
         });
 
