@@ -745,6 +745,7 @@ GameObject:
   - component: {fileID: 218347822}
   - component: {fileID: 218347821}
   - component: {fileID: 218347823}
+  - component: {fileID: 218347824}
   m_Layer: 5
   m_Name: heartfill_img
   m_TagString: Untagged
@@ -830,6 +831,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &218347824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218347819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f512cd1063e6699499bed488216fcd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
 --- !u!1 &415075165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25.19989, y: 0.000061035156}
+  m_AnchoredPosition: {x: -25.199951, y: 0}
   m_SizeDelta: {x: 48.77, y: 475.11}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &713261350
