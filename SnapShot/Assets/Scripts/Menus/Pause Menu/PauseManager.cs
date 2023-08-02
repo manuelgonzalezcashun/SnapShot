@@ -10,17 +10,18 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         gameIsPaused = false;
+        onPauseEvent?.Invoke(gameIsPaused);
     }
     void Pause()
     {
         Time.timeScale = 0f;
         gameIsPaused = true;
+        onPauseEvent?.Invoke(gameIsPaused);
     }
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            onPauseEvent?.Invoke(gameIsPaused);
             if (!gameIsPaused)
             {
                 Pause();

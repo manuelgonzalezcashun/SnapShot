@@ -94,7 +94,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void PauseDialogue(bool gameIsPaused)
     {
-       pauseDialogue = !gameIsPaused;
+       pauseDialogue = gameIsPaused;
     }
     public void DisplayNextLine()
     {

@@ -16,6 +16,6 @@ public class PauseMenuScreen : MonoBehaviour
     }
     private void ShowPauseMenu(bool isGamePaused)
     {
-        pauseScreen.SetActive(!isGamePaused);
+        pauseScreen.SetActive(isGamePaused);
     }
 }
