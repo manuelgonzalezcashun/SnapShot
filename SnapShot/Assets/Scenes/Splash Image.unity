@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609090135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.10915, y: 146.7367, z: -3.8949082}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashScreen: {fileID: 1406431700}
+  gameManager: {fileID: 609090139}
 --- !u!114 &609090139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,12 +179,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 609090135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b28c164cf28a3a499fc4e5f2181b96c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc8a076c437afa346b3eecb77e396ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 0}
-  loadingBar: {fileID: 0}
-  LoadingTextPercent: {fileID: 0}
 --- !u!1 &1406431699
 GameObject:
   m_ObjectHideFlags: 0

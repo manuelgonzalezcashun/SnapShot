@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bf8d3b4e1470f46b3985ce93ef7305, type: 3}
+  m_Name: Aisha
+  m_EditorClassIdentifier: 
+  name: Aisha
+  expressions:
+  - {fileID: -1623200357, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: -2133410606, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: -2133410606, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: -177415165, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: 637660365, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: 769037831, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}

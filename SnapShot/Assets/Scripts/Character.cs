@@ -6,14 +6,20 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CharacterData character;
-    private Animator animator;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
-    {
-        animator = GetComponent<Animator>();
+    { 
         gameObject.name = character.name;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
+        InkTagHandler.onCharNameChangeEvent += MinimizeCharacter;
     }
-
+    private void OnDestroy()
+    {
+        InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
+        InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
+    }
     void Start()
     {
         gameObject.SetActive(false);
@@ -21,14 +27,16 @@ public class Character : MonoBehaviour
 
     public void CharacterExpressions(string charExpression)
     {
-        foreach (AnimationClip expresion in character.expressions)
+        foreach (Sprite expresion in character.expressions)
         {
             if (expresion.name == charExpression)
             {
-                animator.Play(expresion.name);
+                spriteRenderer.sprite = expresion;
             }
         }
     }
-
-
+    private void MinimizeCharacter()
+    {
+        spriteRenderer.color = Color.gray;
+    }
 }

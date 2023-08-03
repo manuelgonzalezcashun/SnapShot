@@ -1,62 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.UI;
 
 public class RelationshipMeter : MonoBehaviour
 {
-    [field: SerializeField] public GameObject relationship_meter { get; private set; }
-    [SerializeField] GameObject[] meter_bars;
-    public int inkRelationshipScore { get; private set; }
-    private int relationshipScore;
-    private int maxRelationshipScore = 5;
+    [SerializeField] private Slider relMeter;
+    [SerializeField] private Image fill;
 
-    void Update()
+    private void Awake()
     {
-        inkRelationshipScore = (int)InkDialogueManager.instance.inkStoryScript.variablesState["relationship_score"];
-
-        #region Relationship Score Observer
-
-        if (inkRelationshipScore >= maxRelationshipScore)
-        {
-            inkRelationshipScore = maxRelationshipScore;
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
-        }
-        else if (inkRelationshipScore <= 0)
-        {
-            inkRelationshipScore = 0;
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
-        }
-        else
-        {
-            if (inkRelationshipScore != relationshipScore)
-            {
-                SnapshotEvents.instance.relScoreChange.Invoke();
-                relationshipScore = inkRelationshipScore;
-            }
-        }
-
-        #endregion
-
-        RelationshipMeterFiller();
+        InkDialogueObserver.UpdateRelationshipScore += RelationshipScoreUpdater;
     }
-    void RelationshipMeterFiller()
+    private void OnDestroy()
     {
-        for (int i = 0; i < meter_bars.Length; i++)
-        {
-            meter_bars[i].SetActive(!DisplayScorePoints(relationshipScore, i));
-        }
+        InkDialogueObserver.UpdateRelationshipScore -= RelationshipScoreUpdater;
     }
-    bool DisplayScorePoints(int _relationshipScore, int pointNumber)
+    private void Start()
     {
-        return pointNumber >= _relationshipScore;
+        relMeter.value = 0;
+    }
+    public void RelationshipScoreUpdater(int score)
+    { 
+        relMeter.value = score;
+
+        if (score > 0)
+        {
+            fill.color = Color.green;
+        }
+        else if (score < 0) 
+        {
+            relMeter.value = Mathf.Abs(score);
+            fill.color = Color.red;
+        }
     }
 }

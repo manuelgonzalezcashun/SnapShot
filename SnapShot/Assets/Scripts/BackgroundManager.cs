@@ -11,6 +11,11 @@ public class BackgroundManager : MonoBehaviour
     private void Awake()
     {
         gameObject.AddComponent<SpriteRenderer>();
+        InkExternalFunctions.ChangeBackground += SetBackground;
+    }
+    private void OnDestroy()
+    {
+        InkExternalFunctions.ChangeBackground -= SetBackground;
     }
     public void SetBackground(string name)
     {
