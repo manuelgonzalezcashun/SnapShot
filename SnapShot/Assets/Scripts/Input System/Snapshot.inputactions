@@ -49,8 +49,30 @@
                 },
                 {
                     "name": "",
+                    "id": "bf4344b9-295d-4f2f-8276-0078dd62ed91",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2e7aae64-0807-46b6-a3a2-10bc62ff383f",
                     "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a60fd58-6849-44c6-951d-5f4628b5651c",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
