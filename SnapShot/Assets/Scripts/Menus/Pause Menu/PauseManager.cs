@@ -1,10 +1,28 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
+    private PlayerInput playerInput;
+    private InputAction pauseAction;
+
     public static event Action<bool> onPauseEvent;
     private bool gameIsPaused = false;
+
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        pauseAction = playerInput.actions["Pause"];
+    }
+    private void OnEnable()
+    {
+        pauseAction.performed += OnPauseInput;
+    }
+    private void OnDisable()
+    {
+        pauseAction.performed -= OnPauseInput;
+    }
 
     public void Resume()
     {
@@ -18,19 +36,16 @@ public class PauseManager : MonoBehaviour
         gameIsPaused = true;
         onPauseEvent?.Invoke(gameIsPaused);
     }
-    private void Update()
+
+    void OnPauseInput(InputAction.CallbackContext ctx)
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (!gameIsPaused)
         {
-            if (!gameIsPaused)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
+            Pause();
+        }
+        else
+        {
+            Resume();
         }
     }
-
 }

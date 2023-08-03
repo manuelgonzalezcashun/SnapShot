@@ -1,0 +1,65 @@
+{
+    "name": "Snapshot",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "25b30e4d-4181-4dbb-a42e-ee871c7aaeae",
+            "actions": [
+                {
+                    "name": "Continue Dialogue",
+                    "type": "Button",
+                    "id": "e6112c0f-dc3c-4101-bf54-80f14839d658",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "4cda3c5d-e1de-46a0-b68f-859acb015f2b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "13a0cc8c-5b2a-4fd9-9204-ed7c8a7e0779",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d569354f-7621-40ac-8226-170dd8f7c42c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e7aae64-0807-46b6-a3a2-10bc62ff383f",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

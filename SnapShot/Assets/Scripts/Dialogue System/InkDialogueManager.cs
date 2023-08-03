@@ -5,11 +5,12 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class InkDialogueManager : MonoBehaviour
 {
+    #region Dialogue System UI
     [Header("Unity UI")]
-    #region Unity Variables
 
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text dialogueText;
@@ -21,25 +22,35 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] private GameObject responsePrefab;
 
     List<GameObject> tempButtons = new List<GameObject>();
+    #endregion
 
+    #region Ink Files
     [Header("Ink Editor")]
 
     [SerializeField] TextAsset inkJsonFile;
     private static string _loadedState;
     [SerializeField] TextAsset loadGlobalsFile;
     public Story inkStoryScript { get; private set; }
+    #endregion
 
-    [Header("Game Runtime Variables")]
+    #region Runtime Game Variables
     private float typingSpeed = 0.03f;
     private bool submitButtonPressed = true;
     private bool canContinueToNextLine = true;
     private bool pauseDialogue;
 
     private Coroutine displayTextCoroutine;
+    #endregion
 
+    #region Other Dialogue Scripts
     private InkDialogueObserver observer;
     private InkExternalFunctions inkExternalFunctions;
     private InkTagHandler tagHandler;
+    #endregion
+
+    #region Player Input
+    private PlayerInput playerInput;
+    private InputAction continueAction;
     #endregion
 
     #region Singleton Stuff
@@ -47,6 +58,9 @@ public class InkDialogueManager : MonoBehaviour
 
     void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
+        continueAction = playerInput.actions["Continue Dialogue"];
+
         if (instance != null)
         {
             Debug.LogError("Found more than one Dialogue Managers");
@@ -56,12 +70,17 @@ public class InkDialogueManager : MonoBehaviour
         observer = new InkDialogueObserver();
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
-
-        PauseManager.onPauseEvent += PauseDialogue;
     }
-    private void OnDestroy()
+    private void OnEnable()
+    {
+        PauseManager.onPauseEvent += PauseDialogue;
+        continueAction.performed += ContinueDialogue;
+    }
+    private void OnDisable()
     {
         PauseManager.onPauseEvent -= PauseDialogue;
+        continueAction.performed -= ContinueDialogue;
+
     }
     # endregion
     void Start()
@@ -80,9 +99,10 @@ public class InkDialogueManager : MonoBehaviour
         inkExternalFunctions.Bind(inkStoryScript);
         DisplayNextLine();
     }
-    private void Update()
+
+    private void ContinueDialogue(InputAction.CallbackContext ctx)
     {
-        if (Input.GetButtonDown("Jump") && !pauseDialogue)
+        if (!pauseDialogue)
         {
             submitButtonPressed = true;
             if (canContinueToNextLine && submitButtonPressed)
@@ -94,7 +114,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void PauseDialogue(bool gameIsPaused)
     {
-       pauseDialogue = gameIsPaused;
+        pauseDialogue = gameIsPaused;
     }
     public void DisplayNextLine()
     {

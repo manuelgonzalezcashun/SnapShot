@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 
-public class XboxConrtrollerCursor : MonoBehaviour
+public class XboxControllerCursor : MonoBehaviour
 {
     [SerializeField]
     private PlayerInput playerInput;

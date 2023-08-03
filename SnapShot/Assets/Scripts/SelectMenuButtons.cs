@@ -7,16 +7,14 @@ public class SelectMenuButtons : MonoBehaviour
 {
     [SerializeField] private Button firstButton;
 
-    protected virtual void OnEnable()
+    private void OnEnable()
     {
-        StartCoroutine(SetSelectedButton(firstButton.gameObject));
+        StartCoroutine(SetFirstSelected(firstButton.gameObject));
     }
-
-    public IEnumerator SetSelectedButton(GameObject firstSelectedObject)
+    private IEnumerator SetFirstSelected(GameObject firstSelected)
     {
-        EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(firstSelectedObject);
-    }
+        EventSystem.current.SetSelectedGameObject(firstSelected);
 
+    }
 }
