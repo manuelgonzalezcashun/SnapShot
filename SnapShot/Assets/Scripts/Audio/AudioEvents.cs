@@ -21,7 +21,7 @@ public class AudioEvents : MonoBehaviour
     }
     private void PauseMenuMusic(bool isGamePaused)
     {
-        if (!isGamePaused)
+        if (isGamePaused)
         {
             audioManager.Pause("Theme");
             audioManager.Play("Pause Menu");
