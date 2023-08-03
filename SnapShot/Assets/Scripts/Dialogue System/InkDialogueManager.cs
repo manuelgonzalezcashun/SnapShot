@@ -20,6 +20,7 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] private GameObject responseBox;
     [SerializeField] private RectTransform responseBoxTransform;
     [SerializeField] private GameObject responsePrefab;
+    [SerializeField] private GameObject arrow;
 
     List<GameObject> tempButtons = new List<GameObject>();
     #endregion
@@ -70,6 +71,17 @@ public class InkDialogueManager : MonoBehaviour
         observer = new InkDialogueObserver();
         inkExternalFunctions = new InkExternalFunctions();
         tagHandler = new InkTagHandler();
+    }
+    private void Update()
+    {
+        if (canContinueToNextLine)
+        {
+            arrow.SetActive(true);
+        }
+        else
+        {
+            arrow.SetActive(false);
+        }
     }
     private void OnEnable()
     {
