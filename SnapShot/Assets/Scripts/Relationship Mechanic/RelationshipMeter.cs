@@ -24,11 +24,7 @@ public class RelationshipMeter : MonoBehaviour
     { 
         relMeter.value = score;
 
-        if (score > 0)
-        {
-            fill.color = Color.green;
-        }
-        else if (score < 0) 
+        if (score < 0) 
         {
             relMeter.value = Mathf.Abs(score);
             fill.color = Color.red;

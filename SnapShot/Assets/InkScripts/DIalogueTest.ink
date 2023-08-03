@@ -1,6 +1,5 @@
 INCLUDE globals.ink
 
-~changeBackground("bg0")
 Hello! #speaker: Tola #icon: Tola_neutral
 I am testing the new Dialogue System.
 or am I? 
@@ -10,14 +9,12 @@ What do you think?
 * I don't even know -> huh #speaker: Sam
 
 ===lying===
-~changeBackground("bg1")
 ~relationship_score -= 1 
 ~playSound("relScoreRemove")
 How Dare You! #speaker: Tola #icon: Tola_sad 
 -> END
 
 ===truth===
-~changeBackground("bg2")
 ~relationship_score += 1
 ~playSound("relScoreAdd")
 Look's like we will be friends... #speaker: Tola #icon: Tola_happy
