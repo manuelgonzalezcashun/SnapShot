@@ -297,7 +297,7 @@ ROLL CREDITS
 Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
 Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
-Tola walks off and Sam goes to do homework #Speaker: Narrator 
+Tola walks off and Sam goes to do homework #speaker: Narrator 
 ~changeBackground("NeutralEndCut")
 +[Neutral Ending] -> Neutral
 
