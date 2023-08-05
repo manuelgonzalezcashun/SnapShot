@@ -9,7 +9,7 @@ I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe
 +[Let's Go] -> Notebook
 
 ===Notebook===
-//insert Background here//
+~changeBackground("Classroom")
 Hey, Sam right? #speaker: Tola #icon: Tola_neutral
 That's me, Tola right? #speaker: Sam #icon: Sam_neutral
 Yeah! So hey I know we have the same Film class, do you maybe wanna work on the homework together?  #speaker: Tola #icon: Tola_awkard
