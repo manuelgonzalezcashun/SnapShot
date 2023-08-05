@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,8 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
+    private AudioSource source;
+    private AudioClip clip;
 
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
@@ -45,6 +46,8 @@ public class PhotoCapture : MonoBehaviour
     {
         viewingPhoto = true;
         photoFrame.SetActive(true);
+        clip = source.clip;
+        source.Play();
         
     }
 
