@@ -3250,7 +3250,7 @@ MonoBehaviour:
     bgSprite: {fileID: 21300000, guid: 6a6ab3490197545b1a6c43d9bdf515b8, type: 3}
     bgSpriteRenderer: {fileID: 0}
   - name: NeutralEndCut
-    bgSprite: {fileID: 21300000, guid: cc57f57b346ee417396c4fe005610cb8, type: 3}
+    bgSprite: {fileID: 21300000, guid: 5dce53efb52514f0fb48f28c03b2bbb6, type: 3}
     bgSpriteRenderer: {fileID: 0}
   - name: BadEndCut
     bgSprite: {fileID: 21300000, guid: eee8dea56e62e4e61979a0be23710bdc, type: 3}
@@ -3260,6 +3260,9 @@ MonoBehaviour:
     bgSpriteRenderer: {fileID: 0}
   - name: Dorm
     bgSprite: {fileID: 21300000, guid: 34f2a66b7de464fab86d6574113288cc, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: Classroom
+    bgSprite: {fileID: 21300000, guid: f5b8ae3d1416b4e1eb8316af59e782e3, type: 3}
     bgSpriteRenderer: {fileID: 0}
 --- !u!1 &415075165
 GameObject:
