@@ -7,16 +7,10 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
-    [SerializeField] private GameObject Camera;
 
     private Texture2D screenCapture;
     public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
-
-    public void TakePicture()
-    {
-        Camera.SetActive(true);
-    }
 
     IEnumerator CapturePhoto()
     {
