@@ -42,7 +42,6 @@ public class InkDialogueObserver
         story.ObserveVariable("show_characters", (arg, value) =>
         {
             ShowCharacters = (bool)value;
-
             UpdateShowCharacters?.Invoke(ShowCharacters);
         });
     }
