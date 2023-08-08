@@ -46,6 +46,14 @@ public class Character : MonoBehaviour
     }
     private void ShowCharacters(bool show)
     {
+	if (!show)
+	{
+            show = true;
+	}
+    else
+        {
+            show = false;
+        }
         gameObject.SetActive(show);
     }
 }

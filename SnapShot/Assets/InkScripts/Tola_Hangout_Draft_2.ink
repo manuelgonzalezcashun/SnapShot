@@ -143,6 +143,7 @@ They shake hands #speaker: Narrator
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===GameCut===
+~show_characters = false
 //Insert Cutscene//
 Oh Man, I'm so close.. NO NO NOT THE BOX #speaker: Tola
 Yes Yes, I'm gonna win!! #speaker: Sam 
@@ -152,6 +153,7 @@ NOOO #speaker: Sam
 +[Good game] -> GoodGame
 
 ===Dang===
+~show_characters = true
 Tola backs away
 Oh right.. i'm sorry, good game? #speaker: Sam #icon: Sam_awkward
 Yeah... good game.. #speaker: Sam #icon: Tola_awkward_2
@@ -179,6 +181,7 @@ Here we go! #speaker: Sam #icon: Sam_happy
 +[Good ending] -> GoodEnd
 
 ===GoodGame===
+~show_characters = true
 Good game! that was super fun! #speaker: Sam #icon: Sam_happy
 Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time!   #speaker: Tola #icon: Tola_happy
 "3:00 am" 
@@ -194,6 +197,7 @@ Mac and Cheese? #speaker: Sam #icon: Sam_realization
 Mac and Cheese! #speaker: Tola #icon: Sam_happy_2
 Mac and Cheese.. #speaker: Sam #icon: Sam_happy
 [Cut to black] //Transition//
+~show_characters = false
 They go and grab some mac and cheese from the dorm kitchen #speaker: Narrator
 Hehehe Mac and Cheese #speaker: Tola 
 Shhh i dont think we can be out late #speaker: Sam
@@ -202,6 +206,7 @@ Cool, let's head back. #speaker: Sam
 +[head back to Dorm] ->Secretscene1
 
 ===Secretscene1===
+~show_characters = true
 Alright lets dig in, I'm starving #speaker: Tola #icon: 
 Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon: 
 +[Take picture] -> Cheesepic
@@ -210,7 +215,8 @@ Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon
 Hahah you're really into taking pictures in the moment! #speaker: Tola #icon: 
 Yep, now say cheese #speaker: Sam #icon: 
 ..did you just.. #speaker: Tola #icon: Tola_really
-//Picture cutscene//
+~show_characters = false
+~changeBackground("CheesePic") 
 This looks so goofy, hehehe #speaker: Tola #icon: Tola_happy_2 
 Haha, oh dang it's almost 4am, I think we should hit the hay. #speaker: Sam #icon: Sam_ughh
 Sounds good #speaker: Tola #icon: Tola_neutral
@@ -225,6 +231,7 @@ I feel like i'll look like one regardless, but fair point #speaker: Tola #icon: 
 +[morning] -> morning
 
 ===morning===
+~show_characters = true
 Yawnnn, Man.. I hate mornings #speaker: Sam #icon: Sam_ughh
 Yeah, Why can't we just have stuff start in the afternoon.. #speaker: Tola #icon: Tola_neutral
 Because, no one wants to work till like 7pm #speaker: Sam #icon: Sam_ughh
@@ -242,8 +249,8 @@ Sounds good #speaker: Sam #icon: Tola_happy
 They go to the cafetria and get breakfast #Speaker: Narrator 
 //Insert Background here//
 I'm Starving.. What do you usally like to eat for breakfast? #speaker: Sam #icon: Sam_happy 
-Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this
-//Insert picture//
+Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this #speaker: Tola #icon: Tola_neutral
+//Show Donuts//
 Oh cool! I never had one before you definitely have to get me one! 
 I'll defintley bring you one, man all this talk about food is getting me hungry but yeah what kind of breakfast do you like? #speaker: Sam #icon: 
 Usually I just like have cinnamon pancakes, nothing super special but yeah when im feeling fancy i'll add whipped cream! #speaker: Sam #icon: Sam_happy_2
@@ -252,19 +259,22 @@ Oh wait. #speaker: Sam #icon: Sam_realization
 +[Before that i wanna take a picture] -> Breakypic
 
 ===Breakypic===
+
 //Insert Background here//
 Sounds good! I'm just gonna look at this breakfast. #speaker: Tola 
 Sounds good! 1..2..3..Click  #speaker: Sam 
+~show_characters = false
 //camera scene//
 Done! #speaker: Sam 
 Alright let's dig in! #speaker: Tola 
 They scarf down the breakfast #speaker: Narrator 
 Oh I forgot my stuff in your dorm, can we go get it? #speaker: Tola #icon: Tola_neutral
 Yeah no worries! #speaker: Sam #icon: Sam_happy
-They walk back to their dorm
+They walk back to their dorm #speaker: Narrator 
 +[Today was great] -> Yipeee
 
 ===Yipeee===
+~show_characters = true
 Yeah today or would it be last night, well whatever it was amazing to hang out.  #speaker: Tola #icon: Tola_happy_2
 haha, Yeah it would be fun to do this again #speaker: Sam #icon: Sam_happy_2
 Most definetly we should get some snacks tho, #speaker: Tola #icon: Tola_happy_2
@@ -279,12 +289,13 @@ Understanble, Well I'm gonna get going then! #speaker: Tola #icon: Tola_neutral
 +[Wait, wanna take a picture?] -> Yaypic
 
 ===Yaypic===
+~show_characters = false
+~changeBackground("TrueEndCut")
 Sure! #speaker: Tola #icon:
 It was pretty fun hanging out with you man! #speaker: Sam #icon:
 Same! Hope we can hang out in the future! #speaker: Tola #icon:
 I'm sure we will! #speaker: Sam #icon:
 Now say Cheese! 1..2..3 *Click* #speaker: Sam #icon:
-~changeBackground("TrueEndCut")
 +[True ending ] -> True
 
 ===True ===
@@ -295,8 +306,9 @@ ROLL CREDITS
 
 ===NeutralEnd===
 Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
-Ah ok, understandble I'll see you another time then! #speaker: Tola #icon_neutral
+Ah ok, understandble I'll see you another time then! #speaker: Tola #icon: Tola_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
+~show_characters = false
 ~changeBackground("NeutralEndCut")
 Tola walks off and Sam goes to do homework #speaker: Narrator 
 +[Neutral Ending] -> Neutral
@@ -306,6 +318,7 @@ Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator
 [Credits] -> Credits
 
 ===GoodEnd===
+~show_characters = false
 ~changeBackground("GoodEndCut")
 Say Cheese #speaker: Sam #icon: 
 What are we 5?? #speaker: Tola #icon: 

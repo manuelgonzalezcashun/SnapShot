@@ -3264,6 +3264,9 @@ MonoBehaviour:
   - name: Classroom
     bgSprite: {fileID: 21300000, guid: f5b8ae3d1416b4e1eb8316af59e782e3, type: 3}
     bgSpriteRenderer: {fileID: 0}
+  - name: CheesePic
+    bgSprite: {fileID: 21300000, guid: 059cf2cdfcb9a405d91a8ec63039478b, type: 3}
+    bgSpriteRenderer: {fileID: 0}
 --- !u!1 &415075165
 GameObject:
   m_ObjectHideFlags: 0
