@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Debug.Log("Character Destroyed");
         InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
         InkDialogueObserver.UpdateShowCharacters -= ShowCharacters;
@@ -48,9 +47,6 @@ public class Character : MonoBehaviour
     private void ShowCharacters(bool show)
     {
         bool showCharacters = show;
-
-        Debug.Log($"Show Characters value: { showCharacters}");
-
         gameObject.SetActive(showCharacters);
     }
 }
