@@ -46,7 +46,6 @@ public class Character : MonoBehaviour
     }
     private void ShowCharacters(bool show)
     {
-        bool showCharacters = show;
-        gameObject.SetActive(showCharacters);
+        gameObject.SetActive(show);
     }
 }
