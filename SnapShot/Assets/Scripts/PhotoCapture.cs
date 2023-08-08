@@ -7,54 +7,20 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
-    private AudioSource source;
-    private AudioClip clip;
-
-    [Header("Flash Effect")]
-    [SerializeField] private GameObject cameraFlash;
-    [SerializeField] private float flashTime;
+    [SerializeField] private GameObject Camera;
 
     private Texture2D screenCapture;
-    private bool viewingPhoto;
-    public Image characterIcon;
-
     public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
 
-
-    //private void Start()
-    //{
-        //screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-    //}
-
-    //public void Update()
-    //{
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            //if (!viewingPhoto)
-            //{
-                //StartCoroutine(CapturePhoto());
-            //}
-            //else
-            //{
-                //RemovePhoto();
-            //}
-        //}
-    //}
-
-    public void PhotoShow()
+    public void TakePicture()
     {
-        viewingPhoto = true;
-        photoFrame.SetActive(true);
-        clip = source.clip;
-        source.Play();
-        
+        Camera.SetActive(true);
     }
 
     IEnumerator CapturePhoto()
     {
         //Camera UI set false
-        viewingPhoto = true;
 
         yield return new WaitForEndOfFrame();
 
@@ -67,27 +33,14 @@ public class PhotoCapture : MonoBehaviour
 
      void ShowPhoto()
     {
-        //Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDisplayArea.sprite = newSprite;
 
         photoFrame.SetActive(true);
-        StartCoroutine(CameraFlashEffect());
     }
-    
-    IEnumerator CameraFlashEffect()
-    {
-        //Play some audio 
-        cameraFlash.SetActive(true);
-        yield return new WaitForSeconds(flashTime);
-        cameraFlash.SetActive(false);
-    }
-
-    
-
+   
    public void RemovePhoto()
     {
-        viewingPhoto = false;
         photoFrame.SetActive(false);
         //CameraUI true 
     }

@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    private void OpenInventory()
+    public void OpenInventory()
     {
         if (!isInventoryShowing)
         {
