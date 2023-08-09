@@ -85,11 +85,13 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void OnEnable()
     {
+        Inventory.onShowInventory += PauseDialogue;
         PauseManager.onPauseEvent += PauseDialogue;
         continueAction.performed += ContinueDialogue;
     }
     private void OnDisable()
     {
+        Inventory.onShowInventory -= PauseDialogue;
         PauseManager.onPauseEvent -= PauseDialogue;
         continueAction.performed -= ContinueDialogue;
 
@@ -124,7 +126,7 @@ public class InkDialogueManager : MonoBehaviour
             }
         }
     }
-    private void PauseDialogue(bool gameIsPaused)
+    public void PauseDialogue(bool gameIsPaused)
     {
         pauseDialogue = gameIsPaused;
     }

@@ -1,10 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class Inventory : MonoBehaviour
 {
+    public static event Action<bool> onShowInventory;
+
     private List<ItemsData> items = new List<ItemsData>();
 
     [SerializeField] private GameObject[] inventorySlots;
@@ -59,5 +61,6 @@ public class Inventory : MonoBehaviour
         }
 
         gameObject.SetActive(isInventoryShowing);
+        onShowInventory?.Invoke(isInventoryShowing);
     }
 }
