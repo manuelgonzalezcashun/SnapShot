@@ -23,6 +23,10 @@ public class RelationshipMeter : MonoBehaviour
     public void RelationshipScoreUpdater(int score)
     { 
         relMeter.value = score;
+        if (score >  0)
+        {
+            fill.color = Color.green;
+        }
 
         if (score < 0) 
         {

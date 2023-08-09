@@ -36,7 +36,9 @@ public class InkDialogueObserver
                 onReachedMaxScore?.Invoke(RelationshipScore);
             } 
             else if (RelationshipScore < minScore) RelationshipScore = minScore;
+
             UpdateRelationshipScore?.Invoke(RelationshipScore);
+            Debug.Log($"Current Score is: {RelationshipScore}");
         });
 
         story.ObserveVariable("show_characters", (arg, value) =>
