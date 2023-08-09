@@ -114,6 +114,7 @@ Hey.. #speaker: Sam #icon: Sam_neutral
 +[Do you wanna take a break] -> Break
 
 ===Break===
+~relationship_score += 1
 Oh sure! #speaker: Tola #icon: Tola_neutral
 You play any games? #speaker: Sam #icon: Sam_happy
 Oh I play Zario Kart and some other games like Zonic and 7 Nights! #speaker: Tola #icon: Tola_happy
@@ -152,6 +153,7 @@ They shake hands #speaker: Narrator
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===GameCut===
+~relationship_score += 1 
 ~show_characters = false
 //Insert Cutscene//
 Oh Man, I'm so close.. NO NO NOT THE BOX #speaker: Tola
