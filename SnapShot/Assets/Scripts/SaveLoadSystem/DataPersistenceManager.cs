@@ -36,7 +36,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         foreach (IDataPersistence dataPersistence in dataPersistences)
         {
-            dataPersistence.SaveData(ref gameData);
+            dataPersistence.SaveData(gameData);
         }
 
         fileDataHandler.Save(gameData);
