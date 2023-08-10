@@ -9,9 +9,7 @@ public class Character : MonoBehaviour
     {
         gameObject.name = character.name;
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void OnEnable()
-    {
+
         InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent += MinimizeCharacter;
         InkDialogueObserver.UpdateShowCharacters += ShowCharacters;

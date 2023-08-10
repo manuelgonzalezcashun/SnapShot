@@ -2505,7 +2505,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 183721533}
   responseBox: {fileID: 1434397368}
   responseBoxTransform: {fileID: 1434397369}
-  responsePrefab: {fileID: 9127578171947685182, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
+  responsePrefab: {fileID: 8684467137434876388, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
   arrow: {fileID: 236318451}
   inkJsonFile: {fileID: 4900000, guid: 1f2f9b321ed6941ac97d11f137951a23, type: 3}
   loadGlobalsFile: {fileID: 4900000, guid: 72372eaaf4b0ced4e83e090f0984b8b3, type: 3}
@@ -8944,7 +8944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
