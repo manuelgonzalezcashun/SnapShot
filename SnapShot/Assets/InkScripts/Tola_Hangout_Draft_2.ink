@@ -231,6 +231,7 @@ Yep, now say cheese #speaker: Sam #icon:
 ..did you just.. #speaker: Tola #icon: Tola_really
 ~show_characters = false
 ~changeBackground("CheesePic") 
+~takePics("Cheese")
 This looks so goofy, hehehe #speaker: Tola #icon: Tola_happy_2 
 Haha, oh dang it's almost 4am, I think we should hit the hay. #speaker: Sam #icon: Sam_ughh
 Sounds good #speaker: Tola #icon: Tola_neutral
@@ -312,10 +313,11 @@ Sure! #speaker: Tola #icon:
 It was pretty fun hanging out with you man! #speaker: Sam #icon:
 Same! Hope we can hang out in the future! #speaker: Tola #icon:
 I'm sure we will! #speaker: Sam #icon:
-Now say Cheese! 1..2..3 *Click* #speaker: Sam #icon:
+Now say Cheese! #speaker: Sam #icon:
 +[True ending ] -> True
 
 ===True ===
+~takePics("Best Day")
 Cool, you got the true ending!
 Hope you enjoyed playing!
 ROLL CREDITS 
