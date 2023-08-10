@@ -1,32 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
-    private GameObject Camera;
-    private bool isCameraActive = false;
+    public static event Action<string> PhotoCapture;
 
+    private GameObject Camera;
     private void Awake()
     {
+        InkExternalFunctions.TakePicture += TakePicture;
         Camera = gameObject;
     }
-
-    void Start()
+    private void OnDestroy()
     {
-        Camera.SetActive(isCameraActive);
+        InkExternalFunctions.TakePicture -= TakePicture;
     }
-    public void TakePicture()
+    private void Start()
     {
-        if (!isCameraActive)
-        {
-            isCameraActive = true;
-        }
-        else
-        {
-            isCameraActive = false;
-        }
-
-        Camera.SetActive(isCameraActive);
+        Camera.SetActive(false);
+    }
+    private void TakePicture(string picName)
+    {
+        Camera.SetActive(true);
+        Camera.GetComponent<Button>().onClick.AddListener(() => PhotoCapture?.Invoke(picName));
     }
 }

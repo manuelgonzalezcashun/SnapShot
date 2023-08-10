@@ -5,13 +5,33 @@ using UnityEngine.Events;
 
 public class InventoryCollector : MonoBehaviour
 {
-    public UnityEvent<ItemsData> onItemCollected;
+    public UnityEvent<PictureData> onPictureCollected;
+    private void Awake()
+    {
+        DragDrop.DraggingPicture += ShowCollector;
+        DragDrop.DroppedPicture += HideCollector;
+        gameObject.SetActive(false);
+    }
+    private void OnDestroy()
+    {
+        DragDrop.DraggingPicture -= ShowCollector;
+        DragDrop.DroppedPicture -= HideCollector;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Item")
+        if (collision.gameObject.tag == "Picture")
         {
-            onItemCollected?.Invoke(collision.gameObject.GetComponent<Item>().itemData);
+            onPictureCollected?.Invoke(collision.gameObject.GetComponent<Picture>().picData);
             Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
+    }
+    private void ShowCollector()
+    {
+        gameObject.SetActive(true);
+    }
+    private void HideCollector()
+    {
+        gameObject.SetActive(false);
     }
 }

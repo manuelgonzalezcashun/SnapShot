@@ -6,7 +6,6 @@ using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
 public class InkDialogueManager : MonoBehaviour
 {
     #region Dialogue System UI

@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public static event Action<bool> onShowInventory;
 
-    private List<ItemsData> items = new List<ItemsData>();
+    private List<PictureData> pictures = new List<PictureData>();
 
     [SerializeField] private GameObject[] inventorySlots;
 
@@ -20,18 +20,18 @@ public class Inventory : MonoBehaviour
 
 
     // Adds Items into inventory
-    public void AddInventory(ItemsData item)
+    public void AddInventory(PictureData pic)
     {
-        foreach (ItemsData itemData in items)
+        foreach (PictureData picData in pictures)
         {
-            if (item == itemData)
+            if (pic == picData)
             {
                 Debug.Log("Item already exists in inventory");
                 return;
             }
         }
 
-        items.Add(item);
+        pictures.Add(pic);
         ShowItems();
     }
     // Shows the Inventory UI
@@ -39,11 +39,11 @@ public class Inventory : MonoBehaviour
     {
         int i = 0;
         {
-            foreach (ItemsData item in items)
+            foreach (PictureData pic in pictures)
             {
-                if (item != null)
+                if (pic != null)
                 {
-                    inventorySlots[i].GetComponentInChildren<Image>().sprite = item.itemSprite;
+                    inventorySlots[i].GetComponentInChildren<Image>().sprite = pic.picSprite;
                 }
                 i++;
             }
