@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 994f7e7638ff60a44b5a0f5a6b89da88, type: 3}
-  m_Name: Arrow
+  m_Name: Flower Picture
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 8534294017013407707, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-  itemSprite: {fileID: 21300000, guid: 9c89d7ded6df784449ce6e9c383f58f2, type: 3}
+  pictureName: Flower's Pic
+  picturePrefab: {fileID: 843424666216253048, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+  picSprite: {fileID: 21300000, guid: 67798a85302614ad982cc6f7f01aa749, type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994f7e7638ff60a44b5a0f5a6b89da88, type: 3}
+  m_Name: Cheese Pic
+  m_EditorClassIdentifier: 
+  pictureName: Cheese
+  picturePrefab: {fileID: 8991285967849073058, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+  picSprite: {fileID: 21300000, guid: 6b1046ea758f8448eac987bfa6ba72d7, type: 3}

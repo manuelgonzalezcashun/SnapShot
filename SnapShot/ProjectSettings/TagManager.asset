@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SoundManager
   - Item
+  - Picture
   layers:
   - Default
   - TransparentFX
