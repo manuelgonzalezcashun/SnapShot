@@ -33,5 +33,8 @@ What do you think?
 ~relationship_score += 5 
 ~playSound("relScoreAdd")
 Tola and the player proceed to have a picnic. #speaker: Narrator 
+Hey let's take a pic! #speaker: Sam #icon: Tola_neutral
+Okay! #speaker: Tola #icon: Tola_happy
+~takePics("Flower's Pic")
 -> END
 
