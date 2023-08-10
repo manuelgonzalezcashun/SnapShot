@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6130023962387079962}
   - component: {fileID: 6130023962387079965}
-  - component: {fileID: 6130023962387079964}
   - component: {fileID: 6130023962387079967}
   - component: {fileID: 6130023962387079966}
+  - component: {fileID: 1806130220831445011}
   - component: {fileID: 6130023962387079953}
   m_Layer: 0
   m_Name: Best Day Picture
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6130023962387079965
 SpriteRenderer:
@@ -88,8 +88,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6130023962387079964
-CircleCollider2D:
+--- !u!114 &6130023962387079967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130023962387079963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08eca2fe978c254c8bb6af4e5008746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  picData: {fileID: 0}
+--- !u!114 &6130023962387079966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130023962387079963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3362fe9a5eee01b46bc7520070013c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1806130220831445011
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,34 +145,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.037143767}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.24, y: 3.34}
+    newSize: {x: 3.24, y: 3.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &6130023962387079967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6130023962387079963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08eca2fe978c254c8bb6af4e5008746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  picData: {fileID: 0}
---- !u!114 &6130023962387079966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6130023962387079963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3362fe9a5eee01b46bc7520070013c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 2.9428504, y: 2.8942766}
+  m_EdgeRadius: 0
 --- !u!50 &6130023962387079953
 Rigidbody2D:
   serializedVersion: 4

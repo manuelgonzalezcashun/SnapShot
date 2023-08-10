@@ -8768,6 +8768,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 199514185}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!61 &1426728651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12763,7 +12775,8 @@ PrefabInstance:
       propertyPath: picData
       value: 
       objectReference: {fileID: 11400000, guid: 4ce5d588e18594353a9ac9a3d35e832f, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6130023962387079964, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12824,11 +12837,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: m_Size.x
+      value: 3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: m_Size.y
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
       propertyPath: picData
       value: 
       objectReference: {fileID: 11400000, guid: 293429fe0c39a4bbc90989504d160f2a, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8991285967849073061, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
