@@ -94,6 +94,8 @@ He has not #speaker: Narrator
 +[Game Cutscene] -> GameCut
 
 ===HWnet===
+~show_characters = false
+~changeBackground("Time")
 There's an akward silence.. #speaker: Narrator
 +[...] ->Silence
 +[Oh um] -> Makeup
@@ -105,6 +107,8 @@ Ah your right sorry... #speaker: Tola #icon: Tola_sad
 +[...] -> Silence 
 
 ===Makeup===
+~show_characters = true
+~changeBackground("Dorm")
 ~relationship_score += 1
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
@@ -130,6 +134,8 @@ Yeah i get that, let's have a good game. #speaker: Sam #icon: Sam_happy
 +[Ready to get your butt kicked in Zario Kart] -> Zariokart
 
 ===Silence===
+~show_characters = true
+~changeBackground("Dorm")
 ~relationship_score -= 4
 Hey... It's getting kinda dark, do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
 Nah I.. I should probably get going I'll.. I'll see you around.. #speaker: Tola #icon: Tola_sad
@@ -177,11 +183,14 @@ Um.. it's pretty late  #speaker: Sam #icon: Sam_awkward
 Yeah sounds good, Night #speaker: Tola #icon: Tola_awkward_2
 Night #speaker: Sam #icon: Sam_awkward_2
 (Ugh, I messed up) #speaker: Sam #icon: Sam_awkward
+
 They go to sleep #speaker: Narrator 
+~changeBackground("Time")
 +[Day] -> Day
 
 ===Day===
 " Day arrives'' 
+~changeBackground("Dorm")
 AUghhhh #speaker: Sam #icon: Sam_ughh
 Not a morning person? #speaker: Tola #icon: Tola_neutral
 Yeah, I am not a morning person. #speaker: Tola #icon: 
@@ -210,8 +219,9 @@ Let's get Mac and Cheese #speaker: Tola #icon: Tola_happy
 Mac and Cheese? #speaker: Sam #icon: Sam_realization
 Mac and Cheese! #speaker: Tola #icon: Sam_happy_2
 Mac and Cheese.. #speaker: Sam #icon: Sam_happy
-[Cut to black] //Transition//
+[Cut to black] 
 ~show_characters = false
+~changeBackground("Time")
 They go and grab some mac and cheese from the dorm kitchen #speaker: Narrator
 Hehehe Mac and Cheese #speaker: Tola 
 Shhh i dont think we can be out late #speaker: Sam
@@ -220,6 +230,7 @@ Cool, let's head back. #speaker: Sam
 +[head back to Dorm] ->Secretscene1
 
 ===Secretscene1===
+~changeBackground("Dorm")
 ~show_characters = true
 Alright lets dig in, I'm starving #speaker: Tola #icon: 
 Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon: 
@@ -242,7 +253,6 @@ I'm thinking we should go to sleep, It's pretty late. #speaker: Sam #icon: Sam_n
 Ah alright yeah its pretty late.. geez it's 4 am, #speaker: Tola #icon: Tola_geez
 Yeah we should sleep before we look like zombies in the morning.  #speaker: Sam #icon: Sam_ughh
 I feel like i'll look like one regardless, but fair point #speaker: Tola #icon: Tola_happy
-//Fade to Black//
 +[morning] -> morning
 
 ===morning===
@@ -263,8 +273,7 @@ Wanna go get some breakfast? #speaker: Tola #icon: Tola_happy_2
 ~relationship_score += 1
 Yess! Let's go get some! #speaker: Tola #icon: Tola_happy_2
 Sounds good #speaker: Sam #icon: Tola_happy
-They go to the cafetria and get breakfast #Speaker: Narrator 
-//Insert Background here//
+They go to the cafetria and get breakfast #speaker: Narrator 
 I'm Starving.. What do you usally like to eat for breakfast? #speaker: Sam #icon: Sam_happy 
 Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this #speaker: Tola #icon: Tola_neutral
 //Show Donuts//
@@ -318,14 +327,14 @@ Now say Cheese! #speaker: Sam #icon:
 
 ===True ===
 ~takePics("Best Day")
-Cool, you got the true ending!
+Cool, you got the true ending! #speaker: Narrator 
 Hope you enjoyed playing!
 ROLL CREDITS 
 +[Credits] -> Credits
 
 ===NeutralEnd===
-Thanks for the offer! but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit #speaker: Sam #icon: Sam_neutral
-Ah ok, understandble I'll see you another time then! #speaker: Tola #icon: Tola_neutral
+Thanks for the offer but i'll pass, I got some other projects to work on so i might just push this one off for a lil bit. #speaker: Sam #icon: Sam_neutral
+Ah ok, understandble. I'll see you another time then! #speaker: Tola #icon: Tola_neutral
 Yep see ya! #speaker: Sam #icon: Sam_neutral
 ~show_characters = false
 ~changeBackground("NeutralEndCut")
@@ -339,7 +348,7 @@ Wow.. You finished like fast.. Roll credits I guess #speaker: Narrator
 ===GoodEnd===
 ~show_characters = false
 ~changeBackground("GoodEndCut")
-Say Cheese #speaker: Sam #icon: 
+Say Cheese! #speaker: Sam #icon: 
 What are we 5?? #speaker: Tola #icon: 
 Dude whatever.. 1..2..3! #speaker: Tola #icon: 
 [Click]
