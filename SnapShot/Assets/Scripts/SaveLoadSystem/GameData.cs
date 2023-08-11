@@ -5,10 +5,9 @@ using UnityEngine;
 [System.Serializable] 
 public class GameData
 {
-    public Vector3 playerPos;
-
+    public List<SavePictureData> savedPictures;
     public GameData()
     {
-        playerPos = Vector3.zero;
+           savedPictures = new List<SavePictureData>();
     }
 }

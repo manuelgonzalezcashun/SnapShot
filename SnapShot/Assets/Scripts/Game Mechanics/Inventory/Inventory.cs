@@ -3,11 +3,13 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IDataPersistence
 {
     public static event Action<bool> onShowInventory;
 
     private List<PictureData> pictures = new List<PictureData>();
+    private List<SavePictureData> savePictureList = new List<SavePictureData>();
+    private SavePictureData savePictureData;
 
     [SerializeField] private GameObject[] inventorySlots;
 
@@ -30,22 +32,23 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
-
         pictures.Add(pic);
+        savePictureData = new SavePictureData(pic);
+        savePictureList.Add(savePictureData);
         ShowItems();
     }
     // Shows the Inventory UI
     private void ShowItems()
     {
-        int i = 0;
+        int index = 0;
         {
             foreach (PictureData pic in pictures)
             {
                 if (pic != null)
                 {
-                    inventorySlots[i].GetComponentInChildren<Image>().sprite = pic.picSprite;
+                    inventorySlots[index].GetComponentInChildren<Image>().sprite = pic.picSprite;
                 }
-                i++;
+                index++;
             }
         }
     }
@@ -62,5 +65,28 @@ public class Inventory : MonoBehaviour
 
         gameObject.SetActive(isInventoryShowing);
         onShowInventory?.Invoke(isInventoryShowing);
+    }
+
+    public void LoadData(GameData data)
+    {
+        foreach (SavePictureData picData in data.savedPictures)
+        {
+            PictureData loadPicData = new PictureData();
+
+            loadPicData.picturePrefab = picData.picturePrefab;
+            loadPicData.pictureName = picData.pictureName;
+            loadPicData.picSprite = picData.pictureSprite;
+
+            AddInventory(loadPicData);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.savedPictures.Clear();
+        foreach (SavePictureData savePic in savePictureList)
+        {
+            data.savedPictures.Add(savePic);
+        }
     }
 }
