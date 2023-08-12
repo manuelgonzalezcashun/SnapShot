@@ -6,7 +6,6 @@ public class BackgroundManager : MonoBehaviour
 {
     public Background[] backgrounds;
     private int newOrderInLayer = -5;
-    private Background background;
 
     private void Awake()
     {

@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
             s.source.mute = s.mute;
         }
     }
+    #region Audio Manager
     public void Play(string name)
     {
         Sounds s = Array.Find(sounds, sound => sound.name == name);
@@ -58,4 +59,5 @@ public class AudioManager : MonoBehaviour
             return;
         }
     }
+    #endregion
 }

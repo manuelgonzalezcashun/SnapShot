@@ -1,35 +1,49 @@
 using UnityEngine;
 
-public class AudioEvents : MonoBehaviour
+public class AudioEvents: MonoBehaviour
 {
-    AudioManager audioManager;
+    private AudioManager m_AudioManager;
     private void Awake()
     {
-        audioManager = GetComponent<AudioManager>();
+        m_AudioManager = GetComponent<AudioManager>();
 
-        InkExternalFunctions.PlaySound += audioManager.PlayOneShot;
+        InkExternalFunctions.PlaySound += m_AudioManager.PlayOneShot;
         PauseManager.onPauseEvent += PauseMenuMusic;
+
+        RelationshipMeter.scoreUp += playScoreUP;
+        RelationshipMeter.scoreDown += playScoreDOWN;
     }
     private void OnDestroy()
     {
-        InkExternalFunctions.PlaySound -= audioManager.PlayOneShot;
+        InkExternalFunctions.PlaySound -= m_AudioManager.PlayOneShot;
         PauseManager.onPauseEvent -= PauseMenuMusic;
+
+        RelationshipMeter.scoreUp -= playScoreUP;
+        RelationshipMeter.scoreDown -= playScoreDOWN;
     }
-    void Start()
+    private void Start()
     {
-        audioManager.Play("Theme");
+        m_AudioManager.Play("Theme");
     }
-    private void PauseMenuMusic(bool isGamePaused)
+    public void PauseMenuMusic(bool isGamePaused)
     {
         if (isGamePaused)
         {
-            audioManager.Pause("Theme");
-            audioManager.Play("Pause Menu");
+            m_AudioManager.Pause("Theme");
+            m_AudioManager.Play("Pause Menu");
         }
         else
         {
-            audioManager.Stop("Pause Menu");
-            audioManager.Play("Theme");
+            m_AudioManager.Stop("Pause Menu");
+            m_AudioManager.Play("Theme");
         }
+    }
+    public void playScoreUP()
+    {
+        m_AudioManager.PlayOneShot("scoreUP");
+    }
+    public void playScoreDOWN()
+    {
+        m_AudioManager.PlayOneShot("scoreDOWN");
     }
 }

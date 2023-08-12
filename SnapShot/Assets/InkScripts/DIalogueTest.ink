@@ -10,13 +10,11 @@ What do you think?
 
 ===lying===
 ~relationship_score -= 1 
-~playSound("relScoreRemove")
 How Dare You! #speaker: Tola #icon: Tola_sad 
 -> END
 
 ===truth===
 ~relationship_score += 1
-~playSound("relScoreAdd")
 Look's like we will be friends... #speaker: Tola #icon: Tola_happy
 * [I don't want to be your friend!] -> lying
 * [Sounds good to me!] -> GoodEnding
@@ -31,7 +29,6 @@ What do you think?
 
 ===GoodEnding===
 ~relationship_score += 5 
-~playSound("relScoreAdd")
 Tola and the player proceed to have a picnic. #speaker: Narrator 
 Hey let's take a pic! #speaker: Sam #icon: Tola_neutral
 Okay! #speaker: Tola #icon: Tola_happy
