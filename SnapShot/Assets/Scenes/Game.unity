@@ -1141,7 +1141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -875.00024, y: 485.00003}
+  m_AnchoredPosition: {x: -875.0002, y: 485.00003}
   m_SizeDelta: {x: -1780.0001, y: -1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &105587287
@@ -15402,10 +15402,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flower Picture
       objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253048, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 843424666216253049, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15449,30 +15445,6 @@ PrefabInstance:
     - target: {fileID: 843424666216253049, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_Id
-      value: 7b64b466-40ec-4516-8b9d-6455ca4f1943
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_Name
-      value: Collect
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: b52c635f-069e-4b50-bb05-6af078d94135
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Gamepad>/buttonEast
-      objectReference: {fileID: 0}
-    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
-      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Collect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
