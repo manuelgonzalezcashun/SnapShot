@@ -25,7 +25,7 @@ Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 +[Go to dorm] ->Dormstart
 
 ===Dormstart===
-~changeBackground("Dorm")
+~changeBackground("NightDorm")
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintange! #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working]
@@ -135,7 +135,7 @@ Yeah i get that, let's have a good game. #speaker: Sam #icon: Sam_happy
 
 ===Silence===
 ~show_characters = true
-~changeBackground("Dorm")
+~changeBackground("NightDorm")
 ~relationship_score -= 4
 Hey... It's getting kinda dark, do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
 Nah I.. I should probably get going I'll.. I'll see you around.. #speaker: Tola #icon: Tola_sad
@@ -190,7 +190,7 @@ They go to sleep #speaker: Narrator
 
 ===Day===
 " Day arrives'' 
-~changeBackground("Dorm")
+~changeBackground("MornDorm")
 AUghhhh #speaker: Sam #icon: Sam_ughh
 Not a morning person? #speaker: Tola #icon: Tola_neutral
 Yeah, I am not a morning person. #speaker: Tola #icon: 
@@ -230,10 +230,10 @@ Cool, let's head back. #speaker: Sam
 +[head back to Dorm] ->Secretscene1
 
 ===Secretscene1===
-~changeBackground("Dorm")
+~changeBackground("MornDorm")
 ~show_characters = true
 Alright lets dig in, I'm starving #speaker: Tola #icon: 
-Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon: 
+Wait before that let's take a picture, this feels memorable! #speaker: Sam #icon: 
 +[Take picture] -> Cheesepic
 
 ===Cheesepic===
@@ -257,7 +257,7 @@ I feel like i'll look like one regardless, but fair point #speaker: Tola #icon: 
 
 ===morning===
 ~show_characters = true
-~changeBackground("Dorm")
+~changeBackground("MornDorm")
 Yawnnn, Man.. I hate mornings #speaker: Sam #icon: Sam_ughh
 Yeah, Why can't we just have stuff start in the afternoon.. #speaker: Tola #icon: Tola_neutral
 Because, no one wants to work till like 7pm #speaker: Sam #icon: Sam_ughh
