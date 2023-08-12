@@ -1141,7 +1141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -875.0002, y: 485.00003}
+  m_AnchoredPosition: {x: -875.00024, y: 485.00003}
   m_SizeDelta: {x: -1780.0001, y: -1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &105587287
@@ -4006,7 +4006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.43867922, b: 0.77995306, a: 1}
+  m_Color: {r: 0.8301887, g: 0.81267357, b: 0.12061229, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4488,16 +4488,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684362754}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 21979.342}
-  m_LocalScale: {x: 107.99138, y: 107.99136, z: 107.99136}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 108, y: 107.999985, z: 107.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 713261349}
+  m_Father: {fileID: 1171291913}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1048.2097, y: 149.26038}
+  m_AnchoredPosition: {x: 1, y: 1}
   m_SizeDelta: {x: 82, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684362756
@@ -5241,7 +5241,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 19
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5312,12 +5312,12 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_Sprite: {fileID: 0}
+    m_Sprite: {fileID: 21300000, guid: ad0ba059ad031fd48b38743a03a97a53, type: 3}
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 829511f8e35bf3a40be037a1050f801c, type: 3}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -9557,7 +9557,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 744895453}
-  - {fileID: 684362755}
   - {fileID: 218347820}
   - {fileID: 1646230058}
   m_Father: {fileID: 1171291913}
@@ -12196,6 +12195,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1434397369}
+  - {fileID: 684362755}
   - {fileID: 14861490}
   - {fileID: 713261349}
   - {fileID: 630929890}
@@ -13412,7 +13412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.122641504, g: 0.10112139, b: 0.10112139, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17006,7 +17006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1126709, y: -0.11260986}
+  m_AnchoredPosition: {x: -0.11279297, y: -0.11254883}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2114633347
@@ -17712,7 +17712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531013068143269484, guid: 5951c7fa656b2e042a1bab608ecc692e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 2531013068143269484, guid: 5951c7fa656b2e042a1bab608ecc692e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17910,6 +17910,14 @@ PrefabInstance:
       propertyPath: picData
       value: 
       objectReference: {fileID: 11400000, guid: 293429fe0c39a4bbc90989504d160f2a, type: 2}
+    - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: collectAction.m_Id
+      value: f8d52b2f-c7c0-4bbf-aea8-2772df4fc53c
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+      propertyPath: collectAction.m_Name
+      value: Collect
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8991285967849073061, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
     m_RemovedGameObjects: []
