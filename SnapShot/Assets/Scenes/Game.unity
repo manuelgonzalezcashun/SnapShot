@@ -1276,7 +1276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -875.00024, y: 485.00003}
+  m_AnchoredPosition: {x: -875.0002, y: 485.00003}
   m_SizeDelta: {x: -1780.0001, y: -1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &105587287
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   - name: GoodEndCut
     bgSprite: {fileID: 21300000, guid: 2f57a94e48ed14164815b27e9c83140d, type: 3}
     bgSpriteRenderer: {fileID: 0}
-  - name: Dorm
+  - name: MornDorm
     bgSprite: {fileID: 21300000, guid: 34f2a66b7de464fab86d6574113288cc, type: 3}
     bgSpriteRenderer: {fileID: 0}
   - name: Classroom
@@ -3460,6 +3460,9 @@ MonoBehaviour:
     bgSpriteRenderer: {fileID: 0}
   - name: Time
     bgSprite: {fileID: 21300000, guid: 40a767acf83204d70b9809910cd867f7, type: 3}
+    bgSpriteRenderer: {fileID: 0}
+  - name: NightDorm
+    bgSprite: {fileID: 21300000, guid: 69850d47b64bc4282b32033513149361, type: 3}
     bgSpriteRenderer: {fileID: 0}
 --- !u!1 &415075165
 GameObject:
