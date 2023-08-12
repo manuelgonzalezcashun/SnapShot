@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8991285967849073060
 SpriteRenderer:
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.24, y: 3.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -100,7 +100,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08eca2fe978c254c8bb6af4e5008746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  picData: {fileID: 0}
+  collectAction:
+    m_Name: Collect
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f8d52b2f-c7c0-4bbf-aea8-2772df4fc53c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 02c6cf3d-62c2-426f-b2a2-08596411bad8
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Collect
+      m_Flags: 0
+    m_Flags: 0
+  picData: {fileID: 11400000, guid: 293429fe0c39a4bbc90989504d160f2a, type: 2}
 --- !u!114 &8991285967849073063
 MonoBehaviour:
   m_ObjectHideFlags: 0

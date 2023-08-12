@@ -17792,20 +17792,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Best Day Picture
       objectReference: {fileID: 0}
-    - target: {fileID: 6130023962387079967, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
-      propertyPath: picData
-      value: 
-      objectReference: {fileID: 11400000, guid: 4ce5d588e18594353a9ac9a3d35e832f, type: 2}
-    - target: {fileID: 6130023962387079967, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
-      propertyPath: collectAction.m_Id
-      value: c125a943-a318-46f3-92df-23161cfc4bb3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130023962387079967, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
-      propertyPath: collectAction.m_Name
-      value: Collect
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6130023962387079964, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17866,36 +17853,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: m_Size.x
-      value: 3.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: m_Size.y
-      value: 3.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073060, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: picData
-      value: 
-      objectReference: {fileID: 11400000, guid: 293429fe0c39a4bbc90989504d160f2a, type: 2}
-    - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: collectAction.m_Id
-      value: f8d52b2f-c7c0-4bbf-aea8-2772df4fc53c
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991285967849073062, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
-      propertyPath: collectAction.m_Name
-      value: Collect
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8991285967849073061, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17955,6 +17913,30 @@ PrefabInstance:
     - target: {fileID: 2660324219529081617, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_Id
+      value: 94077d62-b505-41a0-911b-7ab1faf0edbe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_Name
+      value: Collect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: bd83bf31-91c7-4b50-a29e-9570640286cf
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/buttonEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660324219529081620, guid: 3edd6fa4e09d8470cbb40d62256c84b7, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Collect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
