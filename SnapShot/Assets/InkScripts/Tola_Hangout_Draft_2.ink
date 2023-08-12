@@ -233,7 +233,7 @@ Cool, let's head back. #speaker: Sam
 ~changeBackground("MornDorm")
 ~show_characters = true
 Alright lets dig in, I'm starving #speaker: Tola #icon: 
-Wait before that let's take a picture, this feels memoarble! #speaker: Sam #icon: 
+Wait before that let's take a picture, this feels memorable! #speaker: Sam #icon: 
 +[Take picture] -> Cheesepic
 
 ===Cheesepic===
