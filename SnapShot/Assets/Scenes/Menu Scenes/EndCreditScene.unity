@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 982590726}
   - component: {fileID: 982590725}
   m_Layer: 0
-  m_Name: "\U0001F986 icon _bookshelf_"
+  m_Name: Cutscene_-3pic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +529,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9b0828408e2604b43bf45fae4b1e79e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc57f57b346ee417396c4fe005610cb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -547,14 +547,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982590724}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -573.69, y: -188.77, z: 10}
-  m_LocalScale: {x: 84.1161, y: 84.6115, z: 1}
+  m_LocalRotation: {x: -0.03241185, y: -0.0069240024, z: 0.20879696, w: 0.9773973}
+  m_LocalPosition: {x: -683.00006, y: -192, z: 10}
+  m_LocalScale: {x: 20.59162, y: 21.559011, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 84974995}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.467, y: -1.554, z: 24.164}
 --- !u!1 &999342111
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,14 +707,90 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006702186}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -668, y: 203, z: 10}
-  m_LocalScale: {x: 75.293594, y: 88.906105, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.29703698, w: 0.954866}
+  m_LocalPosition: {x: -649.4, y: 234.48, z: 10}
+  m_LocalScale: {x: 95.23134, y: 95.12954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 84974995}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.559}
+--- !u!1 &1093899528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093899529}
+  - component: {fileID: 1093899531}
+  - component: {fileID: 1093899530}
+  m_Layer: 5
+  m_Name: samhappysprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1093899529
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093899528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2044031984}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 731.44, y: -310.02}
+  m_SizeDelta: {x: 457.13, y: 459.97}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1093899530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093899528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9d290bcc64faf47d3b359b44058c2375, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1093899531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093899528}
+  m_CullTransparentMesh: 1
 --- !u!1 &1186118923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1768,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 84974995}
+  - {fileID: 1093899529}
   - {fileID: 2052002450}
   - {fileID: 1927781892}
   - {fileID: 999342112}
