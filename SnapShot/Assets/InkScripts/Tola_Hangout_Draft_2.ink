@@ -108,7 +108,7 @@ Ah your right sorry... #speaker: Tola #icon: Tola_sad
 
 ===Makeup===
 ~show_characters = true
-~changeBackground("Dorm")
+~changeBackground("NightDorm")
 ~relationship_score += 1
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
@@ -183,13 +183,14 @@ Um.. it's pretty late  #speaker: Sam #icon: Sam_awkward
 Yeah sounds good, Night #speaker: Tola #icon: Tola_awkward_2
 Night #speaker: Sam #icon: Sam_awkward_2
 (Ugh, I messed up) #speaker: Sam #icon: Sam_awkward
-
-They go to sleep #speaker: Narrator 
+~show_characters = false
 ~changeBackground("Time")
+They go to sleep #speaker: Narrator 
 +[Day] -> Day
 
 ===Day===
 " Day arrives'' 
+~show_characters = true
 ~changeBackground("MornDorm")
 AUghhhh #speaker: Sam #icon: Sam_ughh
 Not a morning person? #speaker: Tola #icon: Tola_neutral
@@ -352,6 +353,7 @@ Say Cheese! #speaker: Sam #icon:
 What are we 5?? #speaker: Tola #icon: 
 Dude whatever.. 1..2..3! #speaker: Tola #icon: 
 [Click]
+~takePics("Good End")
 [Credits] -> Credits
 
 ===Credits===
