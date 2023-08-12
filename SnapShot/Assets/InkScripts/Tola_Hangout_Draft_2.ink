@@ -108,7 +108,7 @@ Ah your right sorry... #speaker: Tola #icon: Tola_sad
 
 ===Makeup===
 ~show_characters = true
-~changeBackground("Dorm")
+~changeBackground("NightDorm")
 ~relationship_score += 1
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
