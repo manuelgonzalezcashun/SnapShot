@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+
 public class DragDrop : MonoBehaviour
 {
     public static event Action DraggingPicture;
     public static event Action DroppedPicture;
     Vector2 mousePos;
+
     void Update()
     {
         FollowMousePos();

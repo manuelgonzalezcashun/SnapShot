@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour, IDataPersistence
 {
@@ -12,8 +13,24 @@ public class Inventory : MonoBehaviour, IDataPersistence
     private SavePictureData savePictureData;
 
     [SerializeField] private GameObject[] inventorySlots;
+    [SerializeField] private InputAction openInventory;
 
     private bool isInventoryShowing = false;
+
+
+    private void Awake()
+    {
+        openInventory.Enable();
+        openInventory.performed += OpenInventoryWithController;
+
+        Picture.onCollectPicture += AddInventory;
+    }
+    private void OnDestroy()
+    {
+        Picture.onCollectPicture -= AddInventory;
+        openInventory.performed -= OpenInventoryWithController;
+        openInventory.Disable();
+    }
 
     private void Start()
     {
@@ -65,6 +82,11 @@ public class Inventory : MonoBehaviour, IDataPersistence
 
         gameObject.SetActive(isInventoryShowing);
         onShowInventory?.Invoke(isInventoryShowing);
+    }
+
+    private void OpenInventoryWithController(InputAction.CallbackContext ctx)
+    {
+        OpenInventory();
     }
 
     public void LoadData(GameData data)

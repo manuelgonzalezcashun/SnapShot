@@ -87,12 +87,16 @@ public class InkDialogueManager : MonoBehaviour
         Inventory.onShowInventory += PauseDialogue;
         PauseManager.onPauseEvent += PauseDialogue;
         continueAction.performed += ContinueDialogue;
+        CameraScript.pauseDialogueForCamera += PausePlayerInput;
+        Picture.pictureCollected += ResumePlayerInput;
     }
     private void OnDisable()
     {
         Inventory.onShowInventory -= PauseDialogue;
         PauseManager.onPauseEvent -= PauseDialogue;
         continueAction.performed -= ContinueDialogue;
+        CameraScript.pauseDialogueForCamera -= PausePlayerInput;
+        Picture.pictureCollected -= ResumePlayerInput;
 
     }
     # endregion
@@ -124,6 +128,14 @@ public class InkDialogueManager : MonoBehaviour
                 DisplayNextLine();
             }
         }
+    }
+    private void ResumePlayerInput()
+    {
+        playerInput.enabled = true;
+    }
+    private void PausePlayerInput()
+    {
+        playerInput.enabled = false;
     }
     public void PauseDialogue(bool gameIsPaused)
     {

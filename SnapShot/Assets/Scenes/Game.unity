@@ -2372,7 +2372,7 @@ MonoBehaviour:
   responseBoxTransform: {fileID: 1434397369}
   responsePrefab: {fileID: 8684467137434876388, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
   arrow: {fileID: 2121751731}
-  inkJsonFile: {fileID: 4900000, guid: 1f2f9b321ed6941ac97d11f137951a23, type: 3}
+  inkJsonFile: {fileID: 4900000, guid: 8dad07b2feeef634caa8652575300a7a, type: 3}
   loadGlobalsFile: {fileID: 4900000, guid: 72372eaaf4b0ced4e83e090f0984b8b3, type: 3}
 --- !u!114 &199514185
 MonoBehaviour:
@@ -4274,6 +4274,23 @@ MonoBehaviour:
   - {fileID: 521302216}
   - {fileID: 2094534266}
   - {fileID: 934471420}
+  openInventory:
+    m_Name: Open Inventory
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7f97afd8-f7cb-427c-9426-89bb3cd537ed
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 49d8270e-9ac3-4543-9c15-adc720ff398f
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Open Inventory
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &630929892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9862,6 +9879,7 @@ GameObject:
   - component: {fileID: 735856646}
   - component: {fileID: 735856645}
   - component: {fileID: 735856649}
+  - component: {fileID: 735856650}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -10040,6 +10058,60 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+--- !u!114 &735856650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735856643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 56a748d60a966b647a81682563196844, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e6112c0f-dc3c-4101-bf54-80f14839d658
+    m_ActionName: Player/Continue Dialogue[/Keyboard/space,/Mouse/leftButton,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4cda3c5d-e1de-46a0-b68f-859acb015f2b
+    m_ActionName: Player/Pause[/Keyboard/p,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 735856646}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 88458051-e43f-444e-900b-da062a9146ae
+    m_ActionName: Player/TakePicture[/XInputControllerWindows/buttonEast]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &737291064
 GameObject:
   m_ObjectHideFlags: 0
@@ -14172,7 +14244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8a076c437afa346b3eecb77e396ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueButton: {fileID: 0}
 --- !u!1 &1475926218
 GameObject:
   m_ObjectHideFlags: 0
@@ -15375,6 +15446,30 @@ PrefabInstance:
     - target: {fileID: 843424666216253049, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_Id
+      value: 7b64b466-40ec-4516-8b9d-6455ca4f1943
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_Name
+      value: Collect
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: b52c635f-069e-4b50-bb05-6af078d94135
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/buttonEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: 647dcdc500b1b324597f4230f1774286, type: 3}
+      propertyPath: collectAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Collect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17725,6 +17820,14 @@ PrefabInstance:
       propertyPath: picData
       value: 
       objectReference: {fileID: 11400000, guid: 4ce5d588e18594353a9ac9a3d35e832f, type: 2}
+    - target: {fileID: 6130023962387079967, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
+      propertyPath: collectAction.m_Id
+      value: c125a943-a318-46f3-92df-23161cfc4bb3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130023962387079967, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
+      propertyPath: collectAction.m_Name
+      value: Collect
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6130023962387079964, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
     m_RemovedGameObjects: []

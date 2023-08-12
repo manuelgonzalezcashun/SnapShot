@@ -8,11 +8,7 @@ public class XboxControllerCursor : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     [SerializeField]
-    private RectTransform cursorTransform;
-    [SerializeField]
-    private Canvas canvas;
-    [SerializeField]
-    private RectTransform canvasRectTransform;
+    private Transform cursorTransform;
     [SerializeField]
     private float cursorSpeed = 1000f;
     [SerializeField]
@@ -45,7 +41,7 @@ public class XboxControllerCursor : MonoBehaviour
 
         if (cursorTransform != null)
         {
-            Vector2 position = cursorTransform.anchoredPosition;
+            Vector2 position = cursorTransform.position;
             InputState.Change(virtualMouse.position, position);
         }
 
@@ -94,10 +90,10 @@ public class XboxControllerCursor : MonoBehaviour
 
     private void AnchorCursor(Vector2 position)
     {
-        Vector2 anchoredPosition;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, canvas.renderMode
-            == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
-        cursorTransform.anchoredPosition = anchoredPosition;
+        //Vector2 anchoredPosition;
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, canvas.renderMode
+        //    == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
+        //cursorTransform.anchoredPosition = anchoredPosition;
     }
 
     private void OnControlsChanged(PlayerInput input)
@@ -114,7 +110,6 @@ public class XboxControllerCursor : MonoBehaviour
             cursorTransform.gameObject.SetActive(true);
             Cursor.visible = false;
             InputState.Change(virtualMouse.position, currentMouse.position.ReadValue());
-            AnchorCursor(currentMouse.position.ReadValue());
             previousControlScheme = gamepadScheme;
         }
     }
