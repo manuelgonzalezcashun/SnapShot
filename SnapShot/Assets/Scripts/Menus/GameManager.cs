@@ -1,25 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Button continueButton;
     #region Event Listeners
     private void OnEnable()
     {
         InkExternalFunctions.ChangeUnityScene += LoadScene;
+        SplashScene.VideoFinished += LoadNextScene;
     }
     private void OnDisable()
     {
         InkExternalFunctions.ChangeUnityScene -= LoadScene;
-    }
-    private void Start()
-    {
-        if (!DataPersistenceManager.Instance.HasGameData())
-        {
-            if (continueButton != null) continueButton.interactable = false;
-        }
+        SplashScene.VideoFinished -= LoadNextScene;
     }
     #endregion
 

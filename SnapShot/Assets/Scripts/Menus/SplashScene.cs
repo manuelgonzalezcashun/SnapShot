@@ -1,21 +1,34 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class SplashScene : MonoBehaviour
 {
-    [Header("Splash Screen")]
-    [SerializeField] private VideoPlayer splashScreen;
-    [SerializeField] private GameManager gameManager;
-    void Start()
+    public static event Action VideoFinished;
+    [SerializeField] private string videoFileName;
+
+    private void Start()
     {
-        Time.timeScale = 1f;
-        splashScreen.loopPointReached += FinishSplashScreen;
+        PlayVideo();
     }
-    public void FinishSplashScreen(VideoPlayer sp)
+
+    public void PlayVideo()
     {
-        gameManager.LoadNextScene();
+        VideoPlayer player = GetComponent<VideoPlayer>();
+
+        if (player)
+        {
+            string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
+            player.url = videoPath;
+
+            player.Play();
+        }
+
+        player.loopPointReached += FinishedVideo;
+    }
+
+    private void FinishedVideo(VideoPlayer sp)
+    {
+        VideoFinished?.Invoke();
     }
 }

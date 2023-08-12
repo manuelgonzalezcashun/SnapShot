@@ -1047,6 +1047,7 @@ GameObject:
   - component: {fileID: 204082683}
   - component: {fileID: 204082682}
   - component: {fileID: 204082684}
+  - component: {fileID: 204082685}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -1130,6 +1131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstButton: {fileID: 464052041}
+--- !u!114 &204082685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204082680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29bc032c5e03734cb1534c51f22d3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 224817431}
 --- !u!1 &224817429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6254,7 +6268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8a076c437afa346b3eecb77e396ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueButton: {fileID: 224817431}
 --- !u!4 &1411013676
 Transform:
   m_ObjectHideFlags: 0
