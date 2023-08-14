@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Scenes/Main Menu.unity
     guid: ad8d8074b7a4c044693b0ab9d3527697
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Levels/Game.unity
     guid: dbd2fb56030f8154690af439f2fd196e
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/EndCreditScene.unity

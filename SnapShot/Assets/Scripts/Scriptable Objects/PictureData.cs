@@ -5,6 +5,5 @@ using UnityEngine;
 public class PictureData : ScriptableObject
 {
     public string pictureName;
-    public GameObject picturePrefab;
     public Sprite picSprite;
 }

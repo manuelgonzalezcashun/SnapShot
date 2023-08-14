@@ -135,6 +135,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08eca2fe978c254c8bb6af4e5008746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectAction:
+    m_Name: Collect
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 647b45de-53e9-4c8e-ba22-ac3b0bb0c458
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6baea351-2981-486f-942e-e7ac1b6b4626
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Collect
+      m_Flags: 0
+    m_Flags: 0
   picData: {fileID: 0}
 --- !u!114 &843424666216253053
 MonoBehaviour:

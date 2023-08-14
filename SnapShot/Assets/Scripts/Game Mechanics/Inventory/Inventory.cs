@@ -8,8 +8,9 @@ public class Inventory : MonoBehaviour, IDataPersistence
 {
     public static event Action<bool> onShowInventory;
 
-    private List<PictureData> pictures = new List<PictureData>();
-    private List<SavePictureData> savePictureList = new List<SavePictureData>();
+    private HashSet<PictureData> pictures = new HashSet<PictureData>();
+    private HashSet<SavePictureData> saves = new HashSet<SavePictureData>();
+
     private SavePictureData savePictureData;
 
     [SerializeField] private GameObject[] inventorySlots;
@@ -41,17 +42,11 @@ public class Inventory : MonoBehaviour, IDataPersistence
     // Adds Items into inventory
     public void AddInventory(PictureData pic)
     {
-        foreach (PictureData picData in pictures)
-        {
-            if (pic == picData)
-            {
-                Debug.Log("Item already exists in inventory");
-                return;
-            }
-        }
-        pictures.Add(pic);
         savePictureData = new SavePictureData(pic);
-        savePictureList.Add(savePictureData);
+
+        pictures.Add(pic);
+        saves.Add(savePictureData);
+
         ShowItems();
     }
     // Shows the Inventory UI
@@ -93,9 +88,9 @@ public class Inventory : MonoBehaviour, IDataPersistence
     {
         foreach (SavePictureData picData in data.savedPictures)
         {
+
             PictureData loadPicData = new PictureData();
 
-            loadPicData.picturePrefab = picData.picturePrefab;
             loadPicData.pictureName = picData.pictureName;
             loadPicData.picSprite = picData.pictureSprite;
 
@@ -106,9 +101,12 @@ public class Inventory : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         data.savedPictures.Clear();
-        foreach (SavePictureData savePic in savePictureList)
+        foreach (SavePictureData savePics in saves)
         {
-            data.savedPictures.Add(savePic);
+            if (savePics != null)
+            {
+               data.savedPictures.Add(savePics);
+            }
         }
     }
 }

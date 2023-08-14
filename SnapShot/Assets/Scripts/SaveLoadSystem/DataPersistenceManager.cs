@@ -19,14 +19,14 @@ public class DataPersistenceManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(Instance);
         }
         else
         {
             Destroy(gameObject);
         }
 
-        this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
     private void OnEnable()
     {
@@ -38,16 +38,17 @@ public class DataPersistenceManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        this.dataPersistences = FindAllDataPersistences();
+        dataPersistences = FindAllDataPersistences();
         Load();
     }
     public void NewGame()
     {
-        this.gameData = new GameData();
+        gameData = new GameData();
+        Save();
     }
     public void Save()
     {
-        if (this.gameData == null)
+        if (gameData == null)
         {
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
             return;
@@ -61,11 +62,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void Load() 
     {
-        GameData tempData = fileDataHandler.Load();
-        if (tempData != null) 
-        {
-            this.gameData = tempData;
-        }
+        gameData = fileDataHandler.Load();
 
         // Only for Testing Purposes!!!
         if (this.gameData == null && InitializeDataIfNull)
@@ -73,7 +70,7 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
 
-        if (this.gameData == null)
+        if (gameData == null)
         {
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be loaded.");
             return;
@@ -96,6 +93,6 @@ public class DataPersistenceManager : MonoBehaviour
 
     public bool HasGameData()
     {
-        return this.gameData != null;
+        return gameData != null;
     }
 }

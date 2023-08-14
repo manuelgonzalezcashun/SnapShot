@@ -3,6 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null) 
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     #region Event Listeners
     private void OnEnable()
     {
@@ -30,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         DataPersistenceManager.Instance.Save();
+
         LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync("Main Menu"));
         Time.timeScale = 1f;
     }

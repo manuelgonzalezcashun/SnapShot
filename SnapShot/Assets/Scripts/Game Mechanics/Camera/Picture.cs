@@ -11,6 +11,8 @@ public class Picture : MonoBehaviour
     public PictureData picData;
     private void Awake()
     {
+        gameObject.name = picData.pictureName;
+
         CameraScript.PhotoCapture += FindPhoto;
         collectAction.Enable();
         collectAction.performed += CollectPicture;
