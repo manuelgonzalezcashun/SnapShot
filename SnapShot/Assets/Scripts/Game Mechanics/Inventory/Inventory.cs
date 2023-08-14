@@ -8,8 +8,8 @@ public class Inventory : MonoBehaviour, IDataPersistence
 {
     public static event Action<bool> onShowInventory;
 
-    private HashSet<PictureData> pictures = new HashSet<PictureData>();
-    private HashSet<SavePictureData> saves = new HashSet<SavePictureData>();
+    private List<PictureData> pictures = new List<PictureData>();
+    private List<SavePictureData> saves = new List<SavePictureData>();
 
     private SavePictureData savePictureData;
 
@@ -86,13 +86,13 @@ public class Inventory : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        foreach (SavePictureData picData in data.savedPictures)
+        foreach (SavePictureData savePics in data.savedPictures)
         {
 
             PictureData loadPicData = new PictureData();
 
-            loadPicData.pictureName = picData.pictureName;
-            loadPicData.picSprite = picData.pictureSprite;
+            loadPicData.pictureName = savePics.pictureName;
+            loadPicData.picSprite = savePics.pictureSprite;
 
             AddInventory(loadPicData);
         }
@@ -105,8 +105,9 @@ public class Inventory : MonoBehaviour, IDataPersistence
         {
             if (savePics != null)
             {
-               data.savedPictures.Add(savePics);
+                data.savedPictures.Add(savePics);
             }
         }
+        Debug.Log(saves.Count);
     }
 }
