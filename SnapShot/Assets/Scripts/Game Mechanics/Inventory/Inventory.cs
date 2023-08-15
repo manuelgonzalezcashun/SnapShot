@@ -108,6 +108,5 @@ public class Inventory : MonoBehaviour, IDataPersistence
                 data.savedPictures.Add(savePics);
             }
         }
-        Debug.Log(saves.Count);
     }
 }

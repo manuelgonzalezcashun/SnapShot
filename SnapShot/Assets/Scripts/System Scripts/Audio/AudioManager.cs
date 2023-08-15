@@ -5,19 +5,6 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sounds[] sounds;
-    void Awake()
-    {
-        foreach (Sounds s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-            s.source.mute = s.mute;
-        }
-    }
     #region Audio Manager
     public void Play(string name)
     {
@@ -57,6 +44,14 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("Sound " + s + " was not found!");
             return;
+        }
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        foreach (Sounds sound in sounds)
+        {
+            sound.source.volume = volume;
         }
     }
     #endregion

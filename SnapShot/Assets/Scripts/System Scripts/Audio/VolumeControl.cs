@@ -1,38 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
+    public static event Action<float> changeMusicVolumeSettings;
+    public static event Action<float> changeSoundEffectsVolumeSettings;
+
     [SerializeField] Slider volumeSlider;
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("musicVolume"))
+        if (!PlayerPrefs.HasKey("masterVolume"))
+        {
+            PlayerPrefs.SetFloat("masterVolume", 1);
+            LoadMasterVolume();
+        }
+        else if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 1);
-            Load();
+            LoadMusicVolume();
+        }
+        else if (!PlayerPrefs.HasKey("soundEffectVolume"))
+        {
+            PlayerPrefs.SetFloat("soundEffectVolume", 1);
+            LoadSoundEffectVolume();
         }
         else
         {
-            Load();
+            LoadMasterVolume();
+            LoadMusicVolume();
+            LoadSoundEffectVolume();
         }
     }
-    public void ChangeVolume()
+    public void ChangeMasterVolume()
     {
         AudioListener.volume = volumeSlider.value;
-        Save();
+        SaveMasterVolume();
     }
-    private void Load()
+    public void ChangeMusicVolume()
     {
-        if (volumeSlider == null)
-            return;
+        changeMusicVolumeSettings?.Invoke(volumeSlider.value);
+        SaveMusicVolume();
+    }
+    public void ChangeSoundEffectVolume()
+    {
+        changeSoundEffectsVolumeSettings?.Invoke(volumeSlider.value);
+        SaveSoundEffectVolume();
+    }
 
+    private void LoadMasterVolume()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
+    }
+    private void SaveMasterVolume()
+    {
+        PlayerPrefs.SetFloat("masterVolume", volumeSlider.value);
+    }
+
+    private void LoadMusicVolume()
+    {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
-    private void Save()
+    private void SaveMusicVolume()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
+
+    private void LoadSoundEffectVolume()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("soundEffectVolume");
+    }
+    private void SaveSoundEffectVolume()
+    {
+        PlayerPrefs.SetFloat("soundEffectVolume", volumeSlider.value);
+    }
+
 }
