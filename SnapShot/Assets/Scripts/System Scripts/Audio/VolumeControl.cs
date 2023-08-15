@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class VolumeControl : MonoBehaviour
 {
     public static event Action<float> changeMusicVolumeSettings;
-    public static event Action<float> changeSoundEffectsVolumeSettings;
+    public static event Action<float> changeSoundFXVolumeSettings;
 
     [SerializeField] Slider volumeSlider;
 
@@ -21,9 +21,9 @@ public class VolumeControl : MonoBehaviour
             PlayerPrefs.SetFloat("musicVolume", 1);
             LoadMusicVolume();
         }
-        else if (!PlayerPrefs.HasKey("soundEffectVolume"))
+        else if (!PlayerPrefs.HasKey("soundFXVolume"))
         {
-            PlayerPrefs.SetFloat("soundEffectVolume", 1);
+            PlayerPrefs.SetFloat("soundFXVolume", 1);
             LoadSoundEffectVolume();
         }
         else
@@ -45,7 +45,7 @@ public class VolumeControl : MonoBehaviour
     }
     public void ChangeSoundEffectVolume()
     {
-        changeSoundEffectsVolumeSettings?.Invoke(volumeSlider.value);
+        changeSoundFXVolumeSettings?.Invoke(volumeSlider.value);
         SaveSoundEffectVolume();
     }
 
@@ -69,11 +69,11 @@ public class VolumeControl : MonoBehaviour
 
     private void LoadSoundEffectVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("soundEffectVolume");
+        volumeSlider.value = PlayerPrefs.GetFloat("soundFXVolume");
     }
     private void SaveSoundEffectVolume()
     {
-        PlayerPrefs.SetFloat("soundEffectVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("soundFXVolume", volumeSlider.value);
     }
 
 }

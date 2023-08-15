@@ -15,14 +15,14 @@ public class SoundEffectAudio : AudioManager
             s.source.mute = s.mute;
         }
 
-        VolumeControl.changeSoundEffectsVolumeSettings += ChangeVolume;
+        VolumeControl.changeSoundFXVolumeSettings += ChangeVolume;
         InkExternalFunctions.PlaySound += PlayOneShot;
         RelationshipMeter.scoreUp += playScoreUP;
         RelationshipMeter.scoreDown += playScoreDOWN;
     }
     private void OnDestroy()
     {
-        VolumeControl.changeSoundEffectsVolumeSettings -= ChangeVolume;
+        VolumeControl.changeSoundFXVolumeSettings -= ChangeVolume;
         InkExternalFunctions.PlaySound -= PlayOneShot;
         RelationshipMeter.scoreUp -= playScoreUP;
         RelationshipMeter.scoreDown -= playScoreDOWN;
