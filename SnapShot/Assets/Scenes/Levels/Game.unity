@@ -2409,7 +2409,7 @@ MonoBehaviour:
   responseBoxTransform: {fileID: 1434397369}
   responsePrefab: {fileID: 8684467137434876388, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
   arrow: {fileID: 2121751731}
-  inkJsonFile: {fileID: 4900000, guid: 8dad07b2feeef634caa8652575300a7a, type: 3}
+  inkJsonFile: {fileID: 4900000, guid: 1f2f9b321ed6941ac97d11f137951a23, type: 3}
   loadGlobalsFile: {fileID: 4900000, guid: 72372eaaf4b0ced4e83e090f0984b8b3, type: 3}
 --- !u!114 &199514185
 MonoBehaviour:
