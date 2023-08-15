@@ -140,7 +140,7 @@ Alright, How are you on like competivte stuff? #speaker: Sam #icon: Sam_neutral
 Yeah i get that, let's have a good game. #speaker: Sam #icon: Sam_happy
 +Ready to get your butt kicked in Zario Kart  #speaker: Sam #icon: Sam_happy_2
 -> TryHard
-+Let's have a fun game!  #speaker: Sam #icon: Sam_happy
++Let's have a fun game! #speaker: Sam #icon: Sam_happy
 -> GoEasy
 
 ===TryHard===
@@ -168,7 +168,7 @@ Sam has not #speaker: Narrator
 Hey... It's getting kinda dark, do you still wanna work on the assignment together? #speaker: Sam #icon: Sam_awkward_2
 Nah I.. I should probably get going I'll.. I'll see you around.. #speaker: Tola #icon: Tola_sad
 Oh ok.. Right see you.. #speaker: Sam #icon: Sam_awkward
-Tola leaves #Speaker: Narrator 
+Tola leaves #speaker: Narrator 
 ~show_characters = false
 +[Bad Ending] -> Bad 
 
@@ -235,9 +235,9 @@ Here we go! #speaker: Sam #icon: Sam_happy
 ~relationship_score += 1
 ~show_characters = true
 Good game! that was super fun! #speaker: Sam #icon: Sam_happy
-Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time!   #speaker: Tola #icon: Tola_happy
-[3:00 am] #speaker 
-Man im kinda hungry wanna get something? #icon: Tola_happy
+Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time! #speaker: Tola #icon: Tola_happy
+[3:00 am] #speaker: Narrator
+Man im kinda hungry wanna get something? #speaker: Tola #icon: Tola_happy
 I mean..  #speaker: Sam #icon: Sam_realization
 +Sure anything you were thinking?  #speaker: Sam #icon: Sam_realization
 ->Cheesecut
@@ -251,7 +251,7 @@ Let's get Mac and Cheese #speaker: Tola #icon: Tola_happy
 Mac and Cheese? #speaker: Sam #icon: Sam_realization
 Mac and Cheese! #speaker: Tola #icon: Sam_happy_2
 Mac and Cheese.. #speaker: Sam #icon: Sam_happy
-[Cut to black] #speaker: narrator  
+[Cut to black] #speaker: Narrator  
 ~show_characters = false
 ~changeBackground("Time")
 They go and grab some mac and cheese from the dorm kitchen #speaker: narrator
@@ -262,7 +262,7 @@ Cool, let's head back. #speaker: Sam
 Tola and Sam head back to Dorm #speaker: narrator 
 ~changeBackground("NightDorm")
 ~show_characters = true
-Alright lets dig in, I'm starving #speaker: Tola #icon: 
+Alright lets dig in, I'm starving #speaker: Tola #icon: Tola_happy_2
 Wait before that let's take a picture, this feels memorable! #speaker: Sam #icon: Sam_realization
 Hahah you're really into taking pictures in the moment! #speaker: Tola #icon: Tola_happy_2
 Yep, now say cheese #speaker: Sam #icon: Sam_happy
