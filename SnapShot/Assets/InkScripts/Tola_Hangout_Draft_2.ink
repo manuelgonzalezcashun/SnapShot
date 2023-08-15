@@ -8,9 +8,9 @@ INCLUDE globals.ink
 This story follows the story of Sam, make sure to pay attention to choices. #speaker: Narrator 
 I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe todays the day! #speaker: Sam #icon:
 Maybe I should take a picture, 
-//changeBackground("")//
+~changeBackground("FrogBg")
 My perfect examples, so happy my sister got me these. 
-//takePics("")// 
+~takePics("Froggies")
 Almost time for club! 
 ~changeBackground("Time") 
 Sam walks to class #speaker: Narrator 
@@ -39,7 +39,8 @@ Oh, Yeah! Usaully I listen to Break-core but I like listening to Jazz too! #spea
 Alright, let's get to doing this homework! #speaker: Sam #icon: Sam_happy
 Sam and Tola do some homework together! #speaker: Narrator
 Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkward
-//Hw image//
+~changeBackground("HW")
+~show_characters = false
 Oh, Ummmm.  #speaker: Sam #icon: Sam_realization
 +I'm pretty sure in these notes  #speaker: Sam #icon: Sam_realization
 ->HWpos
@@ -54,6 +55,8 @@ Ohhh Got it, Dang I would've probably been stuck on that for a while thanks!  #s
 No Problem! My sister has me go over these a lot, She's kinda a big film nerd #speaker: Sam #icon: Sam_Happy
 Oh that's cool, I used to watch some film theory and film practice videos but it's definitely harder now that I'm doing Hw for it.   #speaker: Tola #icon: Tola_happy
 Haha Yeah! I'd defintily say it's harder to remember! #speaker: Sam #icon: Sam_happy
+~changeBackground("NightDorm")
+~show_characters = true
 [Sam looks at Tola's pins] #speaker: Narrator 
 +Oh! you have a Zonic pin?  #speaker: Sam #icon: Sam_realization
 -> Zonicpin
@@ -104,6 +107,7 @@ There's an akward silence...maybe Sam has some notes?  #speaker: Narrator
 
 ===HWneg===
 ~relationship_score -= 1
+~show_characters = true
 Ah your right sorry... #speaker: Tola #icon: Tola_sad
 Maybe you can try helping? #speaker: Narrator
 +Oh um..  #speaker: Sam #icon: Sam_realiztion

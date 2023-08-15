@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994f7e7638ff60a44b5a0f5a6b89da88, type: 3}
+  m_Name: Frogs
+  m_EditorClassIdentifier: 
+  pictureName: Froggies
+  picturePrefab: {fileID: 2666296512186904682, guid: 06e7aaf14b8464938a293c98daf6767f, type: 3}
+  picSprite: {fileID: 21300000, guid: d4e88aa6a303b4139bd5d5b3b615f098, type: 3}
