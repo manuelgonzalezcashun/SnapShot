@@ -3588,7 +3588,7 @@ MonoBehaviour:
   - name: HW
     bgSprite: {fileID: 21300000, guid: 231123ab8b6b74396bccdaac7522b8b9, type: 3}
     bgSpriteRenderer: {fileID: 0}
-  - name: frogBG
+  - name: FrogBg
     bgSprite: {fileID: 21300000, guid: f90f9afd30d10423eaf10f46d19ce5cd, type: 3}
     bgSpriteRenderer: {fileID: 0}
 --- !u!1 &410973382
