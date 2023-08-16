@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 630929894}
   - component: {fileID: 630929893}
   - component: {fileID: 630929892}
-  - component: {fileID: 630929891}
+  - component: {fileID: 630929895}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -1827,42 +1827,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &630929891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630929889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bc8807ada321046917c2f50fe21590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySlots:
-  - {fileID: 918645677}
-  - {fileID: 838690509}
-  - {fileID: 1031018423}
-  - {fileID: 521302216}
-  - {fileID: 2094534266}
-  - {fileID: 934471420}
-  openInventory:
-    m_Name: Open Inventory
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 7f97afd8-f7cb-427c-9426-89bb3cd537ed
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 49d8270e-9ac3-4543-9c15-adc720ff398f
-      m_Path: <Gamepad>/buttonNorth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Open Inventory
-      m_Flags: 0
-    m_Flags: 0
 --- !u!114 &630929892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,6 +1891,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630929889}
   m_CullTransparentMesh: 1
+--- !u!114 &630929895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630929889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e24ac7a563bfae47b217f87528604ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySlots:
+  - {fileID: 918645677}
+  - {fileID: 838690509}
+  - {fileID: 1031018423}
+  - {fileID: 521302216}
+  - {fileID: 2094534266}
+  - {fileID: 934471420}
+  openInventory:
+    m_Name: Open Inventory
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8883d5af-d42f-4906-a38d-51824704a219
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ea193333-4731-4365-b14d-659b1b480c1f
+      m_Path: <Gamepad>/buttonNorth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Open Inventory
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &684362754
 GameObject:
   m_ObjectHideFlags: 0
@@ -9518,9 +9518,9 @@ MonoBehaviour:
   onPictureCollected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630929891}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: AddInventory
+      - m_Target: {fileID: 630929895}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: AddPictures
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11260,8 +11260,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630929891}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 630929895}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: OpenInventory
         m_Mode: 1
         m_Arguments:
