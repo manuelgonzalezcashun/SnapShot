@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public List<SavePictureData> savedPictures;
+    public Inventory inventory;
     public GameData()
     {
-        savedPictures = new List<SavePictureData>();
+       inventory = new Inventory();
     }
 }

@@ -84,7 +84,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        Inventory.onShowInventory += PauseDialogue;
+        InventoryUI.onShowInventory += PauseDialogue;
         PauseManager.onPauseEvent += PauseDialogue;
         continueAction.performed += ContinueDialogue;
         CameraScript.pauseDialogueForCamera += PausePlayerInput;
@@ -92,7 +92,7 @@ public class InkDialogueManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        Inventory.onShowInventory -= PauseDialogue;
+        InventoryUI.onShowInventory -= PauseDialogue;
         PauseManager.onPauseEvent -= PauseDialogue;
         continueAction.performed -= ContinueDialogue;
         CameraScript.pauseDialogueForCamera -= PausePlayerInput;

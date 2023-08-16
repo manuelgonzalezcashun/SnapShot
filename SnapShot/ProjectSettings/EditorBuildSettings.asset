@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu Scenes/Splash Image.unity
+    path: Assets/Scenes/Menu Scenes/Splash Image Scene.unity
     guid: 8c96c53627771c040ad358d5e93c5c20
   - enabled: 1
-    path: Assets/Scenes/Menu Scenes/Main Menu.unity
+    path: Assets/Scenes/Menu Scenes/Main Menu Scene.unity
     guid: ad8d8074b7a4c044693b0ab9d3527697
   - enabled: 1
-    path: Assets/Scenes/Levels/Game.unity
+    path: Assets/Scenes/Levels/Tola Hangout.unity
     guid: dbd2fb56030f8154690af439f2fd196e
   - enabled: 1
-    path: Assets/Scenes/Menu Scenes/EndCreditScene.unity
+    path: Assets/Scenes/Menu Scenes/End Credit Scene.unity
     guid: 8f2be87edd972254bb4c65eabe0b66f5
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/Settings Scene.unity
+    guid: 47e5aa07724360b4980ecc16185d47af
   m_configObjects: {}

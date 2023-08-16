@@ -1,21 +1,28 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenuScreen : MonoBehaviour
+public class PauseMenuScreen : Menu
 {
-    [SerializeField] private GameObject pauseScreen;
     private void Awake()
     {
         PauseManager.onPauseEvent += ShowPauseMenu;
+        SingletonEventSystem.enablePauseMenu += EnablePauseMenu;
     }
     private void OnDestroy()
     {
         PauseManager.onPauseEvent -= ShowPauseMenu;
+        SingletonEventSystem.enablePauseMenu -= EnablePauseMenu;
+    }
+    private void Start()
+    {
+        gameObject.SetActive(false);
     }
     private void ShowPauseMenu(bool isGamePaused)
     {
-        pauseScreen.SetActive(isGamePaused);
+        gameObject.SetActive(isGamePaused);
+    }
+
+    private void EnablePauseMenu(bool value)
+    {
+        gameObject.SetActive(value);
     }
 }

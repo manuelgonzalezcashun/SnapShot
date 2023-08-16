@@ -20,42 +20,47 @@ public class GameManager : MonoBehaviour
     #region Event Listeners
     private void OnEnable()
     {
-        InkExternalFunctions.ChangeUnityScene += LoadScene;
+        //InkExternalFunctions.ChangeUnityScene += LoadScene;
         SplashScene.VideoFinished += LoadNextScene;
     }
     private void OnDisable()
     {
-        InkExternalFunctions.ChangeUnityScene -= LoadScene;
+        //InkExternalFunctions.ChangeUnityScene -= LoadScene;
         SplashScene.VideoFinished -= LoadNextScene;
     }
     #endregion
 
-    //Game Management 
-    public void NewGame(string sceneName)
+    public void NewGame(Scenes scene)
     {
         DataPersistenceManager.Instance.NewGame();
-        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(sceneName));
+        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(scene));
     }
-    public void LoadScene(string sceneName)
+    public void LoadGame(Scenes scene)
     {
-        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(sceneName));
+        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(scene));
     }
-
-    public void QuitGame()
+    public void QuitToMainMenu(Scenes scene)
     {
         DataPersistenceManager.Instance.Save();
-
-        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync("Main Menu"));
+        LoadingScene.instance.StartCoroutine(LoadingScene.instance.LoadAsync(scene));
         Time.timeScale = 1f;
     }
 
-    public void ExitGame()
+    public void LoadMenu(Scenes scene)
     {
-        Application.Quit();
+        SceneManager.LoadScene(scene.GetSceneName(), LoadSceneMode.Additive);
     }
-
+    public void UnloadMenu(Scenes scene)
+    {
+        SceneManager.UnloadSceneAsync(scene.GetSceneName());
+    }
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ExitSnapshot()
+    {
+        Application.Quit();
     }
 }
