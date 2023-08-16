@@ -22,9 +22,9 @@ public class LoadingScene : MonoBehaviour
         instance = this;
     }
     #endregion
-    public IEnumerator LoadAsync(string sceneName)
+    public IEnumerator LoadAsync(Scenes scene)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene.GetSceneName());
         loadingScreen.SetActive(true);
         while (!operation.isDone)
         {

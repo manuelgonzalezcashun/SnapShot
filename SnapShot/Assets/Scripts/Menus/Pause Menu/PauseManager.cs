@@ -12,6 +12,8 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
+        SingletonEventSystem.enablePauseMenu += IsPauseMenuDisabled;
+
         playerInput = GetComponent<PlayerInput>();
         pauseAction = playerInput.actions["Pause"];
     }
@@ -24,20 +26,25 @@ public class PauseManager : MonoBehaviour
         pauseAction.performed -= OnPauseInput;
     }
 
+    private void OnDestroy()
+    {
+        SingletonEventSystem.enablePauseMenu -= IsPauseMenuDisabled;
+    }
+
     public void Resume()
     {
         Time.timeScale = 1f;
         gameIsPaused = false;
         onPauseEvent?.Invoke(gameIsPaused);
     }
-    void Pause()
+    private void Pause()
     {
         Time.timeScale = 0f;
         gameIsPaused = true;
         onPauseEvent?.Invoke(gameIsPaused);
     }
 
-    void OnPauseInput(InputAction.CallbackContext ctx)
+    private void OnPauseInput(InputAction.CallbackContext ctx)
     {
         if (!gameIsPaused)
         {
@@ -47,5 +54,10 @@ public class PauseManager : MonoBehaviour
         {
             Resume();
         }
+    }
+
+    private void IsPauseMenuDisabled(bool value)
+    {
+        playerInput.enabled = value;
     }
 }
