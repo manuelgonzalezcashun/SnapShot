@@ -4,76 +4,75 @@ using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
+    public enum AudioType { Master, Music, SoundFX }
+    public AudioType type;
+
     public static event Action<float> changeMusicVolumeSettings;
     public static event Action<float> changeSoundFXVolumeSettings;
 
     [SerializeField] Slider volumeSlider;
 
+    public string GetAudioType()
+    {
+        switch (type)
+        {
+            case AudioType.Master:
+                return "masterVolume";
+
+            case AudioType.Music:
+                return "musicVolume";
+
+            case AudioType.SoundFX:
+                return "soundFXVolume";
+
+            default:
+                return "";
+        }
+    }
+
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("masterVolume"))
+        if (!PlayerPrefs.HasKey(GetAudioType()))
         {
-            PlayerPrefs.SetFloat("masterVolume", 1);
-            LoadMasterVolume();
-        }
-        else if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            LoadMusicVolume();
-        }
-        else if (!PlayerPrefs.HasKey("soundFXVolume"))
-        {
-            PlayerPrefs.SetFloat("soundFXVolume", 1);
-            LoadSoundEffectVolume();
+            PlayerPrefs.SetFloat(GetAudioType(), 1);
+            LoadVolume();
         }
         else
         {
-            LoadMasterVolume();
-            LoadMusicVolume();
-            LoadSoundEffectVolume();
+            LoadVolume();
         }
     }
-    public void ChangeMasterVolume()
+    public void ChangeVolume()
     {
-        AudioListener.volume = volumeSlider.value;
-        SaveMasterVolume();
-    }
-    public void ChangeMusicVolume()
-    {
-        changeMusicVolumeSettings?.Invoke(volumeSlider.value);
-        SaveMusicVolume();
-    }
-    public void ChangeSoundEffectVolume()
-    {
-        changeSoundFXVolumeSettings?.Invoke(volumeSlider.value);
-        SaveSoundEffectVolume();
+        switch (type)
+        {
+            case AudioType.Master:
+                AudioListener.volume = volumeSlider.value;
+                break;
+
+            case AudioType.Music:
+                changeMusicVolumeSettings?.Invoke(volumeSlider.value);
+                break;
+
+            case AudioType.SoundFX:
+                changeSoundFXVolumeSettings?.Invoke(volumeSlider.value);
+                break;
+
+            default:
+                break;
+        }
+        SaveVolume();
     }
 
-    private void LoadMasterVolume()
+    #region Save / Load Volume values
+    public void LoadVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
-    }
-    private void SaveMasterVolume()
-    {
-        PlayerPrefs.SetFloat("masterVolume", volumeSlider.value);
+        volumeSlider.value = PlayerPrefs.GetFloat(GetAudioType());
     }
 
-    private void LoadMusicVolume()
+    public void SaveVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        PlayerPrefs.SetFloat(GetAudioType(), volumeSlider.value);
     }
-    private void SaveMusicVolume()
-    {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
-    }
-
-    private void LoadSoundEffectVolume()
-    {
-        volumeSlider.value = PlayerPrefs.GetFloat("soundFXVolume");
-    }
-    private void SaveSoundEffectVolume()
-    {
-        PlayerPrefs.SetFloat("soundFXVolume", volumeSlider.value);
-    }
-
+    #endregion
 }
