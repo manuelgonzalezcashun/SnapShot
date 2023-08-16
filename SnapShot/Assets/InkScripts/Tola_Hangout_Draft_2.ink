@@ -10,9 +10,10 @@ I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe
 Maybe I should take a picture, 
 ~changeBackground("FrogBg")
 My perfect examples, so happy my sister got me these. 
-I wonder how they feel being in the limelight?
 ~takePics("Froggies")
-Almost time for club! 
+I wonder how they feel being in the limelight?
+Sam looks at their clock #speaker: Narrator
+Almost time for club! #speaker: Sam 
 ~changeBackground("Time") 
 Sam walks to class #speaker: Narrator 
 ~changeBackground("Classroom")
@@ -30,6 +31,10 @@ Where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
 Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
+~show_characters = false 
+~changeBackground("Time")
+Sam and Tola walk to Sam's dorm #speaker: Narrator 
+~show_characters = true
 ~changeBackground("NightDorm")
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintage! #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
