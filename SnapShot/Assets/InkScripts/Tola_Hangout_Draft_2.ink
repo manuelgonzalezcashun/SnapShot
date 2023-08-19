@@ -10,9 +10,10 @@ I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe
 Maybe I should take a picture, 
 ~changeBackground("FrogBg")
 My perfect examples, so happy my sister got me these. 
-I wonder how they feel being in the limelight?
 ~takePics("Froggies")
-Almost time for club! 
+I wonder how they feel being in the limelight?
+Sam looks at their clock #speaker: Narrator
+Almost time for club! #speaker: Sam 
 ~changeBackground("Time") 
 Sam walks to class #speaker: Narrator 
 ~changeBackground("Classroom")
@@ -30,6 +31,10 @@ Where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
 Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
+~show_characters = false 
+~changeBackground("Time")
+Sam and Tola walk to Sam's dorm #speaker: Narrator 
+~show_characters = true
 ~changeBackground("NightDorm")
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintage! #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
@@ -126,7 +131,11 @@ Maybe you can try helping? #speaker: Narrator
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
 (Save) #speaker: Sam #icon: Sam_happy
-[Time passes]
+~changeBackground("Time")
+~show_characters = false
+Time passes as they do their homework #speaker: Narrator 
+~changeBackground("NightDorm")
+~show_characters = true
 Hey.. #speaker: Sam #icon: Sam_neutral
 +Do you wanna take a break  #speaker: Sam #icon: Sam_happy
 -> Break
@@ -270,17 +279,19 @@ Cool, let's head back. #speaker: Sam
 Tola and Sam head back to Dorm #speaker: narrator 
 ~changeBackground("NightDorm")
 ~show_characters = true
-Alright lets dig in, I'm starving #speaker: Tola #icon: Tola_happy_2
+Alright lets dig in, I'm starving! #speaker: Tola #icon: Tola_happy_2
 Wait before that let's take a picture, this feels memorable! #speaker: Sam #icon: Sam_realization
 Hahah you're really into taking pictures in the moment! #speaker: Tola #icon: Tola_happy_2
-Yep, now say cheese #speaker: Sam #icon: Sam_happy
+Yep, now say cheese! #speaker: Sam #icon: Sam_happy
 ..did you just.. #speaker: Tola #icon: Tola_really
 ~show_characters = false
 ~changeBackground("CheesePic") 
 ~takePics("Cheese")
 This looks so goofy, hehehe #speaker: Tola #icon: Tola_happy_2 
 Haha, oh dang it's almost 4am, I think we should hit the hay. #speaker: Sam #icon: Sam_ughh
-Sounds good #speaker: Tola #icon: Tola_neutral
+Sounds good #speaker: Tola #icon: Tola_neutral 
+~changeBackground("Time")
+Sam and Tola sleep the rest of the night away. #speaker: Narrator
 +[morning] -> morning
 
 ===eepy===
@@ -288,6 +299,9 @@ I'm thinking we should go to sleep, It's pretty late. #speaker: Sam #icon: Sam_n
 Ah, alright, yeah, it's pretty late. Geez, it's 4 a.m. #speaker: Tola #icon: Tola_geez
 Yeah we should sleep before we look like zombies in the morning.  #speaker: Sam #icon: Sam_ughh
 I feel like I'll look like one regardless, but fair point. #speaker: Tola #icon: Tola_happy
+~show_characters = false
+~changeBackground("Time")
+Sam and Tola go to sleep and rest until morning. #speaker: Narrator
 +[morning] -> morning
 
 ===morning===
@@ -310,7 +324,10 @@ Wanna go get some breakfast? #speaker: Tola #icon: Tola_happy_2
 ~relationship_score += 1
 Yess! Let's go get some! #speaker: Tola #icon: Tola_happy_2
 Sounds good #speaker: Sam #icon: Tola_happy
+~show_characters = false 
+~changeBackground("Time")
 They go to the cafetria and get breakfast #speaker: narrator 
+~changeBackground("MornDorm") //This would be cafetria//
 I'm Starving.. What do you usally like to eat for breakfast? #speaker: Sam #icon: Sam_happy 
 Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this #speaker: Tola #icon: Tola_neutral
 //Show Donuts//
@@ -320,20 +337,23 @@ Usually I just like have cinnamon pancakes, nothing super special but yeah when 
 Oh nice! Man I can't wait to dig in! #speaker: Tola #icon: Tola_happy
 Oh wait! #speaker: Sam #icon: Sam_realization
 Before that I wanna take a picture! #speaker: Sam #icon: Sam_happy_2
-//Insert Background here//
+//Insert cutscene here//
 Sounds good! I'm just gonna look at this breakfast. #speaker: Tola 
 Sounds good! 1..2..3..Click  #speaker: Sam  
 ~show_characters = false
-//camera scene//
+//takePics("")//
 Done! #speaker: Sam 
 Alright let's dig in! #speaker: Tola 
 They scarf down the breakfast #speaker: Narrator 
+//Change back to cafetria//
 Oh, I forgot my stuff in your dorm. Can we go get it? #speaker: Tola #icon: Tola_neutral
 Yeah no worries! #speaker: Sam #icon: Sam_happy
-They walk back to their dorm #speaker: Narrator 
-Today was great #speaker: Sam #icon: Sam_happy_2
+~changeBackground("Time")
+They walk back to Sam's dorm #speaker: Narrator 
+~changeBackground("MornDorm")
 ~relationship_score += 1 
 ~show_characters = true
+Today was great #speaker: Sam #icon: Sam_happy_2
 Either today or last night, whatever it was, it was amazing to hang out. #speaker: Tola #icon: Tola_happy_2
 Haha, Yeah it would be fun to do this again. #speaker: Sam #icon: Sam_happy_2
 Most definetly we should get some snacks tho! #speaker: Tola #icon: Tola_happy_2
