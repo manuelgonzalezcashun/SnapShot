@@ -779,7 +779,7 @@ MonoBehaviour:
   responseBoxTransform: {fileID: 1434397369}
   responsePrefab: {fileID: 8684467137434876388, guid: ef856760ce4b8414fb59bdc61730433f, type: 3}
   arrow: {fileID: 2121751731}
-  endCreditScene: {fileID: 11400000, guid: ab2f10ed81222bb48930e1c612f97074, type: 2}
+  endCreditScene: {fileID: 11400000, guid: fd46096cfa0cc1a4894ca86e20d8d9a2, type: 2}
   inkJsonFile: {fileID: 4900000, guid: 1f2f9b321ed6941ac97d11f137951a23, type: 3}
   loadGlobalsFile: {fileID: 4900000, guid: 72372eaaf4b0ced4e83e090f0984b8b3, type: 3}
 --- !u!114 &199514185
