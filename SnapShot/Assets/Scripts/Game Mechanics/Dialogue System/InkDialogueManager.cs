@@ -6,6 +6,7 @@ using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+
 public class InkDialogueManager : MonoBehaviour
 {
     #region Dialogue System UI
@@ -51,6 +52,7 @@ public class InkDialogueManager : MonoBehaviour
     #region Player Input
     private PlayerInput playerInput;
     private InputAction continueAction;
+    private string currentInput;
     #endregion
 
     #region Singleton Stuff
@@ -120,12 +122,7 @@ public class InkDialogueManager : MonoBehaviour
     private void ContinueDialogue(InputAction.CallbackContext ctx)
     {
         var currentControl = ctx.action.GetBindingForControl(ctx.action.activeControl).Value;
-        string currentInput = currentControl.path.Split('/')[1];
-
-        if (currentInput == "buttonSouth")
-        {
-            Debug.Log("Hello Controller");
-        }
+        currentInput = currentControl.path.Split('/')[1];
 
         if (!pauseDialogue)
         {
@@ -236,9 +233,10 @@ public class InkDialogueManager : MonoBehaviour
             tempButtons.Add(responseButton);
             index++;
         }
-        if (responseBox.activeSelf)
+
+        if (responseBox.activeSelf && currentInput == "buttonSouth")
         {
-            StartCoroutine(SelectFirstChoice());
+            SelectFirstChoice();
         }
     }
     void MakeChoice(int choiceIndex)
@@ -253,11 +251,9 @@ public class InkDialogueManager : MonoBehaviour
         canContinueToNextLine = true;
         DisplayNextLine();
     }
-    private IEnumerator SelectFirstChoice()
+    private void SelectFirstChoice()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(tempButtons[0].gameObject);
+        tempButtons[0].GetComponent<Button>().Select();
     }
     #endregion
 }
