@@ -119,6 +119,14 @@ public class InkDialogueManager : MonoBehaviour
 
     private void ContinueDialogue(InputAction.CallbackContext ctx)
     {
+        var currentControl = ctx.action.GetBindingForControl(ctx.action.activeControl).Value;
+        string currentInput = currentControl.path.Split('/')[1];
+
+        if (currentInput == "buttonSouth")
+        {
+            Debug.Log("Hello Controller");
+        }
+
         if (!pauseDialogue)
         {
             submitButtonPressed = true;
