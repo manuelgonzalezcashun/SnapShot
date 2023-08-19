@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SceneTypes { Main, Settings, Game }
+public enum SceneTypes { Main, Settings, Game, Credits }
 
 [CreateAssetMenu(fileName = "New Scene", menuName = "SnapShot/Scenes")]
 public class Scenes : ScriptableObject
@@ -18,6 +18,8 @@ public class Scenes : ScriptableObject
                 return "Settings Scene";
             case SceneTypes.Game:
                 return "Tola Hangout";
+                case SceneTypes.Credits:
+                return "End Credit Scene";
             default:
                 return "";
         }

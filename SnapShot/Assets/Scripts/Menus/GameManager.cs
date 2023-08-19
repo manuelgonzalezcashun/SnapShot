@@ -20,13 +20,13 @@ public class GameManager : MonoBehaviour
     #region Event Listeners
     private void OnEnable()
     {
-        //InkExternalFunctions.ChangeUnityScene += LoadScene;
         SplashScene.VideoFinished += LoadNextScene;
+        InkDialogueManager.storyEnded += LoadGame;
     }
     private void OnDisable()
     {
-        //InkExternalFunctions.ChangeUnityScene -= LoadScene;
         SplashScene.VideoFinished -= LoadNextScene;
+        InkDialogueManager.storyEnded -= LoadGame;
     }
     #endregion
 

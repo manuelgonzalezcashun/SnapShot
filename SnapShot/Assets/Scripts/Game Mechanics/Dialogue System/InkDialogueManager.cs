@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 using Ink.Runtime;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+
 
 public class InkDialogueManager : MonoBehaviour
 {
+    public static event Action<Scenes> storyEnded;
+
     #region Dialogue System UI
     [Header("Unity UI")]
 
@@ -22,6 +25,7 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] private GameObject responsePrefab;
     [SerializeField] private GameObject arrow;
 
+    [SerializeField] private Scenes endCreditScene;
     List<GameObject> tempButtons = new List<GameObject>();
     #endregion
 
@@ -171,8 +175,10 @@ public class InkDialogueManager : MonoBehaviour
         NameTagPanel.SetActive(false);
         dialogueText.text = "";
         dialogueBox.SetActive(false);
-
         inkExternalFunctions.Unbind(inkStoryScript);
+
+        storyEnded?.Invoke(endCreditScene);
+
     }
     # region Story State
     public string GetStoryState()
