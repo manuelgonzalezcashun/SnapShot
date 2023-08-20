@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 using TMPro;
 using Ink.Runtime;
 
-
 public class InkDialogueManager : MonoBehaviour
 {
     public static event Action<Scenes> storyEnded;
@@ -57,6 +56,12 @@ public class InkDialogueManager : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction continueAction;
     private string currentInput;
+
+    private const string input_KEYBOARD = "space";
+    private const string input_MOUSE = "leftButton";
+    private const string input_GAMEPAD = "buttonSouth";
+
+
     #endregion
 
     #region Singleton Stuff
@@ -103,7 +108,6 @@ public class InkDialogueManager : MonoBehaviour
         continueAction.performed -= ContinueDialogue;
         CameraScript.pauseDialogueForCamera -= PausePlayerInput;
         Picture.pictureCollected -= ResumePlayerInput;
-
     }
     # endregion
     void Start()
@@ -240,7 +244,7 @@ public class InkDialogueManager : MonoBehaviour
             index++;
         }
 
-        if (responseBox.activeSelf && currentInput == "buttonSouth")
+        if (responseBox.activeSelf && currentInput == input_GAMEPAD)
         {
             SelectFirstChoice();
         }
