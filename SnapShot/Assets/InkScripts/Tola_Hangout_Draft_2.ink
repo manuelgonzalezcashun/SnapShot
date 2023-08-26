@@ -10,8 +10,12 @@ I really hope I'm able to get some expereinces to fill the scrapbook with, Maybe
 Maybe I should take a picture, 
 ~changeBackground("FrogBg")
 My perfect examples, so happy my sister got me these. 
+~changeBackground("Time")
+<b> TUTORIAL TIME!!! <b> When taking a picture <b>click the polaroid if you are using mouse and keyboard and if you are using controller use B!<b> #speaker: Narrator
+After you've taken a picture <b>drag and drop with your mouse or if your playing with a controller press B!<b> That's it back to the game have fun and take your time!
+~changeBackground("FrogBg")
 ~takePics("Froggies")
-I wonder how they feel being in the limelight?
+I wonder how they feel being in the limelight? #speaker: Sam 
 Sam looks at their clock #speaker: Narrator
 Almost time for club! #speaker: Sam 
 ~changeBackground("Time") 
@@ -196,7 +200,7 @@ Yikes, you were kinda akward... Roll credits I guess..
 
 
 ===Gamegenre===
-Usually I'm a pretty big fan of cozy games, not the biggest on fighting games, people can get pretty mad when they lose not really a fun setting to be in. #speaker: Tola #icon: Tola_awkward_2
+Usually I'm a pretty big fan of cozy games, <b> not the biggest on fighting games, people can get pretty mad when they lose not really a fun setting to be in.<b> #speaker: Tola #icon: Tola_awkward_2
 Yeah i get that, I've been there it can get pretty akward but hopeflly we can both be good sports. #speaker: Sam #icon: Sam_happy
 Yeah, I'd like that! #speaker: Tola #icon: Tola_happy
 Sam and Tola shake hands #speaker: Narrator 
@@ -208,11 +212,13 @@ Sam and Tola shake hands #speaker: Narrator
 ===GameCut===
 ~relationship_score += 1 
 ~show_characters = false
-//Insert Cutscene//
+~changeBackground("Game1")
 Oh Man, I'm so close.. NO NO NOT THE BOX #speaker: Tola
 Yes Yes, I'm gonna win!! #speaker: Sam 
 SIKE, Hehe #speaker: Tola
+~changeBackground("Game2")
 NOOO #speaker: Sam
+
 +Dang it!  #speaker: Sam #icon: Sam_frustrated
 -> Dang 
 +Good game  #speaker: Sam #icon: Sam_happy_2
@@ -250,6 +256,7 @@ Here we go! #speaker: Sam #icon: Sam_happy
 
 ===GoodGame===
 ~relationship_score += 1
+~changeBackground("NightDorm")
 ~show_characters = true
 Good game! that was super fun! #speaker: Sam #icon: Sam_happy
 Hahaha, I almost lost if that Box hit me, My boyfriend gets me with it all the time! #speaker: Tola #icon: Tola_happy
@@ -327,7 +334,7 @@ Sounds good #speaker: Sam #icon: Tola_happy
 ~show_characters = false 
 ~changeBackground("Time")
 They go to the cafetria and get breakfast #speaker: narrator 
-~changeBackground("MornDorm") //This would be cafetria//
+~changeBackground("Cafetria") 
 I'm Starving.. What do you usally like to eat for breakfast? #speaker: Sam #icon: Sam_happy 
 Oh, I love eating Nuom Kong. there like donuts but I usally pefer those over donuts over here. It looks like this #speaker: Tola #icon: Tola_neutral
 //Show Donuts//
@@ -337,15 +344,15 @@ Usually I just like have cinnamon pancakes, nothing super special but yeah when 
 Oh nice! Man I can't wait to dig in! #speaker: Tola #icon: Tola_happy
 Oh wait! #speaker: Sam #icon: Sam_realization
 Before that I wanna take a picture! #speaker: Sam #icon: Sam_happy_2
-//Insert cutscene here//
+~changeBackground("Breakfast")
 Sounds good! I'm just gonna look at this breakfast. #speaker: Tola 
 Sounds good! 1..2..3..Click  #speaker: Sam  
 ~show_characters = false
-//takePics("")//
+~takePics("Breakfast")
 Done! #speaker: Sam 
 Alright let's dig in! #speaker: Tola 
 They scarf down the breakfast #speaker: Narrator 
-//Change back to cafetria//
+~changeBackground("Cafetria")
 Oh, I forgot my stuff in your dorm. Can we go get it? #speaker: Tola #icon: Tola_neutral
 Yeah no worries! #speaker: Sam #icon: Sam_happy
 ~changeBackground("Time")
