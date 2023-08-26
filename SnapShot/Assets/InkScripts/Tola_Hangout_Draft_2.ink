@@ -11,8 +11,10 @@ Maybe I should take a picture,
 ~changeBackground("FrogBg")
 My perfect examples, so happy my sister got me these. 
 ~changeBackground("Time")
-<b> TUTORIAL TIME!!! <b> When taking a picture <b>click the polaroid if you are using mouse and keyboard and if you are using controller use B!<b> #speaker: Narrator
-After you've taken a picture <b>drag and drop with your mouse or if your playing with a controller press B!<b> That's it back to the game have fun and take your time!
+<b> TUTORIAL TIME!!! <b> When taking a picture <b>click the polaroid if you are using mouse and keyboard and if you are using controller use A+B!<b> #speaker: Narrator
+After you've taken a picture <b>drag and drop with your mouse or if your playing with a controller press A+B again.<b> 
+To see your progress <b>open up the inventory by clicking on it, or if you are on controller press Y.<b>
+That's it back to the game have fun and take your time!
 ~changeBackground("FrogBg")
 ~takePics("Froggies")
 I wonder how they feel being in the limelight? #speaker: Sam 
