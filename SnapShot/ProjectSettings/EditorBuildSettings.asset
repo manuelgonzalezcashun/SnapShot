@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Scenes/Main Menu Scene.unity
     guid: ad8d8074b7a4c044693b0ab9d3527697
   - enabled: 1
-    path: Assets/Scenes/Levels/Tola Hangout.unity
+    path: Assets/Scenes/Acts/Tola Hangout.unity
     guid: dbd2fb56030f8154690af439f2fd196e
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/End Credit Scene.unity
@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/Settings Scene.unity
     guid: 47e5aa07724360b4980ecc16185d47af
+  - enabled: 1
+    path: Assets/Scenes/Acts/Bedroom Scene.unity
+    guid: 0b2fbc93cbd03134fb7efeb8fc7df4b6
+  - enabled: 1
+    path: Assets/Scenes/Acts/Classroom Scene.unity
+    guid: 72eed1658312cfa448ed9ce941751293
   m_configObjects: {}
