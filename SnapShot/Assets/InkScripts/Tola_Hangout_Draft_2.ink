@@ -36,6 +36,7 @@ So um.. #speaker: Sam #icon: Sam_realization
 Where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
 Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
+Hey Tola wanna hang out? #speaker: 
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 ~show_characters = false 
 ~changeBackground("Time")
@@ -396,9 +397,13 @@ ROLL CREDITS
 ===NeutralEnd===
 Thanks for the offer but I'll pass, I got some other projects to work on so i might just push this one off for a lil bit. #speaker: Sam #icon: Sam_neutral
 Ah ok, understandable. I'll see you another time then! #speaker: Tola #icon: Tola_neutral
-Yep see ya! #speaker: Sam #icon: Sam_neutral
+Hey Tola wanna hang out? #speaker: Aisha #icon:
+Yeah! See you Sam #speaker: Tola #icon:Tola_neutral
 ~show_characters = false
 ~changeBackground("NeutralEndCut")
+Any places you wanna go Tola? #speaker: Aisha
+I heard of a cat cafe, I wanna see if any of the desserts are good! #speaker: Tola 
+Sounds cute any pictures? #speaker: Aisha 
 Tola walks off and Sam goes to do homework #speaker: Narrator 
 Wow.. You finished like fast.. Roll credits I guess
 [Credits] -> Credits
