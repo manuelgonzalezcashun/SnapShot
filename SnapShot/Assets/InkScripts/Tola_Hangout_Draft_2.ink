@@ -36,7 +36,10 @@ So um.. #speaker: Sam #icon: Sam_realization
 Where would we hang out?
 Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola #icon: Tola_awkard
 Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
-Hey Tola wanna hang out? #speaker: 
+Hey Tola wanna hang out? #speaker: ??? #icon: Aisha_Wave
+Oh Hey Aisha! #speaker: Tola #icon: Tola_happy
+I can't today sorry, I'm gonna do some work with sam tonight #icon: 
+No worries! I'll see you another time then, see you guys #speaker: Aisha #icon: Aisha_Cross
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 ~show_characters = false 
 ~changeBackground("Time")
@@ -63,6 +66,7 @@ Oh, Ummmm.  #speaker: Sam #icon: Sam_realization
 -> HWneg
 
 ===HWpos===
+//Mini Game here//
 ~relationship_score += 1
 Ohhh Got it, Dang I would've probably been stuck on that for a while thanks!  #speaker: Tola #icon: Tola_happy
 No Problem! My sister has me go over these a lot, She's kinda a big film nerd #speaker: Sam #icon: Sam_Happy
@@ -138,6 +142,7 @@ Maybe you can try helping? #speaker: Narrator
 Hey um, I'm sorry maybe we can look through some notes? #speaker: Sam #icon: Sam_awkward_2
 Yeah that sounds good! #speaker: Tola #icon: Tola_happy
 (Save) #speaker: Sam #icon: Sam_happy
+//Mini Game here//
 ~changeBackground("Time")
 ~show_characters = false
 Time passes as they do their homework #speaker: Narrator 
