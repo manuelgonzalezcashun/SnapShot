@@ -14,9 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Aisha
   expressions:
-  - {fileID: -1623200357, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
-  - {fileID: -2133410606, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
-  - {fileID: -2133410606, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
-  - {fileID: -177415165, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
-  - {fileID: 637660365, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
-  - {fileID: 769037831, guid: e405a1464103f43c9bafa9c52aaea71d, type: 3}
+  - {fileID: 21300000, guid: 7fde8f8a19ead4d64b6fa225cf5a4ff6, type: 3}
+  - {fileID: 21300000, guid: 76956657f003848409e6b4d598ea984a, type: 3}
