@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 using Ink.Runtime;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+
 public class InkDialogueManager : MonoBehaviour
 {
+    public static event Action<Scenes> storyEnded;
+
     #region Dialogue System UI
     [Header("Unity UI")]
 
@@ -21,6 +24,7 @@ public class InkDialogueManager : MonoBehaviour
     [SerializeField] private GameObject responsePrefab;
     [SerializeField] private GameObject arrow;
 
+    [SerializeField] private Scenes endCreditScene;
     List<GameObject> tempButtons = new List<GameObject>();
     #endregion
 
@@ -51,6 +55,13 @@ public class InkDialogueManager : MonoBehaviour
     #region Player Input
     private PlayerInput playerInput;
     private InputAction continueAction;
+    private string currentInput;
+
+    private const string input_KEYBOARD = "space";
+    private const string input_MOUSE = "leftButton";
+    private const string input_GAMEPAD = "buttonSouth";
+
+
     #endregion
 
     #region Singleton Stuff
@@ -97,7 +108,6 @@ public class InkDialogueManager : MonoBehaviour
         continueAction.performed -= ContinueDialogue;
         CameraScript.pauseDialogueForCamera -= PausePlayerInput;
         Picture.pictureCollected -= ResumePlayerInput;
-
     }
     # endregion
     void Start()
@@ -119,6 +129,9 @@ public class InkDialogueManager : MonoBehaviour
 
     private void ContinueDialogue(InputAction.CallbackContext ctx)
     {
+        var currentControl = ctx.action.GetBindingForControl(ctx.action.activeControl).Value;
+        currentInput = currentControl.path.Split('/')[1];
+
         if (!pauseDialogue)
         {
             submitButtonPressed = true;
@@ -166,8 +179,10 @@ public class InkDialogueManager : MonoBehaviour
         NameTagPanel.SetActive(false);
         dialogueText.text = "";
         dialogueBox.SetActive(false);
-
         inkExternalFunctions.Unbind(inkStoryScript);
+
+        storyEnded?.Invoke(endCreditScene);
+
     }
     # region Story State
     public string GetStoryState()
@@ -228,9 +243,10 @@ public class InkDialogueManager : MonoBehaviour
             tempButtons.Add(responseButton);
             index++;
         }
-        if (responseBox.activeSelf)
+
+        if (responseBox.activeSelf && currentInput == input_GAMEPAD)
         {
-            StartCoroutine(SelectFirstChoice());
+            SelectFirstChoice();
         }
     }
     void MakeChoice(int choiceIndex)
@@ -245,11 +261,9 @@ public class InkDialogueManager : MonoBehaviour
         canContinueToNextLine = true;
         DisplayNextLine();
     }
-    private IEnumerator SelectFirstChoice()
+    private void SelectFirstChoice()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(tempButtons[0].gameObject);
+        tempButtons[0].GetComponent<Button>().Select();
     }
     #endregion
 }

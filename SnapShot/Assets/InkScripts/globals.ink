@@ -4,5 +4,4 @@ VAR show_characters = false
 
 EXTERNAL changeBackground(backgroundName)
 EXTERNAL playSound(soundName)
-EXTERNAL changeUnityScene(sceneName)
 EXTERNAL takePics(picName)
