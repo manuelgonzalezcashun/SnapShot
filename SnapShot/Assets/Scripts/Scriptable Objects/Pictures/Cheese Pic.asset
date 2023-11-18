@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cheese Pic
   m_EditorClassIdentifier: 
   pictureName: Cheese
-  picturePrefab: {fileID: 8991285967849073058, guid: 2f3304a0a88e74577b7decd0164daeb6, type: 3}
   picSprite: {fileID: 21300000, guid: 6b1046ea758f8448eac987bfa6ba72d7, type: 3}
+  picturePrefab: {fileID: 5693882862390803301, guid: 261de56fc4f2a094e991d0b5396de820, type: 3}

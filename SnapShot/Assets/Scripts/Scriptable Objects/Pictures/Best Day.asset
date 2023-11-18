@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Best Day
   m_EditorClassIdentifier: 
   pictureName: Best Day
-  picturePrefab: {fileID: 6130023962387079963, guid: 2d1f5383c40d4482fae6651c7891fb79, type: 3}
   picSprite: {fileID: 21300000, guid: 0b2ab27b801454a0fbdeb8d75af9e72a, type: 3}
+  picturePrefab: {fileID: 780483708588206162, guid: 2ff5a1557a4664746a03f66b284ef4be, type: 3}

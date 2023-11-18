@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Frogs
   m_EditorClassIdentifier: 
   pictureName: Froggies
-  picturePrefab: {fileID: 2666296512186904682, guid: 06e7aaf14b8464938a293c98daf6767f, type: 3}
   picSprite: {fileID: 21300000, guid: d4e88aa6a303b4139bd5d5b3b615f098, type: 3}
+  picturePrefab: {fileID: 6395866816547670093, guid: 8e138617391d92844a5d81b50673f400, type: 3}

@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     private void Awake()
     {
-        if (instance == null) 
+        if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);  
+            DontDestroyOnLoad(instance);
         }
         else
         {
@@ -21,11 +20,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SplashScene.VideoFinished += LoadNextScene;
+        InkExternalFunctions.changeScene += LoadInkScene;
         InkDialogueManager.storyEnded += LoadGame;
     }
     private void OnDisable()
     {
         SplashScene.VideoFinished -= LoadNextScene;
+        InkExternalFunctions.changeScene -= LoadInkScene;
         InkDialogueManager.storyEnded -= LoadGame;
     }
     #endregion
@@ -57,6 +58,10 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void LoadInkScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public void ExitSnapshot()
