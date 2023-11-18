@@ -123,6 +123,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &47589709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 843424666216253048, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_Name
+      value: Picture
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253049, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843424666216253052, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+      propertyPath: picData
+      value: 
+      objectReference: {fileID: 11400000, guid: 92c6a4d37c40b7642952a2a9c465cfc2, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
 --- !u!1 &82449902
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,71 +323,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82449902}
   m_CullTransparentMesh: 1
---- !u!1001 &108708328
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407705, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407707, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_Name
-      value: Arrow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534294017013407707, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
 --- !u!1 &123564084
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +399,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123564084}
   m_CullTransparentMesh: 1
+--- !u!1 &168706808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 843424666216253048, guid: f800204fa290ead4eb35f55dc4c387e0, type: 3}
+  m_PrefabInstance: {fileID: 47589709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &194288570
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 573555417}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: OpenInventory
         m_Mode: 1
         m_Arguments:
@@ -880,17 +885,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 803994356}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 469150162}
+        m_TargetAssemblyTypeName: CameraScript, Assembly-CSharp
+        m_MethodName: TestMethod
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 168706808}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &469150162
 MonoBehaviour:
@@ -1175,7 +1180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 573555411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bc8807ada321046917c2f50fe21590, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e24ac7a563bfae47b217f87528604ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySlots:
@@ -1185,6 +1190,15 @@ MonoBehaviour:
   - {fileID: 1871808024}
   - {fileID: 1931150418}
   - {fileID: 2118242673}
+  openInventory:
+    m_Name: Open Inventory
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ebb0030-4136-4df8-b26b-5e2ff34306fd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &684075685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 469150162}
         m_TargetAssemblyTypeName: CameraScript, Assembly-CSharp
-        m_MethodName: TakePicture
+        m_MethodName: ToggleCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1319,11 +1333,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684075685}
   m_CullTransparentMesh: 1
---- !u!1 &803994356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8534294017013407707, guid: 1bd1738aeb34e9640b4f4807cbad09a7, type: 3}
-  m_PrefabInstance: {fileID: 108708328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &813317292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,7 +1877,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1580471604
 BoxCollider2D:
@@ -1927,16 +1936,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4496ec1d9e50a419f4baf509887001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onItemCollected:
+  onPictureCollected:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 573555417}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: AddInventory
-        m_Mode: 0
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: AddPictures
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 92c6a4d37c40b7642952a2a9c465cfc2, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PictureData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

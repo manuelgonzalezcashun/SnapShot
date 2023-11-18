@@ -6,4 +6,5 @@ public class PictureData : ScriptableObject
 {
     public string pictureName;
     public Sprite picSprite;
+    public GameObject picturePrefab;
 }

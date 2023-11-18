@@ -24,11 +24,18 @@ public class CameraScript : MonoBehaviour
     {
         Camera.SetActive(false);
     }
+    public void ToggleCamera()
+    {
+        Camera.SetActive(!Camera.activeSelf);
+    }
     private void TakePicture(string picName)
     {
         Camera.SetActive(true);
         pauseDialogueForCamera?.Invoke();
         Camera.GetComponent<Button>().onClick.AddListener(() => PhotoCapture?.Invoke(picName));
     }
-
+    public void TestMethod(GameObject photo)
+    {
+        photo.SetActive(true);
+    }
 }
