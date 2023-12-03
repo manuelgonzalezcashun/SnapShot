@@ -38,7 +38,7 @@ Oh, I'm not sure my dorm is kinda messy but it's still okish...  #speaker: Tola 
 Well we can go to my dorm? it's decently cleaned! #speaker: Sam #icon: Sam_neutral
 Hey Tola wanna hang out? #speaker: ??? #icon: Aisha_Wave
 Oh Hey Aisha! #speaker: Tola #icon: Tola_happy
-I can't today sorry, I'm gonna do some work with sam tonight #icon: 
+I can't today sorry, I'm gonna do some work with sam tonight #icon: Tola_ awkward
 No worries! I'll see you another time then, see you guys #speaker: Aisha #icon: Aisha_Cross
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
 ~show_characters = false 
