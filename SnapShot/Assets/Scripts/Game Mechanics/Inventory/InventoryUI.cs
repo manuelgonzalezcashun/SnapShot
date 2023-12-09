@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -57,7 +56,8 @@ public class InventoryUI : MonoBehaviour, IDataPersistence
     }
     private void ShowItems()
     {
-        for (int i = 0; i < inventory.pictures.Count; i++) 
+
+        for (int i = 0; i < inventory.pictures.Count; i++)
         {
             inventorySlots[i].GetComponentInChildren<Image>().sprite = inventory.pictures[i].pictureSprite;
         }

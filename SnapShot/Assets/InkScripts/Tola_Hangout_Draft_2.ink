@@ -58,6 +58,7 @@ Thanks! My brother really likes this sort of stuff and he ended up giving me som
 ->Teatime 
 
 ===Teatime===
+~playMusic("Teatime")
 Ooo this one feels great for studying  #speaker: Tola #icon: Tola_happy_2
 Thanks I picked this one put with my siblings after seeing it  #speaker: Sam #icon: Sam_happy_2
 Oh cool! Any other music you like?  #speaker: Tola #icon: Tola_happy
@@ -67,6 +68,7 @@ Ah that's cool!  #speaker: Tola #icon: Tola_happy_2
 ->AfterMusic 
 
 ===Stars=== 
+~playMusic("Stars")
 Ooo this is a bit more upbeat!   #speaker: Tola #icon: Tola_happy_2
 Yeah my brother has a lot of upbeat and fast music.   #speaker: Sam #icon: Sam_happy_2
 He gave it to me as a see you later gift when I left for college #speaker: Sam #icon: Sam_happy
@@ -75,6 +77,7 @@ Oh that's sweet #speaker: Tola #icon: Tola_happy
 ->AfterMusic 
 
 ===Flowers===
+~playMusic("Flowers")
 Oh this has a pretty sweet vibe to it!  #speaker: Tola #icon: Tola_happy
 I got this one from my sister, she likes things with pretty covers  #speaker: Sam #icon: Sam_happy_2
 Oo your right the cover is really pretty.  #speaker: Tola #icon: Tola_happy_2
