@@ -41,6 +41,7 @@ Oh Hey Aisha! #speaker: Tola #icon: Tola_happy
 I can't today sorry, I'm gonna do some work with sam tonight #icon: Tola_ awkward
 No worries! I'll see you another time then, see you guys #speaker: Aisha #icon: Aisha_Cross
 Ah alright sounds good!  #speaker: Tola #icon: Tola_neutral
+~char_leave = "Aisha"
 ~show_characters = false 
 ~changeBackground("Time")
 Sam and Tola walk to Sam's dorm #speaker: Narrator 

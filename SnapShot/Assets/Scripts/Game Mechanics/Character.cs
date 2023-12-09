@@ -13,12 +13,14 @@ public class Character : MonoBehaviour
         InkTagHandler.onCharExpressionChangeEvent += CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent += MinimizeCharacter;
         InkDialogueObserver.UpdateShowCharacters += ShowCharacters;
+        InkDialogueObserver.CharacterLeaveScene += DestroyCharacter;
     }
     private void OnDestroy()
     {
         InkTagHandler.onCharExpressionChangeEvent -= CharacterExpressions;
         InkTagHandler.onCharNameChangeEvent -= MinimizeCharacter;
         InkDialogueObserver.UpdateShowCharacters -= ShowCharacters;
+        InkDialogueObserver.CharacterLeaveScene -= DestroyCharacter;
     }
     public void CharacterExpressions(string charExpression)
     {
@@ -45,5 +47,13 @@ public class Character : MonoBehaviour
     private void ShowCharacters(bool show)
     {
         gameObject.SetActive(show);
+    }
+
+    private void DestroyCharacter(string character)
+    {
+        if (gameObject.name == character)
+        {
+            Destroy(gameObject);
+        }
     }
 }
