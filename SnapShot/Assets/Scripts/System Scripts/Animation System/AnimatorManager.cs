@@ -47,7 +47,7 @@ public class AnimatorManager : MonoBehaviour
         ChangeAnimationState(SCORE_UP);
         Invoke("ResetState", 0.5f);
     }
-    private void PlayScoreDOWNAnimation() 
+    private void PlayScoreDOWNAnimation()
     {
         ChangeAnimationState(SCORE_DOWN);
         Invoke("ResetState", 0.5f);
@@ -62,7 +62,7 @@ public class AnimatorManager : MonoBehaviour
     private void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
-        
+
         PlayAnimation(newState);
 
         currentState = newState;
