@@ -50,7 +50,7 @@ Sam and Tola walk to Sam's dorm #speaker: Narrator
 Wow this looks pretty cool! I like the vibe you got going on Sam! Very Vintage! #speaker: Tola #icon: Tola_happy
 Thanks! My brother really likes this sort of stuff and he ended up giving me some of his stuff. #speaker: Sam #icon: Sam_happy
 [Sam puts an Album on to listen while working] #speaker: Narrator 
-+Flowers 
++Lavenders 
 ->Flowers 
 +Let the stars burn 
 -> Stars 
@@ -59,20 +59,16 @@ Thanks! My brother really likes this sort of stuff and he ended up giving me som
 
 ===Teatime===
 ~playMusic("Teatime")
-Teatime starts to play #speaker: Record Player #icon: Cozy
-~char_leave = "Album"
-Ooo this one feels great for studying!  #speaker: Tola #icon: Tola_happy_2
-Thanks I picked this one out with my siblings after seeing it.  #speaker: Sam #icon: Sam_happy_2
+Ooo this one feels great for studying  #speaker: Tola #icon: Tola_happy_2
+Thanks I picked this one put with my siblings after seeing it  #speaker: Sam #icon: Sam_happy_2
 Oh cool! Any other music you like?  #speaker: Tola #icon: Tola_happy
-Mm I usually like Rock and Classical music but thats about it.  #speaker: Sam #icon: Sam_happy
+Mm I usually like rock and Classical music but thats about it.  #speaker: Sam #icon: Sam_happy
 Ah that's cool!  #speaker: Tola #icon: Tola_happy_2
 +How about you Tola?  #speaker: Sam #icon: Sam_realization
 ->AfterMusic 
 
 ===Stars=== 
 ~playMusic("Stars")
-Stars starts to play #speaker: Record Player #icon: Stars 
-~char_leave = "Album"
 Ooo this is a bit more upbeat!   #speaker: Tola #icon: Tola_happy_2
 Yeah my brother has a lot of upbeat and fast music.   #speaker: Sam #icon: Sam_happy_2
 He gave it to me as a see you later gift when I left for college #speaker: Sam #icon: Sam_happy
@@ -82,17 +78,15 @@ Oh that's sweet #speaker: Tola #icon: Tola_happy
 
 ===Flowers===
 ~playMusic("Flowers")
-Flowers starts to play #speaker: Record Player #icon: Lavender
-~char_leave = "Album"
 Oh this has a pretty sweet vibe to it!  #speaker: Tola #icon: Tola_happy
-I got this one from my sister, she really likes things with pretty covers. #speaker: Sam #icon: Sam_happy_2
+I got this one from my sister, she likes things with pretty covers  #speaker: Sam #icon: Sam_happy_2
 Oo your right the cover is really pretty.  #speaker: Tola #icon: Tola_happy_2
 +Is there any sort of music you like lisening to Tola? 
 ->AfterMusic 
 
 ===AfterMusic===
 Oh, Yeah! Usaully I listen to Break-core but I like listening to Jazz too! #speaker: Tola  #icon: Tola_happy
-Sweet I hope the music I picked helps us with doing this homework. #speaker: Sam #icon: Sam_happy
+Sweet i hope the music i picked helps us with doing this homework  #speaker: Sam #icon: Sam_happy
 Sam and Tola do some homework together! #speaker: Narrator
 Hey so, Do you know how were supposed to write out this scene, I can't remember what notes were supposed to use?  #speaker: Tola #icon: Tola_awkward
 ~changeBackground("HW")
