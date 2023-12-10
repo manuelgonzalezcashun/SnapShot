@@ -71,7 +71,7 @@ Ah that's cool!  #speaker: Tola #icon: Tola_happy_2
 
 ===Stars=== 
 ~playMusic("Stars")
-Stars starts to play #speaker: Record Player #icon: Stars 
+Stars starts to play #speaker: Record Player #icon: Star 
 ~char_leave = "Record Player"
 Ooo this is a bit more upbeat!   #speaker: Tola #icon: Tola_happy_2
 Yeah my brother has a lot of upbeat and fast music.   #speaker: Sam #icon: Sam_happy_2
